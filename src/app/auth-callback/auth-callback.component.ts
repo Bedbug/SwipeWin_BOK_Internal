@@ -21,6 +21,7 @@ export class AuthCallbackComponent implements OnInit {
 
   ngOnInit() {
     var urlSer= new DefaultUrlSerializer();
+    
     console.log('incoming path: ' + this.location.path());
     var urlTree: UrlTree = urlSer.parse(this.location.path());
     
