@@ -14,16 +14,17 @@
 
   .uk-button-group {
     border-radius: 4px;
+    background-color: #ffffff;
     border: 2px solid #fff;
     width: 100%;
 
   }
   .active {
     background-color: #f6d356;
-    color: #001424;
+    color: #ffffff;
     font-weight: bold;
     label {
-      color: rgb(255, 255, 255);
+      color: rgb(0, 0, 0);
       
     }
   }
