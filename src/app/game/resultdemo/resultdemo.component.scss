@@ -43,7 +43,9 @@
       z-index: -1;
       margin: -$border; /* !importanté */
       border-radius: inherit; /* !importanté */
-      background: linear-gradient(to top, #ff6600, #FF6333);
+      background: linear-gradient(to top, #f6d356, #f6d356);
+      border:none;
+    border-bottom: 3px solid #dabb4d;
     }
     &__number {
       font-size: 26px;

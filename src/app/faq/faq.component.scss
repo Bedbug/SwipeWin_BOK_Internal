@@ -6,12 +6,12 @@
   font-stretch: normal;
   line-height: 1.25;
   letter-spacing: normal;
-  color: #000000;
+  color: #ffffff;
   .faq-item {
     padding: 16px 11px 16px 11px;
     border-radius: 4px;
     box-shadow: 0 2px 20px 0 rgba(60, 61, 64, 0.1), 0 2px 4px 0 rgba(55, 55, 56, 0.2);
-    background-color: #1b1b1d;
+    background-color: #ffffff;
     .uk-accordion-content {
       font-size: 14px;
       font-weight: normal;
@@ -19,7 +19,7 @@
       font-stretch: normal;
       line-height: 1.43;
       letter-spacing: normal;
-      color: #ffffff;
+      color: #000000;
     }
   }
 }
@@ -93,8 +93,10 @@
 
 .uk-accordion-title {
   display: block;
-  font-size: 1.25rem;
-  line-height: 1.4;
-  color: #ff6600;
-  overflow: hidden;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    color: #ab8810;
+    overflow: hidden;
+    /* text-shadow: 1px 1px #00000045; */
+    font-weight: bold;
 }

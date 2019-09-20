@@ -1,14 +1,14 @@
 .info-text {
   border-radius: 25px;
     // box-shadow: 0 2px 20px 0 rgba(60, 61, 64, 0.1), 0 2px 4px 0 rgba(55, 55, 56, 0.2);
-    background-color: #1d1d1d;
+    background-color: #ffffff;
     font-size: 14px;
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
     line-height: 1.43;
     letter-spacing: normal;
-    color: #ffffff;
+    color: #000000;
     padding: 15px;
     margin: 16px;
   .info-header {
@@ -28,9 +28,11 @@
   // box-shadow: 0 9px 18px 0 rgba(89, 247, 74, 0.2);
   // background-image: linear-gradient(to bottom, #fdff67, #8ff212 16%, #3ead07 84%, #2bc71c);
   box-shadow: 0 9px 13px 0 rgba(0, 0, 0, 0.1);
-  background-image: linear-gradient(to bottom, #ff6600, #ff6600 16%, #ff6600 66%, #ff6600);
+  background-image: linear-gradient(to bottom, #f6d356, #f6d356 16%, #f6d356 66%, #f6d356);
   margin-bottom: 12px;
   border:none;
+  border-bottom: 3px solid #dabb4d;
+  
   font-size: 25px;
   font-weight: bold;
   font-style: normal;
@@ -38,7 +40,7 @@
   line-height: 1.25;
   letter-spacing: normal;
   text-align: center;
-  color: white;
+  color: rgb(0, 0, 0);
   min-height:44px;
   text-transform: none;
 }

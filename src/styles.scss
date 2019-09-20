@@ -70,7 +70,12 @@ html, body {
   }
   height: 100%;
   // background-image: radial-gradient(circle at 50% 50%, #007cff, #002094);
-  background-image: radial-gradient(circle at 50% 50%, #262729, #262729);
+  // background-image: radial-gradient(circle at 50% 50%, #262729, #262729);
+  background-image: url("assets/images/background.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .uk-logo{
@@ -93,9 +98,11 @@ html, body {
     // box-shadow: 0 9px 18px 0 rgba(89, 247, 74, 0.2);
     // background-image: linear-gradient(to bottom, #fdff67, #8ff212 16%, #3ead07 84%, #2bc71c);
     box-shadow: 0 9px 13px 0 rgba(0, 0, 0, 0.1);
-    background-image: linear-gradient(to bottom, #ff6600, #ff6600 16%, #ff6600 66%, #ff6600);
-    margin-bottom: 12px;
+    background-image: linear-gradient(to bottom, #f6d356, #f6d356 16%, #f6d356 66%, #f6d356);
     border:none;
+    border-bottom: 3px solid #dabb4d;
+    margin-bottom: 12px;
+    
     font-size: 23px;
     font-weight: bold;
     font-style: normal;
@@ -103,7 +110,7 @@ html, body {
     line-height: 1.25;
     letter-spacing: normal;
     text-align: center;
-    color: white;
+    color: rgb(0, 0, 0);
     min-height:44px;
     text-transform: none;
   }

@@ -43,8 +43,8 @@ export class HomeComponent implements OnInit {
   public lastDemoPlayed : Date;
   public now: Date = new Date();
   
-  public showLogin = false;
-  
+  public showLogin = true;
+  public openVerify = false;
   // Lottie
   public lottieConfig: Object;
   private anim: any;
@@ -191,6 +191,16 @@ export class HomeComponent implements OnInit {
     // Run or Go to returnHome
     this.router.navigate(['/auth-callback'], { queryParams: { code: user } });
     localStorage.setItem('loginOn', "0");
+  }
+
+  submit(number: string) {
+    
+    console.log("MSISDN: "+number);
+    this.showLogin = false;
+    this.openVerify = true;
+    // Run or Go to returnHome
+    // this.router.navigate(['/auth-callback'], { queryParams: { code: number } });
+    
   }
   
   // Check the number of games played in demo mode

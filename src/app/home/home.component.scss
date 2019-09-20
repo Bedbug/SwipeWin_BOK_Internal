@@ -76,9 +76,11 @@
     // box-shadow: 0 9px 18px 0 rgba(89, 247, 74, 0.2);
     // background-image: linear-gradient(to bottom, #fdff67, #8ff212 16%, #3ead07 84%, #2bc71c);
     box-shadow: 0 9px 13px 0 rgba(0, 0, 0, 0.1);
-    background-image: linear-gradient(to bottom, #ff6600, #ff6600 16%, #ff6600 66%, #ff6600);
+    background-image: linear-gradient(to bottom, #f6d356, #f6d356 16%, #f6d356 66%, #f6d356);
     margin-bottom: 12px;
-    border:none;
+    
+    border-bottom: 3px solid #ccaf48;
+    
     font-size: 25px;
     font-weight: bold;
     font-style: normal;
@@ -86,12 +88,12 @@
     line-height: 1.25;
     letter-spacing: normal;
     text-align: center;
-    color: white;
+    color: rgb(0, 0, 0);
     min-height:44px;
     text-transform: none;
   }
   .message-container{
-    font-size: 17px;
+    font-size: 15px;
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
@@ -236,6 +238,21 @@ pre {
     border-radius: 0px;
     background: #fff;
     white-space: pre-wrap;
+}
+
+.uk-border-rounded {
+  border-radius: 20px;
+}
+
+.uk-input[_ngcontent-c2][_ngcontent-c2], .uk-select[_ngcontent-c2][_ngcontent-c2]:not([multiple]):not([size]) {
+  height: 48px;
+  vertical-align: middle;
+  display: inline-block;
+  text-align: center;
+  font-size: larger;
+}
+.uk-form-icon:not(.uk-form-icon-flip) ~ .uk-input {
+  padding-left: 14px !important;
 }
 
 // #loading {
