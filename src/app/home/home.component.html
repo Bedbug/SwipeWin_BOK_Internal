@@ -141,7 +141,7 @@
       <button class="uk-button uk-button-default play-button uk-width-1-1" (click)="verify(pin.value)">Confirm</button> 
     </div>
     <div class="message-container">
-      <p style="color:rgb(0, 0, 0); font-weight: bold; font-size: 20px;"><a  [routerLink]="['/info']" style="color:rgb(0, 0, 0); text-decoration: underline;">Reset Password</a>
+      <p style="color:rgb(0, 0, 0); font-weight: bold; font-size: 20px;"><a (click)="resetPass()" style="color:rgb(0, 0, 0); text-decoration: underline;">Reset Password</a>
       </p>
       <!--<p>Услуга оказывается МТС совместно с партнером «ДжЮ Груп»</p>-->
     </div>

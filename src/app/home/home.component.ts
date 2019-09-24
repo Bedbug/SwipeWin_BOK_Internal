@@ -151,7 +151,9 @@ export class HomeComponent implements OnInit {
         this.sessionService.gameSettings = data;
         this.localizationService.init(this.sessionService.gameSettings.localization);
       },
-      err => {});
+      err => {
+        console.error(err);
+      });
   }
   
   public playGame($event) {
@@ -183,26 +185,89 @@ export class HomeComponent implements OnInit {
     this.logOutUser();
     this.router.navigate(['/faq']);
   }
-  
-  login(user: string, pass: string) {
-    
-    console.log("username: "+user);
-    console.log("password: "+pass);
-    
+
+
+  submit(number: string) {
+
+    console.log("MSISDN: " + number);
+    this.showLogin = false;
+    this.openVerify = true;
+
+    if (!this.sessionService.msisdn)
+      this.sessionService.msisdn = number;
 
     // Run or Go to returnHome
-    this.router.navigate(['/auth-callback'], { queryParams: { code: user } });
+    // this.router.navigate(['/auth-callback'], { queryParams: { code: number } });
+
+    this.dataService.authenticate(number).then((resp: any) => {
+
+
+      // Deserialize payload
+      const body: any = resp.body; // JSON.parse(response);
+      if (body.isEligible !== undefined)
+        this.sessionService.isEligible = body.isEligible;
+      if (body.isSubscribed != undefined)
+        this.sessionService.isSubscribed = body.isSubscribed;
+      if (body.gamesPlayedToday !== undefined)
+        this.sessionService.gamesPlayed = body.gamesPlayedToday;
+
+      // If present, Get JWT token from response header and keep it for the session
+      const userToken = resp.headers.get('X-Access-Token');
+      if (userToken) { // if exists, keep it
+        this.sessionService.token = userToken;
+        this.sessionService.Serialize();
+
+        // Goto the returnHome page
+        this.router.navigate(['/returnhome']);
+      }
+    },
+      (err) => {
+        //this.sessionService.msisdn = null;
+        this.router.navigate(['/home']);
+      });
+
+  }
+
+  
+  verify(pass: string) {
+    
+    console.log("username: " + this.sessionService.msisdn);
+    console.log("password: "+pass);
+    
+    this.dataService.authenticateVerify(this.sessionService.msisdn, pass).then((resp: any) => {
+
+      // Get JWT token from response header and keep it for the session
+      const userToken = resp.headers.get('X-Access-Token');
+      if (userToken)  // if exists, keep it
+        this.sessionService.token = userToken;
+
+      // Deserialize payload
+      const body: any = resp.body; // JSON.parse(response);
+      if (body.isEligible !== undefined)
+        this.sessionService.isEligible = body.isEligible;
+      if (body.isSubscribed != undefined)
+        this.sessionService.isSubscribed = body.isSubscribed;
+      if (body.gamesPlayedToday !== undefined)
+        this.sessionService.gamesPlayed = body.gamesPlayedToday;
+      this.sessionService.Serialize();
+
+      // Goto the returnHome page
+      this.router.navigate(['/returnhome']);
+    },
+      (err) => {
+        this.router.navigate(['/home']);
+      });
+
+    // Run or Go to returnHome
+    //this.router.navigate(['/auth-callback'], { queryParams: { code: user } });
     localStorage.setItem('loginOn', "0");
   }
 
-  submit(number: string) {
-    
-    console.log("MSISDN: "+number);
-    this.showLogin = false;
-    this.openVerify = true;
-    // Run or Go to returnHome
-    // this.router.navigate(['/auth-callback'], { queryParams: { code: number } });
-    
+
+  resetPass() {
+    this.dataService.requestPin(this.sessionService.msisdn).then((resp: any) => {
+      console.log('Reset password is successful');
+    });
   }
 
   OpenPass(){

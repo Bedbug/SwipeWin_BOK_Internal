@@ -27,29 +27,100 @@ export class DataService {
     return document;
   }
   
-  // A redirect to the Open Auth protocol endpoint to initiate the user authentication with the TelCo
-  authenticateRedirect() {
+  //// A redirect to the Open Auth protocol endpoint to initiate the user authentication with the TelCo
+  //authenticateRedirect() {
 
-    if (!this.session.gameSettings || !this.session.gameSettings.maintenance || this.session.gameSettings.maintenance.siteDown || this.session.gameSettings.maintenance.noGames)
-      this.router.navigate(['/home']);
-    else {
-      const url = encodeURI(`${environment.mtsAuthDomainProtocol}://${environment.mtsAuthDomainUrl}/amserver/oauth2/auth?client_id=${environment.mtsAuthClientId}&scope=openid profile mobile&redirect_uri=${environment.mtsAuthCallbackUrl}&response_type=code&display=page&state=1`);
+  //  if (!this.session.gameSettings || !this.session.gameSettings.maintenance || this.session.gameSettings.maintenance.siteDown || this.session.gameSettings.maintenance.noGames)
+  //    this.router.navigate(['/home']);
+  //  else {
+  //    const url = encodeURI(`${environment.mtsAuthDomainProtocol}://${environment.mtsAuthDomainUrl}/amserver/oauth2/auth?client_id=${environment.mtsAuthClientId}&scope=openid profile mobile&redirect_uri=${environment.mtsAuthCallbackUrl}&response_type=code&display=page&state=1`);
      
-      window.location.href = url;
-    }
-  }
+  //    window.location.href = url;
+  //  }
+  //}
   
-  
-  // A redirect to the Open Auth protocol endpoint to initiate the user authentication with the TelCo
-  logoutRedirect() {
+  //// A redirect to the Open Auth protocol endpoint to initiate the user authentication with the TelCo
+  //logoutRedirect() {
     
-      const home = environment.mtsAuthCallbackUrl.replace(/\/auth-callback/, '');
+  //    const home = environment.mtsAuthCallbackUrl.replace(/\/auth-callback/, '');
 
-      const url = encodeURI(`${environment.mtsAuthDomainProtocol}://${environment.mtsAuthDomainUrl}/amserver/UI/Logout?goto=${home}`);
+  //    const url = encodeURI(`${environment.mtsAuthDomainProtocol}://${environment.mtsAuthDomainUrl}/amserver/UI/Logout?goto=${home}`);
      
-      window.location.href = url;
+  //    window.location.href = url;
+  //}
+
+  authenticate(msisdn) {
+
+    let promise = new Promise((resolve, reject) => {
+
+
+      if (!this.session.gameSettings || !this.session.gameSettings.maintenance || this.session.gameSettings.maintenance.siteDown || this.session.gameSettings.maintenance.noGames) {
+        this.router.navigate(['/home']);
+        return reject(new Error('Game is unavailable or under maintenance'));
+      }
+      else {
+        const url = encodeURI(`${environment.gameServerDomainUrl}/api/user/signin`);
+        const headers = {
+          'Accept': 'application/json', 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'
+        };
+        if (this.session && this.session.token)
+          headers['X-Access-Token'] = this.session.token;
+
+        return this.http.post(url, { msisdn: msisdn }, {
+          headers: headers,
+          observe: 'response'
+        }).toPromise();
+      }
+    });
+
+    return promise;
   }
   
+  authenticateVerify(msisdn, pin) {
+
+    let promise = new Promise((resolve, reject) => {
+
+      if (!this.session.gameSettings || !this.session.gameSettings.maintenance || this.session.gameSettings.maintenance.siteDown || this.session.gameSettings.maintenance.noGames) {
+        this.router.navigate(['/home']);
+        return reject(new Error('Game is unavailable or under maintenance'));
+      }
+      else {
+        const url = encodeURI(`${environment.gameServerDomainUrl}/api/user/verify`);
+
+        return this.http.post(url, { msisdn: msisdn, pin: pin }, {
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+          observe: 'response'
+        }).toPromise();
+      }
+    });
+
+    return promise;
+  }
+
+
+  requestPin(msisdn) {
+
+    let promise = new Promise((resolve, reject) => {
+
+      if (!this.session.gameSettings || !this.session.gameSettings.maintenance || this.session.gameSettings.maintenance.siteDown || this.session.gameSettings.maintenance.noGames) {
+        this.router.navigate(['/home']);
+        return reject(new Error('Game is unavailable or under maintenance'));
+      }
+      else {
+        const url = encodeURI(`${environment.gameServerDomainUrl}/api/user/otp`);
+
+        return this.http.post(url, { msisdn: msisdn }, {
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+          observe: 'response'
+        }).toPromise();
+      }
+    });
+
+    return promise;
+  }
+
+
+
   
   logout() {
     if (!this.session.mtsToken)
