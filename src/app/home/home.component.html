@@ -13,11 +13,11 @@
         <!-- <img src="assets/images/lights.png" alt="" uk-cover> -->
       <div class="uk-position-center uk-position-small uk-text-center uk-light">
           <div class="vector">
-              <img class="icon" style="width: 300px;" src="assets/icons/prize.png" alt=""/>
+              <img class="icon" style="width: 300px;" src="assets/icons/grand_prize.png" alt=""/>
             </div>
         
-        <span style="font-weight: bold; font-size: 30px; color: white;">55,000 EGP in Cash</span><br>
-        <span style=" font-size: 20px; color: white;">every month</span>
+        <span style="font-weight: bold; font-size: 30px; color: white;">10 000 000 tr.</span><br>
+        <span style=" font-size: 20px; color: white;">Grand Prize</span>
       </div>
       </li>
       <li class="list-wrapper">
@@ -79,7 +79,7 @@
 </div>
 <div class="buttons-container uk-container uk-text-center" *ngIf="showLogin" tabindex="-1">
  
-<div class="buttons-container uk-container uk-text-center" *ngIf="showLogin" style="max-width: 595px; margin-bottom: 200px;">
+<div class="buttons-container uk-container uk-text-center" *ngIf="showLogin" style="max-width: 595px; ">
   
   <!-- <h4 style="color:white;">Insert your phone number and password to login</h4> -->
   <form >
@@ -117,15 +117,16 @@
     <p style="font-size: 22px;color: black;text-align: center;">Please enter the password you reseived via SMS</p>
     <!--<p>Услуга оказывается МТС совместно с партнером «ДжЮ Груп»</p>-->
   </div>
-  <div class="buttons-container uk-container uk-text-center" *ngIf="openVerify" style="max-width: 595px; margin-bottom: 200px;">
+  <div class="buttons-container uk-container uk-text-center" *ngIf="openVerify" style="max-width: 595px;">
     
     <!-- <h4 style="color:white;">Insert your phone number and password to login</h4> -->
     <form >
       <div class="uk-margin" >
           <div class="uk-inline uk-width-1-1 ">
-              <span class="uk-form-icon" uk-icon="icon: phone; ratio: 1.5"></span>
-              <input #pin class="uk-input uk-border-rounded" type="text" placeholder="Password">
-          </div>
+            <a class="uk-form-icon uk-form-icon-flip" ><img class=".uk-position-right" (click)="OpenPass()" src="assets/icons/eye.svg" alt=""></a>
+            
+            <input #pin class="uk-input " type="{{passType}}" placeholder="....">
+        </div>
       </div>
       <!-- <div class="uk-margin">
           <div class="uk-inline uk-width-1-1">

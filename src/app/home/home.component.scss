@@ -55,6 +55,7 @@
 .buttons-container{
   margin-top: 1rem;
   max-width: 600px;
+  outline: none;
   .demo-button{
     border-radius: 20px;
     background-image: linear-gradient(to bottom, #ffffff, #fcfcfc 19%, #efefef 41%, #f0f0f0 88%, #ffffff);
@@ -256,6 +257,10 @@ pre {
   text-align: center;
 }
 
+.uk-form-icon-flip ~ .uk-input {
+  padding-right: 40px !important;
+  padding-left: 40px !important;
+}
 // #loading {
 // 		-webkit-animation: rotation 2s infinite linear;
 // }

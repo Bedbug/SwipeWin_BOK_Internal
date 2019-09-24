@@ -13,6 +13,8 @@ import UIkit from 'uikit';
 })
 export class HomeComponent implements OnInit {
     loginOn: number;
+    lblShow:boolean = true;
+    passType: string = "password";
   
   // get this form the User object
   get isHasCashback(): boolean {
@@ -201,6 +203,15 @@ export class HomeComponent implements OnInit {
     // Run or Go to returnHome
     // this.router.navigate(['/auth-callback'], { queryParams: { code: number } });
     
+  }
+
+  OpenPass(){
+    this.lblShow = !this.lblShow;
+    console.log("Hide/Show Password: " + this.lblShow);
+    if(this.lblShow)
+      this.passType = "password";
+    else
+      this.passType = "test";
   }
   
   // Check the number of games played in demo mode
