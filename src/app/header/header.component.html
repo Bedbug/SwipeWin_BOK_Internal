@@ -27,7 +27,7 @@
                     
                     (click)="closeOffcanvas(); gotoHome()">
                     <div class="nav-list-box uk-flex">
-                        <img class="nav-list-icon" src="assets/icons/ic-home-off.svg" alt=""><span>Home</span>
+                        <img class="nav-list-icon" src="assets/icons/ic-home-off.svg" alt=""><span>{{ 'BURGER.HOME' | translate }}</span>
                     </div>
                   </a>
                 </li>
@@ -37,7 +37,7 @@
                   class="nav-list-button" (click)="closeOffcanvas(); gotoProfile()">
                       <div class="nav-list-box uk-flex">
                     <img class="nav-list-icon" src="assets/icons/profile.svg" alt="">
-                    <span>Profile</span>
+                    <span>{{ 'BURGER.PROFILE' | translate }}</span>
                     </div>
                   </a>
                 </li>
@@ -46,7 +46,7 @@
                   [routerLink]="['/how-to-play']"
                   class="nav-list-button" (click)="closeOffcanvas()">
                       <div class="nav-list-box uk-flex">
-                    <img class="nav-list-icon" src="assets/icons/how-play.svg" alt=""><span>How to Play</span>
+                    <img class="nav-list-icon" src="assets/icons/how-play.svg" alt=""><span>{{ 'BURGER.HOW' | translate }}</span>
                     </div>
                   </a>
                 </li>
@@ -55,7 +55,7 @@
                   [routerLink]="['/prizes']"
                   class="nav-list-button" (click)="closeOffcanvas()">
                       <div class="nav-list-box uk-flex">
-                        <img class="nav-list-icon" src="assets/icons/prize.svg" alt=""><span>Prizes</span>
+                        <img class="nav-list-icon" src="assets/icons/prize.svg" alt=""><span>{{ 'BURGER.PRIZES' | translate }}</span>
                         </div>
                   </a>
                 </li>
@@ -64,7 +64,7 @@
                     [routerLink]="['/winners']"
                     (click)="closeOffcanvas()">
                       <div class="nav-list-box uk-flex">
-                        <img class="nav-list-icon" src="assets/icons/liderboard.svg" alt=""><span>Winners</span>
+                        <img class="nav-list-icon" src="assets/icons/liderboard.svg" alt=""><span>{{ 'BURGER.WINNERS' | translate }}</span>
                         </div>
                   </a>
                 </li>
@@ -74,7 +74,7 @@
                     [routerLink]="['/faq']"
                     class="nav-list-button" (click)="closeOffcanvas()">
                     <div class="nav-list-box uk-flex">
-                      <img class="nav-list-icon" src="assets/icons/support.svg" alt=""><span>FAQ</span>
+                      <img class="nav-list-icon" src="assets/icons/support.svg" alt=""><span>{{ 'BURGER.FAQ' | translate }}</span>
                     </div>
                   </a>
                 </li>
@@ -83,16 +83,16 @@
                   [routerLink]="['/info']"
                   class="nav-list-button" (click)="closeOffcanvas()">
                       <div class="nav-list-box last-item uk-flex">
-                        <img class="nav-list-icon" src="assets/icons/info.svg" alt=""><span>Terms & Conditions</span>
+                        <img class="nav-list-icon" src="assets/icons/info.svg" alt=""><span>{{ 'BURGER.TERMS' | translate }}</span>
                       </div>
                   </a>
                 </li>
                 <li>
                     <a 
-                    [routerLink]="['/cashback']"
-                    class="nav-list-button" (click)="closeOffcanvas()">
+                    
+                    class="nav-list-button" (click)="changeLanguage()">
                         <div class="nav-list-box uk-flex">
-                          <img class="nav-list-icon" src="assets/icons/language.svg" alt=""><span>Language</span>
+                          <img class="nav-list-icon" src="assets/icons/language.svg" alt=""><span>{{ 'BURGER.LANG' | translate }}</span>
                           </div>
                     </a>
                   </li>
