@@ -16,8 +16,8 @@
               <img class="icon" style="height: 150px;" src="assets/icons/grand_prize.png" alt=""/>
             </div>
         
-            <h2 class="uk-margin-remove">Grand Prize</h2>
-          <span class="roubles uk-margin-remove">10 000 000tg</span>
+            <h2 class="uk-margin-remove">{{ 'HOME.CAR_01' | translate }}Grand Prize</h2>
+          <span class="roubles uk-margin-remove">{{ 'HOME.CAR_01b' | translate }}</span>
       </div>
       </li>
       <li class="list-wrapper">
@@ -26,8 +26,8 @@
             <img src="assets/icons/monthly_prize.png" alt="" style="height: 150px;">
           </div>
           <div class="current-prize-fond">
-            <h2 class="uk-margin-remove">Monthly Prize</h2>
-            <span class="roubles uk-margin-remove">1 000 000 tg</span>
+            <h2 class="uk-margin-remove">{{ 'HOME.CAR_02' | translate }}</h2>
+            <span class="roubles uk-margin-remove">{{ 'HOME.CAR_02b' | translate }}</span>
           </div>
         </div>
       </li>
@@ -40,9 +40,9 @@
             <div
               uk-slideshow-parallax="x: 200,0,0"
               class="current-prize-fond">
-              <h2 class="uk-margin-remove">Weekly Prize</h2>
+              <h2 class="uk-margin-remove">{{ 'HOME.CAR_03' | translate }}</h2>
               <span
-                class="roubles uk-margin-remove">200 000 tg</span>
+                class="roubles uk-margin-remove">{{ 'HOME.CAR_03b' | translate }}</span>
             </div>
           </div>
         </div>
@@ -54,9 +54,9 @@
               <img src="assets/images/gift.svg" alt="" style="height: 150px;">
             </div>
             <div class="current-prize-fond">
-              <h2 class="uk-margin-remove">Daily Prize</h2>
+              <h2 class="uk-margin-remove">{{ 'HOME.CAR_04' | translate }}</h2>
               <span
-                class="roubles uk-margin-remove">50 000 tg</span>
+                class="roubles uk-margin-remove">{{ 'HOME.CAR_04b' | translate }}</span>
             
             </div>
           </div>
@@ -87,7 +87,7 @@
     <div class="uk-margin" >
         <div class="uk-inline uk-width-1-1 ">
             <span class="uk-form-icon" uk-icon="icon: phone; ratio: 1.5"></span>
-            <input #number class="uk-input uk-border-rounded" type="text" placeholder="Mobile number">
+            <input #number class="uk-input uk-border-rounded" type="text" placeholder="{{ 'HOME.NUM' | translate }}">
         </div>
     </div>
     <!-- <div class="uk-margin">
@@ -100,7 +100,7 @@
   </form>
   
   <div class="buttons-container uk-container uk-text-center">
-    <button class="uk-button uk-button-default play-button uk-width-1-1" (click)="submit(number.value)">Subscribe/Login</button> 
+    <button class="uk-button uk-button-default play-button uk-width-1-1" (click)="submit(number.value)">{{ 'HOME.SUB-LOG' | translate }}</button> 
   </div>
   <!-- <div class="message-container">
     <p style="color:white;">By clicking the Log in button you confirm that you<br> <a  [routerLink]="['/info']" style="color:white; text-decoration: underline;">have read and agreed to the game rules.</a>
@@ -115,7 +115,7 @@
 <!-- VERIFY -->
 <div class="buttons-container uk-container uk-text-center" *ngIf="openVerify" tabindex="-1">
   <div class="message-container" style="margin-top: 100px">
-    <p style="font-size: 22px;color: rgb(255, 255, 255); text-align: center; text-shadow: 2px 2px 5px #00000087;">Please enter the password you reseived via SMS</p>
+    <p style="font-size: 22px;color: rgb(255, 255, 255); text-align: center; text-shadow: 2px 2px 5px #00000087;">{{ 'HOME.OTP' | translate }}</p>
     <!--<p>Услуга оказывается МТС совместно с партнером «ДжЮ Груп»</p>-->
   </div>
   <div class="buttons-container uk-container uk-text-center" *ngIf="openVerify" style="max-width: 595px;">
@@ -139,10 +139,10 @@
     </form>
     
     <div class="buttons-container uk-container uk-text-center">
-      <button class="uk-button uk-button-default play-button uk-width-1-1" (click)="verify(pin.value)">Confirm</button> 
+      <button class="uk-button uk-button-default play-button uk-width-1-1" (click)="verify(pin.value)">{{ 'HOME.CONFIRM' | translate }}</button> 
     </div>
     <div class="message-container">
-      <p style=" font-weight: bold; font-size: 20px; text-shadow: 2px 2px 5px #00000087;"><a (click)="resetPass()" style="color:rgb(255, 255, 255); text-decoration: underline;">Reset Password</a>
+      <p style=" font-weight: bold; font-size: 20px; text-shadow: 2px 2px 5px #00000087;"><a (click)="resetPass()" style="color:rgb(255, 255, 255); text-decoration: underline;">{{ 'HOME.RESET' | translate }}</a>
       </p>
       <!--<p>Услуга оказывается МТС совместно с партнером «ДжЮ Груп»</p>-->
     </div>
@@ -219,12 +219,12 @@
   <div id="error" class="uk-flex-top" uk-modal>
     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
       <img src="assets/images/wanted.svg" alt="">
-      <h4>Oops...</h4>
+      <h4>{{ 'MESSAGES.MESSAGE_01' | translate }}</h4>
     <pre>{{errorMsg}}</pre>
     <!--<p>{{errorMsg}}</p>-->
-    <app-button *ngIf="!logOutBtn" [link_button]="true" class="uk-modal-close">Back</app-button>
+    <app-button *ngIf="!logOutBtn" [link_button]="true" class="uk-modal-close">{{ 'MESSAGES.MESSAGE_07' | translate }}</app-button>
     <app-button *ngIf="gotofaqBtn" [link_button]="true" class="uk-modal-close" (click)="gotoFaqPage()">Read more at FAQs</app-button>
-    <app-button *ngIf="logOutBtn" [link_button]="true" class="uk-modal-close" (click)="logOutUser()">Back</app-button>
+    <app-button *ngIf="logOutBtn" [link_button]="true" class="uk-modal-close" (click)="logOutUser()">{{ 'MESSAGES.MESSAGE_07' | translate }}</app-button>
       
     </div>
   </div>

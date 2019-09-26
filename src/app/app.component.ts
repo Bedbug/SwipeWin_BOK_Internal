@@ -9,7 +9,7 @@ import {TranslateService} from '@ngx-translate/core';
 export class AppComponent {
   title = 'swipr';
   constructor(public translate: TranslateService) {
-    translate.addLangs(['en', 'kaz']);
+    translate.addLangs(['en', 'ru']);
     translate.setDefaultLang('en');
 
     const browserLang = translate.getBrowserLang();
