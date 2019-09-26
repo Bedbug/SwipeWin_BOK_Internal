@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private cookieService: CookieService
-    
+  
     ) {}
     
   handleAnimation(anim: any) {

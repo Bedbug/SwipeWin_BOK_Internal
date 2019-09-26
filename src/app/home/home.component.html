@@ -2,7 +2,7 @@
   <img src="assets/images/gulogo.svg" alt="">
 </div> -->
 
-<div class="slideshow-container" *ngIf="showLogin" uk-slideshow="animation: fade; min-height: 400; max-height: 600; autoplay: true; autoplay-interval: 1000; pause-on-hover: false;" >
+<div class="slideshow-container" *ngIf="showLogin" uk-slideshow="animation: fade; min-height: 300; max-height: 500; autoplay: true; autoplay-interval: 2000; pause-on-hover: false;" >
 
   <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
     
@@ -13,21 +13,21 @@
         <!-- <img src="assets/images/lights.png" alt="" uk-cover> -->
       <div class="uk-position-center uk-position-small uk-text-center uk-light">
           <div class="vector">
-              <img class="icon" style="width: 300px;" src="assets/icons/grand_prize.png" alt=""/>
+              <img class="icon" style="height: 150px;" src="assets/icons/grand_prize.png" alt=""/>
             </div>
         
-        <span style="font-weight: bold; font-size: 30px; color: white;">10 000 000 tr.</span><br>
-        <span style=" font-size: 20px; color: white;">Grand Prize</span>
+            <h2 class="uk-margin-remove">Grand Prize</h2>
+          <span class="roubles uk-margin-remove">10 000 000tg</span>
       </div>
       </li>
       <li class="list-wrapper">
         <div class="uk-position-center uk-position-small uk-text-center uk-light">
           <div class="vector">
-            <img src="assets/images/coin-1.svg" alt="">
+            <img src="assets/icons/monthly_prize.png" alt="" style="height: 150px;">
           </div>
           <div class="current-prize-fond">
-            <h2 class="uk-margin-remove">Daily Prize</h2>
-            <span class="roubles uk-margin-remove">10,000$</span>
+            <h2 class="uk-margin-remove">Monthly Prize</h2>
+            <span class="roubles uk-margin-remove">1 000 000 tg</span>
           </div>
         </div>
       </li>
@@ -35,15 +35,14 @@
         <div class="uk-position-center uk-position-medium uk-text-center">
           <div uk-slideshow-parallax="scale: 1,1,0.8">
             <div class="vector">
-              <img src="assets/images/coins.svg" alt="">
+              <img src="assets/images/coins.svg" alt="" style="height: 150px;">
             </div>
             <div
               uk-slideshow-parallax="x: 200,0,0"
               class="current-prize-fond">
-              <h2 class="uk-margin-remove">Monthly Prize</h2>
+              <h2 class="uk-margin-remove">Weekly Prize</h2>
               <span
-                uk-slideshow-parallax="x: 400,0,0;"
-                class="roubles uk-margin-remove">100,000$</span>
+                class="roubles uk-margin-remove">200 000 tg</span>
             </div>
           </div>
         </div>
@@ -52,11 +51,13 @@
         <div class="uk-position-center uk-position-medium uk-text-center">
           <div uk-slideshow-parallax="scale: 1,1,0.8">
             <div class="vector">
-              <img src="assets/images/gift.svg" alt="">
+              <img src="assets/images/gift.svg" alt="" style="height: 150px;">
             </div>
             <div class="current-prize-fond">
-              <h2 class="uk-margin-remove">CASHBACK Prizes</h2>
-              <span class="cashback-text uk-margin-remove">on every game</span>
+              <h2 class="uk-margin-remove">Daily Prize</h2>
+              <span
+                class="roubles uk-margin-remove">50 000 tg</span>
+            
             </div>
           </div>
         </div>
@@ -101,11 +102,11 @@
   <div class="buttons-container uk-container uk-text-center">
     <button class="uk-button uk-button-default play-button uk-width-1-1" (click)="submit(number.value)">Subscribe/Login</button> 
   </div>
-  <div class="message-container">
+  <!-- <div class="message-container">
     <p style="color:white;">By clicking the Log in button you confirm that you<br> <a  [routerLink]="['/info']" style="color:white; text-decoration: underline;">have read and agreed to the game rules.</a>
     </p>
-    <!--<p>Услуга оказывается МТС совместно с партнером «ДжЮ Груп»</p>-->
-  </div>
+    
+  </div> -->
   
 </div>
 </div>
@@ -114,7 +115,7 @@
 <!-- VERIFY -->
 <div class="buttons-container uk-container uk-text-center" *ngIf="openVerify" tabindex="-1">
   <div class="message-container" style="margin-top: 100px">
-    <p style="font-size: 22px;color: black;text-align: center;">Please enter the password you reseived via SMS</p>
+    <p style="font-size: 22px;color: rgb(255, 255, 255); text-align: center; text-shadow: 2px 2px 5px #00000087;">Please enter the password you reseived via SMS</p>
     <!--<p>Услуга оказывается МТС совместно с партнером «ДжЮ Груп»</p>-->
   </div>
   <div class="buttons-container uk-container uk-text-center" *ngIf="openVerify" style="max-width: 595px;">
@@ -141,7 +142,7 @@
       <button class="uk-button uk-button-default play-button uk-width-1-1" (click)="verify(pin.value)">Confirm</button> 
     </div>
     <div class="message-container">
-      <p style="color:rgb(0, 0, 0); font-weight: bold; font-size: 20px;"><a (click)="resetPass()" style="color:rgb(0, 0, 0); text-decoration: underline;">Reset Password</a>
+      <p style=" font-weight: bold; font-size: 20px; text-shadow: 2px 2px 5px #00000087;"><a (click)="resetPass()" style="color:rgb(255, 255, 255); text-decoration: underline;">Reset Password</a>
       </p>
       <!--<p>Услуга оказывается МТС совместно с партнером «ДжЮ Груп»</p>-->
     </div>
@@ -161,7 +162,15 @@
     
   </div> -->
 </div>
+<div class="uk-container"  style="text-align: center;color: white;margin: 20px;">
+  {{ 'HOME.FOOTER_01' | translate }}
+<br>
+<p >
+{{ 'HOME.FOOTER_02' | translate }}<br>{{ 'HOME.FOOTER_02b' | translate }}<a  [routerLink]="['/info']" style="color:white; text-decoration: underline;">{{ 'HOME.FOOTER_02c' | translate }}</a>
+</p>
+<span style="color:#dfdb03">{{ 'HOME.FOOTER_03' | translate }}</span>
 
+</div>
 <!-- <div *ngIf="isHasCashback">
     <h4 class="title">Cashback Won</h4>
     <div class="cashback" uk-grid routerLink="/cashback">

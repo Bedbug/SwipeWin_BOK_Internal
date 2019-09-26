@@ -4,21 +4,25 @@
 
 <div class="winners-component">
 
-<div class="buttons-container uk-container info-text">
+<div class="buttons-container uk-container">
   <table class="uk-table uk-table-divider">
     <thead>
       <tr >
-        <th style="width:50%">Prize</th>
-        <th style="width:50%">Date</th>
+        <th style="width:33%">Date</th>
+        <th style="width:34%">Winner</th>
+        <th style="width:33%">Prize</th>
       </tr>
     </thead>
     <tr *ngFor = "let winner of dailyWinners$; let i = index" [hidden]="!showDay || !dailyWinners$">
-      <td>{{winner.winSum}}</td>
       <td>{{winner.winDate}}</td>
+      <td>{{winner.msisdn}} - {{winner.username}}</td>
+      <td>{{winner.winSum}}</td>
     </tr>
-    
+    <!--<tr *ngFor = "let winner of monthlyWinners$; let i = index" [hidden]="showDay || !monthlyWinners$">-->
+    <!--  <td>{{winner.winDate}}</td>-->
+    <!--  <td>{{winner.msisdn}} - {{winner.username}}</td>-->
+    <!--</tr>-->
   </table>
-  
 </div>
 <app-button [secondary]="true" class="btn" (click)="goHome()">Go Back</app-button>
 </div>

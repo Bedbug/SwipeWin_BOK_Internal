@@ -1,4 +1,22 @@
 {
+    "HOME": {
+        "CAR_01": "55,000 EGP in Cash",
+        "CAR_01b": "every month",
+        "NUM": "Mobile number",
+        "SUB-LOG": "Subscribe/Login",
+        "OTP": "Please enter the 4-digit PIN code received to your mobile",
+        "LOGIN": "Login",
+        "SUB": "Subscribe",
+        "RESEND": "Resend PIN",
+        "PLAY": "Play now",
+        "BUY": "Buy a new round",
+        "NOMORE": "No more games for today",
+        "FOOTER_01": "Cost of the service is 69 tenge. ",
+        "FOOTER_02": "To opt out send STOP to 2015. ",
+        "FOOTER_02b": "By clicking on confirm you agree with the ",
+        "FOOTER_02c": "Terms & Conditions.",
+        "FOOTER_03": "© Beeline 2019"
+    },
     "BURGER": {
         "HOME": "Home",
         "PROFILE": "Profile",
@@ -59,7 +77,17 @@
 
 
 
-
+    "END": {
+        "MES_01": "Oops…",
+        "MES_02": "Just…",
+        "MES_03": "Good!",
+        "MES_04": "Very Good!",
+        "MES_05": "Perfect!",
+        "MES_06": "Correct Answers",
+        "PLAY": "Play Again",
+        "BACK": "Back to home page",
+        "BUY": "Buy new round"
+    },
     "MESSAGES": {
         "MESSAGE_01": "Oups",
         "MESSAGE_02": "You must log-in to access this section",
@@ -67,7 +95,13 @@
         "MESSAGE_04": "Profile updates saved",
         "MESSAGE_05": "Days on service",
         "MESSAGE_06": "Settings",
-        "MESSAGE_07": "Go back to Home Page"
+        "MESSAGE_07": "Go back to Home Page",
+        "MESSAGE_08": "Unfortunately, you have run-out of games. Try again tomorrow.",
+        "MESSAGE_09": "Demo games have ended \n Why don't you try playing the real game?",
+        "MESSAGE_10": "Your tariff plan is not allowed to participate to Swipe & Win.\n Try to play from another number",
+        "MESSAGE_11": "The session is invalid or has expired.\n Please log in again",
+        "MESSAGE_12": "Number is blocked.\n Unfortunately, you cannot participate through this number",
+        "MESSAGE_13": "Not enough balance to participate to Swipe & Win"
     }
   }
   
