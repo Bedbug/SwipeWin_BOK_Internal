@@ -164,14 +164,15 @@
     
   </div> -->
 </div>
-<div class="uk-container"  style="text-align: center;color: white;margin: 20px;">
-  {{ 'HOME.FOOTER_01' | translate }}
-<br>
-<p >
-{{ 'HOME.FOOTER_02' | translate }}<br>{{ 'HOME.FOOTER_02b' | translate }}<a  [routerLink]="['/info']" style="color:white; text-decoration: underline;">{{ 'HOME.FOOTER_02c' | translate }}</a>
-</p>
-<span style="color:#dfdb03">{{ 'HOME.FOOTER_03' | translate }}</span>
-
+<div class="buttons-container uk-container uk-text-center"  style="color: white;">
+  <div class="message-container">
+    {{ 'HOME.FOOTER_01' | translate }}
+    <br>
+    <p >
+    {{ 'HOME.FOOTER_02' | translate }}<br>{{ 'HOME.FOOTER_02b' | translate }}<a  [routerLink]="['/info']" style="color:white; text-decoration: underline;">{{ 'HOME.FOOTER_02c' | translate }}</a>
+    </p>
+    <span style="color:#dfdb03">{{ 'HOME.FOOTER_03' | translate }}</span>
+  </div>
 </div>
 <!-- <div *ngIf="isHasCashback">
     <h4 class="title">Cashback Won</h4>
