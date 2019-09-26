@@ -1,13 +1,24 @@
 {
     "HOME": {
-        "CAR_01": "55,000 EGP in Cash",
-        "CAR_01b": "every month",
+        "CAR_01": "Grand Prize",
+        "CAR_01b": "10 000 000tg",
+        "CAR_02": "Monthly Prize",
+        "CAR_02b": "1 000 000 tg",
+        "CAR_03": "Weekly Prize",
+        "CAR_03b": "200 000 tg",
+        "CAR_04": "Daily Prize",
+        "CAR_04b": "50 000 tg",
+
         "NUM": "Mobile number",
         "SUB-LOG": "Subscribe/Login",
         "OTP": "Please enter the 4-digit PIN code received to your mobile",
         "LOGIN": "Login",
         "SUB": "Subscribe",
         "RESEND": "Resend PIN",
+
+        "CONFIRM": "Confirm",
+        "RESET": "Reset Password",   
+
         "PLAY": "Play now",
         "BUY": "Buy a new round",
         "NOMORE": "No more games for today",
