@@ -6,6 +6,7 @@ class User {
     age: number = 0;
     gender: string = 'male';
     createdAt: Date = null;
+    languagePreference: string = null;
     gamesPlayed: number = 0;
     bestScore: number = 0;
     bestScoreToday: number = 0;
@@ -18,7 +19,8 @@ class User {
             username: this.username,
             age: this.age,
             gender: this.gender,
-            msisdn: this.msisdn
+            msisdn: this.msisdn,
+            languagePreference: this.languagePreference
         };
     }
 };
