@@ -141,3 +141,26 @@
   background-image: linear-gradient(to bottom, #ffffff, #fcfcfc 19%, #efefef 41%, #f0f0f0 88%, #ffffff);
   color: #ffffff;
 }
+.text-shadow {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.text-input {
+  padding: 0 16px;
+  label {
+    text-align: left;
+    color: #ffffff;
+    font-weight: bold;
+    
+  }
+  input {
+    border-radius: 4px;
+  }
+}
+
+.uk-form-label {
+  color: #333;
+  font-size: 0.875rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
