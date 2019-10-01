@@ -190,8 +190,7 @@ export class HomeComponent implements OnInit {
   submit(number: string) {
 
     console.log("MSISDN: " + number);
-    this.showLogin = false;
-    this.openVerify = true;
+    
 
     if (!this.sessionService.msisdn)
       this.sessionService.msisdn = number;
@@ -218,12 +217,16 @@ export class HomeComponent implements OnInit {
         this.sessionService.Serialize();
 
         // Goto the returnHome page
-        this.router.navigate(['/returnhome']);
+        // this.router.navigate(['/returnhome']);
+        // Open Login/Sub Buttons
+        this.showLogin = false;
+        this.openVerify = true;
       }
     },
       (err) => {
         //this.sessionService.msisdn = null;
-        this.router.navigate(['/home']);
+        console.log("This is not a valid number!");
+        // this.router.navigate(['/home']);
       });
 
   }

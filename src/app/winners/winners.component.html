@@ -1,5 +1,5 @@
 <div class="header_title">
-  <span class="inside_text">Winners</span>
+  <span class="inside_text">{{ 'WINNERS.WINNERS' | translate }}</span>
 </div>
 
 <div class="winners-component">
@@ -8,9 +8,9 @@
   <table class="uk-table uk-table-divider">
     <thead>
       <tr >
-        <th style="width:33%">Date</th>
-        <th style="width:34%">Winner</th>
-        <th style="width:33%">Prize</th>
+        <th style="width:33%">{{ 'WINNERS.DATE' | translate }}</th>
+        <th style="width:34%">{{ 'WINNERS.WINNER' | translate }}</th>
+        <th style="width:33%">{{ 'WINNERS.PRIZE' | translate }}</th>
       </tr>
     </thead>
     <tr *ngFor = "let winner of dailyWinners$; let i = index" [hidden]="!showDay || !dailyWinners$">
@@ -24,6 +24,6 @@
     <!--</tr>-->
   </table>
 </div>
-<app-button [secondary]="true" class="btn" (click)="goHome()">Go Back</app-button>
+<app-button [secondary]="true" class="btn" (click)="goHome()">{{ 'WINNERS.BACK' | translate }}</app-button>
 </div>
  
