@@ -4,6 +4,7 @@ import { SessionService } from '../session.service';
 import { LocalizationService } from '../localization.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { parsePhoneNumberFromString } from 'libphonenumber-js'
 import UIkit from 'uikit';
 
 @Component({
@@ -186,11 +187,20 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/faq']);
   }
 
+  onKey(event: any){
+    // console.log(event.target.value);
+    const phoneNumber = parsePhoneNumberFromString(event.target.value, 'EG');
+    // console.log(phoneNumber.countryCallingCode);
+    // console.log(phoneNumber.formatNational());
+    event.target.value = phoneNumber.formatInternational();
+  }
 
   submit(number: string) {
 
-    console.log("MSISDN: " + number);
-    
+    // console.log("MSISDN: " + number);
+    const phoneNumber = parsePhoneNumberFromString(number, 'GR')
+    number = phoneNumber.countryCallingCode+phoneNumber.formatNational();
+    console.log("MSISDN: " +phoneNumber.countryCallingCode+phoneNumber.formatNational());
 
     if (!this.sessionService.msisdn)
       this.sessionService.msisdn = number;
@@ -210,6 +220,9 @@ export class HomeComponent implements OnInit {
       if (body.gamesPlayedToday !== undefined)
         this.sessionService.gamesPlayed = body.gamesPlayedToday;
 
+      this.showLogin = false;
+      this.openVerify = true;
+
       // If present, Get JWT token from response header and keep it for the session
       const userToken = resp.headers.get('X-Access-Token');
       if (userToken) { // if exists, keep it
@@ -219,13 +232,14 @@ export class HomeComponent implements OnInit {
         // Goto the returnHome page
         // this.router.navigate(['/returnhome']);
         // Open Login/Sub Buttons
-        this.showLogin = false;
-        this.openVerify = true;
+        
       }
     },
       (err) => {
         //this.sessionService.msisdn = null;
         console.log("This is not a valid number!");
+        // this.showLogin = false;
+        // this.openVerify = true;
         // this.router.navigate(['/home']);
       });
 
