@@ -57,6 +57,7 @@
         "AGE": "Age",
         "SAVE":"Save",
         "LOGOUT":"Log Out"
+        
     },
     "HOW": {
         "HOW": "How to play",
@@ -80,9 +81,13 @@
     },
     "WINNERS": {
         "WINNERS": "Winners",
+        "WINNER": "Winner",
         "PRIZE": "Prize",
         "DATE": "Date",
         "BACK": "Go Back"
+    },
+    "FAQ": {
+        "FAQ": "FAQ"
     },
 
 

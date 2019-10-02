@@ -87,7 +87,7 @@
     <div class="uk-margin" >
         <div class="uk-inline uk-width-1-1 ">
             <span class="uk-form-icon" uk-icon="icon: phone; ratio: 1.5"></span>
-            <input #number class="uk-input uk-border-rounded" type="text" placeholder="{{ 'HOME.NUM' | translate }}">
+            <input #number class="uk-input uk-border-rounded" type="text" (keyup)="onKey($event)" placeholder="{{ 'HOME.NUM' | translate }}" >
         </div>
     </div>
     <!-- <div class="uk-margin">
@@ -140,8 +140,8 @@
     
     <!-- This is the confirm stage when we dont have a registered user -->
     <div class="buttons-container uk-container uk-text-center">
-      <button class="uk-button uk-button-default play-button uk-width-1-1" (click)="verify(pin.value)">{{ 'HOME.CONFIRM' | translate }}</button> 
-      <button class="uk-button uk-button-default play-button uk-width-1-1" (click)="login(pin.value)">{{ 'HOME.LOGIN' | translate }}</button> 
+      <button class="uk-button uk-button-default play-button uk-width-1-1" *ngIf="!sessionService.isSubscribed" (click)="verify(pin.value)">{{ 'HOME.CONFIRM' | translate }}</button> 
+      <button class="uk-button uk-button-default play-button uk-width-1-1" *ngIf="sessionService.isSubscribed"(click)="login(pin.value)">{{ 'HOME.LOGIN' | translate }}</button> 
     </div>
     <div class="message-container">
       <p style=" font-weight: bold; font-size: 20px; text-shadow: 2px 2px 5px #00000087;"><a (click)="resetPass()" style="color:rgb(255, 255, 255); text-decoration: underline;">{{ 'HOME.RESET' | translate }}</a>
