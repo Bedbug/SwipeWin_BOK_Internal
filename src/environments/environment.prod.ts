@@ -4,7 +4,7 @@ export const environment = {
     production: true,
   
     // the path to the game server for the game DataService calls
-    gameServerDomainUrl: 'https://swipewin-whitelabel.herokuapp.com',
+    gameServerDomainUrl: 'https://swipewin-beeline-server.herokuapp.com',
     
     // the path to MTS Authentication API for WebSSO user authentication
     mtsAuthDomainUrl: 'login.mts.ru',
