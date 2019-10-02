@@ -192,7 +192,7 @@ export class HomeComponent implements OnInit {
     const phoneNumber = parsePhoneNumberFromString(event.target.value, 'GR');
     // console.log(phoneNumber.countryCallingCode);
     // console.log(phoneNumber.formatNational());
-    event.target.value = phoneNumber.formatInternational();
+    //event.target.value = phoneNumber.formatInternational();
   }
 
   submit(number: string) {
@@ -208,7 +208,7 @@ export class HomeComponent implements OnInit {
     // Run or Go to returnHome
     // this.router.navigate(['/auth-callback'], { queryParams: { code: number } });
 
-    this.dataService.authenticate(number).then((resp: any) => {
+    this.dataService.authenticate(number).subscribe((resp: any) => {
 
 
       // Deserialize payload
