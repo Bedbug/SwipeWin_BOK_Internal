@@ -189,7 +189,7 @@ export class HomeComponent implements OnInit {
 
   onKey(event: any){
     // console.log(event.target.value);
-    const phoneNumber = parsePhoneNumberFromString(event.target.value, 'EG');
+    const phoneNumber = parsePhoneNumberFromString(event.target.value, 'GR');
     // console.log(phoneNumber.countryCallingCode);
     // console.log(phoneNumber.formatNational());
     event.target.value = phoneNumber.formatInternational();
