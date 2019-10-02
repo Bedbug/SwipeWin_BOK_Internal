@@ -199,8 +199,8 @@ export class HomeComponent implements OnInit {
 
     // console.log("MSISDN: " + number);
     const phoneNumber = parsePhoneNumberFromString(number, 'GR')
-    number = phoneNumber.countryCallingCode+phoneNumber.formatNational();
-    console.log("MSISDN: " +phoneNumber.countryCallingCode+phoneNumber.formatNational());
+    number = phoneNumber.countryCallingCode +""+ phoneNumber.nationalNumber;
+    console.log("MSISDN: " +phoneNumber.countryCallingCode+phoneNumber.nationalNumber);
 
     if (!this.sessionService.msisdn)
       this.sessionService.msisdn = number;
