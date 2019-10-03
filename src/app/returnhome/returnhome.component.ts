@@ -68,6 +68,35 @@ export class ReturnhomeComponent implements OnInit {
     this.router.navigate(['freetimegame']);
   }
 
+  public playDemoGame($event) {
+    console.log('Demo button is clicked');
+    
+    if (!this.sessionService.gameSettings || !this.sessionService.gameSettings.maintenance || this.sessionService.gameSettings.maintenance.siteDown || this.sessionService.gameSettings.maintenance.noGames)
+      return;
+      
+    // // this.router.navigate(['demogame']);
+    // this.demoGamesPlayed = +localStorage.getItem('demoGamesPlayed');
+    // // Check games count
+    // console.log("demoGamesPlayed "+ this.demoGamesPlayed);
+    // if(this.demoGamesPlayed >= 2) {
+    //   // popup modal with error
+    //   var modal = UIkit.modal("#error");
+    //   this.errorMsg = this.noMoreDemoGames;
+    //   modal.show();
+      
+    // }else{
+    //   // Add one and play the demo game
+    //   this.demoGamesPlayed++;
+    //   localStorage.setItem('demoGamesPlayed', this.demoGamesPlayed.toString());
+    //   localStorage.setItem('lastDemoPlayed', (new Date()).toString() );
+    //   // this.router.navigate(['demogame']);
+      this.router.navigate(['demogame']);
+    // }
+    
+  
+    
+  }
+
   constructor(private dataService: DataService, private sessionService: SessionService, private router: Router) { }
 
   ngOnInit() {
@@ -102,7 +131,7 @@ export class ReturnhomeComponent implements OnInit {
           console.log("this._gamesPlayed "+this._gamesPlayed);
           console.log("this.sessionService.gamesPlayed "+this.sessionService.gamesPlayed);
           // this._gamesPlayed = 3;
-          this._cashBackAmount = this.sessionService.user.wallet.pendingMaturityCashback + this.sessionService.user.wallet.pendingTransferCashback;
+          // this._cashBackAmount = this.sessionService.user.wallet.pendingMaturityCashback + this.sessionService.user.wallet.pendingTransferCashback;
         },
         (err) => {
           

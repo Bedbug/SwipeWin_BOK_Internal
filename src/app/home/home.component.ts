@@ -4,6 +4,7 @@ import { SessionService } from '../session.service';
 import { LocalizationService } from '../localization.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { TranslateService } from '@ngx-translate/core';
 import { parsePhoneNumberFromString } from 'libphonenumber-js'
 import UIkit from 'uikit';
 
@@ -31,12 +32,12 @@ export class HomeComponent implements OnInit {
   private _isHasCashback = false;
   public demoGamesPlayed = 0;
   public errorMsg = "";
-  public noMoreRealGames = "Unfortunately, you have run-out of games. Try again tomorrow.";
-  public noMoreDemoGames = "Demo games have ended \n Why don't you try playing the real game?";
-  public authError = "Your tariff plan is not allowed to participate to Swipe & Win.\n Try to play from another number";
-  public logOut = "The session is invalid or has expired.\n Please log in again";
-  public blackListed = "Number is blocked.\n Unfortunately, you cannot participate through this number";
-  public noCredits = "Not enough balance to participate to Swipe & Win";
+  public noMoreRealGames = this.translate.instant('MESSAGES.MESSAGE_08');
+  public noMoreDemoGames = this.translate.instant('MESSAGES.MESSAGE_09');
+  public authError = this.translate.instant('MESSAGES.MESSAGE_10');
+  public logOut = this.translate.instant('MESSAGES.MESSAGE_11');
+  public blackListed = this.translate.instant('MESSAGES.MESSAGE_12');
+  public noCredits = this.translate.instant('MESSAGES.MESSAGE_13');
 
 
   
@@ -60,7 +61,8 @@ export class HomeComponent implements OnInit {
     private localizationService: LocalizationService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private translate: TranslateService
   
     ) {}
     

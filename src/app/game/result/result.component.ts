@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../session.service';
 import { Router } from '@angular/router';
 import UIkit from 'uikit';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-result',
@@ -34,7 +35,7 @@ export class ResultComponent implements OnInit {
   private _isInTop = true;
   private _bestWeekScore = 0;
   
-  constructor( private session: SessionService, private router: Router ) { }
+  constructor( private session: SessionService, private router: Router, private translate: TranslateService ) { }
 
   ngOnInit() {
     if (!this.session.lastGameResults)
@@ -85,26 +86,26 @@ export class ResultComponent implements OnInit {
   
   get TopText(): string {
     if(this._rightAnswerCount == 0)
-      return "Oops…"
+      return this.translate.instant('RESULT.MES_01')
     if(this._rightAnswerCount == 1)
-      return "Just…"
+      return this.translate.instant('RESULT.MES_02')
     if(this._rightAnswerCount >= 2 && this._rightAnswerCount <= 4)
-      return "Good!"
+      return this.translate.instant('RESULT.MES_03')
     if(this._rightAnswerCount >= 5 && this._rightAnswerCount <= 9)
-      return "Very Good!"
+      return this.translate.instant('RESULT.MES_04')
     if(this._rightAnswerCount >= 10)
-      return "Perfect!"
+      return this.translate.instant('RESULT.MES_05')
   }
   
   get answerMessage(): string {
     if(this._rightAnswerCount == 0)
-      return "Correct Answers"
+      return this.translate.instant('RESULT.MES_07')
     if(this._rightAnswerCount == 1)
-      return "Correct Answer"
+      return this.translate.instant('RESULT.MES_06')
     if(this._rightAnswerCount >= 2 && this._rightAnswerCount <= 4)
-      return "Correct Answers"
+      return this.translate.instant('RESULT.MES_07')
     if(this._rightAnswerCount >= 5 )
-      return "Correct Answers"
+      return this.translate.instant('RESULT.MES_07')
     // if(this._rightAnswerCount >= 10)
     //   return "Прекрасно!"
   }
@@ -115,24 +116,24 @@ export class ResultComponent implements OnInit {
     //   return "Станьте ближе к 25 000 ₽\nПолучите дополнительную игру сейчас!"
     // }else 
     if(this._gamesPlayed == 1){
-      return "Keep playing for today’s 10,000$"
+      return this.translate.instant('RESULT.MES_08')
     }else if(this._rightAnswerCount <= this._bestWeekScore) {
-      return "Keep playing for today’s 10,000$"
+      return this.translate.instant('RESULT.MES_08')
     }else if(this._isInTop){
         if(this._gamesPlayed <=2)
-          return "Keep playing for today’s 10,000$"
+          return this.translate.instant('RESULT.MES_08')
         else
-          return "Keep playing for today’s 10,000$"
+          return this.translate.instant('RESULT.MES_08')
     }else if(this._rightAnswerCount > this._bestWeekScore){
         if(this._gamesPlayed <=2)
-          return "Keep playing for today’s 10,000$"
+          return this.translate.instant('RESULT.MES_08')
         else
-          return "Keep playing for today’s 10,000$"
+          return this.translate.instant('RESULT.MES_08')
     }else{
       if(this._gamesPlayed <=2)
-          return "Keep playing for today’s 10,000$"
+          return this.translate.instant('RESULT.MES_08')
         else
-          return "Keep playing for today’s 10,000$"
+          return this.translate.instant('RESULT.MES_08')
     }
   }
 
