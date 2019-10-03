@@ -99,6 +99,24 @@ export class DataService {
   
   authenticateVerify(msisdn, pin) {
 
+    if (!this.session.gameSettings || !this.session.gameSettings.maintenance || this.session.gameSettings.maintenance.siteDown || this.session.gameSettings.maintenance.noGames) {
+      this.router.navigate(['/home']);
+      return throwError('Game is unavailable or under maintenance');
+    }
+    else {
+      const url = encodeURI(`${environment.gameServerDomainUrl}/api/user/verify`);
+      const headers = {
+        'Accept': 'application/json', 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'
+      };
+      if (this.session && this.session.token)
+        headers['X-Access-Token'] = this.session.token;
+
+      return this.http.post(url, { msisdn: msisdn, pin: pin }, {
+        headers: headers,
+        observe: 'response'
+      });
+    }
+    /*
     let promise = new Promise((resolve, reject) => {
 
       if (!this.session.gameSettings || !this.session.gameSettings.maintenance || this.session.gameSettings.maintenance.siteDown || this.session.gameSettings.maintenance.noGames) {
@@ -116,6 +134,7 @@ export class DataService {
     });
 
     return promise;
+    */
   }
 
 

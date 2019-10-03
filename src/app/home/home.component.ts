@@ -236,7 +236,7 @@ export class HomeComponent implements OnInit {
         
       }
     },
-      (err) => {
+      (err: any) => {
         //this.sessionService.msisdn = null;
         console.log("This is not a valid number!");
         // this.showLogin = false;
@@ -252,7 +252,7 @@ export class HomeComponent implements OnInit {
     console.log("username: " + this.sessionService.msisdn);
     console.log("password: "+pass);
     
-    this.dataService.authenticateVerify(this.sessionService.msisdn, pass).then((resp: any) => {
+    this.dataService.authenticateVerify(this.sessionService.msisdn, pass).subscribe((resp: any) => {
 
       // Get JWT token from response header and keep it for the session
       const userToken = resp.headers.get('X-Access-Token');
@@ -272,7 +272,7 @@ export class HomeComponent implements OnInit {
       // Goto the returnHome page
       this.router.navigate(['/returnhome']);
     },
-      (err) => {
+      (err: any) => {
         this.router.navigate(['/home']);
       });
 
