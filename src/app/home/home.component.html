@@ -9,59 +9,64 @@
     <!-- <img  alt="" src="assets/images/lights.png" uk-cover width="auto" height=""> -->
     
     <ul class="uk-slideshow-items" >
-      <li class="list-wrapper">
-        <!-- <img src="assets/images/lights.png" alt="" uk-cover> -->
-      <div class="uk-position-center uk-position-small uk-text-center uk-light">
-          <div class="vector">
-              <img class="icon" style="height: 150px;" src="assets/icons/grand_prize.png" alt=""/>
+        <li class="list-wrapper">
+            <div class="uk-position-center uk-position-medium uk-text-center">
+              <div uk-slideshow-parallax="scale: 1,1,0.8">
+                <div class="vector">
+                    <img class="icon" style="height: 150px;" src="assets/icons/grand_prize.png" alt=""/>
+                </div>
+                <div uk-slideshow-parallax="x: 200,0,0"
+                  class="current-prize-fond">
+                  <h2 class="uk-margin-remove">{{ 'HOME.CAR_01' | translate }}</h2>
+                  <span class="roubles uk-margin-remove">{{ 'HOME.CAR_01b' | translate }}</span>
+                </div>
+              </div>
             </div>
-        
-            <h2 class="uk-margin-remove">{{ 'HOME.CAR_01' | translate }}Grand Prize</h2>
-          <span class="roubles uk-margin-remove">{{ 'HOME.CAR_01b' | translate }}</span>
-      </div>
-      </li>
-      <li class="list-wrapper">
-        <div class="uk-position-center uk-position-small uk-text-center uk-light">
-          <div class="vector">
-            <img src="assets/icons/monthly_prize.png" alt="" style="height: 150px;">
-          </div>
-          <div class="current-prize-fond">
-            <h2 class="uk-margin-remove">{{ 'HOME.CAR_02' | translate }}</h2>
-            <span class="roubles uk-margin-remove">{{ 'HOME.CAR_02b' | translate }}</span>
-          </div>
-        </div>
-      </li>
+          </li>
+          <li class="list-wrapper">
+              <div class="uk-position-center uk-position-medium uk-text-center">
+                <div uk-slideshow-parallax="scale: 1,1,0.8">
+                  <div class="vector">
+                      <img src="assets/icons/monthly_prize.png" alt="" style="height: 150px;">
+                  </div>
+                  <div uk-slideshow-parallax="x: 200,0,0"
+                    class="current-prize-fond">
+                    <h2 class="uk-margin-remove">{{ 'HOME.CAR_02' | translate }}</h2>
+                    <span class="roubles uk-margin-remove">{{ 'HOME.CAR_02b' | translate }}</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+      
       <li class="list-wrapper">
         <div class="uk-position-center uk-position-medium uk-text-center">
           <div uk-slideshow-parallax="scale: 1,1,0.8">
             <div class="vector">
               <img src="assets/images/coins.svg" alt="" style="height: 150px;">
             </div>
-            <div
-              uk-slideshow-parallax="x: 200,0,0"
+            <div uk-slideshow-parallax="x: 200,0,0"
               class="current-prize-fond">
               <h2 class="uk-margin-remove">{{ 'HOME.CAR_03' | translate }}</h2>
-              <span
-                class="roubles uk-margin-remove">{{ 'HOME.CAR_03b' | translate }}</span>
+              <span class="roubles uk-margin-remove">{{ 'HOME.CAR_03b' | translate }}</span>
             </div>
           </div>
         </div>
       </li>
       <li class="list-wrapper">
-        <div class="uk-position-center uk-position-medium uk-text-center">
-          <div uk-slideshow-parallax="scale: 1,1,0.8">
-            <div class="vector">
-              <img src="assets/images/gift.svg" alt="" style="height: 150px;">
-            </div>
-            <div class="current-prize-fond">
-              <h2 class="uk-margin-remove">{{ 'HOME.CAR_04' | translate }}</h2>
-              <span
-                class="roubles uk-margin-remove">{{ 'HOME.CAR_04b' | translate }}</span>
-            
+          <div class="uk-position-center uk-position-medium uk-text-center">
+            <div uk-slideshow-parallax="scale: 1,1,0.8">
+              <div class="vector">
+                  <img src="assets/images/coin-1.svg" alt="" style="height: 150px;">
+              </div>
+              <div uk-slideshow-parallax="x: 200,0,0"
+                class="current-prize-fond">
+                <h2 class="uk-margin-remove">{{ 'HOME.CAR_04' | translate }}</h2>
+                <span class="roubles uk-margin-remove">{{ 'HOME.CAR_04b' | translate }}</span>
+              </div>
             </div>
           </div>
-        </div>
-      </li>
+        </li>
+      
     </ul>
 
     <ul class="uk-slideshow-nav uk-dotnav uk-flex-center "></ul>
@@ -164,14 +169,13 @@
     
   </div> -->
 </div>
-<div class="buttons-container uk-container uk-text-center"  style="color: white;">
+<div class="buttons-container uk-container uk-text-center"  style="color: white;" *ngIf="openVerify">
   <div class="message-container">
     {{ 'HOME.FOOTER_01' | translate }}
-    <br>
     <p >
     {{ 'HOME.FOOTER_02' | translate }}<br>{{ 'HOME.FOOTER_02b' | translate }}<a  [routerLink]="['/info']" style="color:white; text-decoration: underline;">{{ 'HOME.FOOTER_02c' | translate }}</a>
     </p>
-    <span style="color:#dfdb03">{{ 'HOME.FOOTER_03' | translate }}</span>
+    <!-- <span style="color:#dfdb03">{{ 'HOME.FOOTER_03' | translate }}</span> -->
   </div>
 </div>
 <!-- <div *ngIf="isHasCashback">
@@ -223,10 +227,10 @@
     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
       <img src="assets/images/wanted.svg" alt="">
       <h4>{{ 'MESSAGES.MESSAGE_01' | translate }}</h4>
-    <pre>{{errorMsg}}</pre>
+    <pre>{{ errorMsg | translate }}</pre>
     <!--<p>{{errorMsg}}</p>-->
     <app-button *ngIf="!logOutBtn" [link_button]="true" class="uk-modal-close">{{ 'MESSAGES.MESSAGE_07' | translate }}</app-button>
-    <app-button *ngIf="gotofaqBtn" [link_button]="true" class="uk-modal-close" (click)="gotoFaqPage()">Read more at FAQs</app-button>
+    <app-button *ngIf="gotofaqBtn" [link_button]="true" class="uk-modal-close" (click)="gotoFaqPage()">{{ 'MESSAGES.MESSAGE_14' | translate }}</app-button>
     <app-button *ngIf="logOutBtn" [link_button]="true" class="uk-modal-close" (click)="logOutUser()">{{ 'MESSAGES.MESSAGE_07' | translate }}</app-button>
       
     </div>

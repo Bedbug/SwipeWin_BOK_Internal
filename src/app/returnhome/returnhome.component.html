@@ -2,73 +2,78 @@
   <img src="assets/images/gulogo.svg" alt="">
 </div> -->
 
-<div class="slideshow-container" uk-slideshow="animation: fade; min-height: 300; max-height: 500; autoplay: true; autoplay-interval: 2000; pause-on-hover: false;" >
+<div class="slideshow-container" *ngIf="showLogin" uk-slideshow="animation: fade; min-height: 300; max-height: 500; autoplay: true; autoplay-interval: 2000; pause-on-hover: false;" >
 
-  <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-    
-    <!-- <img  alt="" src="assets/images/lights.png" uk-cover width="auto" height=""> -->
-    
-    <ul class="uk-slideshow-items" >
-      <li class="list-wrapper">
-        <!-- <img src="assets/images/lights.png" alt="" uk-cover> -->
-      <div class="uk-position-center uk-position-small uk-text-center uk-light">
-          <div class="vector">
-              <img class="icon" style="height: 150px;" src="assets/icons/grand_prize.png" alt=""/>
-            </div>
+    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+      
+      <!-- <img  alt="" src="assets/images/lights.png" uk-cover width="auto" height=""> -->
+      
+      <ul class="uk-slideshow-items" >
+          <li class="list-wrapper">
+              <div class="uk-position-center uk-position-medium uk-text-center">
+                <div uk-slideshow-parallax="scale: 1,1,0.8">
+                  <div class="vector">
+                      <img class="icon" style="height: 150px;" src="assets/icons/grand_prize.png" alt=""/>
+                  </div>
+                  <div uk-slideshow-parallax="x: 200,0,0"
+                    class="current-prize-fond">
+                    <h2 class="uk-margin-remove">{{ 'HOME.CAR_01' | translate }}</h2>
+                    <span class="roubles uk-margin-remove">{{ 'HOME.CAR_01b' | translate }}</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="list-wrapper">
+                <div class="uk-position-center uk-position-medium uk-text-center">
+                  <div uk-slideshow-parallax="scale: 1,1,0.8">
+                    <div class="vector">
+                        <img src="assets/icons/monthly_prize.png" alt="" style="height: 150px;">
+                    </div>
+                    <div uk-slideshow-parallax="x: 200,0,0"
+                      class="current-prize-fond">
+                      <h2 class="uk-margin-remove">{{ 'HOME.CAR_02' | translate }}</h2>
+                      <span class="roubles uk-margin-remove">{{ 'HOME.CAR_02b' | translate }}</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
         
-            <h2 class="uk-margin-remove">{{ 'HOME.CAR_01' | translate }}Grand Prize</h2>
-          <span class="roubles uk-margin-remove">{{ 'HOME.CAR_01b' | translate }}</span>
-      </div>
-      </li>
-      <li class="list-wrapper">
-        <div class="uk-position-center uk-position-small uk-text-center uk-light">
-          <div class="vector">
-            <img src="assets/icons/monthly_prize.png" alt="" style="height: 150px;">
-          </div>
-          <div class="current-prize-fond">
-            <h2 class="uk-margin-remove">{{ 'HOME.CAR_02' | translate }}</h2>
-            <span class="roubles uk-margin-remove">{{ 'HOME.CAR_02b' | translate }}</span>
-          </div>
-        </div>
-      </li>
-      <li class="list-wrapper">
-        <div class="uk-position-center uk-position-medium uk-text-center">
-          <div uk-slideshow-parallax="scale: 1,1,0.8">
-            <div class="vector">
-              <img src="assets/images/coins.svg" alt="" style="height: 150px;">
-            </div>
-            <div
-              uk-slideshow-parallax="x: 200,0,0"
-              class="current-prize-fond">
-              <h2 class="uk-margin-remove">{{ 'HOME.CAR_03' | translate }}</h2>
-              <span
-                class="roubles uk-margin-remove">{{ 'HOME.CAR_03b' | translate }}</span>
+        <li class="list-wrapper">
+          <div class="uk-position-center uk-position-medium uk-text-center">
+            <div uk-slideshow-parallax="scale: 1,1,0.8">
+              <div class="vector">
+                <img src="assets/images/coins.svg" alt="" style="height: 150px;">
+              </div>
+              <div uk-slideshow-parallax="x: 200,0,0"
+                class="current-prize-fond">
+                <h2 class="uk-margin-remove">{{ 'HOME.CAR_03' | translate }}</h2>
+                <span class="roubles uk-margin-remove">{{ 'HOME.CAR_03b' | translate }}</span>
+              </div>
             </div>
           </div>
-        </div>
-      </li>
-      <li class="list-wrapper">
-        <div class="uk-position-center uk-position-medium uk-text-center">
-          <div uk-slideshow-parallax="scale: 1,1,0.8">
-            <div class="vector">
-              <img src="assets/images/gift.svg" alt="" style="height: 150px;">
+        </li>
+        <li class="list-wrapper">
+            <div class="uk-position-center uk-position-medium uk-text-center">
+              <div uk-slideshow-parallax="scale: 1,1,0.8">
+                <div class="vector">
+                    <img src="assets/images/coin-1.svg" alt="" style="height: 150px;">
+                </div>
+                <div uk-slideshow-parallax="x: 200,0,0"
+                  class="current-prize-fond">
+                  <h2 class="uk-margin-remove">{{ 'HOME.CAR_04' | translate }}</h2>
+                  <span class="roubles uk-margin-remove">{{ 'HOME.CAR_04b' | translate }}</span>
+                </div>
+              </div>
             </div>
-            <div class="current-prize-fond">
-              <h2 class="uk-margin-remove">{{ 'HOME.CAR_04' | translate }}</h2>
-              <span
-                class="roubles uk-margin-remove">{{ 'HOME.CAR_04b' | translate }}</span>
-            
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
-
-    <ul class="uk-slideshow-nav uk-dotnav uk-flex-center "></ul>
-  </div>
+          </li>
+        
+      </ul>
   
-
-</div>
+      <ul class="uk-slideshow-nav uk-dotnav uk-flex-center "></ul>
+    </div>
+    
+  
+  </div>
 <br>
 <br>
 <div class="buttons-container uk-container uk-text-center">
@@ -94,16 +99,6 @@
     <!--  <span>1 день бесплатно - далее 15 р/день</span>-->
     <!--</div>-->
   </div>
-
-<!-- <div *ngIf="_cashBackAmount > 0" >
-    <h4 class="title">Cashback Won</h4>
-    <div class="buttons-container uk-container uk-text-center" style="padding:10px;">
-    <div class="cashback buttons-container uk-container" uk-grid style="margin-left: auto; margin-right: auto;" routerLink="/cashback">
-      <div class="uk-width-expand label">Cashback</div>
-      <div class="uk-width-auto amount">{{_cashBackAmount}}  $ <span uk-icon="chevron-right"></span></div>
-    </div>
-    </div>
-  </div> -->
 
 <div class="buttons-container uk-container uk-text-center" style="padding:10px; margin-top: 0px;">
   <a  [routerLink]="['/how-to-play']" style="color: white;font-weight: bold;text-decoration: underline; ">How to Play?</a>
