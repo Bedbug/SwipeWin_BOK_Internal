@@ -80,12 +80,12 @@
 <!--    </p>-->
 <!--</div>-->
 
- <div id="error" class="uk-flex-top" uk-modal>
+<div id="error" class="uk-flex-top" uk-modal>
     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
       <img src="assets/images/wanted.svg" alt="">
-      <h4>Oups</h4>
-      <p>You must log-in to access this section</p>
+      <h4>{{ 'MESSAGES.MESSAGE_01' | translate }}</h4>
+      <p>{{ 'MESSAGES.MESSAGE_02' | translate }}</p>
       <!--<p>{{errorMsg}}</p>-->
-      <app-button [link_button]="true" class="uk-modal-close" (click)="goHome()">Back to Homepage</app-button>
+      <app-button [link_button]="true" class="uk-modal-close" (click)="goHome()">{{ 'PROFILE.BACK' | translate }}</app-button>
     </div>
   </div>
