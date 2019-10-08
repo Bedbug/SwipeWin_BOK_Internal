@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,22 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class AppComponent {
   title = 'swipr';
-  constructor(public translate: TranslateService) {
+  lang: string;
+
+  constructor(public translate: TranslateService, private activatedRoute: ActivatedRoute) {
     translate.addLangs(['en', 'ru']);
     translate.setDefaultLang('en');
 
     const browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/en|ar/) ? browserLang : 'en');
+    translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
+
+    this.activatedRoute.queryParams.subscribe(params => {
+      // console.table(params);
+      this.lang = params["lang"];
+      if(this.lang != null)
+      this.translate.setDefaultLang(this.lang);
+      console.log("Language Selected: "+this.lang);
+    })
   }
+  
 }
