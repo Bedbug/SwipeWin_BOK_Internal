@@ -103,6 +103,8 @@ export class HomeComponent implements OnInit {
           }
         };
     
+    console.log("Locale: "+this.translate.currentLang);
+
     // Get Login On From LocalStorage
     this.loginOn = 0;
     this.loginOn = +localStorage.getItem('loginOn');
