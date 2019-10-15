@@ -8,17 +8,14 @@
         "CAR_03b": "200 000 tg",
         "CAR_04": "Daily Prize",
         "CAR_04b": "50 000 tg",
-
         "NUM": "Mobile number",
         "SUB-LOG": "Subscribe/Login",
         "OTP": "Please enter the 4-digit PIN code received to your mobile",
         "LOGIN": "Login",
         "SUB": "Subscribe",
         "RESEND": "Resend PIN",
-
         "CONFIRM": "Confirm",
         "RESET": "Reset Password",   
-
         "PLAY": "Play now",
         "BUY": "Buy a new round",
         "NOMORE": "No more games for today",

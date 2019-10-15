@@ -107,11 +107,10 @@
   <div class="buttons-container uk-container uk-text-center">
     <button class="uk-button uk-button-default play-button uk-width-1-1" (click)="submit(number.value)">{{ 'HOME.SUB-LOG' | translate }}</button> 
   </div>
-  <!-- <div class="message-container">
-    <p style="color:white;">By clicking the Log in button you confirm that you<br> <a  [routerLink]="['/info']" style="color:white; text-decoration: underline;">have read and agreed to the game rules.</a>
-    </p>
-    
-  </div> -->
+  <div class="message-container">
+    {{ 'HOME.FOOTER_01' | translate }}
+    <!-- <span style="color:#dfdb03">{{ 'HOME.FOOTER_03' | translate }}</span> -->
+  </div>
   
 </div>
 </div>
@@ -173,11 +172,12 @@
   <div class="message-container">
     {{ 'HOME.FOOTER_01' | translate }}
     <p >
-    {{ 'HOME.FOOTER_02' | translate }}<br>{{ 'HOME.FOOTER_02b' | translate }}<a  [routerLink]="['/info']" style="color:white; text-decoration: underline;">{{ 'HOME.FOOTER_02c' | translate }}</a>
+    {{ 'HOME.FOOTER_02' | translate }}<br><a  [routerLink]="['/info']" style="color:white; text-decoration: underline;">{{ 'HOME.FOOTER_02b' | translate }}</a>
     </p>
     <!-- <span style="color:#dfdb03">{{ 'HOME.FOOTER_03' | translate }}</span> -->
   </div>
 </div>
+
 <!-- <div *ngIf="isHasCashback">
     <h4 class="title">Cashback Won</h4>
     <div class="cashback" uk-grid routerLink="/cashback">
