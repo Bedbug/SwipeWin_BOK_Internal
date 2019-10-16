@@ -12,11 +12,11 @@ export class AppComponent {
   lang: string;
 
   constructor(public translate: TranslateService, private activatedRoute: ActivatedRoute) {
-    translate.addLangs(['kaz', 'ru']);
-    translate.setDefaultLang('kaz');
+    translate.addLangs(['en', 'ru']);
+    translate.setDefaultLang('en');
 
     const browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/kaz|ru/) ? browserLang : 'kaz');
+    translate.use(browserLang.match(/kaz|ru/) ? browserLang : 'en');
 
     this.activatedRoute.queryParams.subscribe(params => {
       // console.table(params);

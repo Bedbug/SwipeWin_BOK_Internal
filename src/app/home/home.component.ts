@@ -193,7 +193,8 @@ export class HomeComponent implements OnInit {
 
   onKey(event: any){
     // console.log(event.target.value);
-    const phoneNumber = parsePhoneNumberFromString(event.target.value, 'GR');
+    const phoneNumber = parsePhoneNumberFromString(event.target.value, 'KZ');
+    // const phoneNumber = parsePhoneNumberFromString(event.target.value, 'GR');
     // console.log(phoneNumber.);
     // console.log(phoneNumber.formatNational());
     if(phoneNumber!=null)

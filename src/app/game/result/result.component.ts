@@ -10,6 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./result.component.scss']
 })
 export class ResultComponent implements OnInit {
+  
   get secondVariant(): boolean {
     return this._secondVariant;
   }
@@ -22,9 +23,17 @@ export class ResultComponent implements OnInit {
   get gamesPlayed(): number {
     return this._gamesPlayed;
   }
+  get gameScore() : number {
+    this.lGR = this.session.lastGameResults;
+    this._gameScore =  this.lGR.correctAnswers;
+    this._gameScore +=  this.lGR.correctBronze * 2;
+    this._gameScore +=  this.lGR.correctSilver * 5;
+    this._gameScore +=  this.lGR.correctGold * 10;
+
+    return this._gameScore;
+  }
   
-  
-  
+  lGR: any;
   private _firstTime = false;
   public _gamesPlayed = 2;
   private _rightAnswerCount = 10;
@@ -34,13 +43,16 @@ export class ResultComponent implements OnInit {
   private _firstGameToday = true;
   private _isInTop = true;
   private _bestWeekScore = 0;
+  private _gameScore: number;
   
   constructor( private session: SessionService, private router: Router, private translate: TranslateService ) { }
 
   ngOnInit() {
     if (!this.session.lastGameResults)
       this.router.navigate(['home']);
-      
+    
+    console.table(this.session.lastGameResults);
+
     this._rightAnswerCount = this.session.lastGameResults.correctAnswers;
     this._cashbackAmount = this.session.lastGameResults.cashbackWon || 0;
     this._firstTime = this.session.gamesPlayed == 1;
