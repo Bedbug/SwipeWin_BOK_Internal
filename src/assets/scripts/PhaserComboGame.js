@@ -189,6 +189,10 @@ var __phaser = {
        //console.log('Viewport Height: ' + game.scale.viewportHeight, x, y += yi);
        //console.log('window.innerHeight: ' + window.innerHeight, x, y += yi);
        //console.log('window.outerHeight: ' + window.outerHeight, x, y += yi); // set canvas color
+        console.log("GAME LOCALIZATION IS: "+Localization.locale);
+        // Load assets depending language
+        var trueString = "assets/sprites/true@3x_"+Localization.locale+".png";
+        var falseString = "assets/sprites/false@3x_"+Localization.locale+".png";
 
         game.stage.backgroundColor = '#95a5a6'; // Create Loader
 
@@ -204,8 +208,8 @@ var __phaser = {
         game.load.image("zone_no", "assets/sprites/zone_no.png");
         game.load.image("timerbg", "assets/sprites/timerBg.png");
         game.load.image("tableBg", "assets/sprites/tableBg.png");
-        game.load.image("falseTag", "assets/sprites/false@3x.png");
-        game.load.image("trueTag", "assets/sprites/true@3x.png");
+        game.load.image("falseTag", falseString);
+        game.load.image("trueTag", trueString);
         game.load.image("gameNo", "assets/sprites/no@3x.png");
         game.load.image("gameYes", "assets/sprites/yes@3x.png");
         game.load.image("gameNoDesat", "assets/sprites/no@3x_desat.png");
