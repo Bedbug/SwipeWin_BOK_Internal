@@ -82,9 +82,9 @@ export class HeaderComponent implements OnInit {
    //  console.log(browserLang);
    //  this.translate.use(browserLang.match(/en|ar/) ? browserLang : 'en');
    if(this.alignAllLeft)
-     this.translate.use("kaz");
-     else
      this.translate.use("ru");
+     else
+     this.translate.use("kaz");
   }
 
 }
