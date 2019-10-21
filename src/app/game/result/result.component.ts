@@ -71,7 +71,7 @@ export class ResultComponent implements OnInit {
     console.log("Games Played: "+ this._gamesPlayed);
     console.log("cashBack Won: "+ this._cashbackAmount);
     
-    var modal = UIkit.modal("#result");
+    var modal = UIkit.modal("#result", {escClose: false, bgClose: false});
     setTimeout( () => { modal.show(); }, 1000 );
       
   }

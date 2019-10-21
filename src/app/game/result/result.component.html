@@ -1,6 +1,6 @@
-<app-button [link_button]="true" id="openmodal" data-uk-modal="{target:'#result'}" uk-toggle="target: #result"></app-button>
+<!-- <app-button [link_button]="true" id="openmodal" data-uk-modal="{target:'#result', bg-close:false, esc-close: false}" uk-toggle="target: #result"></app-button> -->
 
-<div id="result" class="uk-flex-top"  uk-modal>
+<div id="result" class="uk-flex-top"  data-uk-modal="{bg-close:false, esc-close: false, bgclose:false}">
   <!--Top Text-->
   <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
     <h4>{{TopText}}</h4>
@@ -25,7 +25,9 @@
     <!--<p class="hint" style="white-space: pre-line; margin-bottom: 0px;" *ngIf="_gamesPlayed <= 2">Стоимость игры 15 ₽, максимум две дополн. игры в сутки</p>-->
     <!--If there are available games to buy play another game-->
     <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"  style="margin: 20px 0px;" *ngIf="_gamesPlayed == 0" (click)="startGame()">{{ 'END.PLAY' | translate }}</button>
-    <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"  style="margin: 20px 0px;" *ngIf="_gamesPlayed > 0" (click)="startGame()">{{ 'END.BUY' | translate }}</button>
+    <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"  style="margin: 20px 0px;" *ngIf="_gamesPlayed > 0 && _gamesPlayed < 3" (click)="startGame()">{{ 'END.BUY' | translate }}</button>
+    <app-button *ngIf="_gamesPlayed >= 3" [disabled]="!isChecked" [primary]="isChecked" >{{ 'END.NOMORE' | translate }}</app-button>
+    <!-- <button class="uk-button uk-button-default play-button uk-width-1-1 "  style="margin: 20px 0px;" *ngIf="_gamesPlayed >= 3" >{{ 'END.BUY' | translate }}</button> -->
     <!-- <app-button [primary]="true"  *ngIf="_gamesPlayed ==0" class="uk-modal-close" (click)="startGame()" >{{ 'END.PLAY' | translate }}</app-button>
     <app-button [primary]="true"  *ngIf="_gamesPlayed > 0" class="uk-modal-close" (click)="startGame()" >{{ 'END.BUY' | translate }}</app-button> -->
     <!--<app-button [primary]="true"  *ngIf="_gamesPlayed >=3" class="uk-modal-close" (click)="startFreeGame()" >Играть в удовольствие</app-button>-->

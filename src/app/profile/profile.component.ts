@@ -5,6 +5,7 @@ import { SessionService } from '../session.service';
 import { environment } from '../../environments/environment';
 //import { User } from '../../models/User';
 import UIkit from 'uikit';
+import { debug } from 'util';
 
 const VIEW_STATES = {
   PROFILE: 'SHOW_PROFILE',
@@ -74,6 +75,7 @@ export class ProfileComponent implements OnInit {
     else {
       this.dataService.getUserProfile().then( 
         (data:User) => {
+          console.debug(data);
           this.sessionService.user = data;
           this.userName = data.username;
           this._totalGamesCount = data.gamesPlayed;
@@ -85,7 +87,7 @@ export class ProfileComponent implements OnInit {
             this._daysInGame = 0;
             
           // this._totalDays = data.totalDaysPlaying;
-          this._cashBackAmount = data.wallet.pendingMaturityCashback + data.wallet.pendingTransferCashback;
+          // this._cashBackAmount = data.wallet.pendingMaturityCashback + data.wallet.pendingTransferCashback;
           
           if( data.picture != null ){
             this.avatarPic = environment.gameServerDomainUrl + '/' + data.picture;
