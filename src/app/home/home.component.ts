@@ -17,6 +17,8 @@ export class HomeComponent implements OnInit {
     loginOn: number;
     lblShow:boolean = true;
     passType: string = "password";
+    alertNumber: boolean = false;
+    verErrorMes: boolean = false;
   
   // get this form the User object
   get isHasCashback(): boolean {
@@ -194,6 +196,7 @@ export class HomeComponent implements OnInit {
   onKey(event: any){
     // console.log(event.target.value);
     const phoneNumber = parsePhoneNumberFromString(event.target.value, 'KZ');
+    
     // const phoneNumber = parsePhoneNumberFromString(event.target.value, 'GR');
     // console.log(phoneNumber.);
     // console.log(phoneNumber.formatNational());
@@ -204,9 +207,16 @@ export class HomeComponent implements OnInit {
   submit(number: string) {
 
     // console.log("MSISDN: " + number);
-    const phoneNumber = parsePhoneNumberFromString(number, 'GR')
+    const phoneNumber = parsePhoneNumberFromString(number, 'KZ')
     number = phoneNumber.countryCallingCode +""+ phoneNumber.nationalNumber;
     console.log("MSISDN: " +phoneNumber.countryCallingCode+phoneNumber.nationalNumber);
+    console.log("PhoneNumber: "+number+" is valid: "+ phoneNumber.isValid() );
+    console.log(number+" "+number.length);
+    if(number.length != 11){
+      this.alertNumber = true;
+      return;
+    }
+
 
     if (!this.sessionService.msisdn)
       this.sessionService.msisdn = number;
@@ -278,7 +288,8 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/returnhome']);
     },
       (err: any) => {
-        this.router.navigate(['/home']);
+       console.log("Error With Pin!!!");
+       this.verErrorMes = true;
       });
 
     // Run or Go to returnHome
