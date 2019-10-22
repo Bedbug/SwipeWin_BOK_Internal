@@ -131,7 +131,7 @@ export class HomeComponent implements OnInit {
           
           if (errorCode) {
             switch(errorCode) {
-              case '401': this.errorMsg = this.authError; this.logOutBtn = true; this.gotofaqBtn = true; console.log('401'); break;
+              case '401': this.errorMsg = this.authError; this.logOutBtn = true; this.gotofaqBtn = false; console.log('401'); break;
               case '1010': this.errorMsg = this.authError; this.logOutBtn = true; this.gotofaqBtn = true; console.log('1010');  break;
               case '1026': this.errorMsg = this.blackListed; this.logOutBtn = true; this.gotofaqBtn = true; console.log('1026'); break;
               case '1023': this.errorMsg = this.noMoreRealGames; this.gotofaqBtn = false;this.logOutBtn = false; break;
