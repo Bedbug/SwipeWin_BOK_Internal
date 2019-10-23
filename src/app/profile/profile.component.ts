@@ -75,7 +75,7 @@ export class ProfileComponent implements OnInit {
     else {
       this.dataService.getUserProfile().then( 
         (data:User) => {
-          console.debug(data);
+          console.table(data);
           this.sessionService.user = data;
           this.userName = data.username;
           this._totalGamesCount = data.gamesPlayed;
