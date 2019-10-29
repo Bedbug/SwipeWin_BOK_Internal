@@ -75,8 +75,23 @@ export class ResultComponent implements OnInit {
     setTimeout( () => { modal.show(); }, 1000 );
       
   }
+
+  OpenSureModal() {
+    var modal = UIkit.modal("#areUSure");
+    //   this.errorMsg = this.noMoreRealGames;
+    modal.show();
+  }
+  
+  OpenMainModal() {
+    var modal = UIkit.modal("#result");
+    //   this.errorMsg = this.noMoreRealGames;
+    modal.show();
+  }
+  
   
   startGame() {
+    var modal = UIkit.modal("#result");
+    modal.hide();
     // if(this._gamesPlayed >= 3) {
     //   // popup modal with error
     //   this.router.navigate(['returnhome']);

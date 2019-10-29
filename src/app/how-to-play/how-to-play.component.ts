@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { SessionService } from '../session.service';
 import { Router } from '@angular/router';
+import UIkit from 'uikit';
 
 @Component({
   selector: 'app-how-to-play',
@@ -33,6 +34,11 @@ export class HowToPlayComponent implements OnInit {
     console.log('button is clicked');
     $event.stopPropagation();
     this.router.navigate(['/home']);
+  }
+  OpenSureModal() {
+    var modal = UIkit.modal("#areUSure");
+    //   this.errorMsg = this.noMoreRealGames;
+    modal.show();
   }
   
   startGame() {

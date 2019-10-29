@@ -25,7 +25,7 @@
     <!--<p class="hint" style="white-space: pre-line; margin-bottom: 0px;" *ngIf="_gamesPlayed <= 2">Стоимость игры 15 ₽, максимум две дополн. игры в сутки</p>-->
     <!--If there are available games to buy play another game-->
     <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"  style="margin: 20px 0px;" *ngIf="_gamesPlayed == 0" (click)="startGame()">{{ 'END.PLAY' | translate }}</button>
-    <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"  style="margin: 20px 0px;" *ngIf="_gamesPlayed > 0 && _gamesPlayed < 3" (click)="startGame()">{{ 'END.BUY' | translate }}</button>
+    <button class="uk-button uk-button-default play-button uk-width-1-1 "  style="margin: 20px 0px;" *ngIf="_gamesPlayed > 0 && _gamesPlayed < 3" (click)="OpenSureModal()">{{ 'END.BUY' | translate }}</button>
     <app-button *ngIf="_gamesPlayed >= 3" [disabled]="!isChecked" [primary]="isChecked" >{{ 'END.NOMORE' | translate }}</app-button>
     <!-- <button class="uk-button uk-button-default play-button uk-width-1-1 "  style="margin: 20px 0px;" *ngIf="_gamesPlayed >= 3" >{{ 'END.BUY' | translate }}</button> -->
     <!-- <app-button [primary]="true"  *ngIf="_gamesPlayed ==0" class="uk-modal-close" (click)="startGame()" >{{ 'END.PLAY' | translate }}</app-button>
@@ -35,5 +35,17 @@
     <!--<app-button [outlined]="true" class="uk-modal-close">Свободный режим</app-button>-->
     <!--Return to home page-->
     <app-button [link_button]="true" class="uk-modal-close" (click)="returnHome()">{{ 'END.BACK' | translate }}</app-button>
+  </div>
+</div>
+
+<div id="areUSure" class="uk-flex-top" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+    <!-- <img src="assets/images/wanted.svg" alt=""> -->
+    <h4 style="text-align: center;">{{ 'HOME.SURE' | translate }}</h4>
+   <!-- <pre>{{errorMsg}}</pre> -->
+   <div class="buttons-container uk-container uk-text-center" style="padding:10px; margin-top: 0px;">
+    <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"  style="margin-top: 20px" (click)="startGame()">{{ 'HOME.YES' | translate }}</button>
+    <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"  style="margin: 20px 0px;" (click)="OpenMainModal()">{{ 'HOME.NO' | translate }}</button>
+  </div>
   </div>
 </div>

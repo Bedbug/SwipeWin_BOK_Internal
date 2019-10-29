@@ -48,8 +48,21 @@ export class ReturnhomeComponent implements OnInit {
   GoSubscribe() {
     
   }
+
+  OpenSureModal() {
+    var modal = UIkit.modal("#areUSure");
+    //   this.errorMsg = this.noMoreRealGames;
+    modal.show();
+  }
+  OpenMainModal() {
+    var modal = UIkit.modal("#result");
+    //   this.errorMsg = this.noMoreRealGames;
+    modal.show();
+  }
+
   startGame() {
     console.log("Games Played: "+ this.gamesPlayed);
+    
     // if(this._gamesPlayed >= 3) {
     //   // popup modal with error
     //   var modal = UIkit.modal("#error");

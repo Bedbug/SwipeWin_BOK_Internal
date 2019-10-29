@@ -3,7 +3,8 @@ import {  DataService } from  '../data.service';
 import { Router } from '@angular/router';
 import {  Observable } from 'rxjs';
 import { SessionService } from '../session.service';
- 
+import UIkit from 'uikit';
+
 @Component({
   selector: 'app-winners',
   templateUrl: './winners.component.html',
@@ -96,7 +97,11 @@ export class WinnersComponent implements OnInit {
     $event.stopPropagation();
     this.router.navigate(['/home']);
   }
-  
+  OpenSureModal() {
+    var modal = UIkit.modal("#areUSure");
+    //   this.errorMsg = this.noMoreRealGames;
+    modal.show();
+  }
   startGame() {
       console.log("Play Main Game!");
       this.sessionService.gamesPlayed++;

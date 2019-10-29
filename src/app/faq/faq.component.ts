@@ -3,6 +3,7 @@ import { DataService } from '../data.service';
 import { SessionService } from '../session.service';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import UIkit from 'uikit';
 
 @Component({
   selector: 'app-faq',
@@ -48,6 +49,12 @@ export class FaqComponent implements OnInit {
     this.router.navigate(['/home']);
   }
   
+  OpenSureModal() {
+    var modal = UIkit.modal("#areUSure");
+    //   this.errorMsg = this.noMoreRealGames;
+    modal.show();
+  }
+
   startGame() {
       console.log("Play Main Game!");
       this.sessionService.gamesPlayed++;

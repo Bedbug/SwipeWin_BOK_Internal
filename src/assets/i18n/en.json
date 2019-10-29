@@ -23,7 +23,10 @@
         "FOOTER_02": "To opt out send STOP to 2015. ",
         "FOOTER_02b": "By clicking on confirm you agree with the ",
         "FOOTER_02c": "Terms & Conditions.",
-        "FOOTER_03": "© Beeline 2019"
+        "FOOTER_03": "© Beeline 2019",
+        "SURE": "Are you sure?",
+        "YES": "Yes",
+        "NO": "No"
     },
     "BURGER": {
         "HOME": "Home",
