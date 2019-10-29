@@ -38,14 +38,14 @@
   </div>
 </div>
 
-<div id="areUSure" class="uk-flex-top" uk-modal>
+<div id="areUSure" style="z-index: 9999;" class="uk-flex-top" uk-modal >
   <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
     <!-- <img src="assets/images/wanted.svg" alt=""> -->
     <h4 style="text-align: center;">{{ 'HOME.SURE' | translate }}</h4>
    <!-- <pre>{{errorMsg}}</pre> -->
    <div class="buttons-container uk-container uk-text-center" style="padding:10px; margin-top: 0px;">
     <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"  style="margin-top: 20px" (click)="startGame()">{{ 'HOME.YES' | translate }}</button>
-    <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"  style="margin: 20px 0px;" (click)="OpenMainModal()">{{ 'HOME.NO' | translate }}</button>
+    <app-button [link_button]="true" class="uk-modal-close"   style="margin: 20px 0px;" (click)="OpenMainModal()">{{ 'HOME.NO' | translate }}</app-button>
   </div>
   </div>
 </div>

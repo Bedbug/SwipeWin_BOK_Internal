@@ -48,7 +48,7 @@
    <!-- <pre>{{errorMsg}}</pre> -->
    <div class="buttons-container uk-container uk-text-center" style="padding:10px; margin-top: 0px;">
     <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"  style="margin-top: 20px" (click)="startGame()">{{ 'HOME.YES' | translate }}</button>
-    <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"  style="margin: 20px 0px;" >{{ 'HOME.NO' | translate }}</button>
+    <app-button [link_button]="true" class="uk-modal-close"   style="margin: 20px 0px;">{{ 'HOME.NO' | translate }}</app-button>
   </div>
   </div>
 </div>
