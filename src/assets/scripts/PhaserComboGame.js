@@ -472,11 +472,12 @@ var __phaser = {
         timerBgBg.anchor.set(0);
         timerBgBg.alpha = 0.3;
         timerBgBg.width = game.camera.width;
-        timerBgBg.height = 5;
+        timerBgBg.tint = 0x0000000;
+        timerBgBg.height = 15;
         var timerBg = game.add.sprite(0, 0, 'zone_no');
         timerBg.anchor.set(0);
         timerBg.width = game.camera.width;
-        timerBg.height = 5;
+        timerBg.height = 15;
         var TimerGroup = game.add.group();
         that.timePlus = game.add.sprite(0, 20, 'plusSec');
         that.timePlus.anchor.set(0);
