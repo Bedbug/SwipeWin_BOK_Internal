@@ -44,14 +44,15 @@ export class ResultComponent implements OnInit {
   private _isInTop = true;
   private _bestWeekScore = 0;
   private _gameScore: number;
-  
+  private modal; 
+  private modal2; 
   constructor( private session: SessionService, private router: Router, private translate: TranslateService ) { }
 
   ngOnInit() {
     if (!this.session.lastGameResults)
       this.router.navigate(['home']);
     
-    console.table(this.session.lastGameResults);
+   //console.table(this.session.lastGameResults);
 
     this._rightAnswerCount = this.session.lastGameResults.correctAnswers;
     this._cashbackAmount = this.session.lastGameResults.cashbackWon || 0;
@@ -68,36 +69,40 @@ export class ResultComponent implements OnInit {
     if(this._rightAnswerCount > bestScore)
       this.session.user.bestScore = this._rightAnswerCount
     
-    console.log("Games Played: "+ this._gamesPlayed);
-    console.log("cashBack Won: "+ this._cashbackAmount);
+   //console.log("Games Played: "+ this._gamesPlayed);
+   //console.log("cashBack Won: "+ this._cashbackAmount);
     
-    var modal = UIkit.modal("#result", {escClose: false, bgClose: false});
-    setTimeout( () => { modal.show(); }, 1000 );
-      
+    this.modal = UIkit.modal("#result", {escClose: false, bgClose: false});
+    setTimeout( () => { this.modal.show(); }, 1000 );
+    this.modal2 = UIkit.modal("#areUSure");
   }
 
   OpenSureModal() {
-    var modal = UIkit.modal("#areUSure");
-    //   this.errorMsg = this.noMoreRealGames;
-    modal.show();
+    // var modal = UIkit.modal("#areUSure");
+    this.modal2.show();
+    // var modal2 = UIkit.modal("#result");
+    // this.modal.hide();
+    
   }
   
   OpenMainModal() {
-    var modal = UIkit.modal("#result");
+    // var modal = UIkit.modal("#result");
     //   this.errorMsg = this.noMoreRealGames;
-    modal.show();
+    this.modal.show();
+    this.modal2.hide();
   }
   
   
   startGame() {
-    var modal = UIkit.modal("#result");
-    modal.hide();
+    // var modal = UIkit.modal("#result");
+    this.modal.hide();
+    this.modal2.hide();
     // if(this._gamesPlayed >= 3) {
     //   // popup modal with error
     //   this.router.navigate(['returnhome']);
       
     // }else{
-      console.log("Play Main Game!");
+     //console.log("Play Main Game!");
       this.session.gamesPlayed++;
        this.router.navigate(['game']);
     // }
@@ -138,7 +143,7 @@ export class ResultComponent implements OnInit {
   }
   
   get FooterText(): string {
-    console.log("Games Played: "+ this._gamesPlayed);
+   //console.log("Games Played: "+ this._gamesPlayed);
     // if(this._firstGameEver){
     //   return "Станьте ближе к 25 000 ₽\nПолучите дополнительную игру сейчас!"
     // }else 
