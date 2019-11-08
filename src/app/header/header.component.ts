@@ -84,7 +84,7 @@ export class HeaderComponent implements OnInit {
    if(this.alignAllLeft)
      this.translate.use("ru");
      else
-     this.translate.use("kaz");
+     this.translate.use("en");
   }
 
 }
