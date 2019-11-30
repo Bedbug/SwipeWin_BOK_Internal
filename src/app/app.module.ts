@@ -21,6 +21,7 @@ import { TutorialComponent } from './tutorial/tutorial.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { StorageServiceModule } from 'ngx-webstorage-service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SessionService } from './session.service';
 import { ReturnhomeComponent } from './returnhome/returnhome.component';
 import { HistoryComponent } from './cashback/history/history.component';
@@ -36,8 +37,9 @@ import { CountdownComponent } from './components/countdown/countdown.component';
 import { Ng2PhaserDirective } from './ng2-phaser.directive';
 import { DemogameComponent } from './demogame/demogame.component';
 import { ResultdemoComponent } from './game/resultdemo/resultdemo.component';
+import { MsisdnEnrichmentDetector } from './interceptors/msisdn-enrichment-detector';
 import { Globals } from './globals';
-import { LottieAnimationViewModule } from 'ng-lottie';
+// import { LottieAnimationViewModule } from 'ng-lottie';
 // import { PhaserModule } from 'phaser-component-library';
 //import { NG2_PHASER } from 'ang2-phaser/ng2phaser';
 // Import your AvatarModule
@@ -181,13 +183,14 @@ imports: [
     GravatarModule,
     Ng2ImgMaxModule,
     DeviceDetectorModule.forRoot(),
-    LottieAnimationViewModule.forRoot(),
+    // LottieAnimationViewModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
 ],
 providers: [
     SessionService,
     Globals,
-    CookieService
+    CookieService,
+    { provide: HTTP_INTERCEPTORS, useClass: MsisdnEnrichmentDetector, multi: true }
 ],
 bootstrap: [AppComponent]
 })

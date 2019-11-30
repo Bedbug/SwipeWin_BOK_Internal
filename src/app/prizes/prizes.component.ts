@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { SessionService } from '../session.service';
 import { Router } from '@angular/router';
-import UIkit from 'uikit';
 
 @Component({
   selector: 'app-prizes',
@@ -33,13 +32,7 @@ export class PrizesComponent implements OnInit {
   public subscribe($event) {
     console.log('button is clicked');
     $event.stopPropagation();
-    this.router.navigate(['/home']);
-  }
-
-  OpenSureModal() {
-    var modal = UIkit.modal("#areUSure");
-    //   this.errorMsg = this.noMoreRealGames;
-    modal.show();
+    this.router.navigate(['home']);
   }
   
   startGame() {

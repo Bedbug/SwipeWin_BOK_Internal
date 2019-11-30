@@ -1,5 +1,5 @@
 .button {
-  border-radius: 20px;
+  border-radius: 0px;
   margin-bottom: 12px;
   border:none;
   font-size: 20px;
@@ -12,10 +12,8 @@
   min-height:44px;
   text-transform: none;
   &_secondary {
-    background-image: linear-gradient(to bottom, #f6d356, #f6d356 19%, #f6d356 41%, #f6d356 88%, #f6d356);
-    border:none;
-    border-bottom: 3px solid #dabb4d;
-    color: #000000;
+    background-image: linear-gradient(to bottom, #ff6600, #ff6600 19%, #ff6600 41%, #ff6600 88%, #ff6600);
+    color: #ffffff;
   }
   &_primary {
     // box-shadow: 0 9px 18px 0 rgba(89, 247, 74, 0.2);

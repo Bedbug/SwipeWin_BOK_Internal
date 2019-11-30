@@ -16,8 +16,9 @@ export class LoginComponent implements OnInit {
     
      if (!this.sessionService.token || !this.sessionService.isSubscribed || !this.sessionService.isEligible) {
       // wanna inform the user here?
+      //this._cashback = this.sessionService.cashback;
       // Initiate user authentication
-      //this.dataService.authenticate('msisdn','pin');
+       this.router.navigate(['home']);
     } else {
       this.router.navigate(['/returnhome']);
     }

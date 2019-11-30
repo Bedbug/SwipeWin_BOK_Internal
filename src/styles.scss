@@ -32,15 +32,14 @@
   }
   .nav-list-button{
     font-size: 17px;
-    font-weight: bold;
+    font-weight: normal;
     font-style: normal;
     font-stretch: normal;
     line-height: 1.41;
     letter-spacing: normal;
-    color: #000000;
+    color: #ffffff;
     padding-top: 0;
     padding-bottom: 0;
-
   }
   .nav-list-icon{
     width: 30px;
@@ -64,15 +63,15 @@
 }
 html, body {
   // font-family: 'CorpidE1SCd_Regular', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'CorpidE1SCd_Regular', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'CorpidE1SCd_Regular', -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
   * {
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'CorpidE1SCd_Regular', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'CorpidE1SCd_Regular', -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   }
   height: 100%;
   // background-image: radial-gradient(circle at 50% 50%, #007cff, #002094);
   // background-image: radial-gradient(circle at 50% 50%, #262729, #262729);
-  background-image: url("assets/images/background.svg");
+  background-image: url("assets/images/background.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -80,7 +79,7 @@ html, body {
 }
 
 .uk-logo{
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'CorpidE1SCd_Regular', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'CorpidE1SCd_Regular', -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .uk-dotnav > .uk-active > * {
@@ -95,24 +94,19 @@ html, body {
 .buttons-container {
   margin-top: 1rem;
   .play-button {
-    border-radius: 20px;
-    // box-shadow: 0 9px 18px 0 rgba(89, 247, 74, 0.2);
-    // background-image: linear-gradient(to bottom, #fdff67, #8ff212 16%, #3ead07 84%, #2bc71c);
+    border-radius: 25px;
     box-shadow: 0 9px 13px 0 rgba(0, 0, 0, 0.1);
-    background-image: linear-gradient(to bottom, #f6d356, #f6d356 16%, #f6d356 66%, #f6d356);
-    border:none;
-    border-bottom: 3px solid #dabb4d;
+    background-image: linear-gradient(to bottom, #077dbd, #077dbd 16%, #077dbd 66%, #077dbd);
     margin-bottom: 12px;
-    
-    font-size: 23px;
-    font-weight: bold;
+    border: none;
+    font-size: 25px;
     font-style: normal;
     font-stretch: normal;
     line-height: 1.25;
     letter-spacing: normal;
     text-align: center;
-    color: rgb(0, 0, 0);
-    min-height:44px;
+    color: white;
+    min-height: 44px;
     text-transform: none;
   }
 }
@@ -140,23 +134,22 @@ html, body {
 .header_title{
   z-index: 200;
     position: fixed;
-    top: 11px;
+    top: 10px;
     left: 50%;
     margin-left: -50px;
     background-color: #000000;
     text-align: center;
-    font-weight: normal;
+    font-weight: bold;
     color: #fff;
     transform-origin: 50% 50%;
     font-size: 30px;
 }
 .inside_text{
-  background-color: #ffffff;
+  background-color: #000000;
     width: 200px;
     height: 55px;
     position: absolute;
     left: 50%;
     margin-left: -50px;
-    color: #000000;
-    // text-shadow: 0px 1px 0px #b39a43;
+    
 }

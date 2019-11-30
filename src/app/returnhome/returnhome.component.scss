@@ -14,8 +14,6 @@
 
 .slideshow-container{
   margin-top: 0px;
-  margin-bottom: -40px;
-  
   min-height: 255px;
   .list-wrapper{
     h2{
@@ -29,11 +27,10 @@
       color: #ffffff;
     }
     span.roubles{
-      font-size: 40px;
+      font-size: 52px;
       color: #ffe286;
       line-height: 1;
       font-weight: 700;
-      text-shadow: 2px 2px 5px rgba(8, 8, 8, 0.5);
     }
     span.cashback-text{
       font-size: 38px;
@@ -57,15 +54,15 @@
 
 .buttons-container{
   margin-top: 1rem;
-  max-width: 460px;
+  max-width: 600px;
   outline: none;
   .demo-button{
-    border-radius: 20px;
+    border-radius: 0px;
     background-image: linear-gradient(to bottom, #ffffff, #fcfcfc 19%, #efefef 41%, #f0f0f0 88%, #ffffff);
     margin-bottom: 16px;
     border:none;
     font-size: 16px;
-    font-weight: bold;
+    // font-weight: bold;
     font-style: normal;
     font-stretch: normal;
     line-height: 1.25;
@@ -76,28 +73,26 @@
     text-transform: none;
   }
   .play-button{
-    border-radius: 20px;
+    border-radius: 0px;
     // box-shadow: 0 9px 18px 0 rgba(89, 247, 74, 0.2);
     // background-image: linear-gradient(to bottom, #fdff67, #8ff212 16%, #3ead07 84%, #2bc71c);
     box-shadow: 0 9px 13px 0 rgba(0, 0, 0, 0.1);
-    background-image: linear-gradient(to bottom, #f6d356, #f6d356 16%, #f6d356 66%, #f6d356);
+    background-image: linear-gradient(to bottom, #ff6600, #ff6600 16%, #ff6600 66%, #ff6600);
     margin-bottom: 12px;
-    
-    border-bottom: 3px solid #ccaf48;
-    
+    border:none;
     font-size: 25px;
-    font-weight: bold;
+    // font-weight: bold;
     font-style: normal;
     font-stretch: normal;
     line-height: 1.25;
     letter-spacing: normal;
     text-align: center;
-    color: rgb(0, 0, 0);
+    color: white;
     min-height:44px;
     text-transform: none;
   }
   .message-container{
-    font-size: 15px;
+    font-size: 17px;
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
@@ -133,24 +128,39 @@
 // }
 
 @media (max-width: 767px), (max-height: 1205px) {
-  .main-footer{
-  // background-color: #202020;
-  padding: 1.3rem;
-  color: #ffffff;
-  // min-height: 167px;
-  max-width: 100%; 
-  // height: 300px;
-  
-  .uk-button-link{
-    color: #9198a8;
-    cursor:pointer;
+    .main-footer{
+    background-color: #202020;
+    padding: 1.3rem;
+    color: #ffffff;
+    // min-height: 167px;
+    max-width: 100%; 
+    // height: 300px;
+    
+    .uk-button-link{
+      color: #9198a8;
+      cursor:pointer;
+    }
   }
-}
 }
 
 @media screen and (min-width: 600px) {
   .main-footer{
-    // background-color: #202020;
+    background-color: #202020;
+    padding: 1.3rem;
+    color: #ffffff;
+    max-width: 100%; 
+    // height: 150px;
+    // position:fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    // position: absolute;bottom: 0px;width: -webkit-fill-available; font-size: 15px;
+  }
+}
+
+@media screen and (min-height: 800px) {
+  .main-footer{
+    background-color: #202020;
     padding: 1.3rem;
     color: #ffffff;
     max-width: 100%; 
@@ -161,61 +171,30 @@
     right: 0px;
     position: absolute;bottom: 0px;width: -webkit-fill-available; font-size: 15px;
   }
-    .scaled{  
-      -ms-transform: scale(1.3);
-      -webkit-transform: scale(1.3);
-      -o-transform: scale(1.3);
-      -moz-transform: scale(1.3);
-      transform: scale(1.3);
-      margin-bottom: 30px;
-    }
-  }
-  
-  @media screen and (max-width: 330px) {
-    .main-footer{
-      // background-color: #202020;
-      padding: 1.3rem;
-      color: #ffffff;
-      max-width: 100%; 
-      // height: 150px;
-      position:fixed;
-      bottom: 0px;
-      left: 0px;
-      right: 0px;
-      position: absolute;bottom: 0px;width: -webkit-fill-available; font-size: 15px;
-    }
-      .scaled{  
-        -ms-transform: scale(0.8);
-        -webkit-transform: scale(0.8);
-        -o-transform: scale(0.8);
-        -moz-transform: scale(0.8);
-        transform: scale(0.8);
-         margin-bottom: -40px;
-      }
-    }
+}
 
 
 @media (min-width: 768px) and (min-height: 1206px){
-.main-footer{
-// background-color: #202020;
-padding: 1.3rem;
-color: #ffffff;
-max-width: 100%; 
-// height: 150px;
-position:fixed;
-bottom: 0px;
-left: 0px;
-right: 0px;
-position: absolute;bottom: 0px;width: -webkit-fill-available; font-size: 15px;
-.uk-button-link{
-  color: #9198a8;
-  cursor:pointer;
-}
+  .main-footer{
+  background-color: #202020;
+  padding: 1.3rem;
+  color: #ffffff;
+  max-width: 100%; 
+  // height: 150px;
+  position:fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  position: absolute;bottom: 0px;width: -webkit-fill-available; font-size: 15px;
+  .uk-button-link{
+    color: #9198a8;
+    cursor:pointer;
+  }
 }
 }
 
  .main-footer2{
-  // background-color: #202020;
+  background-color: #202020;
   padding: 1.3rem;
   color: #ffffff;
   max-width: 100%; 
@@ -237,7 +216,7 @@ position: absolute;bottom: 0px;width: -webkit-fill-available; font-size: 15px;
 }
 .cashback {
   margin: 31px 16px 31px 16px;
-  border-radius: 4px;
+  border-radius: 0px;
   box-shadow: 0 2px 20px 0 rgba(60, 61, 64, 0.1), 0 2px 4px 0 rgba(55, 55, 56, 0.2);
   background-color: #ffffff;
   padding: 18px;
@@ -269,6 +248,25 @@ position: absolute;bottom: 0px;width: -webkit-fill-available; font-size: 15px;
     color: #6e7782;
   }
 }
+
+#otp {
+  text-align: center;
+  padding-top: 15px;
+  h4 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    margin-top: 20px;
+  }
+  p {
+    font-size: 16px;
+    line-height: 1.43;
+    color: #6e7782;
+  }
+}
+
+
+
 .uk-container{
   max-width:auto;
 }
@@ -293,22 +291,28 @@ pre {
 }
 
 .uk-border-rounded {
-  border-radius: 20px;
+  border-radius: 0px;
 }
-
-.uk-input[_ngcontent-c2][_ngcontent-c2], .uk-select[_ngcontent-c2][_ngcontent-c2]:not([multiple]):not([size]) {
-  height: 48px;
+.uk-input, .uk-select:not([multiple]):not([size]) {
+  height: 44px;
   vertical-align: middle;
   display: inline-block;
-  text-align: center;
-  font-size: larger;
-}
-.uk-form-icon:not(.uk-form-icon-flip) ~ .uk-input {
-  padding-left: 14px !important;
-  text-align: center;
 }
 
 .uk-form-icon-flip ~ .uk-input {
-  padding-right: 40px !important;
-  padding-left: 40px !important;
+  padding-right: 0px !important;
+    text-align: center;
+    font-size: 22px; 
 }
+// #loading {
+// 		-webkit-animation: rotation 2s infinite linear;
+// }
+
+// @-webkit-keyframes rotation {
+// 		from {
+// 				-webkit-transform: rotate(0deg);
+// 		}
+// 		to {
+// 				-webkit-transform: rotate(359deg);
+// 		}
+// }

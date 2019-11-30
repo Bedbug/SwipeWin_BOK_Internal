@@ -27,8 +27,18 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    const that = this;
+    // Checking Lang
+    if(this.translate.currentLang == "ar") {
+      this.alignAllLeft = false;
+    } else {
+      this.alignAllLeft = true;
+    }
+    let offcanvas = UIkit.offcanvas("#offcanvas-nav");
+    console.log(offcanvas);
+    offcanvas.$props.flip =  this.alignAllLeft;
 
+
+    const that = this;
     UIkit.util.on('#offcanvas-nav', 'hide', function (e) {
       // do something
       const currentClass = this
@@ -70,21 +80,23 @@ export class HeaderComponent implements OnInit {
      if (!this.session.token) {
       // Redirect him to Home
       this.router.navigate(['/home']);
-    } else {
-      this.router.navigate(['/returnhome']);
-    }
-    
+      } else {
+        this.router.navigate(['/returnhome']);
+      }
    }
 
    changeLanguage() {
-    this.alignAllLeft = !this.alignAllLeft;
-   //  const browserLang = this.translate.getBrowserLang();
-   //  console.log(browserLang);
-   //  this.translate.use(browserLang.match(/en|ar/) ? browserLang : 'en');
-   if(this.alignAllLeft)
-     this.translate.use("ru");
-     else
-     this.translate.use("en");
-  }
+     this.alignAllLeft = !this.alignAllLeft;
+     let offcanvas = UIkit.offcanvas("#offcanvas-nav");
+     offcanvas.flip =  this.alignAllLeft;
+     console.log( offcanvas);
+    //  const browserLang = this.translate.getBrowserLang();
+    //  console.log(browserLang);
+    //  this.translate.use(browserLang.match(/en|ar/) ? browserLang : 'en');
+    if(this.alignAllLeft)
+      this.translate.use("en");
+      else
+      this.translate.use("ar");
+   }
 
 }

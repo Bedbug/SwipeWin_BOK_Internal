@@ -111,7 +111,7 @@ export class GameComponent implements OnInit {
 
     let that = this;
     const window = that.dataService.getWindow() as any;
-    console.log("Locale: "+this.translate.currentLang);
+
     var js = document.getElementById("Phaser") as any;
     if (js) {
       that._gameInited = true;
@@ -126,8 +126,7 @@ export class GameComponent implements OnInit {
       js = document.createElement("script");
       js.type = "text/javascript";
       js.id = 'Phaser';
-      // js.src = 'assets/scripts/PhaserComboGame.min.js';
-      js.src = 'assets/scripts/PhaserComboGame.js';
+      js.src = 'assets/scripts/PhaserComboGame.min.js';
       document.body.appendChild(js);
       js.onload = function() {
         that._gameInited = true;

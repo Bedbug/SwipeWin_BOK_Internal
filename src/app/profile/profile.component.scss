@@ -12,7 +12,6 @@
     letter-spacing: normal;
     text-align: center;
     color: #ffffff;
-    text-shadow: 2px 2px 5px black;
   }
   .results {
     padding-left: 16px;
@@ -24,7 +23,7 @@
       font-stretch: normal;
       line-height: 1.47;
       letter-spacing: normal;
-      color: #000000;
+      color: #ff6600;
     }
     .text {
       font-size: 12px;
@@ -34,7 +33,6 @@
       line-height: 1.17;
       letter-spacing: normal;
       color: #ffffff;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     }
     margin-top: 24px;
   }
@@ -80,7 +78,6 @@
   line-height: normal;
   letter-spacing: normal;
   color: #ffffff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   .label {
     font-size: 20px;
     font-weight: bold;
@@ -90,7 +87,6 @@
     color: #ffffff;
     text-align: left;
     padding-left: 0;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   }
 }
 .settings-button {
@@ -169,3 +165,4 @@
     color: #6e7782;
   }
 }
+

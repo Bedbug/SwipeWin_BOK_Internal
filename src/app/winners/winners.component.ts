@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {  DataService } from  '../data.service';
 import { Router } from '@angular/router';
 import {  Observable } from 'rxjs';
-import { SessionService } from '../session.service';
-import UIkit from 'uikit';
-
+ 
 @Component({
   selector: 'app-winners',
   templateUrl: './winners.component.html',
@@ -17,12 +15,10 @@ export class WinnersComponent implements OnInit {
   public monthlyWinners$: Array<any> = [];
   showDay: boolean = true;
   sliceNum: number = 5;
-  isActive: boolean;
-  _gamesPlayed: number;
   
   
   
-  constructor(private data: DataService, private sessionService: SessionService, private router: Router,) { }
+  constructor(private data: DataService, private router: Router,) { }
  
   
   doAlert(){
@@ -31,15 +27,6 @@ export class WinnersComponent implements OnInit {
     }
   
   ngOnInit() {
-    if (!this.sessionService.token || !this.sessionService.isSubscribed || !this.sessionService.isEligible) {
-      // wanna inform the user here?
-      this.isActive = true;
-      
-    }else{
-      this.isActive = false;
-      this._gamesPlayed = this.sessionService.gamesPlayed;
-    }
-
     this.data.getWinners().then(
         (data:any) => {
           
@@ -86,39 +73,12 @@ export class WinnersComponent implements OnInit {
       
   }
 
+  goHome() {
+    this.router.navigate(['home']);
+  }
 
   formatDate(stringDate){
     var date = new Date(stringDate);
     return date.getDate() + '/' + (date.getMonth() + 1) + '/' +  date.getFullYear();
-  }
-
-  public subscribe($event) {
-    console.log('button is clicked');
-    $event.stopPropagation();
-    this.router.navigate(['/home']);
-  }
-  OpenSureModal() {
-    var modal = UIkit.modal("#areUSure");
-    //   this.errorMsg = this.noMoreRealGames;
-    modal.show();
-  }
-  startGame() {
-      console.log("Play Main Game!");
-      this.sessionService.gamesPlayed++;
-      this.router.navigate(['game']);
-    
-  }
-  
-  startFreeGame() {
-    this.router.navigate(['freetimegame']);
-  }
-  goHomeWithLogin() {
-    console.log("Goto Return Home!");
-    localStorage.setItem('loginOn', "1");
-    this.router.navigate(['home']);
-  }
-
-  goHome() {
-    this.router.navigate(['home']);
   }
 }

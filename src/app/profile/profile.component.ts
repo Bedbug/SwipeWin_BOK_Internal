@@ -5,7 +5,6 @@ import { SessionService } from '../session.service';
 import { environment } from '../../environments/environment';
 //import { User } from '../../models/User';
 import UIkit from 'uikit';
-import { debug } from 'util';
 
 const VIEW_STATES = {
   PROFILE: 'SHOW_PROFILE',
@@ -75,7 +74,6 @@ export class ProfileComponent implements OnInit {
     else {
       this.dataService.getUserProfile().then( 
         (data:User) => {
-          console.table(data);
           this.sessionService.user = data;
           this.userName = data.username;
           this._totalGamesCount = data.gamesPlayed;
@@ -132,10 +130,7 @@ export class ProfileComponent implements OnInit {
   }
   
   goHome() {
-    if (!this.sessionService.token || !this.sessionService.isSubscribed || !this.sessionService.isEligible)
-        this.router.navigate(['home']);
-        else
-        this.router.navigate(['returnhome']);
+    this.router.navigate(['home']);
   }
     
 }

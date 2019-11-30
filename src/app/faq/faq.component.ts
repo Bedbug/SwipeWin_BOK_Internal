@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { SessionService } from '../session.service';
 import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-import UIkit from 'uikit';
+import {TranslateService, LangChangeEvent} from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-faq',
@@ -14,12 +14,32 @@ export class FaqComponent implements OnInit {
   
    public isActive: boolean = false;
    public _gamesPlayed = 0;
-   
+   alignAllLeft = true;
 
-  constructor(private dataService : DataService, private sessionService: SessionService, private router: Router, private translate: TranslateService ) { }
+  constructor(private dataService : DataService, private sessionService: SessionService, private router: Router, public translate: TranslateService ) { }
 
  
   ngOnInit() {
+    if(this.translate.currentLang == "en") {
+      this.alignAllLeft = true;
+    }
+    if(this.translate.currentLang == "ar") {
+      this.alignAllLeft = false;
+    }
+    // Subscribe to Translate Service
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      // do something
+      console.log(event.lang);
+      if(this.translate.currentLang == "en") {
+        this.alignAllLeft = true;
+      }
+      if(this.translate.currentLang == "ar") {
+        this.alignAllLeft = false;
+      }
+
+    });
+
+
     if (!this.sessionService.token || !this.sessionService.isSubscribed || !this.sessionService.isEligible) {
       // wanna inform the user here?
       this.isActive = true;
@@ -28,33 +48,16 @@ export class FaqComponent implements OnInit {
       this.isActive = false;
       this._gamesPlayed = this.sessionService.gamesPlayed;
     }
+    
+    
   }
-
-  // public faqItems  = [
-  //   {
-  //     title: FAQ.MES_01,
-  //     text: 'FAQ.MES_01b',
-  //   },
-  //   {
-  //     title: 'FAQ.MES_02',
-  //     text: 'FAQ.MES_02b',
-  //   }
-
-  // ]
-
   
   public subscribe($event) {
     console.log('button is clicked');
     $event.stopPropagation();
-    this.router.navigate(['/home']);
+    this.router.navigate(['home']);
   }
   
-  OpenSureModal() {
-    var modal = UIkit.modal("#areUSure");
-    //   this.errorMsg = this.noMoreRealGames;
-    modal.show();
-  }
-
   startGame() {
       console.log("Play Main Game!");
       this.sessionService.gamesPlayed++;

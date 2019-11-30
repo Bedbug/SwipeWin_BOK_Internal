@@ -11,6 +11,12 @@ import UIkit from 'uikit';
 })
 
 export class ReturnhomeComponent implements OnInit {
+  credits: number;
+  loggedin: boolean = true;
+  openVerify: true;
+  lblShow:boolean = true;
+  passType: string = "password";
+  verErrorMes: boolean = false;
 
   get hasCashback(): number {
     return this._cashBackAmount;
@@ -48,21 +54,8 @@ export class ReturnhomeComponent implements OnInit {
   GoSubscribe() {
     
   }
-
-  OpenSureModal() {
-    var modal = UIkit.modal("#areUSure");
-    //   this.errorMsg = this.noMoreRealGames;
-    modal.show();
-  }
-  OpenMainModal() {
-    var modal = UIkit.modal("#result");
-    //   this.errorMsg = this.noMoreRealGames;
-    modal.show();
-  }
-
   startGame() {
     console.log("Games Played: "+ this.gamesPlayed);
-    
     // if(this._gamesPlayed >= 3) {
     //   // popup modal with error
     //   var modal = UIkit.modal("#error");
@@ -74,6 +67,7 @@ export class ReturnhomeComponent implements OnInit {
       this.sessionService.gamesPlayed++;
       this.router.navigate(['game']);
       // this.router.navigate(['freetimegame']);
+      //this.router.navigate(['demogame']);
     // }
   }
   
@@ -81,38 +75,13 @@ export class ReturnhomeComponent implements OnInit {
     this.router.navigate(['freetimegame']);
   }
 
-  public playDemoGame($event) {
-    console.log('Demo button is clicked');
-    
-    if (!this.sessionService.gameSettings || !this.sessionService.gameSettings.maintenance || this.sessionService.gameSettings.maintenance.siteDown || this.sessionService.gameSettings.maintenance.noGames)
-      return;
-      
-    // // this.router.navigate(['demogame']);
-    // this.demoGamesPlayed = +localStorage.getItem('demoGamesPlayed');
-    // // Check games count
-    // console.log("demoGamesPlayed "+ this.demoGamesPlayed);
-    // if(this.demoGamesPlayed >= 2) {
-    //   // popup modal with error
-    //   var modal = UIkit.modal("#error");
-    //   this.errorMsg = this.noMoreDemoGames;
-    //   modal.show();
-      
-    // }else{
-    //   // Add one and play the demo game
-    //   this.demoGamesPlayed++;
-    //   localStorage.setItem('demoGamesPlayed', this.demoGamesPlayed.toString());
-    //   localStorage.setItem('lastDemoPlayed', (new Date()).toString() );
-    //   // this.router.navigate(['demogame']);
-      this.router.navigate(['demogame']);
-    // }
-    
-  
-    
-  }
-
   constructor(private dataService: DataService, private sessionService: SessionService, private router: Router) { }
 
   ngOnInit() {
+    
+
+    console.log( "Has Credit: " + this.sessionService.hasCredit() );
+    console.log( "Played Games: " + this.sessionService.gamesPlayed );
     // user login validation check
     if (!this.sessionService.token || !this.sessionService.isSubscribed || !this.sessionService.isEligible) {
       // wanna inform the user here?
@@ -122,10 +91,9 @@ export class ReturnhomeComponent implements OnInit {
     }
     else if (!this.sessionService.isEligible) {
       this.router.navigate(['/home'], { queryParams: { errorCode: 1026 } });
-      
-      
     }
     else {
+      
       this._isSubscribed = this.sessionService.isSubscribed;
       console.log(this.sessionService.msisdn);
       console.log("this.session "+this.sessionService.token);
@@ -143,6 +111,9 @@ export class ReturnhomeComponent implements OnInit {
           
           console.log("this._gamesPlayed "+this._gamesPlayed);
           console.log("this.sessionService.gamesPlayed "+this.sessionService.gamesPlayed);
+
+          this.CheckCredits();
+          // Set Properties here
           // this._gamesPlayed = 3;
           // this._cashBackAmount = this.sessionService.user.wallet.pendingMaturityCashback + this.sessionService.user.wallet.pendingTransferCashback;
         },
@@ -154,4 +125,79 @@ export class ReturnhomeComponent implements OnInit {
     }
   }
 
+  CheckCredits() {
+    console.log("Checking Credits!");
+    
+      this.sessionService.hasCredit();
+    
+  }
+
+  OpenOTPPurchase() {
+    console.log("Open OTP Modal!");
+    // Start OTP proccess for new game purchace
+    // Send PIN
+    // Verify user Input
+    // If success purchaceCredit
+    this.dataService.purchaseCreditRequest().subscribe((resp: any) => {
+
+      // Open Modal
+      let modal = UIkit.modal("#otp");
+      modal.show();
+    },
+      (err: any) => {
+        console.log("Error with Sending purchase Pin!!!");
+        let modal = UIkit.modal("#error");
+        modal.show();
+      });
+  }
+
+  
+  OpenPass(){
+    this.lblShow = !this.lblShow;
+    console.log("Hide/Show Password: " + this.lblShow);
+    if(this.lblShow)
+      this.passType = "password";
+    else
+      this.passType = "test";
+  }
+
+  verify(pass: string) {
+
+    this.dataService.purchaseCredit(pass).subscribe((resp: any) => {
+
+      // Get JWT token from response header and keep it for the session
+      const userToken = resp.headers.get('X-Access-Token');
+      if (userToken)  // if exists, keep it
+        this.sessionService.token = userToken;
+
+      // Deserialize payload
+      const body: any = resp.body; // JSON.parse(response);
+      
+      if (body.credits > 0)
+        this.sessionService.credits = body.credits;
+
+      console.log("hasCredit: " + this.sessionService.hasCredit());
+     
+
+      this.sessionService.user = body;
+      this._gamesPlayed = this.sessionService.gamesPlayed;
+      console.table(body);
+
+      if (this.sessionService.user.credits > 0) {
+        // Burn Credit
+        this.startGame();
+      }
+
+      // Goto the returnHome page
+      //this.router.navigate(['/returnhome']);
+    },
+      (err: any) => {
+        console.log("Error With Pin!!!");
+       this.verErrorMes = true;
+      });
+  }
+  
+  resetPin() {
+    console.log("Reset PIN!");
+  }
 }

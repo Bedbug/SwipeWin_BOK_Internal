@@ -10,21 +10,20 @@ import { ActivatedRoute } from "@angular/router";
 export class AppComponent {
   title = 'swipr';
   lang: string;
-
   constructor(public translate: TranslateService, private activatedRoute: ActivatedRoute) {
-    translate.addLangs(['en', 'ru']);
-    translate.setDefaultLang('ru');
+    translate.addLangs(['en', 'ar']);
+    translate.setDefaultLang('en');
 
     const browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
+    translate.use(browserLang.match(/en|ar/) ? browserLang : 'en');
 
     this.activatedRoute.queryParams.subscribe(params => {
       // console.table(params);
       this.lang = params["lang"];
       if(this.lang != null)
       this.translate.setDefaultLang(this.lang);
+      
       console.log("Language Selected: "+this.lang);
     })
   }
-  
 }

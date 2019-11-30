@@ -2,47 +2,24 @@
   <span class="inside_text">{{ 'WINNERS.WINNERS' | translate }}</span>
 </div>
 
-<div class="winners-component">
+<div class="winners-component uk-container uk-text-center">
 
-<div class="buttons-container uk-container">
+<div class="buttons-container uk-container info-text">
   <table class="uk-table uk-table-divider">
     <thead>
       <tr >
-        <th style="width:33%">{{ 'WINNERS.DATE' | translate }}</th>
-        <th style="width:34%">{{ 'WINNERS.WINNER' | translate }}</th>
-        <th style="width:33%">{{ 'WINNERS.PRIZE' | translate }}</th>
+        <th style="width:50%">{{ 'WINNERS.PRIZE' | translate }}</th>
+        <th style="width:50%">{{ 'WINNERS.DATE' | translate }}</th>
       </tr>
     </thead>
     <tr *ngFor = "let winner of dailyWinners$; let i = index" [hidden]="!showDay || !dailyWinners$">
-      <td>{{winner.winDate}}</td>
-      <td>{{winner.msisdn}} - {{winner.username}}</td>
       <td>{{winner.winSum}}</td>
+      <td>{{winner.winDate}}</td>
     </tr>
-    <!--<tr *ngFor = "let winner of monthlyWinners$; let i = index" [hidden]="showDay || !monthlyWinners$">-->
-    <!--  <td>{{winner.winDate}}</td>-->
-    <!--  <td>{{winner.msisdn}} - {{winner.username}}</td>-->
-    <!--</tr>-->
+    
   </table>
+  
 </div>
-<!-- <app-button [secondary]="true" class="btn" (click)="goHome()">{{ 'WINNERS.BACK' | translate }}</app-button> -->
-
+<app-button [secondary]="true" class="btn" (click)="goHome()">{{ 'WINNERS.BACK' | translate }}</app-button>
 </div>
-<div class="buttons-container uk-container uk-text-center">
-     
-  <button class="uk-button uk-button-default play-button uk-width-1-1" *ngIf="isActive" (click)="goHomeWithLogin()">{{ 'PRIZES.SUB' | translate }} </button>
-  <!-- <button class="uk-button uk-button-default play-button uk-width-1-1" style="background-image: linear-gradient(to bottom, #ffffff, #c3c3c3 16%, #acacac 84%, #c5c5c5);" *ngIf="!isActive" >Подписаться</button> -->
-  <!-- <button *ngIf="_gamesPlayed >= 3 && !isActive" class="uk-button uk-button-default play-button uk-width-1-1" (click)="startGame()">{{ 'PRIZES.BUY' | translate }}</button> -->
-  <button *ngIf="_gamesPlayed > 0 && _gamesPlayed < 3  && !isActive" class="uk-button uk-button-default play-button uk-width-1-1" (click)="OpenSureModal()" >{{ 'PRIZES.BUY' | translate }}</button>
-  <button *ngIf="_gamesPlayed == 0 && !isActive" class="uk-button uk-button-default play-button uk-width-1-1" (click)="startGame()" >{{ 'PRIZES.PLAY' | translate }}</button>
-</div>
-<div id="areUSure" class="uk-flex-top" uk-modal>
-  <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-    <!-- <img src="assets/images/wanted.svg" alt=""> -->
-    <h4 style="text-align: center;">{{ 'HOME.SURE' | translate }}</h4>
-   <!-- <pre>{{errorMsg}}</pre> -->
-   <div class="buttons-container uk-container uk-text-center" style="padding:10px; margin-top: 0px;">
-    <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"  style="margin-top: 20px" (click)="startGame()">{{ 'HOME.YES' | translate }}</button>
-    <app-button [link_button]="true" class="uk-modal-close"   style="margin: 20px 0px;">{{ 'HOME.NO' | translate }}</app-button>
-  </div>
-  </div>
-</div>
+ 

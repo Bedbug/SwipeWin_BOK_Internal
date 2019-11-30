@@ -1,6 +1,7 @@
 <div class="header_title">
   <span class="inside_text">{{ 'SETT.SETT' | translate }}</span>
 </div>
+
 <div class="profile-component uk-text-center settings" style="max-width: 600px;
     margin-left: auto;
     margin-right: auto;">
@@ -32,7 +33,7 @@
     >{{_name}}
     </app-input-text>
     <div class="sex-selector">
-      <label class="uk-form-label label text-shadow" for="sex">{{ 'SETT.SEX' | translate }}</label>
+      <label class="uk-form-label label" for="sex">{{ 'SETT.SEX' | translate }}</label>
       <div class="uk-button-group" id="sex" data-uk-button-radio>
         
         <div class="uk-button uk-width-1-2 " (click)="doAlert()" [ngClass]="sex ? 'active' : ''">

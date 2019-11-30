@@ -142,7 +142,7 @@ var __phaser = {
     type: 'demo',
     //-------------------
     init: function init(canvasEle, appComponent, locale) {
-      if(locale)Localization.locale=locale;
+      Localization.locale = locale;
       // create game object
       var game = new Phaser.Game(window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio, Phaser.CANVAS, canvasEle, {
         preload: preload,
@@ -189,10 +189,6 @@ var __phaser = {
        //console.log('Viewport Height: ' + game.scale.viewportHeight, x, y += yi);
        //console.log('window.innerHeight: ' + window.innerHeight, x, y += yi);
        //console.log('window.outerHeight: ' + window.outerHeight, x, y += yi); // set canvas color
-        console.log("GAME LOCALIZATION IS: "+Localization.locale);
-        // Load assets depending language
-        var trueString = "assets/sprites/true@3x_"+Localization.locale+".png";
-        var falseString = "assets/sprites/false@3x_"+Localization.locale+".png";
 
         game.stage.backgroundColor = '#95a5a6'; // Create Loader
 
@@ -208,8 +204,8 @@ var __phaser = {
         game.load.image("zone_no", "assets/sprites/zone_no.png");
         game.load.image("timerbg", "assets/sprites/timerBg.png");
         game.load.image("tableBg", "assets/sprites/tableBg.png");
-        game.load.image("falseTag", falseString);
-        game.load.image("trueTag", trueString);
+        game.load.image("falseTag", "assets/sprites/false@3x.png");
+        game.load.image("trueTag", "assets/sprites/true@3x.png");
         game.load.image("gameNo", "assets/sprites/no@3x.png");
         game.load.image("gameYes", "assets/sprites/yes@3x.png");
         game.load.image("gameNoDesat", "assets/sprites/no@3x_desat.png");
@@ -472,12 +468,11 @@ var __phaser = {
         timerBgBg.anchor.set(0);
         timerBgBg.alpha = 0.3;
         timerBgBg.width = game.camera.width;
-        timerBgBg.tint = 0x0000000;
-        timerBgBg.height = 15;
+        timerBgBg.height = 5;
         var timerBg = game.add.sprite(0, 0, 'zone_no');
         timerBg.anchor.set(0);
         timerBg.width = game.camera.width;
-        timerBg.height = 15;
+        timerBg.height = 5;
         var TimerGroup = game.add.group();
         that.timePlus = game.add.sprite(0, 20, 'plusSec');
         that.timePlus.anchor.set(0);

@@ -26,28 +26,7 @@ export class DataService {
   getDocument() {
     return document;
   }
-  
-  //// A redirect to the Open Auth protocol endpoint to initiate the user authentication with the TelCo
-  //authenticateRedirect() {
 
-  //  if (!this.session.gameSettings || !this.session.gameSettings.maintenance || this.session.gameSettings.maintenance.siteDown || this.session.gameSettings.maintenance.noGames)
-  //    this.router.navigate(['/home']);
-  //  else {
-  //    const url = encodeURI(`${environment.mtsAuthDomainProtocol}://${environment.mtsAuthDomainUrl}/amserver/oauth2/auth?client_id=${environment.mtsAuthClientId}&scope=openid profile mobile&redirect_uri=${environment.mtsAuthCallbackUrl}&response_type=code&display=page&state=1`);
-     
-  //    window.location.href = url;
-  //  }
-  //}
-  
-  //// A redirect to the Open Auth protocol endpoint to initiate the user authentication with the TelCo
-  //logoutRedirect() {
-    
-  //    const home = environment.mtsAuthCallbackUrl.replace(/\/auth-callback/, '');
-
-  //    const url = encodeURI(`${environment.mtsAuthDomainProtocol}://${environment.mtsAuthDomainUrl}/amserver/UI/Logout?goto=${home}`);
-     
-  //    window.location.href = url;
-  //}
 
   authenticate(msisdn) {
 
@@ -68,35 +47,8 @@ export class DataService {
         observe: 'response'
       });
     }
-
-
-    /*
-    let promise = new Promise((resolve, reject) => {
-
-
-      if (!this.session.gameSettings || !this.session.gameSettings.maintenance || this.session.gameSettings.maintenance.siteDown || this.session.gameSettings.maintenance.noGames) {
-        this.router.navigate(['/home']);
-        return reject(new Error('Game is unavailable or under maintenance'));
-      }
-      else {
-        const url = encodeURI(`${environment.gameServerDomainUrl}/api/user/signin`);
-        const headers = {
-          'Accept': 'application/json', 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'
-        };
-        if (this.session && this.session.token)
-          headers['X-Access-Token'] = this.session.token;
-
-        return this.http.post(url, { msisdn: msisdn }, {
-          headers: headers,
-          observe: 'response'
-        }).toPromise();
-      }
-    });
-
-    return promise;
-    */
   }
-  
+
   authenticateVerify(msisdn, pin) {
 
     if (!this.session.gameSettings || !this.session.gameSettings.maintenance || this.session.gameSettings.maintenance.siteDown || this.session.gameSettings.maintenance.noGames) {
@@ -116,25 +68,6 @@ export class DataService {
         observe: 'response'
       });
     }
-    /*
-    let promise = new Promise((resolve, reject) => {
-
-      if (!this.session.gameSettings || !this.session.gameSettings.maintenance || this.session.gameSettings.maintenance.siteDown || this.session.gameSettings.maintenance.noGames) {
-        this.router.navigate(['/home']);
-        return reject(new Error('Game is unavailable or under maintenance'));
-      }
-      else {
-        const url = encodeURI(`${environment.gameServerDomainUrl}/api/user/verify`);
-
-        return this.http.post(url, { msisdn: msisdn, pin: pin }, {
-          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-          observe: 'response'
-        }).toPromise();
-      }
-    });
-
-    return promise;
-    */
   }
 
 
@@ -159,42 +92,25 @@ export class DataService {
     return promise;
   }
 
+  authenticateOrangeSSO(msisdnCode) {
 
+    if (!this.session.gameSettings || !this.session.gameSettings.maintenance || this.session.gameSettings.maintenance.siteDown || this.session.gameSettings.maintenance.noGames) {
+      this.router.navigate(['/home']);
+      return throwError('Game is unavailable or under maintenance');
+    }
+    else {
+      const url = encodeURI(`${environment.gameServerDomainUrl}/api/user/single-signon`);
+      const headers = {
+        'Accept': 'application/json', 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'
+      };
 
-  
-  logout() {
-    if (!this.session.mtsToken)
-      console.error('Logout failed, missing user token');
-    
-    const url = encodeURI(`${environment.mtsAuthDomainProtocol}://${environment.mtsAuthDomainUrl}/amserver/oauth2/revoke?token=${this.session.mtsToken}`);
-
-    return this.http.post(url, {
-      headers: { 'Accept': '*/*', 'Access-Control-Allow-Origin': '*', 'Authorization': 'Bearer ' + this.session.mtsToken }
-    });
-    
+      return this.http.post(url, { msisdnCode: msisdnCode }, {
+        headers: headers,
+        observe: 'response'
+      });
+    }
   }
 
-  
-  authenticateUserToken(code) {
-    
-    const url = encodeURI(`${environment.gameServerDomainUrl}/api/mts/${code}`);
-
-    return this.http.get(url, {
-      headers: { 'Accept': 'application/json', 'Access-Control-Allow-Origin': '*' }
-    });
-  }
-  
-  
-  // A call to the user status service to get user subscription status and basic data
-  authorizeUser() {
-    
-    const url = `${environment.gameServerDomainUrl}/api/user/signup`;
-    
-    return this.http.post(url, { msisdn: this.session.msisdn }, {
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-      observe: 'response'
-    });
-  }
     
     
   fetchGameSettings() {
@@ -266,7 +182,38 @@ export class DataService {
     return promise;
   }
   
-  
+
+  purchaseCreditRequest = function () {
+
+    const url = `${environment.gameServerDomainUrl}/api/user/credit`;
+
+    return this.http.post(url,
+      { },
+      {
+        headers: {
+          'Accept': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'X-Access-Token': this.session.token
+        }
+      });
+  }
+
+  purchaseCredit = function (pin) {
+
+    const url = `${environment.gameServerDomainUrl}/api/user/credit`;
+
+    return this.http.put(url,
+      { pin: pin },
+      {
+        headers: {
+          'Accept': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'X-Access-Token': this.session.token
+        }, observe: 'response'
+      });
+  }
+
+
   transferCashback() {
     
     let promise = new Promise((resolve, reject) => {
