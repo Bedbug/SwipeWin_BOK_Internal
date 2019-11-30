@@ -309,7 +309,7 @@ export class HomeComponent implements OnInit {
   verify(pass: string) {
 
     // console.log("username: " + this.sessionService.msisdn);
-    // console.log("password: " + pass);
+    console.log("password: " + pass);
 
     this.dataService.authenticateVerify(this.sessionService.msisdn, pass).subscribe((resp: any) => {
 
@@ -361,7 +361,7 @@ export class HomeComponent implements OnInit {
   verifyDirect(pass: string) {
 
     // console.log("username: " + this.sessionService.msisdn);
-    // console.log("password: " + pass);
+    console.log("password: " + pass);
 
     this.dataService.authenticateVerify(this.sessionService.msisdn, pass).subscribe((resp: any) => {
 
@@ -393,7 +393,8 @@ export class HomeComponent implements OnInit {
       //this.router.navigate(['/returnhome']);
     },
       (err: any) => {
-        this.router.navigate(['/home']);
+        console.log("Error With Pin!!!");
+        this.verErrorMes = true;
       });
 
     // Run or Go to returnHome
