@@ -13,14 +13,15 @@
   }
 
   .uk-button-group {
-    border-radius: 0px;
+    border-radius: 25px;
     background-color: #ffffff;
     border: 2px solid #fff;
     width: 100%;
 
   }
   .active {
-    background-color: #ff6600;
+    border-radius: 25px;
+    background-color: #077dbd;
     color: #001424;
     font-weight: bold;
     label {
@@ -39,7 +40,7 @@
     font-size: 16px;
     line-height: 1.25;
     text-align: center;
-    color: #ff6600;
+    color: #077dbd;
     padding: 5px;
     font-weight: bold;
   }

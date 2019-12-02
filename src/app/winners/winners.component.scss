@@ -48,7 +48,7 @@
       font-stretch: normal;
       line-height: normal;
       letter-spacing: normal;
-      color: #ff6600;
+      color: #077dbd;
       text-transform: none;
       text-align: center;
     }
@@ -88,13 +88,12 @@
   }
 }
 .uk-table-divider > tr:not(:first-child), .uk-table-divider > :not(:first-child) > tr, .uk-table-divider > :first-child > tr:not(:first-child) {
-  border-top: 1px solid #000000;
+  border-top: 2px solid #000000;
 }
 
 .info-text {
-  border-radius: 0px;
-    // box-shadow: 0 2px 20px 0 rgba(60, 61, 64, 0.1), 0 2px 4px 0 rgba(55, 55, 56, 0.2);
-    background-color: #1d1d1d;
+  border-radius: 15px;
+    background-color: #000000b5;
     font-size: 14px;
     font-weight: normal;
     font-style: normal;
