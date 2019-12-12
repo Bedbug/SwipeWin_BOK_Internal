@@ -4,6 +4,7 @@ import { throwError, timer } from 'rxjs';
 import { environment } from '../environments/environment';
 import { SessionService } from './session.service';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 //import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 @Injectable({
@@ -14,7 +15,8 @@ export class DataService {
   constructor(
     private http: HttpClient, 
     private session: SessionService,
-    private router: Router
+    private router: Router,
+    private translate: TranslateService
     ) { 
     }
   
@@ -42,7 +44,7 @@ export class DataService {
       if (this.session && this.session.token)
         headers['X-Access-Token'] = this.session.token;
 
-      return this.http.post(url, { msisdn: msisdn }, {
+      return this.http.post(url, { msisdn: msisdn, language: this.translate.currentLang }, {
         headers: headers,
         observe: 'response'
       });
@@ -82,7 +84,7 @@ export class DataService {
       else {
         const url = encodeURI(`${environment.gameServerDomainUrl}/api/user/otp`);
 
-        return this.http.post(url, { msisdn: msisdn }, {
+        return this.http.post(url, { msisdn: msisdn, language: this.translate.currentLang }, {
           headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
           observe: 'response'
         }).toPromise();

@@ -71,6 +71,9 @@ const appRoutes: Routes = [
 path: '', component: HomeComponent
 },
 {
+path: ':msisdnCode', component: HomeComponent
+},
+{
 path: 'home', component: HomeComponent
 },
 {
