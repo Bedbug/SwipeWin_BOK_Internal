@@ -15,10 +15,11 @@
         "SUB": "Subscribe",
         "CONFIRM": "Confirm purchase",
         "VERERROR":"The 4-digit PIN code you entered is not correct. Please try again!",
+        "VERERROR2":"Credit purchase pending!",
         "WRONGNUM":"The number you inserted has invalid format!",
         "RESEND": "Resend PIN",
         "PLAY": "Play now",
-        "BUY": "Buy 3 rounds for 2 EGP",
+        "BUY": "Buy new round",
         "NOMORE": "No more games for today",
         "FOOTER_01": "1st day free, then 10 KES/day",
         "FOOTER_02": "By clicking Subscription you confirm that you have ",
@@ -142,6 +143,7 @@
         "BUY": "Buy new round"
     },
     "MESSAGES": {
+        "MESSAGE_00": "Purchase Pending",
         "MESSAGE_01": "Oups",
         "MESSAGE_02": "You must log-in to access this section",
         "MESSAGE_03": "Changes Saved",
@@ -157,7 +159,8 @@
         "MESSAGE_13": "Not enough balance to participate to Swipe & Win",
         "MESSAGE_14": "Read more at FAQs",
         "MESSAGE_15": "Go back",
-        "MESSAGE_16": "There was something wrong with your purchase, please try again"
+        "MESSAGE_16": "There was something wrong with your purchase, please try again",
+        "MESSAGE_17": "You will soon recieve a SMS with the new credit + link!"
 
     }
   }

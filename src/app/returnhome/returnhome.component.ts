@@ -17,6 +17,7 @@ export class ReturnhomeComponent implements OnInit {
   lblShow:boolean = true;
   passType: string = "password";
   verErrorMes: boolean = false;
+  verErrorMes2: boolean = false;
 
   get hasCashback(): number {
     return this._cashBackAmount;
@@ -133,22 +134,24 @@ export class ReturnhomeComponent implements OnInit {
   }
 
   OpenOTPPurchase() {
-    console.log("Open OTP Modal!");
-    // Start OTP proccess for new game purchace
-    // Send PIN
-    // Verify user Input
-    // If success purchaceCredit
-    this.dataService.purchaseCreditRequest().subscribe((resp: any) => {
-
-      // Open Modal
-      let modal = UIkit.modal("#otp");
-      modal.show();
-    },
-      (err: any) => {
-        console.log("Error with Sending purchase Pin!!!");
-        let modal = UIkit.modal("#error");
-        modal.show();
-      });
+    // Check if user state is PENDING
+      if (this.sessionService.isPending){
+          // If yes show message that user already is waiting for Credit+Link
+          this.verErrorMes2 = true;
+      } else {
+        // If not
+        this.dataService.purchaseCreditRequest().subscribe((resp: any) => {
+          console.log(resp);
+          // Open Modal
+          let modal = UIkit.modal("#otp");
+          modal.show();
+        },
+          (err: any) => {
+            console.log("Error with Sending purchase Pin!!!");
+            let modal = UIkit.modal("#error");
+            modal.show();
+        });
+      }
   }
 
   

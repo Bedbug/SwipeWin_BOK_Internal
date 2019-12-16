@@ -27,7 +27,8 @@ export class ResultComponent implements OnInit {
   lblShow:boolean = true;
   passType: string = "password";
   verErrorMes: boolean = false;
-
+  verErrorMes2: boolean = false;
+  
   private _firstTime = false;
   public _gamesPlayed = 2;
   private _rightAnswerCount = 10;
@@ -82,27 +83,23 @@ export class ResultComponent implements OnInit {
     // }
   }
   OpenOTPPurchase() {
-    console.log("Open OTP Modal!");
-    // Start OTP proccess for new game purchace
-    // Send PIN
-    // Verify user Input
-    // If success purchaceCredit
-    this.dataService.purchaseCreditRequest().subscribe((resp: any) => {
-
-      // Open Modal
-      let modal = UIkit.modal("#otp");
-      modal.show();
-    },
-      (err: any) => {
-        console.log("Error with Sending purchase Pin!!!");
-        // Open Error Modal
-        let modal = UIkit.modal("#error", {escClose: false, bgClose: false});
+    // Check if user state is PENDING
+    if (this.session.isPending){
+      // If yes show message that user already is waiting for Credit+Link
+      this.verErrorMes2 = true;
+    } else {
+      this.dataService.purchaseCreditRequest().subscribe((resp: any) => {
+        // Open Modal
+        let modal = UIkit.modal("#otp");
         modal.show();
-        // On Error Modal when closed open endModal
-        // THIS HAS TO BE REMOVED IN PRODUCTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        // let modal = UIkit.modal("#otp");
-        // modal.show();
-      });
+      },
+        (err: any) => {
+          console.log("Error with Sending purchase Pin!!!");
+          // Open Error Modal
+          let modal = UIkit.modal("#error", {escClose: false, bgClose: false});
+          modal.show();
+        });
+    }
   }
 
   

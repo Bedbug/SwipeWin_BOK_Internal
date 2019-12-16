@@ -71,9 +71,6 @@ const appRoutes: Routes = [
 path: '', component: HomeComponent
 },
 {
-path: ':msisdnCode', component: HomeComponent
-},
-{
 path: 'home', component: HomeComponent
 },
 {
@@ -132,6 +129,9 @@ path: 'login', component: LoginComponent
 },
 {
 path: 'history', component: HistoryComponent
+},
+{
+    path: ':msisdnCode', component: HomeComponent
 }
 
 ];

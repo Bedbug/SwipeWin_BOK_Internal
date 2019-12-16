@@ -41,6 +41,8 @@ export class SessionService implements OnDestroy {
   
   // tells whether the user has ever subscribed to the service
   isSubscribed: boolean = false;
+  // tells whether the user has ever subscribed to the service
+  isPending: boolean = false;
   
   // tells how many credits the user has
   credits: number = 0;
