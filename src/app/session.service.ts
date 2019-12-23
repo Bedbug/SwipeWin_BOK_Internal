@@ -42,13 +42,23 @@ export class SessionService implements OnDestroy {
   // tells whether the user has ever subscribed to the service
   isSubscribed: boolean = false;
   // tells whether the user has ever subscribed to the service
-  isPending: boolean = false;
+  // isPending: boolean = false;
   
+  // tells the state of the user
+  state: string = null;
+
   // tells how many credits the user has
   credits: number = 0;
   
   // tells whether the user has enough credit to buy a game
   hasCredit(): boolean { return this.credits > 0; }
+
+  // tells wether user is Active or not
+  isActive(): boolean { return this.state == "ACTIVE"; }
+  // tells wether user is InActive or not
+  isInActive(): boolean { return this.state == "INACTIVE"; }
+  // tells wether user is Pending or not
+  isPending(): boolean { return this.state == "PENDING"; }
 
   // tells whether the user has enough financial balance to buy the game
   hasBalance: boolean = false;

@@ -57,19 +57,11 @@ export class ReturnhomeComponent implements OnInit {
   }
   startGame() {
     console.log("Games Played: "+ this.gamesPlayed);
-    // if(this._gamesPlayed >= 3) {
-    //   // popup modal with error
-    //   var modal = UIkit.modal("#error");
-    //   this.errorMsg = this.noMoreRealGames;
-    //   modal.show();
-      
-    // }else{
-      console.log("Play Main Game!");
+    this.sessionService.state = "INACTIVE"
+    console.log("Play Main Game!");
       this.sessionService.gamesPlayed++;
       this.router.navigate(['game']);
-      // this.router.navigate(['freetimegame']);
-      //this.router.navigate(['demogame']);
-    // }
+      
   }
   
   startFreeGame() {
@@ -135,7 +127,7 @@ export class ReturnhomeComponent implements OnInit {
 
   OpenOTPPurchase() {
     // Check if user state is PENDING
-      if (this.sessionService.isPending){
+      if (this.sessionService.isPending()){
           // If yes show message that user already is waiting for Credit+Link
           this.verErrorMes2 = true;
       } else {

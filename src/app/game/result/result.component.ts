@@ -28,7 +28,7 @@ export class ResultComponent implements OnInit {
   passType: string = "password";
   verErrorMes: boolean = false;
   verErrorMes2: boolean = false;
-  
+
   private _firstTime = false;
   public _gamesPlayed = 2;
   private _rightAnswerCount = 10;
@@ -84,11 +84,13 @@ export class ResultComponent implements OnInit {
   }
   OpenOTPPurchase() {
     // Check if user state is PENDING
-    if (this.session.isPending){
+    if (this.session.isPending()){
       // If yes show message that user already is waiting for Credit+Link
       this.verErrorMes2 = true;
     } else {
       this.dataService.purchaseCreditRequest().subscribe((resp: any) => {
+        // Update the user State
+        this.session.state = "PENDING";
         // Open Modal
         let modal = UIkit.modal("#otp");
         modal.show();

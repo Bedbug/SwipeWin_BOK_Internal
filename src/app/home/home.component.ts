@@ -154,11 +154,11 @@ export class HomeComponent implements OnInit {
             this.sessionService.isSubscribed = body.isSubscribed;
           if (body.gamesPlayedToday !== undefined)
             this.sessionService.gamesPlayed = body.gamesPlayedToday;
-          //if (body.bestScore !== undefined) {
-          //  if (!this.sessionService.user)
-          //    this.sessionService.user = new User();
-          //  this.sessionService.user.bestScore = body.bestScore;
-          //}
+          
+          // Update the user State
+          this.sessionService.state = body.state;
+          console.log(this.sessionService.state);
+
           if (body.credits > 0)
             this.sessionService.credits = body.credits;
 
@@ -229,7 +229,7 @@ export class HomeComponent implements OnInit {
     const phoneNumber = parsePhoneNumberFromString(number, 'KE')
     number = phoneNumber.countryCallingCode +""+ phoneNumber.nationalNumber;
     console.log("MSISDN: " +phoneNumber.countryCallingCode+phoneNumber.nationalNumber);
-    if(number.length != 13){
+    if(number.length != 12){
       this.alertNumber = true;
       return;
     }
@@ -255,7 +255,11 @@ export class HomeComponent implements OnInit {
       if (body.gamesPlayedToday !== undefined)
         this.sessionService.gamesPlayed = body.gamesPlayedToday;
 
-        console.log("Is Subed: "+ this.sessionService.isSubscribed);
+      // Update the user State
+      this.sessionService.state = body.state;
+      console.log(this.sessionService.state);
+
+      console.log("Is Subed: "+ this.sessionService.isSubscribed);
       this.openVerify = true;
 
       // If present, Get JWT token from response header and keep it for the session
@@ -301,6 +305,10 @@ export class HomeComponent implements OnInit {
         this.sessionService.gamesPlayed = body.gamesPlayedToday;
       if (body.credits > 0)
         this.sessionService.credits = body.credits;
+
+      // Update the user State
+      this.sessionService.state = body.state;
+      console.log(this.sessionService.state);
 
       console.log("hasCredit: " + this.sessionService.hasCredit());
       // if (body.bestScore !== undefined) {

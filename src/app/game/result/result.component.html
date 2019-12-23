@@ -26,9 +26,9 @@
     <!--If there are available games to buy play another game-->
     
     <br>
-    <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"  *ngIf="this.session.hasCredit()" (click)="startGame()">{{ 'END.PLAY' | translate }}</button>
+    <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"  *ngIf="this.session.isActive()" (click)="startGame()">{{ 'END.PLAY' | translate }}</button>
     <p *ngIf="verErrorMes2" style="font-size: 12px; color: rgb(32, 32, 32);">{{ 'HOME.VERERROR2' | translate }}</p>
-    <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"  *ngIf="!this.session.hasCredit()" (click)="OpenOTPPurchase()">{{ 'END.BUY' | translate }}</button>
+    <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"  *ngIf="this.session.isInActive()" (click)="OpenOTPPurchase()">{{ 'END.BUY' | translate }}</button>
     <!-- <button class="uk-button uk-button-default uk-width-1-1" *ngIf="_gamesPlayed >= 3"  disabled>{{ 'HOME.NOMORE' | translate }}</button> -->
     <!-- <app-button [primary]="true"  *ngIf="_gamesPlayed ==0" class="uk-modal-close" (click)="startGame()" >{{ 'END.PLAY' | translate }}</app-button>
     <app-button [primary]="true"  *ngIf="_gamesPlayed > 0" class="uk-modal-close" (click)="startGame()" >{{ 'END.BUY' | translate }}</app-button> -->
@@ -82,11 +82,11 @@
     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
       <img src="assets/images/wanted.svg" alt="">
       <h4>{{ 'END.MES_01' | translate }}</h4>
-    <pre>{{ 'MESSAGES.MESSAGE_16' | translate }}</pre>
-    <!--<p>{{errorMsg}}</p>-->
-    <!-- <app-button *ngIf="!logOutBtn" [link_button]="true" class="uk-modal-close">{{ 'MESSAGES.MESSAGE_07' | translate }}</app-button> -->
-    
-    <app-button  [link_button]="true" class="uk-modal-close" >{{ 'MESSAGES.MESSAGE_15' | translate }}</app-button>
+      <pre>{{ 'MESSAGES.MESSAGE_16' | translate }}</pre>
+      <!--<p>{{errorMsg}}</p>-->
+      <!-- <app-button *ngIf="!logOutBtn" [link_button]="true" class="uk-modal-close">{{ 'MESSAGES.MESSAGE_07' | translate }}</app-button> -->
+      
+      <app-button  [link_button]="true" class="uk-modal-close" >{{ 'MESSAGES.MESSAGE_15' | translate }}</app-button>
       
     </div>
   </div>
