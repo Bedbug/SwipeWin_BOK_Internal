@@ -24,7 +24,7 @@ export class FaqComponent implements OnInit {
       this.alignAllLeft = true;
     }
     if(this.translate.currentLang == "ar") {
-      this.alignAllLeft = false;
+      this.alignAllLeft = true;
     }
     // Subscribe to Translate Service
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
@@ -34,7 +34,7 @@ export class FaqComponent implements OnInit {
         this.alignAllLeft = true;
       }
       if(this.translate.currentLang == "ar") {
-        this.alignAllLeft = false;
+        this.alignAllLeft = true;
       }
 
     });

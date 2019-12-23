@@ -28,11 +28,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     // Checking Lang
-    if(this.translate.currentLang == "ar") {
-      this.alignAllLeft = false;
-    } else {
-      this.alignAllLeft = true;
-    }
+    // if(this.translate.currentLang == "ar") {
+    //   this.alignAllLeft = false;
+    // } else {
+    //   this.alignAllLeft = true;
+    // }
     let offcanvas = UIkit.offcanvas("#offcanvas-nav");
     console.log(offcanvas);
     offcanvas.$props.flip =  this.alignAllLeft;
@@ -88,8 +88,8 @@ export class HeaderComponent implements OnInit {
    changeLanguage() {
      this.alignAllLeft = !this.alignAllLeft;
      let offcanvas = UIkit.offcanvas("#offcanvas-nav");
-     offcanvas.flip =  this.alignAllLeft;
-     console.log( offcanvas);
+    //  offcanvas.flip =  this.alignAllLeft;
+    //  console.log( offcanvas);
     //  const browserLang = this.translate.getBrowserLang();
     //  console.log(browserLang);
     //  this.translate.use(browserLang.match(/en|ar/) ? browserLang : 'en');
