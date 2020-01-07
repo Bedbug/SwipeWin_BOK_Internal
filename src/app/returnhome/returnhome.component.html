@@ -80,7 +80,7 @@
         <button class="uk-button uk-button-default play-button uk-width-1-1" *ngIf="loggedin &&  this.sessionService.isActive()" (click)="startGame()">{{ 'HOME.PLAY' | translate }}</button>
         <p *ngIf="verErrorMes2" style="font-size: 12px; color: rgb(32, 32, 32);">{{ 'HOME.VERERROR2' | translate }}</p>
         <button class="uk-button uk-button-default play-button uk-width-1-1" *ngIf="loggedin && this.sessionService.isInActive()" (click)="OpenOTPPurchase()">{{ 'HOME.BUY' | translate }}</button>
-        <!-- <button class="uk-button uk-button-default uk-width-1-1" *ngIf="loggedin && _gamesPlayed >= 3"  disabled>{{ 'HOME.NOMORE' | translate }}</button> -->
+        <button class="uk-button uk-button-default uk-width-1-1" *ngIf="this.sessionService.isPending()"  disabled>{{ 'MESSAGES.MESSAGE_00' | translate }}</button>
       </div>
       <!-- <div class="message-container" style="margin-top: 30px;">
         <p style="color:rgb(0, 0, 0); font-weight: bold; font-size: 20px;"><a  [routerLink]="['/info']" style="color:rgb(255, 255, 255); text-decoration: underline;">Resend PIN</a>
@@ -90,7 +90,7 @@
       
     </div>
     </div>
-    
+
   <!--END OF PLAY BUTTONS-->
   
  
@@ -172,7 +172,7 @@
     <div id="otp" class="uk-flex-top" uk-modal>
       <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
         <img src="assets/images/wanted.svg" alt="">
-        <h4>{{ 'END.MES_00' | translate }}</h4>
+        <h4>{{ 'MESSAGES.MESSAGE_00' | translate }}</h4>
       <pre>{{ 'MESSAGES.MESSAGE_17' | translate }}</pre>
       <!--<p>{{errorMsg}}</p>-->
       <!-- <app-button *ngIf="!logOutBtn" [link_button]="true" class="uk-modal-close">{{ 'MESSAGES.MESSAGE_07' | translate }}</app-button> -->
