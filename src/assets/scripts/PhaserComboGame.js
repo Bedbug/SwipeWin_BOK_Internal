@@ -481,7 +481,7 @@ var __phaser = {
         demoTimer = game.time.create(false); //  Set a TimerEvent to occur every second
 
         demoTimerLoop = demoTimer.loop(1000, updateCounter, this);
-        var bgMoveStep = game.camera.height * 2 / 45; // console.log(bgMoveStep);
+        var bgMoveStep = game.camera.height * 2 / 55; // console.log(bgMoveStep);
 
         function updateCounter() {
           // No Answer yet
@@ -496,7 +496,7 @@ var __phaser = {
             }
           } else {
             // Make the scale of the line the acording to the remaining secs
-            var newWidth = game.camera.width / 45 * game.logic.timeRemainingSeconds;
+            var newWidth = game.camera.width / 55 * game.logic.timeRemainingSeconds;
             if (__phaser.game.type !== 'timefree') game.world.bringToTop(that.timePlus);
             game.add.tween(timerBg).to({
               width: newWidth

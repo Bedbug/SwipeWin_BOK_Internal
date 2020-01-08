@@ -134,6 +134,8 @@ export class ReturnhomeComponent implements OnInit {
         // If not
         this.dataService.purchaseCreditRequest().subscribe((resp: any) => {
           console.log(resp);
+          // Change Session state 
+          this.sessionService.state = "PENDING";
           // Open Modal
           let modal = UIkit.modal("#otp");
           modal.show();

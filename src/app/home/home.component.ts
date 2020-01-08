@@ -131,10 +131,7 @@ export class HomeComponent implements OnInit {
           modal.show();
         }
 
-      }
-
-      // Else, Determine if this is the mobile/Ussd/Sms user flow or the WiFi one
-      else if (msisdnCode) {
+      }else if (msisdnCode) {// Else, Determine if this is the mobile/Ussd/Sms user flow or the WiFi one
         // Mobile/Ussd/Sms flow here
         console.log('Mobile /SMS /USSD user flow');
         this.AutoLogin = true;
