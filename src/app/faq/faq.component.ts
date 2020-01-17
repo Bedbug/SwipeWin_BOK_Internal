@@ -23,7 +23,7 @@ export class FaqComponent implements OnInit {
     if(this.translate.currentLang == "en") {
       this.alignAllLeft = true;
     }
-    if(this.translate.currentLang == "ar") {
+    if(this.translate.currentLang == "sw") {
       this.alignAllLeft = true;
     }
     // Subscribe to Translate Service
@@ -33,7 +33,7 @@ export class FaqComponent implements OnInit {
       if(this.translate.currentLang == "en") {
         this.alignAllLeft = true;
       }
-      if(this.translate.currentLang == "ar") {
+      if(this.translate.currentLang == "sw") {
         this.alignAllLeft = true;
       }
 

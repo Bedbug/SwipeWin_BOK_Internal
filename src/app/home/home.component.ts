@@ -226,6 +226,7 @@ export class HomeComponent implements OnInit {
     const phoneNumber = parsePhoneNumberFromString(number, 'KE')
     number = phoneNumber.countryCallingCode +""+ phoneNumber.nationalNumber;
     console.log("MSISDN: " +phoneNumber.countryCallingCode+phoneNumber.nationalNumber);
+    
     if(number.length != 12){
       this.alertNumber = true;
       return;
