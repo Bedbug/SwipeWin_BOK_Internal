@@ -145,12 +145,15 @@ export class HomeComponent implements OnInit {
 
           // Deserialize payload
           const body: any = resp.body; // JSON.parse(response);
+          console.table(body);
           if (body.isEligible !== undefined)
             this.sessionService.isEligible = body.isEligible;
           if (body.isSubscribed != undefined)
             this.sessionService.isSubscribed = body.isSubscribed;
           if (body.gamesPlayedToday !== undefined)
             this.sessionService.gamesPlayed = body.gamesPlayedToday;
+          if (body.hasCredit !== undefined)
+            this.sessionService.hasCredits = body.hasCredit;
           
           // Update the user State
           this.sessionService.state = body.state;
@@ -159,7 +162,7 @@ export class HomeComponent implements OnInit {
           if (body.credits > 0)
             this.sessionService.credits = body.credits;
 
-          console.log("hasCredit: " + this.sessionService.hasCredit());
+          // console.log("hasCredit: " + this.sessionService.hasCredit());
 
 
           // Chage view state
@@ -252,6 +255,8 @@ export class HomeComponent implements OnInit {
         this.sessionService.isSubscribed = body.isSubscribed;
       if (body.gamesPlayedToday !== undefined)
         this.sessionService.gamesPlayed = body.gamesPlayedToday;
+        if (body.hasCredit !== undefined)
+        this.sessionService.hasCredits = body.hasCredit;
 
       // Update the user State
       this.sessionService.state = body.state;
@@ -301,14 +306,14 @@ export class HomeComponent implements OnInit {
         this.sessionService.isSubscribed = body.isSubscribed;
       if (body.gamesPlayedToday !== undefined)
         this.sessionService.gamesPlayed = body.gamesPlayedToday;
-      if (body.credits > 0)
-        this.sessionService.credits = body.credits;
+      if (body.hasCredit !== undefined)
+        this.sessionService.hasCredits = body.hasCredit;
 
       // Update the user State
       this.sessionService.state = body.state;
       console.log(this.sessionService.state);
 
-      console.log("hasCredit: " + this.sessionService.hasCredit());
+      // console.log("hasCredit: " + this.sessionService.hasCredit());
       // if (body.bestScore !== undefined) {
       //   if (!this.sessionService.user)
       //     this.sessionService.user = new User();
@@ -323,7 +328,7 @@ export class HomeComponent implements OnInit {
       this.openVerify = false;
       this.openSubSuccess = true;
 
-      this.CheckCredits();
+      // this.CheckCredits();
       // Goto the returnHome page
       //this.router.navigate(['/returnhome']);
     },
@@ -356,8 +361,8 @@ export class HomeComponent implements OnInit {
         this.sessionService.isSubscribed = body.isSubscribed;
       if (body.gamesPlayedToday !== undefined)
         this.sessionService.gamesPlayed = body.gamesPlayedToday;
-      if (body.credits > 0)
-        this.sessionService.credits = body.credits;
+      if (body.hasCredit !== undefined)
+        this.sessionService.hasCredits = body.hasCredit;
 
       //this.sessionService.Serialize();
 

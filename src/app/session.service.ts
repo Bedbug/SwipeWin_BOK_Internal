@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 
 // Local and Session storage provider, see: https://medium.com/@tiagovalverde/how-to-save-your-app-state-in-localstorage-with-angular-ce3f49362e31
 import { SESSION_STORAGE, LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
+import { FindValueSubscriber } from 'rxjs/internal/operators/find';
 
 @Injectable({
   providedIn: 'root'
@@ -47,11 +48,14 @@ export class SessionService implements OnDestroy {
   // tells the state of the user
   state: string = null;
 
+  // tells if the user has credit to burn
+  hasCredits: boolean = false;
+
   // tells how many credits the user has
   credits: number = 0;
   
   // tells whether the user has enough credit to buy a game
-  hasCredit(): boolean { return this.credits > 0; }
+  hasCredit(): boolean { return this.hasCredits == true}
 
   // tells wether user is Active or not
   isActive(): boolean { return this.state == "ACTIVE"; }

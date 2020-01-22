@@ -51,7 +51,15 @@ export class ResultComponent implements OnInit {
     this._gamesPlayed = this.session.gamesPlayed;
     this._bestWeekScore = this.session.lastGameResults.isBestScoreLastWeek;
     this._isInTop = this.session.lastGameResults.isTop100;
-    
+    this.session.hasCredits = this.session.lastGameResults.userHasCredit;
+    this.session.state = this.session.lastGameResults.userState;
+
+    console.table(this.session.lastGameResults);
+    // console.log(this.session.hasCredits);
+    // if(this.session.hasCredits)
+    // this.session.hasCredits = false;
+    // console.log(this.session.hasCredits);
+
     // Check Best Score Today
     var bestScore = this.session.user.bestScore;
     var bestScoreToday = this.session.user.bestScoreToday;
@@ -70,11 +78,7 @@ export class ResultComponent implements OnInit {
   }
   
   startGame() {
-    // if(this._gamesPlayed >= 3) {
-    //   // popup modal with error
-    //   this.router.navigate(['returnhome']);
-      
-    // }else{
+    
       console.log("Play Main Game!");
       this.session.gamesPlayed++;
       this.session.credits--;
@@ -82,6 +86,7 @@ export class ResultComponent implements OnInit {
        this.router.navigate(['game']);
     // }
   }
+
   OpenOTPPurchase() {
     // Check if user state is PENDING
     if (this.session.isPending()){

@@ -57,7 +57,7 @@ export class ReturnhomeComponent implements OnInit {
   }
   startGame() {
     console.log("Games Played: "+ this.gamesPlayed);
-    this.sessionService.state = "INACTIVE"
+    // this.sessionService.state = "INACTIVE"
     console.log("Play Main Game!");
       this.sessionService.gamesPlayed++;
       this.router.navigate(['game']);
@@ -73,7 +73,7 @@ export class ReturnhomeComponent implements OnInit {
   ngOnInit() {
     
 
-    console.log( "Has Credit: " + this.sessionService.hasCredit() );
+    // console.log( "Has Credit: " + this.sessionService.hasCredit() );
     console.log( "Played Games: " + this.sessionService.gamesPlayed );
     // user login validation check
     if (!this.sessionService.token || !this.sessionService.isSubscribed || !this.sessionService.isEligible) {
@@ -170,8 +170,8 @@ export class ReturnhomeComponent implements OnInit {
       // Deserialize payload
       const body: any = resp.body; // JSON.parse(response);
       
-      if (body.credits > 0)
-        this.sessionService.credits = body.credits;
+      if (body.hasCredit != undefined)
+        this.sessionService.hasCredits = body.hasCredit;
 
       console.log("hasCredit: " + this.sessionService.hasCredit());
      
