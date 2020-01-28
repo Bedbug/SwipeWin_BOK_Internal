@@ -255,7 +255,7 @@ export class HomeComponent implements OnInit {
         this.sessionService.isSubscribed = body.isSubscribed;
       if (body.gamesPlayedToday !== undefined)
         this.sessionService.gamesPlayed = body.gamesPlayedToday;
-        if (body.hasCredit !== undefined)
+      if (body.hasCredit !== undefined)
         this.sessionService.hasCredits = body.hasCredit;
 
       // Update the user State
@@ -299,7 +299,7 @@ export class HomeComponent implements OnInit {
 
       // Deserialize payload
       const body: any = resp.body; // JSON.parse(response);
-      console.log("Best Score: "+body.bestScore);
+      console.table("body: "+ body);
       if (body.isEligible !== undefined)
         this.sessionService.isEligible = body.isEligible;
       if (body.isSubscribed != undefined)
@@ -311,8 +311,11 @@ export class HomeComponent implements OnInit {
 
       // Update the user State
       this.sessionService.state = body.state;
+      // this.sessionService.hasCredits = true;
       console.log(this.sessionService.state);
-
+      console.log("body.hasCredit: " + body.hasCredit);
+      console.log("this.sessionService.hasCredits: " + this.sessionService.hasCredits);
+      console.log("hasCredist() "+ this.sessionService.hasCredit());
       // console.log("hasCredit: " + this.sessionService.hasCredit());
       // if (body.bestScore !== undefined) {
       //   if (!this.sessionService.user)
