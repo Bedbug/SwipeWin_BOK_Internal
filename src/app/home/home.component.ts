@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
   public logOut = this.translate.instant('MESSAGES.MESSAGE_11');
   public blackListed = this.translate.instant('MESSAGES.MESSAGE_12');
   public noCredits = this.translate.instant('MESSAGES.MESSAGE_13');
-
+  public isSubedText = this.translate.instant('MESSAGES.MESSAGE_18');
 
   
   public logOutBtn = true;
@@ -277,8 +277,13 @@ export class HomeComponent implements OnInit {
       }
     },
       (err: any) => {
-        //this.sessionService.msisdn = null;
-        this.router.navigate(['/home']);
+        console.log(err.error.errorCode);
+        if (err.error.errorCode == 1002 || err.error.errorCode == 1006) {
+          console.log(err.error.errorCode);
+          this.errorMsg = this.isSubedText;
+          let modal = UIkit.modal("#error");
+          modal.show();
+        }
       });
 
     
