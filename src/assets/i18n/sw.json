@@ -139,6 +139,7 @@
         "BUY": "Nunua raundi nyingine"
     },
     "MESSAGES": {
+        "MESSAGE_000":"Tafadhali thibitisha usajili kwa njia ya SMS uliyotumiwa na utapokea maagizo ya jinsi utakavyocheza",
         "MESSAGE_00": "Haujanunua kikamilifu",
         "MESSAGE_01": "Lo!",
         "MESSAGE_02": "Ni lazima ujitambulishe kwa tovuti hii ili kuendelea",

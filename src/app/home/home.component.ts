@@ -61,13 +61,14 @@ export class HomeComponent implements OnInit {
   public now: Date = new Date();
   
   public showLogin = false;
-  
+  public newLogin = true;
+
   lang: string;
   // Lottie
   public lottieConfig: Object;
   private anim: any;
   private animationSpeed: number = 1;
-
+  public showConfirm: boolean = false;
   
   constructor(
     private dataService : DataService, 
@@ -158,7 +159,8 @@ export class HomeComponent implements OnInit {
           // Update the user State
           this.sessionService.state = body.state;
           console.log(this.sessionService.state);
-
+          console.log("Checking Credits: "+ this.sessionService.hasCredit());
+          
           if (body.credits > 0)
             this.sessionService.credits = body.credits;
 
@@ -274,6 +276,7 @@ export class HomeComponent implements OnInit {
         // Goto the returnHome page
         //this.router.navigate(['/returnhome']);
         this.openSubSuccess = true;
+        this.newLogin = true;
       }
     },
       (err: any) => {
@@ -377,8 +380,9 @@ export class HomeComponent implements OnInit {
       // Chage view state
       this.loggedin = true;
       this.openVerify = false;
-      
-      this.router.navigate(['/returnhome']);
+      this.openSubSuccess = true;
+        this.newLogin = false;
+      // this.router.navigate(['/returnhome']);
 
       // Goto the returnHome page
       //this.router.navigate(['/returnhome']);

@@ -119,7 +119,7 @@ export class ReturnhomeComponent implements OnInit {
   }
 
   CheckCredits() {
-    console.log("Checking Credits!");
+    console.log("Checking Credits: "+ this.sessionService.hasCredit());
     
       this.sessionService.hasCredit();
     

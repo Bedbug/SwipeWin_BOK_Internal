@@ -139,6 +139,7 @@
         "BUY": "Buy new round"
     },
     "MESSAGES": {
+        "MESSAGE_000": "Please confirm the service via SMS received & soon you will receive instructions for the game",
         "MESSAGE_00": "Purchase Pending",
         "MESSAGE_01": "Oups",
         "MESSAGE_02": "You must log-in to access this section",
@@ -157,7 +158,7 @@
         "MESSAGE_15": "Go back",
         "MESSAGE_16": "There was something wrong with your purchase, please try again",
         "MESSAGE_17": "You will soon recieve an SMS with the new credit + link!",
-        "MESSAGE_18": "You are already a subscriber! Please wait for your unique link to loggin."
+        "MESSAGE_18": "You are already a subscriber! Please wait for your unique link to login."
 
         }
       }
