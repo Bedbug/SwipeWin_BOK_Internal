@@ -63,7 +63,8 @@ export class SessionService implements OnDestroy {
   isInActive(): boolean { return this.state == "INACTIVE"; }
   // tells wether user is Pending or not
   isPending(): boolean { return this.state == "PENDING"; }
-
+  // tells wether user is Pending or not
+  isUnsub(): boolean { return this.state == "UNSUB"; }
   // tells whether the user has enough financial balance to buy the game
   hasBalance: boolean = false;
   

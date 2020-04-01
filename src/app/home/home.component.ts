@@ -165,13 +165,18 @@ export class HomeComponent implements OnInit {
             this.sessionService.credits = body.credits;
 
           // console.log("hasCredit: " + this.sessionService.hasCredit());
-
+          
 
           // Chage view state
           this.loggedin = true;
           this.openVerify = false;
-
-          this.router.navigate(['/returnhome']);
+          if(!this.sessionService.isUnsub)
+            this.router.navigate(['/returnhome']);
+            else{
+              this.openSubSuccess = true;
+              this.newLogin = true;
+            }
+            
         },
           (err: any) => {
             this.AutoLogin = false;
@@ -381,7 +386,10 @@ export class HomeComponent implements OnInit {
       this.loggedin = true;
       this.openVerify = false;
       this.openSubSuccess = true;
-        this.newLogin = false;
+      if(!this.sessionService.isUnsub)
+          this.newLogin = false;
+        else
+          this.newLogin = true;
       // this.router.navigate(['/returnhome']);
 
       // Goto the returnHome page
