@@ -76,11 +76,15 @@ export class ReturnhomeComponent implements OnInit {
     // console.log( "Has Credit: " + this.sessionService.hasCredit() );
     console.log( "Played Games: " + this.sessionService.gamesPlayed );
     // user login validation check
-    if (!this.sessionService.token || !this.sessionService.isSubscribed || !this.sessionService.isEligible) {
+    if (!this.sessionService.token || !this.sessionService.isSubscribed || !this.sessionService.isEligible || this.sessionService.isUnsub()) {
       // wanna inform the user here?
+      if(this.sessionService.isUnsub())
+          this.router.navigate(['/home']);
+        else{
+          // Redirect him to Home
+          this.router.navigate(['/home'], { queryParams: { errorCode: 401 } });
+        }
       
-      // Redirect him to Home
-      this.router.navigate(['/home'], { queryParams: { errorCode: 401 } });
     }
     else if (!this.sessionService.isEligible) {
       this.router.navigate(['/home'], { queryParams: { errorCode: 1026 } });
