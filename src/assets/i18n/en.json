@@ -17,7 +17,7 @@
         "WRONGNUM":"The number you inserted has invalid format!",
         "RESEND": "Resend PIN",
         "PLAY": "Play now",
-        "BUY": "Buy new round",
+        "BUY": "Play More",
         "NOMORE": "No more games for today",
         "FOOTER_01": "1st day free, then 10 KES/day",
         "FOOTER_02": "By clicking Subscription you confirm that you have ",
@@ -70,7 +70,7 @@
         "MES_03b": "as many question as possible.",
         "MES_04": "Be careful! For each wrong answer",
         "MES_04b": "you lose 5 seconds.",
-        "MES_05": "Want to improve your score?",
+        "MES_05": "Want to improve your score? Buy additional games for 10 KES/ extra game.",
         "MES_05b": "Buy additional games",
         "BACK": "Go Back"
     },
@@ -136,7 +136,7 @@
         "MES_06": "Correct Answers",
         "PLAY": "Play Again",
         "BACK": "Back to home page",
-        "BUY": "Buy new round"
+        "BUY": "Play More"
     },
     "MESSAGES": {
         "MESSAGE_000": "Please confirm the service via SMS received & soon you will receive instructions for the game",
@@ -157,7 +157,7 @@
         "MESSAGE_14": "Read more at FAQs",
         "MESSAGE_15": "Go back",
         "MESSAGE_16": "There was something wrong with your purchase, please try again",
-        "MESSAGE_17": "You will soon recieve an SMS with the new credit + link!",
+        "MESSAGE_17": "10 KES/ extra game. You will soon receive an SMS with the new credit + link!",
         "MESSAGE_18": "You are already a subscriber! Please wait for your unique link to login."
 
         }

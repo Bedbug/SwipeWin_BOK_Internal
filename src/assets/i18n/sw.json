@@ -17,7 +17,7 @@
         "WRONGNUM": "Nambari ulizobonyeza haziko katika mfumo unaofaa.",
         "RESEND": "Tuma nambari yako ya siri tena.",
         "PLAY": "Cheza sasa",
-        "BUY": "Nunua raundi nyingine",
+        "BUY": "Cheza zaidi",
         "NOMORE": "Hauwezi kucheza tena leo",
         "FOOTER_01": "Siku ya kwanza hakuna malipo, alafu shilingi 10 kila siku inayofuata.",
         "FOOTER_02": "Unapokubali kujisajili, unathibitisha kwamba",
@@ -70,7 +70,7 @@
         "MES_03b": " idadi ya maswali mengi utakavyoweza.",
         "MES_04": "Kuwa mwangalifu! Kwa kila swali unalokosa jibu sahihi",
         "MES_04b": "Unapunguziwa muda kwa sekunde 5.",
-        "MES_05": "Je, ungependa kuboresha matokeo yako?",
+        "MES_05": "Je, ungependa kuboresha matokeo yako? Nunua chances zingine za kucheza kwa 10bob kila moja",
         "MES_05b": "Nunua nafasi zaidi za kucheza",
         "BACK": "Rudi nyuma"
     },
@@ -136,7 +136,7 @@
         "MES_06": "Majibu Sahihi",
         "PLAY": "Cheza tena",
         "BACK": "Rudi kwenye ukurasa wa nyumbani",
-        "BUY": "Nunua raundi nyingine"
+        "BUY": "Cheza zaidi"
     },
     "MESSAGES": {
         "MESSAGE_000":"Tafadhali thibitisha usajili kwa njia ya SMS uliyotumiwa na utapokea maagizo ya jinsi utakavyocheza",
@@ -157,7 +157,7 @@
         "MESSAGE_14": "Soma maagizo zaidi katika sehemu teule ya 'Maswali yanayoulizwa mara nyingi",
         "MESSAGE_15": "Rudi nyuma",
         "MESSAGE_16": "Hitilafu! Tafadhali jaribu kununua tena",
-        "MESSAGE_17": "Utapokea ujumbe hivi karibuni kukujulisha salio mpya pamoja na tovuti ya kucheza!",
+        "MESSAGE_17": "10bob ukitaka kucheza tena. Utapokea SMS ikona credit yako mpya pamoja na link!",
         "MESSAGE_18": "Tayari umejisajilisha. Tafadhali subiri tovuti maalum utakayotumia kucheza"
         }
       }
