@@ -299,7 +299,18 @@ pre {
     width: 250px;
 }
 
-
+// Animations
+.animate__animated.animate__bounceInUp {
+  --animate-duration: 0.9s;
+  --animate-delay: 0.5s;
+}
+.animate__animated.animate__bounceInLeft {
+  --animate-duration: 0.9s;
+  --animate-delay: 0.5s;
+}
+:root {
+  --animate-delay: 2s;
+}
 // #loading {
 // 		-webkit-animation: rotation 2s infinite linear;
 // }

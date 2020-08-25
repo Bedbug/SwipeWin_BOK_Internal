@@ -496,7 +496,7 @@ var __phaser = {
             }
           } else {
             // Make the scale of the line the acording to the remaining secs
-            var newWidth = game.camera.width / 55 * game.logic.timeRemainingSeconds;
+            var newWidth = (game.camera.width / 180) * game.logic.timeRemainingSeconds;
             if (__phaser.game.type !== 'timefree') game.world.bringToTop(that.timePlus);
             game.add.tween(timerBg).to({
               width: newWidth

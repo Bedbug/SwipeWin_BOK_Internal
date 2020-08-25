@@ -1,11 +1,22 @@
 import { Component } from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import { ActivatedRoute } from "@angular/router";
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [
+    // animation triggers go here
+  ]
 })
 export class AppComponent {
   title = 'swipr';

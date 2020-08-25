@@ -5,7 +5,7 @@
 <div class="slideshow-container" *ngIf="!openVerify" uk-slideshow="animation: fade; min-height: 400; max-height: 400; autoplay: true; autoplay-interval: 2000; pause-on-hover: false;" >
 
   <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-    WELCOME TO MTN SA SWIPE
+    
     <ul class="uk-slideshow-items" >
       <li class="list-wrapper">
         
@@ -70,13 +70,13 @@
 254700436104	INACTIVE http://localhost:4200/7G41j2o -->
 
 <!-- WI-FI LOGIN -->
-<div class="buttons-container uk-container uk-text-center" *ngIf="!AutoLogin && !openVerify && !loggedin" tabindex="-1">
+<div class="buttons-container uk-container uk-text-center"   *ngIf="!AutoLogin && !openVerify && !loggedin" tabindex="-1">
  
   <div class="buttons-container uk-container uk-text-center"  >
     
     <!-- <h4 style="color:white;">Insert your phone number and password to login</h4> -->
     <form >
-      <div class="uk-margin" >
+      <div class="uk-margin animate__animated animate__bounceInLeft" style="animation-delay: 400ms;">
           <div class="uk-inline uk-width-1-1 ">
               <span class="uk-form-icon" uk-icon="icon: phone; ratio: 1.5"></span>
               <input #number class="uk-input uk-border-rounded" type="text" (keyup)="onKey($event)" placeholder="{{ 'HOME.NUM' | translate }}"> 
@@ -85,7 +85,7 @@
       
     </form>
     
-    <div class="buttons-container uk-container uk-text-center">
+    <div class="buttons-container uk-container uk-text-center animate__animated animate__bounceInLeft" style="animation-delay: 700ms;">
       <p *ngIf="alertNumber" style="font-size: 12px; color: white;">{{ 'HOME.WRONGNUM' | translate }}</p>
       <button class="uk-button uk-button-default play-button uk-width-1-1" (click)="submit(number.value)">{{ 'HOME.SUB-LOG' | translate }}</button> 
     </div>   
@@ -195,7 +195,7 @@
   <!--<a  [routerLink]="['/info']" style="color: white;font-weight: bold;text-decoration: underline; ">Правила игры</a>-->
   <!-- <a  (click)="playGame($event)" style="color: white;font-weight: bold;text-decoration: underline; ">Already Subscriber</a>
 </div> -->
-<div class="main-footer uk-container" *ngIf="!openVerify" style="text-align: center;">
+<div class="main-footer uk-container animate__animated animate__bounceInUp" *ngIf="!openVerify" style="text-align: center; animation-delay: 900ms;">
     {{ 'HOME.FOOTER_01' | translate }}
   <br>
   <p >

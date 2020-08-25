@@ -7,7 +7,12 @@
 @import 'assets/media-queries.scss';
 @import 'assets/variables.scss';
 @import '../node_modules/perfect-scrollbar/css/perfect-scrollbar.css';
+@import '~animate.css/animate.min';
 
+:root {
+  --animate-duration: 300ms;
+  
+}
 
 #offcanvas-nav{
   .uk-offcanvas-bar{

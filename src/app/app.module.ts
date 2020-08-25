@@ -60,6 +60,8 @@ import { HttpClient} from '@angular/common/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
+// Animations
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -172,6 +174,7 @@ path: 'history', component: HistoryComponent
 ],
 imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     TranslateModule.forRoot({
         loader: {
             provide: TranslateLoader,
