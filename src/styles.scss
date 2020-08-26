@@ -101,7 +101,8 @@ html, body {
   .play-button {
     border-radius: 25px;
     box-shadow: 0 9px 13px 0 rgba(0, 0, 0, 0.1);
-    background-image: linear-gradient(to bottom, #077dbd, #077dbd 16%, #077dbd 66%, #077dbd);
+    // background-image: linear-gradient(to bottom, #077dbd, #077dbd 16%, #077dbd 66%, #077dbd);
+    background-color: #ffcc00;
     margin-bottom: 12px;
     border: none;
     font-size: 25px;
@@ -109,8 +110,9 @@ html, body {
     font-stretch: normal;
     line-height: 1.25;
     letter-spacing: normal;
+    font-weight: bold;
     text-align: center;
-    color: white;
+    color: black;
     min-height: 44px;
     text-transform: none;
   }
@@ -150,7 +152,7 @@ html, body {
     font-size: 30px;
 }
 .inside_text{
-  background-color: #000000;
+  background-color: #ffffff;
     width: 200px;
     height: 55px;
     position: absolute;

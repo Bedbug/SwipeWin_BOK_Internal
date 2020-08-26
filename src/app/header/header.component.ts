@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
 
   url: string;
   pushed = false;
-  alignAllLeft = true;
+  alignAllLeft = false;
 
   public mobileMenuState = false;
   public menuIconPath = 'menu';

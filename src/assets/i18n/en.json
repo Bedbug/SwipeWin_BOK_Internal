@@ -1,11 +1,17 @@
 {
     "HOME": {
-        "CAR_01": "Gadgets worth 50,000 KES",
-        "CAR_01b": "weekly",
-        "CAR_02": "A football trip worth 300,000 KES",
-        "CAR_02b": "monthly",
-        "CAR_03": "1,000,000 KES CASH",
-        "CAR_03b": "GRAND PRIZE",
+        "TITLE": "Bok Trivia",
+        "CAR_01": "<a>Stand a chance to win</a>",
+        "CAR_01&half": "R15,000",
+        "CAR_01b": "Every week",
+
+        "CAR_02": "Stand a chance to win",
+        "CAR_03": "R150,000",
+        "CAR_03b": " or ",
+        "CAR_03c": "a trip for 2",
+        "CAR_04": "to watch a Springboks<br>match abroad",
+        "CAR_04b": "Grand Prize",
+
         "NUM": "Mobile number",
         "SUB-LOG": "Subscribe/Login",
         "OTP": "Please enter the 4-digit PIN code received to your mobile",
@@ -19,19 +25,20 @@
         "PLAY": "Play now",
         "BUY": "Play More",
         "NOMORE": "No more games for today",
-        "FOOTER_01": "1st day free, then 10 KES/day",
+        "FOOTER_01": "1st day FREE, then R5.00/day",
         "FOOTER_02": "By clicking Subscription you confirm that you have ",
         "FOOTER_02b": "read and agreed to the ",
-        "FOOTER_02c": "Terms & Conditions.",
+        "FOOTER_02c": "T&Cs Apply",
         "FOOTER_03": "© NTV 2020",
         "CONGRATS": "Congratulations!",
         "SUB_SUC_01": "You have successfully",
         "SUB_SUC_02": "subscribed to Swipe & Win!",
         "SUB_SUC_03": "Continue",
         "SUB_SUC_04": "Reedem your free round"
+
     },
     "BURGER": {
-        "HOME": "Home",
+        "HOME": "Home page",
         "PROFILE": "Profile",
         "HOW": "How to play",
         "PRIZES": "Prizes",
