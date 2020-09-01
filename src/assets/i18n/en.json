@@ -21,6 +21,7 @@
         "VERERROR":"The 4-digit PIN code you entered is not correct. Please try again!",
         "VERERROR2":"Credit purchase pending!",
         "WRONGNUM":"The number you inserted has invalid format!",
+        "ACCEPT": " I accept the T&Cs",
         "RESEND": "Resend PIN",
         "PLAY": "Play now",
         "BUY": "Play More",
@@ -75,7 +76,7 @@
         "MES_02b": "photos left or right.",
         "MES_03": "You have 55 seconds to answer",
         "MES_03b": "as many question as possible.",
-        "MES_04": "Be careful! For each wrong answer",
+        "MES_04": "You get 15 questions per round.",
         "MES_04b": "you lose 5 seconds.",
         "MES_05": "Want to improve your score? Buy additional games for 10 KES/ extra game.",
         "MES_05b": "Buy additional games",
@@ -83,11 +84,11 @@
     },
     "PRIZES": {
         "PRIZES": "Prizes",
-        "MES_01": "Gadgets worth 50,000 KES",
+        "MES_01": "R15,000",
         "MES_02": "Every week",
-        "MES_03": "A football trip worth 300,000 KES",
-        "MES_04": "every month",
-        "MES_05": "1,000,000 KES CASH",
+        "MES_03": "R150,000",
+        "MES_04": "or a trip for 2 to watch",
+        "MES_05": "a Springboks match abroad",
         "MES_06": "GRAND PRIZE",
         "BACK": "Go Back"
     },
@@ -100,12 +101,13 @@
     "TUTORIAL": {
         "MES_01": "Swipe Left or Right",
         "MES_02": "All you have to do is Swipe right<br>for Yes or left for No",
-        "MES_03": "55 seconds per game",
-        "MES_04": "Remember: Every wrong question<br>decreases the time 5 seconds",
+        "MES_03": "15 questions per round",
+        "MES_04": "You have 5 minutes to answer 15 questions and every correct answer gives you extra points for the cash draws!",
         "MES_05": "Gather points",
-        "MES_06": "Build up points and you can be the<br>next NTV Clasicos Swipe & Win winner<br",
-        "MES_07": "Many prizes are waiting",
-        "MES_08": "Amazing prizes are being given away weekly and Monthly! Want more? at the end of the promo we are giving away 1,000,000 KES in CASH!"
+        "MES_06": "Build up points and you can be <br>the next MTN Swipe it or lose it winner<br",
+        "MES_07": "Great prizes are waiting",
+        "MES_08": "Every week a lucky participant wins CASH!",
+        "SKIP": "Skip now, to play"
     },
     "FAQ": {
         "FAQ": "FAQ",
@@ -143,7 +145,7 @@
         "MES_06": "Correct Answers",
         "PLAY": "Play Again",
         "BACK": "Back to home page",
-        "BUY": "Play More"
+        "BUY": "Buy extra round"
     },
     "MESSAGES": {
         "MESSAGE_000": "Please confirm the service via SMS received & soon you will receive instructions for the game",

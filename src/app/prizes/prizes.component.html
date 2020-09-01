@@ -1,37 +1,37 @@
 
 <div class="header_title">
-  <span class="inside_text">{{ 'PRIZES.PRIZES' | translate }}</span>
+  <span class="inside_text">{{ 'PRIZES.PRIZES' | translate }}</span><br>
 </div>
 
-<div class="buttons-container uk-container uk-text-center">
-    <div class="" style="max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;">
+<div class="buttons-container uk-container uk-text-center" style="margin-top: 40px;">
+    <div class="" style="max-width: 600px; margin-left: auto; margin-right: auto;">
       <!-- <img class="icon" src="assets/icons/prize.png" alt=""/> -->
-      <div class="item animate__animated animate__zoomIn" style="animation-duration: 300ms; animation-delay: 100ms;">
-        <div class="animate__animated animate__jackInTheBox" style="animation-duration: 1s; animation-delay: 1s;">
-          <img src="assets/icons/grand_prize.png" alt="">
-          <h4>{{ 'HOME.CAR_03' | translate }}</h4>
-          <p>{{ 'HOME.CAR_03b' | translate }}</p>
+      <div class="item animate__animated animate__bounceInUp" style="animation-duration: 700ms; animation-delay: 100ms;">
+        <div class="animate__animated animate__bounceIn" style="animation-duration: 800ms; animation-delay: 700ms;">
+          <h4>{{ 'PRIZES.MES_01' | translate }}</h4>
+          <p>{{ 'PRIZES.MES_02' | translate }}</p>
+          <img src="assets/images/prizespage_1.png" alt=""><br>
         </div>
         
       </div>
-      <div class="item animate__animated animate__zoomIn" style="animation-duration: 300ms; animation-delay: 400ms;">
-        <div class="animate__animated animate__jackInTheBox" style="animation-duration: 1s; animation-delay: 1500ms;">
-          <img src="assets/icons/monthly_prize.png" alt="">
-          <h4>{{ 'HOME.CAR_02' | translate }}</h4>
-          <p>{{ 'HOME.CAR_02b' | translate }}</p>
+      <div class="item animate__animated animate__bounceInUp" style="animation-duration: 700ms; animation-delay: 500ms;">
+        <div class="animate__animated animate__bounceIn" style="animation-duration: 800ms; animation-delay: 1100ms;">
+          <h4>{{ 'PRIZES.MES_03' | translate }}</h4>
+          <p>{{ 'PRIZES.MES_04' | translate }}</p>
+          <p>{{ 'PRIZES.MES_05' | translate }}</p>
+          <img src="assets/images/prizespage_2.png" alt=""><br>
+
         </div>
         
       </div>
-      <div class="item animate__animated animate__zoomIn" style="animation-duration: 300ms; animation-delay: 800ms;">
+      <!-- <div class="item animate__animated animate__zoomIn" style="animation-duration: 300ms; animation-delay: 800ms;">
         <div class="animate__animated animate__jackInTheBox" style="animation-duration: 1s; animation-delay: 2s;">
           <img src="assets/icons/weekly_prize.png" alt="">
           <h4>{{ 'HOME.CAR_01' | translate }}</h4>
           <p>{{ 'HOME.CAR_01b' | translate }}</p>
         </div>
         
-      </div>
+      </div> -->
       
     </div>
       <!-- <div class="item">
@@ -41,8 +41,8 @@
     </div>
     </div> -->
 
-    <div class="buttons-container uk-container uk-text-center">
-      <button class="uk-button uk-button-default play-button uk-width-1-1" *ngIf="isActive" (click)="goHome()">{{ 'PRIZES.BACK' | translate }}</button>
+    <div class="buttons-container uk-container uk-text-center animate__animated animate__bounceInLeft" style="animation-duration: 800ms; animation-delay: 1500ms;">
+      <button class="uk-button play-button uk-width-1-1" *ngIf="isActive" (click)="goHome()">{{ 'PRIZES.BACK' | translate }}</button>
     </div>
     <!--<div class="main-footer uk-container" >-->
     <!--  Служба поддержки:  111777 (бесплатно) или отправьте письмо на support@gu-group.ru-->

@@ -8,21 +8,23 @@
       <!--Correct Answers-->
       <div class="coinWrap">
         <div class="coin">
-          <div class="coin__number">{{totalAnswerCount}}</div>
+          <div class="coin__number">{{rightAnswerCount}}</div>
         </div>
-        <p>{{answerMessage}}</p>
+        <p style="font-size: 20px;">{{answerMessage}}</p><br>
+        
       </div>
       
     </div>
-    
+    <p style="text-align: center; color: black;">This is a test message given by the service. In final version, info about the last game played will be displaed</p>
     <!--If there are available games to buy play another game-->
     
     <br>
     <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"  *ngIf="this.session.hasCredit()" (click)="startGame()">{{ 'END.PLAY' | translate }}</button>
     <p *ngIf="verErrorMes2" style="font-size: 12px; color: rgb(32, 32, 32);">{{ 'HOME.VERERROR2' | translate }}</p>
     <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"  *ngIf="!this.session.hasCredit()" (click)="OpenOTPPurchase()">{{ 'END.BUY' | translate }}</button>
-    
-    <app-button [link_button]="true" [link_button_white]="true" class="uk-modal-close"  (click)="returnHome()">{{ 'END.BACK' | translate }}</app-button>
+    <br>
+    <button class="uk-button uk-button-link uk-modal-close" style="font-size: 20px;" (click)="returnHome()">{{ 'END.BACK' | translate }}</button>
+    <!-- <app-button [link_button]="true" [link_button_white]="false" class="uk-modal-close"  (click)="returnHome()">{{ 'END.BACK' | translate }}</app-button> -->
   </div>
 </div>
 
@@ -84,8 +86,7 @@
     <pre>{{ 'MESSAGES.MESSAGE_16' | translate }}</pre>
     <!--<p>{{errorMsg}}</p>-->
     <!-- <app-button *ngIf="!logOutBtn" [link_button]="true" class="uk-modal-close">{{ 'MESSAGES.MESSAGE_07' | translate }}</app-button> -->
-    
-    <app-button  [link_button]="true" class="uk-modal-close" (click)="OpenResultAgain()">{{ 'MESSAGES.MESSAGE_15' | translate }}</app-button>
-      
+ 
     </div>
+    <app-button  [link_button]="true" class="uk-modal-close" (click)="OpenResultAgain()">{{ 'MESSAGES.MESSAGE_15' | translate }}</app-button>
   </div>

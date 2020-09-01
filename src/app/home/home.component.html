@@ -14,7 +14,7 @@
 </div>
 
 <!-- // Slider -->
-<div class="slideshow-container" *ngIf="!openVerify" uk-slideshow="animation: fade; min-height: 400; max-height: 400; autoplay: true; autoplay-interval: 2000; pause-on-hover: false;" >
+<div class="slideshow-container animate__animated animate__bounceIn" style="animation-duration: 800ms; animation-delay: 200ms;" *ngIf="!openVerify" uk-slideshow="animation: fade; min-height: 400; max-height: 400; autoplay: true; autoplay-interval: 2000; pause-on-hover: false;" >
 
   <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
     
@@ -124,7 +124,7 @@
           <div class="uk-inline uk-width-1-1 ">
               <a class="uk-form-icon uk-form-icon-flip" ><img class=".uk-position-right" (click)="OpenPass()" src="assets/icons/eye.svg" alt=""></a>
               
-              <input #pin class="uk-input uk-border-rounded" type="{{passType}}" placeholder="....">
+              <input #pin class="uk-input" type="{{passType}}" placeholder="....">
           </div>
       </div>
     </form>
@@ -133,8 +133,18 @@
       <p *ngIf="verErrorMes" style="font-size: 12px; color: white;">{{ 'HOME.VERERROR' | translate }}</p>
       <button class="uk-button uk-button-default play-button uk-width-1-1" *ngIf="sessionService.isSubscribed" (click)="verifyDirect(pin.value)">{{ 'HOME.LOGIN' | translate }}</button> 
       <button class="uk-button uk-button-default play-button uk-width-1-1" *ngIf="!sessionService.isSubscribed" (click)="verify(pin.value)">{{ 'HOME.SUB' | translate }}</button>
+      
+      <!-- <input type="checkbox" [checked]="acceptCheck" (change)="checkValue(acceptCheck?'A':'B')" /> -->
+
+      <input type="checkbox" id="acceptCB" name="acceptTC" value="male" [checked]="check" (change)="checkCheckBoxvalue($event)">
+      <!-- <label for="vehicle1"> I have a bike</label><br> -->
+      <!-- <input type="radio" value="male" name="gender"  [checked]="true" (click)="ChangeGender(true) ">{{ 'SETT.MALE' | translate }} -->
+      <label style="color:rgb(0, 0, 0); font-weight: bold; font-size: 15px;">
+        <a routerLink="/info" style="color:rgb(255, 255, 255); text-decoration: underline;">{{ 'HOME.ACCEPT' | translate }}</a>
+      </label>
     </div>
     <div class="message-container" style="margin-top: 30px;">
+      
       <p style="color:rgb(0, 0, 0); font-weight: bold; font-size: 20px;"><a (click)="resetPin()" style="color:rgb(255, 255, 255); text-decoration: underline;">{{ 'HOME.RESEND' | translate }}</a>
       </p>
       <!--<p>Услуга оказывается МТС совместно с партнером «ДжЮ Груп»</p>-->
@@ -214,7 +224,7 @@
 </div> -->
 <div class="main-footer uk-container animate__animated animate__bounceInUp" *ngIf="!openVerify" style="text-align: center; animation-delay: 900ms;">
     {{ 'HOME.FOOTER_01' | translate }}
-  <br>
+  <!-- <br> -->
   <p >
   <!-- {{ 'HOME.FOOTER_02' | translate }}<br>{{ 'HOME.FOOTER_02b' | translate }} -->
   <a [routerLink]="['/info']" style="color:white; text-decoration: underline;">{{ 'HOME.FOOTER_02c' | translate }}</a>

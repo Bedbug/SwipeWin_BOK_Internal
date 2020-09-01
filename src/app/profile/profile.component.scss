@@ -1,38 +1,63 @@
 .profile-component {
   //max-width: 350px;
+
+  .topProfile{
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    color: black;
+    padding: 16px;
+    margin: 40px 20px;
+    text-align: center;
+    box-shadow: 0px 0px 15px;
+  }
+  
+  .uk-grid-divider > :not(.uk-first-column)::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 35px;
+    border-left: 3px solid #000000;
+  }
+
   .avatar {
     margin: 20px;
   }
   .phone {
-    font-size: 17px;
-    font-weight: bold;
+    font-size: 25px;
+    font-weight: bolder;
     font-style: normal;
     font-stretch: normal;
     line-height: 1.41;
     letter-spacing: normal;
     text-align: center;
-    color: #ffffff;
+    // color: #ffffff;
   }
   .results {
     padding-left: 16px;
     padding-right: 16px;
     .number {
-      font-size: 30px;
+      font-size: 40px;
       font-weight: bold;
       font-style: normal;
       font-stretch: normal;
       line-height: 1.47;
       letter-spacing: normal;
-      color: #077dbd;
+      // color: #077dbd;
     }
     .text {
-      font-size: 12px;
-      font-weight: bold;
+      font-size: 15px;
+      // font-weight: bold;
       font-style: normal;
       font-stretch: normal;
       line-height: 1.17;
       letter-spacing: normal;
-      color: #ffffff;
+      // color: #ffffff;
     }
     margin-top: 24px;
   }
@@ -77,14 +102,14 @@
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: #ffffff;
+  // color: #ffffff;
   .label {
     font-size: 20px;
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
     letter-spacing: normal;
-    color: #ffffff;
+    // color: #ffffff;
     text-align: left;
     padding-left: 0;
   }

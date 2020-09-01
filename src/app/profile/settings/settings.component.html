@@ -1,10 +1,12 @@
 <div class="header_title">
   <span class="inside_text">{{ 'SETT.SETT' | translate }}</span>
-</div>
+</div><br>
 
 <div class="profile-component uk-text-center settings" style="max-width: 600px;
     margin-left: auto;
     margin-right: auto;">
+
+<div class="topSettings animate__animated animate__bounceInUp" style="animation-duration: 800ms; animation-delay: 400ms;">>
   <div class="avatar">
     <!--<ngx-avatar *ngIf="showAvatar" class="my-avatar" -->
   
@@ -16,8 +18,8 @@
     <div class="js-upload" uk-form-custom>
     <input type="file" accept="image/*" class="btn" (change)="OnFileSelected($event)" multiple>
     
-    <app-button [secondary]="true" class="btn">{{ 'SETT.UPLOAD' | translate }}</app-button> 
-    
+    <!-- <app-button [secondary]="true" class="btn">{{ 'SETT.UPLOAD' | translate }}</app-button>  -->
+    <button class=" select-button ">{{ 'SETT.UPLOAD' | translate }}</button> 
     </div>
     <!--<input class="btn" type="file" (change)="OnFileSelected($event)" >-->
      
@@ -43,15 +45,18 @@
           <label class="uk-button" for="female" >{{ 'SETT.FEMALE' | translate }}</label>
           
           </div>
-        
-        <!--<input type="radio" id="male" name="gender" value="0" style="display:none;" checked/>-->
-        <!--<label class="uk-button" for="male">Муж</label>-->
-        
-        <!--<input type="radio" id="female" name="gender" value="1" style="display:none;"/>-->
-        <!--<label class="uk-button" for="female">Жен</label>-->
-      
       </div>
     </div>
+    <!-- <div class="sex-selector">
+      <label class="uk-form-label label" for="sex">{{ 'SETT.SEX' | translate }}</label>
+       <div>
+        <p>
+          <input type="radio" value="male" name="gender"  [checked]="true" (click)="ChangeGender(true) ">{{ 'SETT.MALE' | translate }}
+          <input type="radio" value="female" name="gender" (click)="ChangeGender(false) ">{{ 'SETT.FEMALE' | translate }}
+        </p>
+      </div>
+    </div> -->
+
     <app-input-text
       [label]="true"
       inputType="text"
@@ -60,15 +65,23 @@
       (keyup)="onKeyAge($event)"
     >{{_age}}</app-input-text>
   </form>
+</div>
+
+
   <div class="buttons-container uk-container uk-text-center">
     <!--Toggle Unsubscribe-->
     
     <!-- <app-button [secondary]="true" class="btn" (click)="sendMail()">Help</app-button> -->
-    <app-button [secondary]="true" class="btn" (click)="saveData()" >{{ 'SETT.SAVE' | translate }}</app-button>
-    <app-button [link_button]="true" [link_button_white]="true" (click)="logOut()" style="text-decoration:underline">{{ 'SETT.LOGOUT' | translate }}</app-button>
+    <!-- <app-button [secondary]="true" class="btn" (click)="saveData()" >{{ 'SETT.SAVE' | translate }}</app-button> -->
+    <button class=" uk-button-default play-button uk-width-1-1 animate__animated animate__bounceInLeft" style="animation-duration: 800ms; animation-delay: 700ms;" (click)="saveData()">{{ 'SETT.SAVE' | translate }}</button> 
+    
     <!-- <app-button [link_button]="true" [link_button_white]="true" class="btn unsubscribe" uk-toggle="target: #unsubscribe">Unsubscribe</app-button> -->
   </div>
   
+  <div class="buttons-container uk-container uk-text-center animate__animated animate__bounceInUp" style="animation-duration: 800ms; animation-delay: 1000ms;">
+    <app-button [link_button]="true" [link_button_white]="true" (click)="logOut()" style="text-decoration:underline">{{ 'SETT.LOGOUT' | translate }}</app-button>
+  </div>
+
   <!--Toggled Modal-->
   <div id="unsubscribe" class="uk-flex-top" uk-modal>
     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">

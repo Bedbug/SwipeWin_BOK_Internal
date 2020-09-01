@@ -1,4 +1,21 @@
 .settings {
+
+  .topSettings{
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    color: black;
+    padding: 16px;
+    margin: 40px 20px;
+    text-align: center;
+    box-shadow: 0px 0px 15px;
+  }
+
   .avatar {
     margin: 20px 0;
     display: flex;
@@ -20,12 +37,13 @@
 
   }
   .active {
-    border-radius: 25px;
-    background-color: #077dbd;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #ffcc00;
     color: #001424;
     font-weight: bold;
     label {
-      color: rgb(255, 255, 255);
+      color: rgb(0, 0, 0);
       
     }
   }
@@ -35,12 +53,42 @@
     font-weight: bold;
   }
 
+  .select-button{
+    border-radius: 5px;
+    background-color: #ffcc00;
+    color: #001424;
+    font-weight: bold;
+    border-width: 0px;
+    min-height: 45px;
+    margin: 18px 2px 19px 20px;
+    min-width: 174px;
+    font-size: 16px;
+  }
+
+  .play-button{
+    font-family: MTNBRIGHTERSANS-REGULAR;
+    border-radius: 25px;
+    box-shadow: 0 9px 13px 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffcc00;
+    margin-bottom: 12px;
+    border: none;
+    font-size: 25px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    min-height: 44px;
+    text-transform: none;
+  }
   .uk-button {
     text-transform: none;
     font-size: 16px;
     line-height: 1.25;
     text-align: center;
-    color: #077dbd;
+    color: #000000;
     padding: 5px;
     font-weight: bold;
   }
@@ -139,7 +187,8 @@
   font-weight: bold;
 }
 .button_secondary[_ngcontent-c3] {
-  background-image: linear-gradient(to bottom, #ffffff, #fcfcfc 19%, #efefef 41%, #f0f0f0 88%, #ffffff);
-  color: #ffffff;
+  // background-image: linear-gradient(to bottom, #ffffff, #fcfcfc 19%, #efefef 41%, #f0f0f0 88%, #ffffff);
+  background-color: #ffcc00;
+  color: #000000;
 }
 

@@ -9,9 +9,9 @@
   color: #000000;
   .faq-item {
     padding: 16px 11px 16px 11px;
-    border-radius: 15px;
+    border-radius: 5px;
     box-shadow: 0 2px 20px 0 rgba(60, 61, 64, 0.1), 0 2px 4px 0 rgba(55, 55, 56, 0.2);
-    background-color: #000000c9;
+    background-color: #ffffff;
     .uk-accordion-content {
       font-size: 14px;
       font-weight: normal;
@@ -19,17 +19,17 @@
       font-stretch: normal;
       line-height: 1.43;
       letter-spacing: normal;
-      color: #ffffff;
+      color: #000000;
     }
   }
 }
 .uk-accordion-title:before {
-  background-color: #ffffff;
+  background-color: #000000;
   mask: url('../../../node_modules/uikit/src/images/icons/chevron-down.svg') no-repeat 50% 50%;
 }
 .uk-open {
   .uk-accordion-title:before {
-    background-color: #ffffff;
+    background-color: #000000;
     mask: url('../../../node_modules/uikit/src/images/icons/chevron-up.svg') no-repeat 50% 50%;
   }
 }
@@ -92,10 +92,10 @@
 }
 
 .uk-accordion-title {
-  isplay: block;
+  display: block;
     font-size: medium;
     line-height: 1.4;
-    color: #077dbd;
+    color: #000000;
     overflow: hidden;
     font-weight: bold;
 }

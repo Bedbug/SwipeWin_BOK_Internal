@@ -3,13 +3,29 @@
 }
 
 .mts-logo{
-  position: absolute;
-  right: 0rem;
-  z-index:999;
-  img{
-    padding-top: 1.2rem;
-    padding-right: 1rem;
-  }
+  // position: absolute;
+  font-family: MTNBRIGHTERSANS-BOLD;
+  z-index: 999;
+    width: 150px;
+    font-weight: bolder;
+    font-size: xxx-large;
+    color: white;
+    line-height: 49px;
+    margin-top: 10px;
+    margin-bottom: -30px;
+}
+.simpleText{
+  font-family: MTNBRIGHTERSANS-BOLD;
+  font-weight: bold; 
+  font-size: 17px; 
+  color: white;
+}
+
+.textHighlighted{
+  font-family: MTNBRIGHTERSANS-BOLD;
+  font-weight: bold; 
+  font-size: 22px; 
+  color:#ffcc00;
 }
 
 .slideshow-container{

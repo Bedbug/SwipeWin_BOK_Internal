@@ -18,15 +18,30 @@ export class ResultComponent implements OnInit {
     return this._cashbackAmount;
   }
   get rightAnswerCount(): number {
-    return this._rightAnswerCount;
+    for (var i = 0; i < this._rightAnswerCount; i++) {
+      this.counter++;
+      setTimeout(function() {
+        return this.counter++;
+      }, 500 * i);
+
+      return this._rightAnswerCount;
+  }
+    // return this._rightAnswerCount;
   }
   get totalAnswerCount(): string {
+    // return (this._rightAnswerCount +"/"+ (this._rightAnswerCount + this._wrongAnswerCount));
     return (this._rightAnswerCount +"/"+ (this._rightAnswerCount + this._wrongAnswerCount));
   }
   get gamesPlayed(): number {
     return this._gamesPlayed;
   }
+
   
+   
+  // function countSlowly() {
+
+  // }
+  counter = 0;
   lblShow:boolean = true;
   passType: string = "password";
   verErrorMes: boolean = false;

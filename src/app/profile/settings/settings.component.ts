@@ -34,7 +34,11 @@ export class SettingsComponent implements OnInit {
       this.sex = !this.sex;
       console.log(this.sex); // black
     }
-  
+  ChangeGender(gend){
+    this.sex = gend;
+    console.log(gend);
+  }
+
   OnFileSelected(event){
     console.log(event.target.files);
   

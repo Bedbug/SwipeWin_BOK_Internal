@@ -37,8 +37,7 @@ export class WinnersComponent implements OnInit {
           
           
           if(this.dailyWinners$ == null || this.dailyWinners$.length == 0)
-            this.dailyWinners$ = [{id: "", username: "", msisdn: "", winDate: "", winSum: ""},{id: "", username: "", msisdn: "", winDate: "", winSum: ""},{id: "", username: "", msisdn: "", winDate: "", winSum: ""},{id: "", username: "", msisdn: "", winDate: "", winSum: ""},{id: "", username: "", msisdn: "", winDate: ""},{id: "", username: "", msisdn: "", winDate: ""},{id: "", username: "", msisdn: "", winDate: ""},{id: "", username: "", msisdn: "", winDate: ""},
-            {id: "", username: "", msisdn: "", winDate: ""},{id: "", username: "", msisdn: "", winDate: ""},{id: "", username: "", msisdn: "", winDate: ""},{id: "", username: "", msisdn: "", winDate: ""},{id: "", username: "", msisdn: "", winDate: ""},{id: "", username: "", msisdn: "", winDate: ""},{id: "", username: "", msisdn: "", winDate: ""}];
+            this.dailyWinners$ = [{id: "", username: "", msisdn: "", winDate: "", winSum: ""},{id: "", username: "", msisdn: "", winDate: "", winSum: ""},{id: "", username: "", msisdn: "", winDate: "", winSum: ""},{id: "", username: "", msisdn: "", winDate: ""}];
           
           else if(this.dailyWinners$[0].winDate != ""){
             for( var i = 0; i < this.dailyWinners$.length; i++) {

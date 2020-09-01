@@ -30,7 +30,8 @@ export class HomeComponent implements OnInit {
   openSubSuccess: boolean = false;
   alertNumber: boolean = false;
   verErrorMes: boolean = false;
-  
+  acceptCheck: boolean = false;
+
   // get this form the User object
   get isHasCashback(): boolean {
     return this._isHasCashback;
@@ -197,7 +198,15 @@ export class HomeComponent implements OnInit {
     this.openVerify = false;
     this.loggedin = false;
   }
+
+  public checkCheckBoxvalue(event: any){
+    // console.log(event.currentTarget.checked);
+    this.acceptCheck = event.currentTarget.checked;
+    console.log(this.acceptCheck);
+  }
   
+ 
+ 
   public playGame($event) {
     // console.log('button is clicked');
     // $event.stopPropagation();
@@ -237,7 +246,7 @@ export class HomeComponent implements OnInit {
     number = phoneNumber.countryCallingCode +""+ phoneNumber.nationalNumber;
     console.log("MSISDN: " +phoneNumber.countryCallingCode+phoneNumber.nationalNumber);
     
-    if(number.length != 12){
+    if(number.length != 12 && number.length != 5){
       this.alertNumber = true;
       return;
     }

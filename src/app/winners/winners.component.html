@@ -4,22 +4,29 @@
 
 <div class="winners-component uk-container uk-text-center">
 
-<div class="buttons-container uk-container info-text">
-  <table class="uk-table uk-table-divider">
-    <thead>
-      <tr >
-        <th style="width:50%">{{ 'WINNERS.PRIZE' | translate }}</th>
-        <th style="width:50%">{{ 'WINNERS.DATE' | translate }}</th>
+  <div class="buttons-container uk-container info-text animate__animated animate__bounceInUp" style="animation-duration: 700ms; animation-delay: 100ms;">
+    <table class="uk-table ">
+      <thead>
+        <tr style="border-bottom: 2px solid black;">
+          <th style="width:50%">{{ 'WINNERS.PRIZE' | translate }}</th>
+          <th style="width:50%">{{ 'WINNERS.DATE' | translate }}</th>
+        </tr>
+      </thead>
+      <tr *ngFor = "let winner of dailyWinners$; let i = index" [hidden]="!showDay || !dailyWinners$" style="border-bottom: 0.5px solid black;"  >
+        <td class=" animate__animated animate__fadeInLeft" [ngStyle]="{'animation-delay': (i * 100+400)+'ms' }" style=" font-weight: bolder;">{{winner.winSum}}R15,000</td>
+        <td class=" animate__animated animate__fadeInLeft" [ngStyle]="{'animation-delay': (i * 100+400)+'ms' }"> {{winner.winDate}}29-10-2019</td>
       </tr>
-    </thead>
-    <tr *ngFor = "let winner of dailyWinners$; let i = index" [hidden]="!showDay || !dailyWinners$">
-      <td>{{winner.winSum}}</td>
-      <td>{{winner.winDate}}</td>
-    </tr>
+      
+    </table>
     
-  </table>
-  
+  </div >
+
 </div>
-<app-button [secondary]="true" class="btn" (click)="goHome()">{{ 'WINNERS.BACK' | translate }}</app-button>
+<div class="buttons-container uk-container uk-text-center animate__animated animate__bounceInLeft" style="animation-duration: 800ms; animation-delay: 800ms;">
+<button class="uk-button play-button uk-width-1-1" (click)="goHome()">{{ 'WINNERS.BACK' | translate }}</button>
+<!-- <app-button [secondary]="true" class="btn" (click)="goHome()">{{ 'WINNERS.BACK' | translate }}</app-button> -->
 </div>
+<!-- <div class="buttons-container uk-container uk-text-center animate__animated animate__bounceInLeft" style="animation-duration: 800ms; animation-delay: 1500ms;">
+  <button class="uk-button play-button uk-width-1-1" (click)="goHome()">{{ 'WINNERS.BACK' | translate }}</button>
+</div> -->
  

@@ -202,6 +202,8 @@ var __phaser = {
         game.load.image("frameBronze", "assets/sprites/polaroid_frame_bronze.png");
         game.load.image("zone_yes", "assets/sprites/zone_yes.png");
         game.load.image("zone_no", "assets/sprites/zone_no.png");
+        game.load.image("timer_start", "assets/sprites/timer_start.png");
+        game.load.image("timer_end", "assets/sprites/timer_end.png");
         game.load.image("timerbg", "assets/sprites/timerBg.png");
         game.load.image("tableBg", "assets/sprites/tableBg.png");
         game.load.image("falseTag", "assets/sprites/false@3x.png");
@@ -266,6 +268,8 @@ var __phaser = {
             angle: randomNum / 2
           }, 500, Phaser.Easing.Quadratic.In, true, i * 200);
         }
+
+        
       }
 
       function apiCallback(err, gameTicket, isCorrect, sessionResults, extraQuestions) {
@@ -463,17 +467,47 @@ var __phaser = {
         // if (globalRatio < 0.5) globalRatio = 0.5; // BACKGROUND Timer EFFECT
         // make it from left to right
         // Slice it to 
-
-        var timerBgBg = game.add.sprite(0, 0, 'whitebox');
+        var TimerGroup = game.add.group();
+        var timerBgBg = game.add.sprite(120, 0, 'zone_no');
         timerBgBg.anchor.set(0);
         timerBgBg.alpha = 0.3;
-        timerBgBg.width = game.camera.width;
-        timerBgBg.height = 5;
-        var timerBg = game.add.sprite(0, 0, 'zone_no');
+        timerBgBg.width = game.camera.width -240;
+        timerBgBg.height = 20;
+        var timerstartBg = game.add.sprite(120, 0, 'timer_start');
+        timerstartBg.anchor.set(1,0);
+        timerstartBg.alpha = 0.3;
+        timerstartBg.width = 20;
+        timerstartBg.height = 20;
+        var timerendBg = game.add.sprite(game.camera.width-120, 0, 'timer_end');
+        timerendBg.anchor.set(0,0);
+        timerendBg.alpha = 0.3;
+        timerendBg.width = 20;
+        timerendBg.height = 20;
+
+        TimerGroup.add(timerBgBg);
+        TimerGroup.add(timerstartBg);
+        TimerGroup.add(timerendBg);
+
+        var timerBg = game.add.sprite(120, 0, 'zone_no');
         timerBg.anchor.set(0);
-        timerBg.width = game.camera.width;
-        timerBg.height = 5;
-        var TimerGroup = game.add.group();
+        timerBg.width = game.camera.width -240;
+        timerBg.height = 20;
+        var timerstart = game.add.sprite(120, 0, 'timer_start');
+        timerstart.anchor.set(1,0);
+        timerstart.alpha = 1;
+        timerstart.width = 20;
+        timerstart.height = 20;
+        var timerend = game.add.sprite(game.camera.width-120, 0, 'timer_end');
+        timerend.anchor.set(0,0);
+        timerend.alpha = 1;
+        timerend.width = 20;
+        timerend.height = 20;
+
+        TimerGroup.add(timerBg);
+        TimerGroup.add(timerstart);
+        TimerGroup.add(timerend);
+
+        TimerGroup.alpha = 0;
         that.timePlus = game.add.sprite(0, 20, 'plusSec');
         that.timePlus.anchor.set(0);
         that.timePlus.alpha = 0; //  Create our Timer
@@ -489,6 +523,11 @@ var __phaser = {
           game.logic.timeRemainingSeconds--;
 
           if (game.logic.timeRemainingSeconds < 0) {
+            // Close Timer
+            game.add.tween(TimerGroup).to({
+              alpha: 0
+            }, 700, "Linear", true);
+            // TimerGroup.alpha = 0;
             if (!game.logic.gameIsOver) {
               game.logic.gameIsOver = true; // Let the server take care of the results, submit a special (-1) user answer after the local timer is over
 
@@ -496,11 +535,14 @@ var __phaser = {
             }
           } else {
             // Make the scale of the line the acording to the remaining secs
-            var newWidth = (game.camera.width / 180) * game.logic.timeRemainingSeconds;
+            var newWidth = ((game.camera.width-240) / 300) * game.logic.timeRemainingSeconds;
             if (__phaser.game.type !== 'timefree') game.world.bringToTop(that.timePlus);
             game.add.tween(timerBg).to({
               width: newWidth
             }, 100, Phaser.Easing.Linear.None, true);
+            // Move timerEnd to the end of the bar
+            timerend.x = newWidth+120;
+            // Move timePlus Sprite to the endish of the bar
             game.add.tween(that.timePlus).to({
               x: newWidth - 150 * globalRatio
             }, 300, Phaser.Easing.Linear.None, true);
@@ -858,6 +900,12 @@ var __phaser = {
 
           demoTimer.start(); // Change Text To "Waiting For First Answer!"
           // demoTimeTxt.text = Localization.Translate("labelBeforeTimerStart");
+          // Open Timer
+          TimerGroup.y = ((game.camera.height / 100) * 5) /globalRatio;
+          game.add.tween(TimerGroup).to({
+            alpha: 1
+          }, 1000, "Linear", true, 4000);
+          // TimerGroup.alpha = 1;
 
           function onOver(sprite, pointer) {//console.log("Mouse Over!");
             // sprite.tint = 0xf1f1f1;
@@ -960,8 +1008,8 @@ var __phaser = {
             noLabel.alpha = 0;
           } // open buttons with delay
 
-
-          game.time.events.add(Phaser.Timer.SECOND * 3, function () {
+          // open the colored buttons after x seconds
+          game.time.events.add(Phaser.Timer.SECOND * 4, function () {
             // if (__phaser.game.type !== 'timefree') {
               yesButton.alpha = 1;
               noButton.alpha = 1;
