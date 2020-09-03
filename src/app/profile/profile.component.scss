@@ -16,7 +16,16 @@
     text-align: center;
     box-shadow: 0px 0px 15px;
   }
-  
+
+  .uk-button-link {
+    margin-top: 20px;
+    padding: 0;
+    line-height: 1.5;
+    background: none;
+    color: #000000;
+    text-decoration: underline;
+  }
+
   .uk-grid-divider > :not(.uk-first-column)::before{
     content: "";
     position: absolute;
@@ -92,6 +101,14 @@
 .uk-container {
   padding-left: 10px;
   padding-right: 10px;
+}
+.uk-button-link {
+  margin-top: 20px;
+  padding: 0;
+  line-height: 1.5;
+  background: none;
+  color: #000000;
+  text-decoration: underline;
 }
 
 .days-summary {

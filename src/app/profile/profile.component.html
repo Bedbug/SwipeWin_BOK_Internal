@@ -73,6 +73,7 @@
       <h4>{{ 'MESSAGES.MESSAGE_01' | translate }}</h4>
       <p>{{ 'MESSAGES.MESSAGE_02' | translate }}</p>
       <!--<p>{{errorMsg}}</p>-->
-      <app-button [link_button]="true" class="uk-modal-close" (click)="goHome()">{{ 'PROFILE.BACK' | translate }}</app-button>
+      <button class="uk-button uk-button-default uk-button-link uk-modal-close" style="font-size: 20px; font-weight: bold;" (click)="goHome()">{{ 'PROFILE.BACK' | translate }}</button>
+      <!-- <app-button [link_button]="true" class="uk-modal-close" (click)="goHome()">{{ 'PROFILE.BACK' | translate }}</app-button> -->
     </div>
   </div>
