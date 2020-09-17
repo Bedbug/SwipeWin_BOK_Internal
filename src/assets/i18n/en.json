@@ -85,9 +85,9 @@
     "PRIZES": {
         "PRIZES": "Prizes",
         "MES_01": "R15,000",
-        "MES_02": "Every week",
+        "MES_02": "every week",
         "MES_03": "R150,000",
-        "MES_04": "or a trip for 2 to watch",
+        "MES_04": "as Grand Prize",
         "MES_05": "a Springboks match abroad",
         "MES_06": "GRAND PRIZE",
         "BACK": "Go Back"
@@ -148,7 +148,7 @@
         "BUY": "Buy extra round"
     },
     "MESSAGES": {
-        "MESSAGE_000": "Please confirm the service via SMS received & soon you will receive instructions for the game",
+        "MESSAGE_000": "Please click the link you recieved via SMS in order to log in and play the Bok Trivia web game!",
         "MESSAGE_00": "Purchase Pending",
         "MESSAGE_01": "Oups",
         "MESSAGE_02": "You must log-in to access this section",

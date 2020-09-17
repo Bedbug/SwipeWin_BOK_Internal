@@ -290,6 +290,10 @@ export class HomeComponent implements OnInit {
         // Goto the returnHome page
         //this.router.navigate(['/returnhome']);
         this.openSubSuccess = true;
+        console.log("Open Happy Modal!");
+        let modalUnique = UIkit.modal("#happy");
+        modalUnique.show();
+        
         this.newLogin = true;
       }
     },
@@ -399,10 +403,10 @@ export class HomeComponent implements OnInit {
           this.newLogin = false;
         else
           this.newLogin = true;
-      // this.router.navigate(['/returnhome']);
 
-      // Goto the returnHome page
-      //this.router.navigate(['/returnhome']);
+      console.log("Open Happy Modal!");
+      let modalUnique = UIkit.modal("#happy", {escClose: false, bgClose: false});
+      modalUnique.show();
     },
       (err: any) => {
         console.log("Error With Pin!!!");

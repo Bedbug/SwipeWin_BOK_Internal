@@ -44,6 +44,7 @@
     box-shadow: 0px 0px 15px;
   img {
     height: 170px;
+    margin-bottom: 20px;
   }
   h4 {
     font-family: MTNBRIGHTERSANS-BOLD;
@@ -51,12 +52,14 @@
     font-size: 30px;
     margin: 5px;
     font-weight: bolder;
+    margin-bottom: -13px;
   }
   p {
     color: #000000;
     margin: 5px auto;
     width: 80%;
-    font-size: 15px;
+    font-size: 20px;
+    margin-bottom: 13px;
   }
 }
 .icon{

@@ -901,7 +901,7 @@ var __phaser = {
           demoTimer.start(); // Change Text To "Waiting For First Answer!"
           // demoTimeTxt.text = Localization.Translate("labelBeforeTimerStart");
           // Open Timer
-          TimerGroup.y = ((game.camera.height / 100) * 5) /globalRatio;
+          TimerGroup.y = ((game.camera.height / 100) * 5) *globalRatio;
           game.add.tween(TimerGroup).to({
             alpha: 1
           }, 1000, "Linear", true, 4000);
