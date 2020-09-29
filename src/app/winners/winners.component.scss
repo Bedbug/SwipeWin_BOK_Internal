@@ -1,3 +1,9 @@
+.title{
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 10px;
+}
 .winners-component {
   .period-selector {
     margin: 18px;
@@ -6,6 +12,8 @@
     border-radius: 4px;
     border: 2px solid #fff;
   }
+
+  
   // .uk-button {
   //   text-transform: none;
   //   font-size: 16px;
@@ -103,7 +111,7 @@
     color: black;
     padding: 16px;
     margin: 20px 0px;
-    margin-top: 65px;
+    // margin-top: 65px;
     text-align: center;
     box-shadow: 0px 0px 15px;
     min-height: 430px;

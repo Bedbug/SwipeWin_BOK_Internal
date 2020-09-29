@@ -1,6 +1,13 @@
 .profile-component {
   //max-width: 350px;
 
+.title{
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
   .topProfile{
     border-radius: 5px;
     background-color: #ffffff;
@@ -12,9 +19,10 @@
     letter-spacing: normal;
     color: black;
     padding: 16px;
-    margin: 40px 20px;
+    margin: 20px 20px;
     text-align: center;
     box-shadow: 0px 0px 15px;
+    margin-top: 5px;
   }
 
   .uk-button-link {

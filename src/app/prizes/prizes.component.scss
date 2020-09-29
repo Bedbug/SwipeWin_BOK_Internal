@@ -1,3 +1,10 @@
+.title{
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
 .how-to-play-text {
   border-radius: 0px;
   // box-shadow: 0 2px 20px 0 rgba(60, 61, 64, 0.1), 0 2px 4px 0 rgba(55, 55, 56, 0.2);
@@ -38,7 +45,7 @@
     line-height: 1.43;
     letter-spacing: normal;
     color: black;
-    padding: 16px;
+    padding: 5px;
     margin: 20px 0px;
     text-align: center;
     box-shadow: 0px 0px 15px;
@@ -81,7 +88,7 @@
   
 .buttons-container{
   max-width: 600px;
-  
+  margin-top: 0px;
 }
 
 .uk-button-default {

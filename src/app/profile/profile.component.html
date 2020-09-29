@@ -1,10 +1,11 @@
-<div class="header_title">
-  <span class="inside_text">{{ 'PROFILE.PROFILE' | translate }}</span>
-</div><br>
-<div class="profile-component uk-text-center" *ngIf="!isSettingsShowable()" style="max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;">
+
+<div class="profile-component uk-text-center" *ngIf="!isSettingsShowable()" style="max-width: 600px;margin-left: auto;margin-right: auto;">
   
+<!-- Header -->
+<div class="title">
+  <span >{{ 'PROFILE.PROFILE' | translate }}</span>
+</div>
+<!-- Theme -->
 <div class="topProfile animate__animated animate__bounceInUp" style="animation-duration: 800ms; animation-delay: 400ms;">>
   <div class="avatar" style="margin: 15px;">
   

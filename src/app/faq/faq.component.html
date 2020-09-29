@@ -1,11 +1,9 @@
-<div class="header_title">
-  <span class="inside_text">{{ 'FAQ.FAQ' | translate }}</span>
+<div class="uk-text-center title">
+  <span >{{ 'FAQ.FAQ' | translate }}</span>
 </div>
 
-<div class="buttons-container uk-container" style="margin-top: 35px;">
-  <div class="faq-component" style="max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;"><br>
+<div class="buttons-container uk-container" style="margin-top: 0px;">
+  <div class="faq-component" style="max-width: 600px; margin-left: auto; margin-right: auto;"><br>
     <div class="uk-accordion" data-uk-accordion="multiple: true">
 
       <div class="faq-item animate__animated animate__bounceInDown" style="animation-duration: 700ms; animation-delay: 100ms;"  *ngFor="let service of ('FAQ.data' | translate)" >
