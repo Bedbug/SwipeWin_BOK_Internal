@@ -90,6 +90,7 @@ html, body {
   height: 100%;
   // background-image: radial-gradient(circle at 50% 50%, #007cff, #002094);
   // background-image: radial-gradient(circle at 50% 50%, #262729, #262729);
+  background-color: black;
   background-image: url("assets/images/background_low.jpg");
   background-position: center center;
   background-repeat: no-repeat;
@@ -101,6 +102,7 @@ html {
   overflow: hidden;
 }
 body {
+  height: 100%;
   overflow-y: scroll;
   -webkit-overflow-scrolling:touch;
 }
