@@ -1,6 +1,7 @@
-<app-header></app-header>
+<app-header *ngIf="_router.url != '/game'"></app-header>
 <!--The content below is only a placeholder and can be replaced.-->
 
-<main>
+<!-- "{ 'width' : (myObject.value == 'ok') ? '100%' : '0%' }" -->
+<main [ngStyle]="{'padding-top': (_router.url != '/game') ? '68px' : '0px'}">
   <router-outlet></router-outlet>
 </main>

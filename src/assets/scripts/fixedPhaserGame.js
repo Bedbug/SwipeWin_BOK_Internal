@@ -70,7 +70,7 @@ var Localization = {
     if (localeDictionary) return localeDictionary[term] || "[".concat(term, "]");else return "[".concat(term, "]");
   },
   TranslateQuestion: function TranslateQuestion(question) {
-    return question[Localization.locale] || question['en'];
+    return question[Localization.locale] || question['el'];
   }
 };
 
@@ -144,12 +144,14 @@ var __phaser = {
     init: function init(canvasEle, appComponent, locale) {
       Localization.locale = locale;
       // create game object
+      var enableAA = true; 
       var game = new Phaser.Game(window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio, Phaser.CANVAS, canvasEle, {
         preload: preload,
         create: create,
         update: update
-      }, true); //var game = new Phaser.Game(800, 500, Phaser.AUTO, canvasEle, { preload: preload, create: create, update: update });
+      }, true, enableAA); //var game = new Phaser.Game(800, 500, Phaser.AUTO, canvasEle, { preload: preload, create: create, update: update });
 
+      console.log("AntiAlias: "+game.antialias);
       var gameState = "preload"; // assign it
 
       __phaser.gameObj = game; // Assign the game logic struct
@@ -167,6 +169,7 @@ var __phaser = {
       var demoCardObjects = [];
       var demoIsDragging = false; // var cardShadow;
 
+      var bluredBG;
       var dropZoneNo;
       var dropZoneYes;
       var noLabel;
@@ -200,6 +203,11 @@ var __phaser = {
         game.load.image("frameGold", "assets/sprites/polaroid_frame_gold.png");
         game.load.image("frameSilver", "assets/sprites/polaroid_frame_silver.png");
         game.load.image("frameBronze", "assets/sprites/polaroid_frame_bronze.png");
+        game.load.image("frameshadow", "assets/sprites/polaroid_frame_shadow.png");
+        game.load.image("glowGold", "assets/sprites/polaroid_gold_glow.png");
+        game.load.image("glowBronze", "assets/sprites/polaroid_bronze_glow.png");
+        game.load.image("glowSilver", "assets/sprites/polaroid_silver_glow.png");
+        game.load.image("frameshade", "assets/sprites/polaroid_shade.png");
         game.load.image("zone_yes", "assets/sprites/zone_yes.png");
         game.load.image("zone_no", "assets/sprites/zone_no.png");
         game.load.image("timer_start", "assets/sprites/timer_start.png");
@@ -208,6 +216,7 @@ var __phaser = {
         game.load.image("tableBg", "assets/sprites/tableBg.png");
         game.load.image("falseTag", "assets/sprites/false@3x.png");
         game.load.image("trueTag", "assets/sprites/true@3x.png");
+        game.load.image("swipe", "assets/sprites/swipe.png");
         game.load.image("gameNo", "assets/sprites/no@3x.png");
         game.load.image("gameYes", "assets/sprites/yes@3x.png");
         game.load.image("gameNoDesat", "assets/sprites/no@3x_desat.png");
@@ -216,7 +225,21 @@ var __phaser = {
         game.load.image("endGameBtn_desat", "assets/sprites/stop@3x_desat.png");
         game.load.image("plusSec", "assets/sprites/cek.png");
         game.load.image("timerPic", "assets/sprites/timer.png");
-        game.load.image("lights", "assets/sprites/lights.png"); // preloader events
+        // game.load.image("lights", "assets/sprites/lights.png"); // preloader events
+
+        game.load.image("bg0", "assets/sprites/bg0.jpg");
+        game.load.image("bg1", "assets/sprites/bg1.jpg");
+        game.load.image("bg2", "assets/sprites/bg2.jpg");
+        game.load.image("bg3", "assets/sprites/bg3.jpg");
+        game.load.image("bg4", "assets/sprites/bg4.jpg");
+        game.load.image("bg5", "assets/sprites/bg5.jpg");
+        game.load.image("bg6", "assets/sprites/bg6.jpg");
+        game.load.image("bg7", "assets/sprites/bg7.jpg");
+        game.load.image("bg8", "assets/sprites/bg8.jpg");
+        game.load.image("bg9", "assets/sprites/bg9.jpg");
+
+        game.load.script('BlurX', 'https://cdn.rawgit.com/photonstorm/phaser-ce/master/filters/BlurX.js');
+        game.load.script('BlurY', 'https://cdn.rawgit.com/photonstorm/phaser-ce/master/filters/BlurY.js');
 
         game.load.onLoadStart.add(loadStart, this);
         game.load.onFileComplete.add(fileComplete, this);
@@ -369,17 +392,37 @@ var __phaser = {
               y: globalRatio + 0.1
             }, 500, Phaser.Easing.Elastic.Out, true);
             var lastTween = game.add.tween(temCard).to({
-              y: temCard.y + (50 * globalRatio)
+              y: temCard.y + (75 * globalRatio)
             }, 500, Phaser.Easing.Elastic.Out, true);
             lastTween.onComplete.add(UnlockButtons, this); // Open Lights or Not
-
-            if (game.logic.mainCard.isCashback || game.logic.mainCard.isExtraTime) that.lights.alpha = 0.8;else that.lights.alpha = 0;
+            // Open Frame
+            // Make Alpha 1
+            bluredBG.alpha = 0;
+            bluredBG.loadTexture('bg'+game.rnd.integerInRange(0, 9));
+            game.add.tween(bluredBG).to( { alpha: 1 }, 1000, "Linear", true, 0);
+            // temCard.alpha = 1;
+            // Open Frame Shadow
+            game.logic.mainCard.frameBack.alpha = 1;
+            // temCard.alpha = 1;
+            // console.log(game.logic.mainCard);
+            // console.log(game.logic.mainCard.image.key);frameShadow
+            // game.add.tween(game.logic.mainCard.frameShadow).to( { alpha: 1 }, 400, "Linear", true, 0);
+            var shadowTween = game.add.tween(game.logic.mainCard.frameShadow).to({
+              alpha: 1
+            }, 500, Phaser.Easing.Elastic.Out, true);
+            // Tween Question Text
+            game.add.tween(game.logic.mainCard.questionText).to( { alpha: 1 }, 500, "Linear", true, 0);
+            // Open Special Frame
+            // if (game.logic.mainCard.isCashback || game.logic.mainCard.isExtraTime) that.lights.alpha = 1;else that.lights.alpha = 0;
           } else if (i == game.logic.cards.length - 2) {
             //console.log("Tween: " + i);
             game.add.tween(temCard.scale).to({
               x: (globalRatio + 0.1) / 100 * 95,
               y: (globalRatio + 0.1) / 100 * 95
             }, 500, Phaser.Easing.Bounce.Out, true, 250);
+            // Make Alpha 0.75
+            // temCard.alpha = .5;
+            // temCard.alpha = 0.75;
             var lastTween2 = game.add.tween(temCard).to({
               y: temCard.y + (50 * globalRatio)
             }, 500, Phaser.Easing.Bounce.Out, true, 250); // lastTween2.onComplete.add(UnlockButtons, this);
@@ -400,12 +443,28 @@ var __phaser = {
           that.noButton_Desat.alpha = 0;
           that.endGameBtn_desat.alpha = 0;
         }
+
+        that.yesButton.scale.set(globalRatio*1)
+        that.noButton.scale.set(globalRatio*1)
+
+        // reposition buttons
+        
+        // that.yesButton_Desat.y = game.world.height / 100 * 80;
+        // that.noButton_Desat.y = game.world.height / 100 * 80;
+        // that.yesButton.y = game.world.height / 100 * 80;
+        // that.noButton.y = game.world.height / 100 * 80;
       } //-----------------------  CREATE
 
 
       function create() {
         var _this = this;
 
+        // Create Background
+        bluredBG = game.add.sprite(0, 0, 'bg'+game.rnd.integerInRange(0, 9));
+        bluredBG.width = game.camera.width;
+        bluredBG.height = game.camera.height;
+        bluredBG.alpha = 0;
+        game.add.tween(bluredBG).to( { alpha: 1 }, 1000, "Linear", true, 1500);
         //console.log("Running Create!!");
         // Reset ame.logic.extraCardsCount
         game.logic.extraCardsCount = 0; // SPINNING GEARS
@@ -427,13 +486,13 @@ var __phaser = {
 
         this.gearGroup.add(this.g2); // LIGHTS
 
-        that.lights = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 100 * 18 + 100, 'lights');
-        that.lights.anchor.set(0.5);
-        that.lights.scale.set(5.5);
-        var lightsTween = game.add.tween(that.lights).to({
-          angle: 359
-        }, 10000, Phaser.Easing.Linear.None, true).loop(true);
-        that.lights.alpha = 0; // SWIPE INIT
+        // that.lights = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 100 * 18 + 140, 'lights');
+        // that.lights.anchor.set(0.5);
+        // that.lights.scale.set(5.5);
+        // var lightsTween = game.add.tween(that.lights).to({
+        //   angle: 359
+        // }, 10000, Phaser.Easing.Linear.None, true).loop(true);
+        // that.lights.alpha = 0; // SWIPE INIT
 
         if (__phaser.game.type === 'demo') this.swipe = new Swipe(this.game);
        //console.log('window.innerHeight: ' + window.innerHeight);
@@ -462,7 +521,7 @@ var __phaser = {
         
        //console.log("ScaleRatio = " + globalRatio); 
         //Check for Too Small Resolution
-
+        game.renderer.renderSession.roundPixels = true;
 
         // if (globalRatio < 0.5) globalRatio = 0.5; // BACKGROUND Timer EFFECT
         // make it from left to right
@@ -472,17 +531,17 @@ var __phaser = {
         timerBgBg.anchor.set(0);
         timerBgBg.alpha = 0.3;
         timerBgBg.width = game.camera.width -240;
-        timerBgBg.height = 20;
+        timerBgBg.height = 10;
         var timerstartBg = game.add.sprite(120, 0, 'timer_start');
         timerstartBg.anchor.set(1,0);
         timerstartBg.alpha = 0.3;
-        timerstartBg.width = 20;
-        timerstartBg.height = 20;
+        timerstartBg.width = 10;
+        timerstartBg.height = 10;
         var timerendBg = game.add.sprite(game.camera.width-120, 0, 'timer_end');
         timerendBg.anchor.set(0,0);
         timerendBg.alpha = 0.3;
-        timerendBg.width = 20;
-        timerendBg.height = 20;
+        timerendBg.width = 10;
+        timerendBg.height = 10;
 
         TimerGroup.add(timerBgBg);
         TimerGroup.add(timerstartBg);
@@ -491,17 +550,17 @@ var __phaser = {
         var timerBg = game.add.sprite(120, 0, 'zone_no');
         timerBg.anchor.set(0);
         timerBg.width = game.camera.width -240;
-        timerBg.height = 20;
+        timerBg.height = 10;
         var timerstart = game.add.sprite(120, 0, 'timer_start');
         timerstart.anchor.set(1,0);
         timerstart.alpha = 1;
-        timerstart.width = 20;
-        timerstart.height = 20;
+        timerstart.width = 10;
+        timerstart.height = 10;
         var timerend = game.add.sprite(game.camera.width-120, 0, 'timer_end');
         timerend.anchor.set(0,0);
         timerend.alpha = 1;
-        timerend.width = 20;
-        timerend.height = 20;
+        timerend.width = 10;
+        timerend.height = 10;
 
         TimerGroup.add(timerBg);
         TimerGroup.add(timerstart);
@@ -535,7 +594,7 @@ var __phaser = {
             }
           } else {
             // Make the scale of the line the acording to the remaining secs
-            var newWidth = ((game.camera.width-240) / 300) * game.logic.timeRemainingSeconds;
+            var newWidth = ((game.camera.width-240) / 60) * game.logic.timeRemainingSeconds;
             if (__phaser.game.type !== 'timefree') game.world.bringToTop(that.timePlus);
             game.add.tween(timerBg).to({
               width: newWidth
@@ -554,7 +613,7 @@ var __phaser = {
         dropZoneNo = game.add.sprite(0, 0, 'zone_no');
         dropZoneNo.width = game.camera.width / 2 - (0 + 50 * globalRatio);
         dropZoneNo.height = game.camera.height;
-        dropZoneNo.alpha = 0.01;
+        dropZoneNo.alpha = 0.00;
         dropZoneNo.inputEnabled = true;
         dropZoneNo.events.onInputOver.add(ZoneNoOver, this);
 
@@ -570,7 +629,7 @@ var __phaser = {
         dropZoneYes.width = game.camera.width / 2 - (0 + 50 * globalRatio);
         dropZoneYes.height = game.camera.height; // dropZoneYes.anchor.set(1,0);
 
-        dropZoneYes.alpha = 0.01;
+        dropZoneYes.alpha = 0.00;
         dropZoneYes.inputEnabled = true;
         dropZoneYes.events.onInputOver.add(ZoneYesOver, this);
 
@@ -586,29 +645,67 @@ var __phaser = {
 
         // if (__phaser.game.type !== 'timefree') {
           // Yes Button
-          var yesButton = game.add.sprite(game.camera.width / 2 + 250 * globalRatio, this.game.world.height / 100 * 90, 'gameYes');
+          var yesButton = game.add.sprite(game.camera.width / 2 + 270 * globalRatio, this.game.world.height / 100 * 86, 'gameYes');
           yesButton.alpha = 0;
           yesButton.anchor.set(.5);
           yesButton.inputEnabled = true;
           yesButton.input.useHandCursor = true;
-          yesButton.scale.set(globalRatio);
-          that.yesButton_Desat = game.add.sprite(game.camera.width / 2 + 250 * globalRatio, this.game.world.height / 100 * 90, 'gameYesDesat');
+          yesButton.scale.set(globalRatio*1);
+          that.yesButton = yesButton;
+          that.yesButton_Desat = game.add.sprite(game.camera.width / 2 + 270 * globalRatio, this.game.world.height / 100 * 86, 'gameYesDesat');
           that.yesButton_Desat.alpha = 0;
           that.yesButton_Desat.anchor.set(.5);
-          that.yesButton_Desat.scale.set(globalRatio);
+          that.yesButton_Desat.scale.set(globalRatio*1);
           yesButton.events.onInputDown.add(doAnimYes, this); // Νο Button
 
-          var noButton = game.add.sprite(game.camera.width / 2 - 250 * globalRatio, this.game.world.height / 100 * 90, 'gameNo');
+          // Intro Button Text
+          var style = { font: "40px Arial", fill: "#ffffff", align: "center" };
+          var style2 = { font: "60px Arial", fill: "#90e03f", align: "center" };
+          var introText1 = game.add.text(game.camera.width / 2 + 270 * globalRatio, this.game.world.height / 100 * 93, "Swipe δεξιά", style);
+          var introText1b = game.add.text(0, 50, "ΣΩΣΤΟ", style2);
+          introText1.addChild(introText1b)
+          introText1.fontWeight = 'bold';
+          introText1b.fontWeight = 'bold';
+          introText1.anchor.set(0.5);
+          introText1b.anchor.set(0.5);
+          introText1.scale.set(globalRatio*1);
+          // introText1b.scale.set(globalRatio*1);
+          that.introText1 = introText1;
+          introText1.alpha = 0;
+         
+
+          var swipeIcon = game.add.sprite(game.camera.width / 2 , this.game.world.height / 100 * 90, 'swipe');
+          swipeIcon.anchor.set(.5);
+          swipeIcon.alpha = 0;
+          that.swipeIcon = swipeIcon;
+          swipeIcon.scale.set(globalRatio*1);
+          swipeIcon.smoothed = true;
+          var noButton = game.add.sprite(game.camera.width / 2 - 270 * globalRatio, this.game.world.height / 100 * 86, 'gameNo');
           noButton.alpha = 0;
           noButton.anchor.set(.5);
           noButton.inputEnabled = true;
           noButton.input.useHandCursor = true;
-          noButton.scale.set(globalRatio);
-          that.noButton_Desat = game.add.sprite(game.camera.width / 2 - 250 * globalRatio, this.game.world.height / 100 * 90, 'gameNoDesat');
+          noButton.scale.set(globalRatio*1);
+          that.noButton = noButton;
+          that.noButton_Desat = game.add.sprite(game.camera.width / 2 - 270 * globalRatio, this.game.world.height / 100 * 86, 'gameNoDesat');
           that.noButton_Desat.alpha = 0;
           that.noButton_Desat.anchor.set(.5);
-          that.noButton_Desat.scale.set(globalRatio);
+          that.noButton_Desat.scale.set(globalRatio*1);
           noButton.events.onInputDown.add(doAnimNo, this);
+
+          
+          var style4 = { font: "60px Arial", fill: "#d84122", align: "center" };
+          var introText2 = game.add.text(game.camera.width / 2 - 270 * globalRatio, this.game.world.height / 100 * 93, "Swipe αριστερά", style);
+          var introText2b = game.add.text(0, 50, "ΛΑΘΟΣ", style4);
+          introText2.addChild(introText2b)
+          introText2.fontWeight = 'bold';
+          introText2b.fontWeight = 'bold';
+          introText2.scale.set(globalRatio*1);
+          // introText2b.scale.set(globalRatio*1);
+          introText2.anchor.set(0.5);
+          introText2b.anchor.set(0.5);
+          that.introText2 = introText2;
+          introText2.alpha = 0;
         // }
 
         function doAnimNo() {
@@ -621,12 +718,15 @@ var __phaser = {
               that.noButton_Desat.alpha = 1;
             } else {
               that.yesButton_Desat.alpha = 1;
+              that.yesButton.scale.set(globalRatio*1)
+              that.noButton.scale.set(globalRatio*1)
               that.noButton_Desat.alpha = 1;
               that.endGameBtn_desat.alpha = 1;
             }
 
             var mainCard = game.logic.mainCard;
             mainCard.falseTag.alpha = 1;
+            mainCard.questionText.alpha = 0;
             // mainCard.cardObject.inputEnabled = false;
             var CardTween = game.add.tween(mainCard.cardObject).to({
               x: mainCard.cardObject.x - 400 * globalRatio,
@@ -649,12 +749,15 @@ var __phaser = {
               that.noButton_Desat.alpha = 1;
             } else {
               that.yesButton_Desat.alpha = 1;
+              that.yesButton.scale.set(globalRatio*1)
+              that.noButton.scale.set(globalRatio*1)
               that.noButton_Desat.alpha = 1;
               that.endGameBtn_desat.alpha = 1;
             }
 
             var mainCard = game.logic.mainCard;
             mainCard.trueTag.alpha = 1;
+            mainCard.questionText.alpha = 0;
             // mainCard.cardObject.inputEnabled = false;
             var CardTween = game.add.tween(mainCard.cardObject).to({
               x: mainCard.cardObject.x + 400 * globalRatio,
@@ -781,11 +884,7 @@ var __phaser = {
           
           // Disable pause
           game.stage.disableVisibilityChange=true;
-          // cardShadow = game.add.sprite(0, 0, 'frame');
-          // cardShadow.anchor.set(.5);
-          // cardShadow.tint = 0x000000;
-          // cardShadow.alpha = 0.3;
-          // cardShadow.scale.set(globalRatio);
+          
           for (var i = 0; i < game.logic.cards.length; i++) {
             var hitCheck;
             var card;
@@ -796,21 +895,74 @@ var __phaser = {
             var timerPic;
             var questionText; //console.log(gameCard.cashbackType);
 
+            // if (gameCard.isCashback) {
+            //   if (gameCard.cashbackType == "gold") card = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 130 * 18, 'frameGold');
+            //   else if (gameCard.cashbackType == "silver") card = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 130 * 18, 'frameSilver');
+            //   else card = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 130 * 18, 'frameBronze');
+            // } else {this.game.world.height / 100 * 90
+            card = game.add.sprite(game.camera.width / 2, game.camera.height / 100 * 41 , '');
+            // } // Place Last 3
+            card.anchor.set(.5); 
+            // card.alpha = .25;
+
+            // Shadow
+            var frameShadow = game.add.sprite(0,0, 'frameshadow');
+            frameShadow.anchor.set(.5); // trueTag.scale.set(globalRatio);
+            frameShadow.scale.set(2.45);
+            frameShadow.alpha = 0;
+            game.logic.cards[i].frameShadow = frameShadow;
+            card.addChild(frameShadow);
+            // New frame that can be closed
+            var frameBack = game.add.sprite(0, 0, 'frame');
+
             if (gameCard.isCashback) {
-              if (gameCard.cashbackType == "gold") card = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 100 * 10, 'frameGold');else if (gameCard.cashbackType == "silver") card = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 100 * 10, 'frameSilver');else card = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 100 * 10, 'frameBronze');
-            } else {
-              card = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 100 * 10, 'frame');
-            } // Place Last 3
+              if (gameCard.cashbackType == "gold"){
+                frameBack.loadTexture('frameGold');
+                frameShadow.loadTexture('glowGold');
+                frameShadow.scale.set(2);
+              } 
+              else if (gameCard.cashbackType == "silver"){
+                frameBack.loadTexture('frameSilver');
+                frameShadow.loadTexture('glowSilver');
+                frameShadow.scale.set(2);
+              } 
+              else{
+                frameBack.loadTexture('frameBronze');
+                frameShadow.loadTexture('glowBronze');
+                frameShadow.scale.set(2);
+              } 
+              var tween = game.add.tween(frameShadow.scale).to( { x: 1.8, y: 1.8 }, 800, "Linear", true, 0, -1);
+              tween.yoyo(true, 200);
+            }
+            frameBack.anchor.set(.5);
+            frameBack.alpha = 0;
+            card.addChild(frameBack);
 
-
-            card.anchor.set(.5); // card.hitArea = new Phaser.Rectangle(-card.width, -card.height, card.width*2, card.height*2);
+            frameShadow.inputEnabled = false;
+            // frameBack.input.useHandCursor = true;
 
             hitCheck = game.add.sprite(0, 0, 'zone_no');
             hitCheck.anchor.set(.5);
             card.addChild(hitCheck);
-            imageInCard = game.add.sprite(0, 74, 'picture' + i);
+            // card.alpha = 0.5;
+            imageInCard = game.add.sprite(0, 0, 'picture' + i);
             imageInCard.anchor.set(.5);
-            imageInCard.scale.set(1.6);
+            imageInCard.scale.set(1.5);
+
+          // Create Mask
+            //	A mask is a Graphics object
+            var mask = game.add.graphics(0, 0);
+            //	Shapes drawn to the Graphics object must be filled.
+            mask.beginFill(0xffffff);
+
+            //	Here we'll draw a circle
+            // mask.drawCircle(400, 400, 400);
+            mask.drawRoundedRect(0, 0, 734, 849, 110)
+            //	And apply it to the Sprite
+            mask.x = -368;
+            mask.y = -421;
+            imageInCard.mask = mask;
+            card.addChild(mask)
             card.addChild(imageInCard); // If This is an Extra Time Card add clock
 
             if (gameCard.isExtraTime) {
@@ -820,36 +972,43 @@ var __phaser = {
               card.addChild(timerPic);
             }
 
-            questionText = game.add.text(0, -370, "Test Text for Question Test Text for Question Test Text for Question", {
+            questionText = game.add.text(0, -600, "Test Text for Question Test Text for Question Test Text for Question", {
               fontSize: '40px',
-              fill: '#000',
+              fill: '#fff',
               align: "center"
             });
+            questionText.alpha = 0;
             questionText.anchor.set(0.5);
             questionText.wordWrap = true;
             questionText.wordWrapWidth = 750;
             card.addChild(questionText); // Add true Mark
 
-            var trueTag = game.add.sprite(-200, -300, 'trueTag');
+            var trueTag = game.add.sprite(0, 0, 'trueTag');
             trueTag.anchor.set(.5); // trueTag.scale.set(globalRatio);
-
+            trueTag.scale.set(2);
             card.addChild(trueTag);
             game.logic.cards[i].trueTag = trueTag;
             game.logic.cards[i].trueTag.alpha = 0; //Add False Mark
 
-            var falseTag = game.add.sprite(200, -300, 'falseTag');
+            var falseTag = game.add.sprite(0, 0, 'falseTag');
             falseTag.anchor.set(.5); // falseTag.scale.set(globalRatio);
-
+            falseTag.scale.set(2);
             card.addChild(falseTag);
             game.logic.cards[i].falseTag = falseTag;
             game.logic.cards[i].falseTag.alpha = 0;
 
+            // Change positions for back cards
             if (i == game.logic.cards.length - 1) {
               card.scale.set(globalRatio + 0.1);
-              card.y += 100 * globalRatio;
+              card.y += 150 * globalRatio;
+              // card.alpha = 1;
+              frameShadow.alpha = 1;
+              frameBack.alpha = 1;
+              game.add.tween(questionText).to( { alpha: 1 }, 1500, "Linear", true, 4000);
             } else if (i == game.logic.cards.length - 2) {
               card.scale.set((globalRatio + 0.1) / 100 * 95);
               card.y += 50 * globalRatio;
+              // card.alpha = 0.50;
             } else {
               card.scale.set((globalRatio + 0.1) / 100 * 90);
             } // card.scale.set(globalRatio);  
@@ -871,8 +1030,16 @@ var __phaser = {
             card.events.onDragStop.add(onDragStop, this);
             dragPosition = new Phaser.Point(card.x, card.y);
             gameCard.cardObject = card;
+            gameCard.image = imageInCard;
+            gameCard.frameBack = frameBack;
             card.inputEnabled = false; // Add To CardObjects for animation
+            
             // demoCardObjects.add(card);
+            // Move Buttons to top
+            that.yesButton.bringToTop();
+            that.yesButton_Desat.bringToTop();
+            that.noButton.bringToTop();
+            that.noButton_Desat.bringToTop();
           } // Play start Animation
 
 
@@ -887,12 +1054,25 @@ var __phaser = {
             }, 700, "Back.easeOut", true, 120 * i); 
             
             // game.logic.cards[i].questionText.text = "Batch: 0"+" Questn: "+i+" "+Localization.TranslateQuestion(game.logic.cards[i].question);
+
             game.logic.cards[i].questionText.text = Localization.TranslateQuestion(game.logic.cards[i].question);
           }
 
           game.logic.mainCard = __phaser._.last(game.logic.cards);
           game.logic.mainCard.cardObject.inputEnabled = true;
           demoQuestionTxt.text = ""; // cardShadow.bringToTop();
+          console.log(game.logic.mainCard);
+          // bluredBG.loadTexture("bg"+game.rnd.integerInRange(0, 9));
+
+          // Blur Filter
+          var blurX = game.add.filter('BlurX');
+          var blurY = game.add.filter('BlurY');
+
+            blurX.blur = 100;
+            blurY.blur = 1;
+
+            bluredBG.filters = [blurX, blurY];
+
           // START TIMER
           //  Start the timer running - this is important!
           //  It won't start automatically, allowing you to hook it to button events and the like.
@@ -901,7 +1081,7 @@ var __phaser = {
           demoTimer.start(); // Change Text To "Waiting For First Answer!"
           // demoTimeTxt.text = Localization.Translate("labelBeforeTimerStart");
           // Open Timer
-          TimerGroup.y = ((game.camera.height / 100) * 5) *globalRatio;
+          TimerGroup.y = ((game.camera.height / 100) * 2) /globalRatio;
           game.add.tween(TimerGroup).to({
             alpha: 1
           }, 1000, "Linear", true, 4000);
@@ -1013,6 +1193,13 @@ var __phaser = {
             // if (__phaser.game.type !== 'timefree') {
               yesButton.alpha = 1;
               noButton.alpha = 1;
+              
+              game.add.tween(swipeIcon).to({alpha: 1}, 550,  "Linear", true);
+              game.add.tween(introText1).to({alpha: 1}, 550,  "Linear", true);
+              game.add.tween(introText2).to({alpha: 1}, 550,  "Linear", true);
+              // swipe.alpha = 1;
+              // introText1.alpha = 1;
+              // introText2.alpha = 1;
             // }
           }, this);
         }
@@ -1051,7 +1238,8 @@ var __phaser = {
             card = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 100 * 18, 'frame');
           }
 
-          card.anchor.set(.5); // card.hitArea = new Phaser.Rectangle(-card.width, -card.height, card.width*2, card.height*2);
+          card.anchor.set(.5); 
+          card.hitArea = new Phaser.Rectangle(0, 0, 100, 100);
 
           hitCheck = game.add.sprite(0, 0, 'zone_no');
           hitCheck.anchor.set(.5);
@@ -1060,7 +1248,18 @@ var __phaser = {
           imageInCard = game.add.sprite(0, 74, 'picture' + (imagesLoaded + i + 1));
          //console.log(imageInCard);
           imageInCard.anchor.set(.5);
-          imageInCard.scale.set(1.6);
+          imageInCard.scale.set(1.2);
+          // Create Mask
+          //	A mask is a Graphics object
+          mask = game.add.graphics(0, 0)
+          //	Shapes drawn to the Graphics object must be filled.
+          mask.beginFill(0xffffff);
+          //	Here we'll draw a circle
+          mask.drawCircle(100, 100, 100)
+          //	And apply it to the Sprite
+          mask.anchor.set(.5);
+          imageInCard.mask = mask;
+
           card.addChild(imageInCard);
 
           if (gameCard.isExtraTime) {
@@ -1093,7 +1292,7 @@ var __phaser = {
           card.addChild(falseTag);
           game.logic.cards[i].falseTag = falseTag;
           game.logic.cards[i].falseTag.alpha = 0;
-          card.scale.set((globalRatio + 0.1) / 100 * 90); // card.scale.set(globalRatio);  
+          // card.scale.set((globalRatio + 0.1) / 100 * 80); // card.scale.set(globalRatio);  
           // card.angle = game.rnd.integerInRange(-5,5);
 
           card.sendToBack();
@@ -1216,7 +1415,7 @@ var __phaser = {
           if (buttonsActive) {
             //console.log("No Pressed!!!");
             buttonsActive = false;
-
+            
             if (__phaser.game.type !== 'timefree') {
               that.yesButton_Desat.alpha = 1;
               that.noButton_Desat.alpha = 1;
@@ -1398,6 +1597,11 @@ var __phaser = {
       function answerResult() {
         console.log("answerResult!!! ");
         demoIsDragging = false;
+
+        that.swipeIcon.alpha = false;
+        that.introText1.alpha = 0;
+        that.introText2.alpha = 0;
+
         var mainCard = game.logic.mainCard;
 
         if (mainCard.cardObject.getChildAt(0).overlap(dropZoneYes)) {

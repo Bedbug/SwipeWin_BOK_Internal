@@ -232,7 +232,7 @@ export class HomeComponent implements OnInit {
 
   onKey(event: any){
     // console.log(event.target.value);
-    const phoneNumber = parsePhoneNumberFromString(event.target.value, 'KE');
+    const phoneNumber = parsePhoneNumberFromString(event.target.value, 'ZA');
     // console.log(phoneNumber.);
     // console.log(phoneNumber.formatNational());
     if(phoneNumber!=null)
@@ -242,11 +242,11 @@ export class HomeComponent implements OnInit {
   submit(number: string) {
 
     // console.log("MSISDN: " + number);
-    const phoneNumber = parsePhoneNumberFromString(number, 'KE')
+    const phoneNumber = parsePhoneNumberFromString(number, 'ZA')
     number = phoneNumber.countryCallingCode +""+ phoneNumber.nationalNumber;
     console.log("MSISDN: " +phoneNumber.countryCallingCode+phoneNumber.nationalNumber);
     
-    if(number.length != 12 && number.length != 5){
+    if(number.length != 11 && number.length != 5){
       this.alertNumber = true;
       return;
     }

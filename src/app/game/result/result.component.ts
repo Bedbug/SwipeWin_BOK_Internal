@@ -108,6 +108,11 @@ export class ResultComponent implements OnInit {
     // }
   }
 
+  OpenConsent() {
+    let modal = UIkit.modal("#consent");
+    modal.show();
+  }
+
   OpenOTPPurchase() {
     // Check if user state is PENDING
     if (this.session.isPending()){

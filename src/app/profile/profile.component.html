@@ -6,7 +6,7 @@
   <span >{{ 'PROFILE.PROFILE' | translate }}</span>
 </div>
 <!-- Theme -->
-<div class="topProfile animate__animated animate__bounceInUp" style="animation-duration: 800ms; animation-delay: 400ms;">>
+<div class="topProfile animate__animated animate__bounceInUp" style="animation-duration: 800ms; animation-delay: 400ms;">
   <div class="avatar" style="margin: 15px;">
   
     <img ngxGravatar class="my-avatar"   size="100" src="{{avatarPic}}">
@@ -15,29 +15,41 @@
     <div class="phone">
       {{_phone}}
     </div>
-    <div class="results uk-text-center uk-child-width-1-3 uk-grid-collapse uk-grid-divider" uk-grid>
+
+    <!-- <div class="results uk-text-center uk-child-width-1-3 uk-grid-collapse uk-grid-divider" uk-grid>
       <div>
         <div class="number">
-          {{bestResultToday || '0'}}
+          {{bestResultToday || '45'}}
         </div>
         <div class="text">
             {{ 'PROFILE.POINTS' | translate }}
         </div>
       </div>
       <div>
-        <div class="number">
-          {{totalGamesCount || '0'}}
-        </div>
+        <div class="number">{{totalGamesCount || '355'}}</div>
         <div class="text">{{ 'PROFILE.PLAYED' | translate }}</div>
       </div>
       <div>
-        <div class="number">
-          {{bestResultAllTime || '0'}}
-          
-        </div>
+        <div class="number"> {{bestResultAllTime || '400'}}</div>
+        <div class="text">{{ 'PROFILE.BEST' | translate }}</div>
+      </div>
+    </div> -->
+
+    <div class="row">
+      <div class="column results">
+        <div class="number" style="border-right: 3px solid black;"> {{bestResultToday || '0'}} </div>
+        <div class="text">{{ 'PROFILE.POINTS' | translate }}</div>
+      </div>
+      <div class="column results">
+        <div class="number" style="border-right: 3px solid black;">{{totalGamesCount || '0'}}</div>
+        <div class="text">{{ 'PROFILE.PLAYED' | translate }}</div>
+      </div>
+      <div class="column results">
+        <div class="number"> {{bestResultAllTime || '0'}}</div>
         <div class="text">{{ 'PROFILE.BEST' | translate }}</div>
       </div>
     </div>
+
     <div class="cashback"  >
       <!-- <div class="uk-width-expand label">Cashback</div>
       <div class="uk-width-auto amount">{{_cashBackAmount}} $<span uk-icon="chevron-right"></span></div> -->

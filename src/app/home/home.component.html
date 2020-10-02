@@ -14,7 +14,7 @@
 </div>
 
 <!-- // Slider -->
-<div class="slideshow-container animate__animated animate__bounceIn" style="animation-duration: 800ms; animation-delay: 200ms;" *ngIf="!openVerify" uk-slideshow="animation: fade; min-height: 400; max-height: 400; autoplay: true; autoplay-interval: 2000; pause-on-hover: false;" >
+<div id="slider" class="slideshow-container animate__animated animate__bounceIn" style="animation-duration: 800ms; animation-delay: 200ms;" *ngIf="!openVerify" uk-slideshow="animation: fade; min-height: 400; max-height: 400; autoplay: true; autoplay-interval: 2000; pause-on-hover: false; draggable:false;" >
 
   <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
     
@@ -49,19 +49,6 @@
          
         </div>
       </li>
-      <!-- <li class="list-wrapper">
-        
-        <div class="uk-position-center uk-position-small uk-text-center uk-light">
-            <div class="vector">
-                <img class="icon" style="width: 300px;" src="assets/icons/grand_prize.png" alt=""/>
-              </div>
-              <div uk-slideshow-parallax="x: 100,0,0" class="current-prize-fond">
-                <span style="font-weight: bold; font-size: 30px; color: white;" [innerHtml]="'HOME.CAR_03' | translate"></span><br>
-                <span style=" font-size: 20px; color: white;">{{ 'HOME.CAR_03b' | translate }}</span>
-            </div>
-         
-        </div>
-      </li> -->
       
     </ul>
 

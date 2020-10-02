@@ -81,9 +81,10 @@ export class ReturnhomeComponent implements OnInit {
       if(this.sessionService.isUnsub())
           this.router.navigate(['/home']);
         else{
-          // Redirect him to Home
-          this.router.navigate(['/home'], { queryParams: { errorCode: 401 } });
-        }
+        //   // Redirect him to Home
+          // this.router.navigate(['/home'], { queryParams: { errorCode: 401 } });
+          this.router.navigate(['/home']);
+         }
       
     }
     else if (!this.sessionService.isEligible) {

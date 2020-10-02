@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import {
   trigger,
   state,
@@ -21,7 +21,9 @@ import {
 export class AppComponent {
   title = 'swipr';
   lang: string;
-  constructor(public translate: TranslateService, private activatedRoute: ActivatedRoute) {
+  router: string;
+
+  constructor(public _router: Router, public translate: TranslateService, private activatedRoute: ActivatedRoute) {
     translate.addLangs(['en', 'ar']);
     translate.setDefaultLang('en');
 
