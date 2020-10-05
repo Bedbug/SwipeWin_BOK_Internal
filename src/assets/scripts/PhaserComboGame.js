@@ -341,6 +341,8 @@ var __phaser = {
 
         game.logic.cards.pop(); // Check for game over condition
 
+        // This is the check for the end game
+        // this must change to end when the user has answered the last of the 15th question
         if (sessionResults) {
           game.logic.gameIsOver = true; // if (sessionResults.cashbackWon !== undefined && sessionResults.cashbackWon >= 0)
           //     game.logic.cashbackWon = sessionResults.cashbackWon;
@@ -810,7 +812,7 @@ var __phaser = {
             card.addChild(hitCheck);
             imageInCard = game.add.sprite(0, 74, 'picture' + i);
             imageInCard.anchor.set(.5);
-            imageInCard.scale.set(1.6);
+            imageInCard.scale.set(1.2);
             card.addChild(imageInCard); // If This is an Extra Time Card add clock
 
             if (gameCard.isExtraTime) {
@@ -1060,7 +1062,7 @@ var __phaser = {
           imageInCard = game.add.sprite(0, 74, 'picture' + (imagesLoaded + i + 1));
          //console.log(imageInCard);
           imageInCard.anchor.set(.5);
-          imageInCard.scale.set(1.6);
+          imageInCard.scale.set(1.2);
           card.addChild(imageInCard);
 
           if (gameCard.isExtraTime) {
