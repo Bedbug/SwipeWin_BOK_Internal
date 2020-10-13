@@ -43,6 +43,7 @@
     background: none;
     color: #000000;
     text-decoration: underline;
+    text-transform: initial;
   }
 
   .uk-grid-divider > :not(.uk-first-column)::before{
@@ -128,6 +129,7 @@
   background: none;
   color: #000000;
   text-decoration: underline;
+  text-transform: initial;
 }
 
 .days-summary {

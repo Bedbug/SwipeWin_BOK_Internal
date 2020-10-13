@@ -87,15 +87,15 @@ html, body {
   * {
     font-family: 'MTNBRIGHTERSANS-REGULAR', -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   }
-  height: 100%;
-  // background-image: radial-gradient(circle at 50% 50%, #007cff, #002094);
-  // background-image: radial-gradient(circle at 50% 50%, #262729, #262729);
-  background-color: black;
+ 
   background-image: url("assets/images/background_low.jpg");
-  background-position: center center;
+  background-color: black;
+  height: 100%;
+  background-position: center bottom;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-size: cover;
+  overflow: hidden;
+  
 }
 
 html {
