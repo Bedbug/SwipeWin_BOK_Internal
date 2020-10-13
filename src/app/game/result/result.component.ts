@@ -46,7 +46,7 @@ export class ResultComponent implements OnInit {
   passType: string = "password";
   verErrorMes: boolean = false;
   verErrorMes2: boolean = false;
-
+  public pointsWon: number = 0;
   private _firstTime = false;
   public _gamesPlayed = 2;
   private _rightAnswerCount = 10;
@@ -74,6 +74,7 @@ export class ResultComponent implements OnInit {
     this.session.hasCredits = this.session.lastGameResults.userHasCredit;
     this.session.state = this.session.lastGameResults.userState;
 
+    this.pointsWon = this.session.lastGameResults.cashbackWon +(this.session.lastGameResults.correctAnswers *10);
     console.table(this.session.lastGameResults);
     // console.log(this.session.hasCredits);
     // if(this.session.hasCredits)
