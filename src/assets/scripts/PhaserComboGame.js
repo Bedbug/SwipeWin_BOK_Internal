@@ -67,7 +67,7 @@ var Localization = {
   dictionary: {},
   Translate: function Translate(term) {
     var localeDictionary = Localization.dictionary[Localization.locale] || Localization.dictionary['en'];
-    if (localeDictionary) return localeDictionary[term] || "[".concat(term, "]");else return "[".concat(term, "]");
+    if (localeDictionary) return localeDictionary[term] || "[".concat(term, "]"); else return "[".concat(term, "]");
   },
   TranslateQuestion: function TranslateQuestion(question) {
     return question[Localization.locale] || question['en'];
@@ -75,64 +75,64 @@ var Localization = {
 };
 
 var Card =
-/*#__PURE__*/
-function () {
-  // id: question id
-  // imageUrl: a link to the question image
-  // questionText: a multi-lingual object (dictionary) of the question
-  // questionSubtitle: (optional) a multi-lingual object (dictionary) of the question subtitle
-  // questionChoices: an object (dictionary) of the 2 possible question choices (yes/no, si/no, oui/non, true/false) as multi-lingual objects 
-  function Card(other) {
-    _classCallCheck(this, Card);
+  /*#__PURE__*/
+  function () {
+    // id: question id
+    // imageUrl: a link to the question image
+    // questionText: a multi-lingual object (dictionary) of the question
+    // questionSubtitle: (optional) a multi-lingual object (dictionary) of the question subtitle
+    // questionChoices: an object (dictionary) of the 2 possible question choices (yes/no, si/no, oui/non, true/false) as multi-lingual objects 
+    function Card(other) {
+      _classCallCheck(this, Card);
 
-    // id, imageUrl, questionText, questionSubtitle, questionChoices) {
-    this.id = other.id;
-    this.imageUrl = other.imageUrl;
-    this.question = other.title;
-    this.choices = other.choices;
-    this.answerIsCorrect = null; // dont know yet
+      // id, imageUrl, questionText, questionSubtitle, questionChoices) {
+      this.id = other.id;
+      this.imageUrl = other.imageUrl;
+      this.question = other.title;
+      this.choices = other.choices;
+      this.answerIsCorrect = null; // dont know yet
 
-    this.isExtraTime = other.isExtraTime || false; // true if the card is a special bonus card and will grant some extra time if answered correctly
+      this.isExtraTime = other.isExtraTime || false; // true if the card is a special bonus card and will grant some extra time if answered correctly
 
-    this.isCashback = other.isCashback || false; // true if the card is a special bonus card and will grant some cashback money (to be matured and redeemed later on) if answered correctly
+      this.isCashback = other.isCashback || false; // true if the card is a special bonus card and will grant some cashback money (to be matured and redeemed later on) if answered correctly
 
-    this.cashbackType = other.cashbackType; // 'gold', 'silver' or 'bronze'
+      this.cashbackType = other.cashbackType; // 'gold', 'silver' or 'bronze'
 
-    this.cardObject = null; // a reference to the Phaser.js card object
-  } // called when the user answers a question
+      this.cardObject = null; // a reference to the Phaser.js card object
+    } // called when the user answers a question
 
 
-  _createClass(Card, [{
-    key: "userAnswer",
-    value: function userAnswer(answer, gameType, callback) {
-      if (answer !== 0 && answer !== 1 && answer !== -1) return;
-      var that = this;
-      that.answer = answer;
+    _createClass(Card, [{
+      key: "userAnswer",
+      value: function userAnswer(answer, gameType, callback) {
+        if (answer !== 0 && answer !== 1 && answer !== -1) return;
+        var that = this;
+        that.answer = answer;
 
-      __phaser.api.answerQuestion(that.id, answer, gameType).then(function (res) {
-        //callback for what to do when the answer is correct/ wrong
-        if (res.questionResult) that.answerIsCorrect = res.questionResult;
-        return callback(null, res.ticket, res.questionResult, res.sessionResult, res.extraQuestions);
-      }, function (err) {
-        return callback(err);
-      });
-    }
-  }, {
-    key: "endGame",
-    value: function endGame(gameType, callback) {
-      var that = this;
-     //console.log("Ending Game!!!");
+        __phaser.api.answerQuestion(that.id, answer, gameType).then(function (res) {
+          //callback for what to do when the answer is correct/ wrong
+          if (res.questionResult) that.answerIsCorrect = res.questionResult;
+          return callback(null, res.ticket, res.questionResult, res.sessionResult, res.extraQuestions);
+        }, function (err) {
+          return callback(err);
+        });
+      }
+    }, {
+      key: "endGame",
+      value: function endGame(gameType, callback) {
+        var that = this;
+        //console.log("Ending Game!!!");
 
-      __phaser.api.answerQuestion(that.id, -1, gameType).then(function (res) {
-        return callback(null, res.ticket, res.questionResult, res.sessionResult, res.extraQuestions);
-      }, function (err) {
-        return callback(err);
-      });
-    }
-  }]);
+        __phaser.api.answerQuestion(that.id, -1, gameType).then(function (res) {
+          return callback(null, res.ticket, res.questionResult, res.sessionResult, res.extraQuestions);
+        }, function (err) {
+          return callback(err);
+        });
+      }
+    }]);
 
-  return Card;
-}();
+    return Card;
+  }();
 
 var __phaser = {
   gameObj: null,
@@ -140,6 +140,7 @@ var __phaser = {
   //-------------------
   game: {
     type: 'demo',
+    completed: false,
     //-------------------
     init: function init(canvasEle, appComponent, locale) {
       Localization.locale = locale;
@@ -186,9 +187,9 @@ var __phaser = {
         var x = 32;
         var y = 0;
         var yi = 32;
-       //console.log('Viewport Height: ' + game.scale.viewportHeight, x, y += yi);
-       //console.log('window.innerHeight: ' + window.innerHeight, x, y += yi);
-       //console.log('window.outerHeight: ' + window.outerHeight, x, y += yi); // set canvas color
+        //console.log('Viewport Height: ' + game.scale.viewportHeight, x, y += yi);
+        //console.log('window.innerHeight: ' + window.innerHeight, x, y += yi);
+        //console.log('window.outerHeight: ' + window.outerHeight, x, y += yi); // set canvas color
 
         game.stage.backgroundColor = '#95a5a6'; // Create Loader
 
@@ -229,14 +230,14 @@ var __phaser = {
 
         this.scale.setResizeCallback(function (scale, parentBounds) {
           this.scale.setMaximum();
-         //console.log("Resizing!!!");
-         //console.log("Scale: " + scale);
-         //console.log("parentBounds: " + parentBounds);
-         //console.log('window.innerHeight: ' + window.innerHeight);
-         //console.log('window.outerHeight: ' + window.outerHeight);
-         //console.log('window.outerWidth: ' + window.outerWidth);
-         //console.log('window.innerWidth: ' + window.innerWidth);
-         //console.log('window.devicePixelRatio: ' + window.devicePixelRatio); // var scaleRatio = getMinSquareParentSize() / game.width;
+          //console.log("Resizing!!!");
+          //console.log("Scale: " + scale);
+          //console.log("parentBounds: " + parentBounds);
+          //console.log('window.innerHeight: ' + window.innerHeight);
+          //console.log('window.outerHeight: ' + window.outerHeight);
+          //console.log('window.outerWidth: ' + window.outerWidth);
+          //console.log('window.innerWidth: ' + window.innerWidth);
+          //console.log('window.devicePixelRatio: ' + window.devicePixelRatio); // var scaleRatio = getMinSquareParentSize() / game.width;
           // scale.setUserScale(scaleRatio, scaleRatio, 0, 0);   // set square size
         }, this);
       } //-----------------------
@@ -245,13 +246,13 @@ var __phaser = {
 
       function dropCards() {
         buttonsActive = false;
-       //console.log("GameTyoe: " + __phaser.game.type);
+        //console.log("GameTyoe: " + __phaser.game.type);
 
         // if (__phaser.game.type !== 'freetime') {
-          if (that.yesButton_Desat != null) {
-            that.yesButton_Desat.alpha = 1;
-            that.noButton_Desat.alpha = 1;
-          }
+        if (that.yesButton_Desat != null) {
+          that.yesButton_Desat.alpha = 1;
+          that.noButton_Desat.alpha = 1;
+        }
         // }
 
         var cardsLength = game.logic.cards.length;
@@ -269,7 +270,7 @@ var __phaser = {
           }, 500, Phaser.Easing.Quadratic.In, true, i * 200);
         }
 
-        
+
       }
 
       function apiCallback(err, gameTicket, isCorrect, sessionResults, extraQuestions) {
@@ -329,7 +330,7 @@ var __phaser = {
             for (var index = 0; index < cards.length; index++) {
               //game.logic.cards[index].cardUrlName = cards[index].imageUrl;
               loader = game.load.image('picture' + (cardImagesCount + index), cards[index].imageUrl);
-             //console.log("Loaded Image " + index + ": " + cards[index].imageUrl);
+              //console.log("Loaded Image " + index + ": " + cards[index].imageUrl);
               imagesLoaded++;
             } // Note: At the end of the loop, imagesLoaded == cards.length
 
@@ -346,7 +347,8 @@ var __phaser = {
         if (sessionResults) {
           game.logic.gameIsOver = true; // if (sessionResults.cashbackWon !== undefined && sessionResults.cashbackWon >= 0)
           //     game.logic.cashbackWon = sessionResults.cashbackWon;
-
+          // Game has completed
+          __phaser.game.completed = true;
           game.time.events.remove(demoTimer);
           demoTimer.remove(demoTimerLoop);
           dropCards();
@@ -375,7 +377,7 @@ var __phaser = {
             }, 500, Phaser.Easing.Elastic.Out, true);
             lastTween.onComplete.add(UnlockButtons, this); // Open Lights or Not
 
-            if (game.logic.mainCard.isCashback || game.logic.mainCard.isExtraTime) that.lights.alpha = 0.8;else that.lights.alpha = 0;
+            if (game.logic.mainCard.isCashback || game.logic.mainCard.isExtraTime) that.lights.alpha = 0.8; else that.lights.alpha = 0;
           } else if (i == game.logic.cards.length - 2) {
             //console.log("Tween: " + i);
             game.add.tween(temCard.scale).to({
@@ -438,31 +440,31 @@ var __phaser = {
         that.lights.alpha = 0; // SWIPE INIT
 
         if (__phaser.game.type === 'demo') this.swipe = new Swipe(this.game);
-       //console.log('window.innerHeight: ' + window.innerHeight);
-       //console.log('window.outerHeight: ' + window.outerHeight);
-       //console.log('window.outerWidth: ' + window.outerWidth);
-       //console.log('window.innerWidth: ' + window.innerWidth);
-       //console.log('window.devicePixelRatio: ' + window.devicePixelRatio);
+        //console.log('window.innerHeight: ' + window.innerHeight);
+        //console.log('window.outerHeight: ' + window.outerHeight);
+        //console.log('window.outerWidth: ' + window.outerWidth);
+        //console.log('window.innerWidth: ' + window.innerWidth);
+        //console.log('window.devicePixelRatio: ' + window.devicePixelRatio);
 
         if (window.outerHeight < 600 && window.devicePixelRatio < 3) {
           // Small Screen
           globalRatio = 0.5;
-         //console.log("SMALL SCREEN!!!");
+          //console.log("SMALL SCREEN!!!");
         } else if (window.outerHeight > 1000 && window.devicePixelRatio == 2) {
           // iPad
           globalRatio = 1.1;
-        }else if (window.outerHeight > 1000 && window.devicePixelRatio < 1.5) {
+        } else if (window.outerHeight > 1000 && window.devicePixelRatio < 1.5) {
           // iPad
           globalRatio = 0.5;
-        }else if (window.outerHeight < 1000 && window.devicePixelRatio < 1.5) {
+        } else if (window.outerHeight < 1000 && window.devicePixelRatio < 1.5) {
           // iPad
           globalRatio = 0.3;
         } else {
-          globalRatio = window.devicePixelRatio / 3; 
+          globalRatio = window.devicePixelRatio / 3;
           // globalRatio = 1; 
         }
-        
-       //console.log("ScaleRatio = " + globalRatio); 
+
+        //console.log("ScaleRatio = " + globalRatio); 
         //Check for Too Small Resolution
 
 
@@ -473,15 +475,15 @@ var __phaser = {
         var timerBgBg = game.add.sprite(120, 0, 'zone_no');
         timerBgBg.anchor.set(0);
         timerBgBg.alpha = 0.3;
-        timerBgBg.width = game.camera.width -240;
+        timerBgBg.width = game.camera.width - 240;
         timerBgBg.height = 20;
         var timerstartBg = game.add.sprite(120, 0, 'timer_start');
-        timerstartBg.anchor.set(1,0);
+        timerstartBg.anchor.set(1, 0);
         timerstartBg.alpha = 0.3;
         timerstartBg.width = 20;
         timerstartBg.height = 20;
-        var timerendBg = game.add.sprite(game.camera.width-120, 0, 'timer_end');
-        timerendBg.anchor.set(0,0);
+        var timerendBg = game.add.sprite(game.camera.width - 120, 0, 'timer_end');
+        timerendBg.anchor.set(0, 0);
         timerendBg.alpha = 0.3;
         timerendBg.width = 20;
         timerendBg.height = 20;
@@ -492,15 +494,15 @@ var __phaser = {
 
         var timerBg = game.add.sprite(120, 0, 'zone_no');
         timerBg.anchor.set(0);
-        timerBg.width = game.camera.width -240;
+        timerBg.width = game.camera.width - 240;
         timerBg.height = 20;
         var timerstart = game.add.sprite(120, 0, 'timer_start');
-        timerstart.anchor.set(1,0);
+        timerstart.anchor.set(1, 0);
         timerstart.alpha = 1;
         timerstart.width = 20;
         timerstart.height = 20;
-        var timerend = game.add.sprite(game.camera.width-120, 0, 'timer_end');
-        timerend.anchor.set(0,0);
+        var timerend = game.add.sprite(game.camera.width - 120, 0, 'timer_end');
+        timerend.anchor.set(0, 0);
         timerend.alpha = 1;
         timerend.width = 20;
         timerend.height = 20;
@@ -537,13 +539,13 @@ var __phaser = {
             }
           } else {
             // Make the scale of the line the acording to the remaining secs
-            var newWidth = ((game.camera.width-240) / 300) * game.logic.timeRemainingSeconds;
+            var newWidth = ((game.camera.width - 240) / 300) * game.logic.timeRemainingSeconds;
             if (__phaser.game.type !== 'timefree') game.world.bringToTop(that.timePlus);
             game.add.tween(timerBg).to({
               width: newWidth
             }, 100, Phaser.Easing.Linear.None, true);
             // Move timerEnd to the end of the bar
-            timerend.x = newWidth+120;
+            timerend.x = newWidth + 120;
             // Move timePlus Sprite to the endish of the bar
             game.add.tween(that.timePlus).to({
               x: newWidth - 150 * globalRatio
@@ -587,30 +589,30 @@ var __phaser = {
 
 
         // if (__phaser.game.type !== 'timefree') {
-          // Yes Button
-          var yesButton = game.add.sprite(game.camera.width / 2 + 250 * globalRatio, this.game.world.height / 100 * 90, 'gameYes');
-          yesButton.alpha = 0;
-          yesButton.anchor.set(.5);
-          yesButton.inputEnabled = true;
-          yesButton.input.useHandCursor = true;
-          yesButton.scale.set(globalRatio);
-          that.yesButton_Desat = game.add.sprite(game.camera.width / 2 + 250 * globalRatio, this.game.world.height / 100 * 90, 'gameYesDesat');
-          that.yesButton_Desat.alpha = 0;
-          that.yesButton_Desat.anchor.set(.5);
-          that.yesButton_Desat.scale.set(globalRatio);
-          yesButton.events.onInputDown.add(doAnimYes, this); // Νο Button
+        // Yes Button
+        var yesButton = game.add.sprite(game.camera.width / 2 + 250 * globalRatio, this.game.world.height / 100 * 90, 'gameYes');
+        yesButton.alpha = 0;
+        yesButton.anchor.set(.5);
+        yesButton.inputEnabled = true;
+        yesButton.input.useHandCursor = true;
+        yesButton.scale.set(globalRatio);
+        that.yesButton_Desat = game.add.sprite(game.camera.width / 2 + 250 * globalRatio, this.game.world.height / 100 * 90, 'gameYesDesat');
+        that.yesButton_Desat.alpha = 0;
+        that.yesButton_Desat.anchor.set(.5);
+        that.yesButton_Desat.scale.set(globalRatio);
+        yesButton.events.onInputDown.add(doAnimYes, this); // Νο Button
 
-          var noButton = game.add.sprite(game.camera.width / 2 - 250 * globalRatio, this.game.world.height / 100 * 90, 'gameNo');
-          noButton.alpha = 0;
-          noButton.anchor.set(.5);
-          noButton.inputEnabled = true;
-          noButton.input.useHandCursor = true;
-          noButton.scale.set(globalRatio);
-          that.noButton_Desat = game.add.sprite(game.camera.width / 2 - 250 * globalRatio, this.game.world.height / 100 * 90, 'gameNoDesat');
-          that.noButton_Desat.alpha = 0;
-          that.noButton_Desat.anchor.set(.5);
-          that.noButton_Desat.scale.set(globalRatio);
-          noButton.events.onInputDown.add(doAnimNo, this);
+        var noButton = game.add.sprite(game.camera.width / 2 - 250 * globalRatio, this.game.world.height / 100 * 90, 'gameNo');
+        noButton.alpha = 0;
+        noButton.anchor.set(.5);
+        noButton.inputEnabled = true;
+        noButton.input.useHandCursor = true;
+        noButton.scale.set(globalRatio);
+        that.noButton_Desat = game.add.sprite(game.camera.width / 2 - 250 * globalRatio, this.game.world.height / 100 * 90, 'gameNoDesat');
+        that.noButton_Desat.alpha = 0;
+        that.noButton_Desat.anchor.set(.5);
+        that.noButton_Desat.scale.set(globalRatio);
+        noButton.events.onInputDown.add(doAnimNo, this);
         // }
 
         function doAnimNo() {
@@ -671,7 +673,7 @@ var __phaser = {
         if (__phaser.game.type === 'timefree') {
           // yesButton.events.onInputDown.add(doAnimYes, this);
           var EndGame = function EndGame() {
-           //console.log("Button Pressed!");
+            //console.log("Button Pressed!");
             game.logic.mainCard.endGame(__phaser.game.type, apiCallback);
             game.logic.reset(__phaser.game.type);
           };
@@ -780,9 +782,9 @@ var __phaser = {
         noLabel.alpha = 0;
 
         function CreateCards() {
-          
+
           // Disable pause
-          game.stage.disableVisibilityChange=true;
+          game.stage.disableVisibilityChange = true;
           // cardShadow = game.add.sprite(0, 0, 'frame');
           // cardShadow.anchor.set(.5);
           // cardShadow.tint = 0x000000;
@@ -792,14 +794,14 @@ var __phaser = {
             var hitCheck;
             var card;
             var gameCard = game.logic.cards[i];
-          // console.log("Batch: 0" + " Questn: " + i + " card question: " + gameCard.question["en"]);
-          // console.log("card Url: " + gameCard.imageUrl);
+            // console.log("Batch: 0" + " Questn: " + i + " card question: " + gameCard.question["en"]);
+            // console.log("card Url: " + gameCard.imageUrl);
             var imageInCard;
             var timerPic;
             var questionText; //console.log(gameCard.cashbackType);
 
             if (gameCard.isCashback) {
-              if (gameCard.cashbackType == "gold") card = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 100 * 10, 'frameGold');else if (gameCard.cashbackType == "silver") card = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 100 * 10, 'frameSilver');else card = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 100 * 10, 'frameBronze');
+              if (gameCard.cashbackType == "gold") card = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 100 * 10, 'frameGold'); else if (gameCard.cashbackType == "silver") card = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 100 * 10, 'frameSilver'); else card = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 100 * 10, 'frameBronze');
             } else {
               card = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 100 * 10, 'frame');
             } // Place Last 3
@@ -886,8 +888,8 @@ var __phaser = {
             game.add.tween(_card.cardObject).from({
               y: -700,
               angle: game.rnd.integerInRange(-30, 30)
-            }, 700, "Back.easeOut", true, 120 * i); 
-            
+            }, 700, "Back.easeOut", true, 120 * i);
+
             // game.logic.cards[i].questionText.text = "Batch: 0"+" Questn: "+i+" "+Localization.TranslateQuestion(game.logic.cards[i].question);
             game.logic.cards[i].questionText.text = Localization.TranslateQuestion(game.logic.cards[i].question);
           }
@@ -903,7 +905,7 @@ var __phaser = {
           demoTimer.start(); // Change Text To "Waiting For First Answer!"
           // demoTimeTxt.text = Localization.Translate("labelBeforeTimerStart");
           // Open Timer
-          TimerGroup.y = ((game.camera.height / 100) * 5) *globalRatio;
+          TimerGroup.y = ((game.camera.height / 100) * 5) * globalRatio;
           game.add.tween(TimerGroup).to({
             alpha: 1
           }, 1000, "Linear", true, 4000);
@@ -944,11 +946,11 @@ var __phaser = {
 
             if (endX < that.startX) {
               //swipe left
-             //console.log("Swiped left");
+              //console.log("Swiped left");
               doAnimNo();
             } else {
               //swipe right
-             //console.log("Swiped Right");
+              //console.log("Swiped Right");
               doAnimYes();
             } // }
 
@@ -1013,8 +1015,8 @@ var __phaser = {
           // open the colored buttons after x seconds
           game.time.events.add(Phaser.Timer.SECOND * 4, function () {
             // if (__phaser.game.type !== 'timefree') {
-              yesButton.alpha = 1;
-              noButton.alpha = 1;
+            yesButton.alpha = 1;
+            noButton.alpha = 1;
             // }
           }, this);
         }
@@ -1030,17 +1032,17 @@ var __phaser = {
         // Create card objects and append behind last existing one
         // extra cards are game.logic.cards[0] up to game.logic.cards[extraCardCount -1]
 
-       //console.log("extraCardCount: " + extraCardCount);
-       //console.log("imageCount: " + imageCount);
-       //console.log("imagesLoaded: " + imagesLoaded);
+        //console.log("extraCardCount: " + extraCardCount);
+        //console.log("imageCount: " + imageCount);
+        //console.log("imagesLoaded: " + imagesLoaded);
         imagesLoaded += extraCardCount;
 
         for (var i = extraCardCount - 1; i >= 0; i--) {
           var hitCheck;
           var card;
           var gameCard = game.logic.cards[i];
-        // console.log("Batch: " + batch + " Questn: " + i + " card question: " + gameCard.question["en"]);
-        // console.log("card Url: " + gameCard.imageUrl);
+          // console.log("Batch: " + batch + " Questn: " + i + " card question: " + gameCard.question["en"]);
+          // console.log("card Url: " + gameCard.imageUrl);
           var dragPosition;
           var dragRotation;
           var imageInCard;
@@ -1048,7 +1050,7 @@ var __phaser = {
           var questionText; //console.log(gameCard.cashbackType);
 
           if (gameCard.isCashback) {
-            if (gameCard.cashbackType == "gold") card = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 100 * 18, 'frameGold');else if (gameCard.cashbackType == "silver") card = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 100 * 18, 'frameSilver');else card = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 100 * 18, 'frameBronze');
+            if (gameCard.cashbackType == "gold") card = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 100 * 18, 'frameGold'); else if (gameCard.cashbackType == "silver") card = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 100 * 18, 'frameSilver'); else card = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 100 * 18, 'frameBronze');
           } else {
             card = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 100 * 18, 'frame');
           }
@@ -1058,9 +1060,9 @@ var __phaser = {
           hitCheck = game.add.sprite(0, 0, 'zone_no');
           hitCheck.anchor.set(.5);
           card.addChild(hitCheck);
-         //console.log("LoadedImage: " + 'picture' + (imagesLoaded + i + 1));
+          //console.log("LoadedImage: " + 'picture' + (imagesLoaded + i + 1));
           imageInCard = game.add.sprite(0, 74, 'picture' + (imagesLoaded + i + 1));
-         //console.log(imageInCard);
+          //console.log(imageInCard);
           imageInCard.anchor.set(.5);
           imageInCard.scale.set(1.2);
           card.addChild(imageInCard);
@@ -1100,8 +1102,8 @@ var __phaser = {
 
           card.sendToBack();
           card.id = gameCard.id;
-          game.logic.cards[i].questionText = questionText; 
-          
+          game.logic.cards[i].questionText = questionText;
+
           // questionText.text = "Batch: "+batch+" Questn: "+i+" "+Localization.TranslateQuestion(game.logic.cards[i].question);
           questionText.text = Localization.TranslateQuestion(game.logic.cards[i].question); //card.question = Localization.TranslateQuestion(gameCard.question);
 
@@ -1125,7 +1127,7 @@ var __phaser = {
         // Sent dropzones to back
         dropZoneNo.sendToBack();
         dropZoneYes.sendToBack();
-        
+
         function onOver(sprite, pointer) {//console.log("Mouse Over!");
           // sprite.tint = 0xf1f1f1;
         }
@@ -1159,14 +1161,14 @@ var __phaser = {
           that.mouseIsDown = false; //get the ending point
 
           var endX = game.input.x; // if(this.SwipeOff) {
-          console.log("that.startX: "+that.startX);
+          console.log("that.startX: " + that.startX);
           if (endX < that.startX) {
             //swipe left
-           //console.log("Swiped left");
+            //console.log("Swiped left");
             doAnimNo();
           } else {
             //swipe right
-           //console.log("Swiped Right");
+            //console.log("Swiped Right");
             doAnimYes();
           } // }
 
@@ -1293,13 +1295,13 @@ var __phaser = {
       //-----------------------
 
 
-      function fileComplete(progress, cacheKey, success, totalLoaded, totalFiles) {} // loadingtext.setText("Loading...");
+      function fileComplete(progress, cacheKey, success, totalLoaded, totalFiles) { } // loadingtext.setText("Loading...");
       // loadingPercentage.setText(progress + "%")
       //-----------------------
       //-----------------------
 
 
-      function preloaderUpdate() {} // upadate cycle for anything in preload state
+      function preloaderUpdate() { } // upadate cycle for anything in preload state
       //-----------------------
       //-----------------------
 
@@ -1308,7 +1310,7 @@ var __phaser = {
         // loadingtext.setText("All assets loaded");
         // loadingPercentage.setText("100%")
         if (game.logic && game.logic.cards && game.logic.cards.length > 0 && !game.logic.gameIsOver && game.logic.extraCardsCount > 0) {
-         //console.log("imagesLoaded: " + game.logic.extraCardsCount + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+          //console.log("imagesLoaded: " + game.logic.extraCardsCount + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
           CreateExtraCards(game.logic.extraCardsCount, demoCardImages.length);
           game.logic.oldCardsIndex = 0;
         } else {
@@ -1359,11 +1361,11 @@ var __phaser = {
           if (buttonsActive) {
             buttonsActive = false;
             var direction = that.swipe.check();
-           //console.log(direction);
+            //console.log(direction);
 
             if (direction !== null) {
               // direction= { x: x, y: y, direction: direction }
-             //console.log(direction);
+              //console.log(direction);
 
               if (direction.direction == 4 || direction.direction == 32 || direction.direction == 128) {
                 //console.log("Left");  
@@ -1447,7 +1449,7 @@ var __phaser = {
         // mainCard.falseTag.alpha = 0;
         yesLabel.alpha = 0;
         noLabel.alpha = 0;
-      } 
+      }
       ///////////////////////////////////////////////
       //////////    SWIPE    ////////////////////////
       ///////////////////////////////////////////////
@@ -1604,7 +1606,7 @@ var __phaser = {
       };
 
       Swipe.prototype.check = function () {
-       //console.log("Swipe Checking!!!");
+        //console.log("Swipe Checking!!!");
 
         if (this.direction !== null) {
           var result = {
@@ -1694,7 +1696,7 @@ var __phaser = {
 
       function onResize() {
         // list of gamestates and their loops
-       //console.log("Resizing!!!");
+        //console.log("Resizing!!!");
       } //-----------------------
 
     }

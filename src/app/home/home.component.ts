@@ -135,7 +135,7 @@ export class HomeComponent implements OnInit {
 
       }else if (msisdnCode) {// Else, Determine if this is the mobile/Ussd/Sms user flow or the WiFi one
         // Mobile/Ussd/Sms flow here
-        console.log('Mobile /SMS /USSD user flow');
+        // console.log('Mobile /SMS /USSD user flow');
         this.AutoLogin = true;
 
         this.dataService.authenticateOrangeSSO(msisdnCode).subscribe((resp: any) => {
@@ -147,7 +147,7 @@ export class HomeComponent implements OnInit {
 
           // Deserialize payload
           const body: any = resp.body; // JSON.parse(response);
-          console.table(body);
+          // console.table(body);
           if (body.isEligible !== undefined)
             this.sessionService.isEligible = body.isEligible;
           if (body.isSubscribed != undefined)
@@ -159,8 +159,8 @@ export class HomeComponent implements OnInit {
           
           // Update the user State
           this.sessionService.state = body.state;
-          console.log(this.sessionService.state);
-          console.log("Checking Credits: "+ this.sessionService.hasCredit());
+          // console.log(this.sessionService.state);
+          // console.log("Checking Credits: "+ this.sessionService.hasCredit());
           
           if (body.credits > 0)
             this.sessionService.credits = body.credits;
@@ -187,7 +187,7 @@ export class HomeComponent implements OnInit {
 
       else {
         // WiFi flow here
-        console.log('WiFi user flow');
+        // console.log('WiFi user flow');
       }
     },
     (err: any) => {
@@ -202,7 +202,7 @@ export class HomeComponent implements OnInit {
   public checkCheckBoxvalue(event: any){
     // console.log(event.currentTarget.checked);
     this.acceptCheck = event.currentTarget.checked;
-    console.log(this.acceptCheck);
+    // console.log(this.acceptCheck);
   }
   
  
@@ -214,9 +214,9 @@ export class HomeComponent implements OnInit {
   }
   
   logOutUser() {
-    console.log("LoggingOut!");
+    // console.log("LoggingOut!");
     const allCookies: {} = this.cookieService.getAll();
-    console.log(allCookies);
+    // console.log(allCookies);
     this.cookieService.deleteAll('/');
     // Trying the updated MTS logout redirect with the logout parameter
     this.sessionService.reset();
@@ -244,7 +244,7 @@ export class HomeComponent implements OnInit {
     // console.log("MSISDN: " + number);
     const phoneNumber = parsePhoneNumberFromString(number, 'ZA')
     number = phoneNumber.countryCallingCode +""+ phoneNumber.nationalNumber;
-    console.log("MSISDN: " +phoneNumber.countryCallingCode+phoneNumber.nationalNumber);
+    // console.log("MSISDN: " +phoneNumber.countryCallingCode+phoneNumber.nationalNumber);
     
     if(number.length != 11 && number.length != 5){
       this.alertNumber = true;
@@ -276,9 +276,9 @@ export class HomeComponent implements OnInit {
 
       // Update the user State
       this.sessionService.state = body.state;
-      console.log(this.sessionService.state);
+      // console.log(this.sessionService.state);
 
-      console.log("Is Subed: "+ this.sessionService.isSubscribed);
+      // console.log("Is Subed: "+ this.sessionService.isSubscribed);
       this.openVerify = true;
 
       // If present, Get JWT token from response header and keep it for the session
@@ -290,7 +290,7 @@ export class HomeComponent implements OnInit {
         // Goto the returnHome page
         //this.router.navigate(['/returnhome']);
         this.openSubSuccess = true;
-        console.log("Open Happy Modal!");
+        // console.log("Open Happy Modal!");
         let modalUnique = UIkit.modal("#happy");
         modalUnique.show();
         
@@ -298,9 +298,9 @@ export class HomeComponent implements OnInit {
       }
     },
       (err: any) => {
-        console.log(err.error.errorCode);
+        // console.log(err.error.errorCode);
         if (err.error.errorCode == 1002 || err.error.errorCode == 1006) {
-          console.log(err.error.errorCode);
+          // console.log(err.error.errorCode);
           this.errorMsg = this.isSubedText;
           let modal = UIkit.modal("#error");
           modal.show();
@@ -314,7 +314,7 @@ export class HomeComponent implements OnInit {
   verify(pass: string) {
 
     // console.log("username: " + this.sessionService.msisdn);
-    console.log("password: " + pass);
+    // console.log("password: " + pass);
 
     this.dataService.authenticateVerify(this.sessionService.msisdn, pass).subscribe((resp: any) => {
 
@@ -325,7 +325,7 @@ export class HomeComponent implements OnInit {
 
       // Deserialize payload
       const body: any = resp.body; // JSON.parse(response);
-      console.table("body: "+ body);
+      // console.table("body: "+ body);
       if (body.isEligible !== undefined)
         this.sessionService.isEligible = body.isEligible;
       if (body.isSubscribed != undefined)
@@ -337,11 +337,11 @@ export class HomeComponent implements OnInit {
 
       // Update the user State
       this.sessionService.state = body.state;
-      // this.sessionService.hasCredits = true;
-      console.log(this.sessionService.state);
-      console.log("body.hasCredit: " + body.hasCredit);
-      console.log("this.sessionService.hasCredits: " + this.sessionService.hasCredits);
-      console.log("hasCredist() "+ this.sessionService.hasCredit());
+      // // this.sessionService.hasCredits = true;
+      // console.log(this.sessionService.state);
+      // console.log("body.hasCredit: " + body.hasCredit);
+      // console.log("this.sessionService.hasCredits: " + this.sessionService.hasCredits);
+      // console.log("hasCredist() "+ this.sessionService.hasCredit());
       // console.log("hasCredit: " + this.sessionService.hasCredit());
       // if (body.bestScore !== undefined) {
       //   if (!this.sessionService.user)
@@ -362,7 +362,7 @@ export class HomeComponent implements OnInit {
       //this.router.navigate(['/returnhome']);
     },
       (err: any) => {
-        console.log("Error With Pin!!!");
+        // console.log("Error With Pin!!!");
        this.verErrorMes = true;
       });
 
@@ -373,7 +373,7 @@ export class HomeComponent implements OnInit {
   verifyDirect(pass: string) {
 
     // console.log("username: " + this.sessionService.msisdn);
-    console.log("password: " + pass);
+    // console.log("password: " + pass);
 
     this.dataService.authenticateVerify(this.sessionService.msisdn, pass).subscribe((resp: any) => {
 
@@ -404,12 +404,12 @@ export class HomeComponent implements OnInit {
         else
           this.newLogin = true;
 
-      console.log("Open Happy Modal!");
+      // console.log("Open Happy Modal!");
       let modalUnique = UIkit.modal("#happy", {escClose: false, bgClose: false});
       modalUnique.show();
     },
       (err: any) => {
-        console.log("Error With Pin!!!");
+        // console.log("Error With Pin!!!");
         this.verErrorMes = true;
       });
 
@@ -420,7 +420,7 @@ export class HomeComponent implements OnInit {
 
   resetPin() {
     this.dataService.requestPin(this.sessionService.msisdn).then((resp: any) => {
-      console.log('Reset password is successful');
+      // console.log('Reset password is successful');
     });
   }
 
@@ -462,11 +462,11 @@ export class HomeComponent implements OnInit {
   }
 
   PlayGame() {
-    console.log("Burn One Credit, Play Game!");
+    // console.log("Burn One Credit, Play Game!");
     this.dataService.getUserProfile().then( 
       (data:User) => {
         this.sessionService.user = data;
-        console.log("this.sessionService.gamesPlayed "+this.sessionService.gamesPlayed);
+        // console.log("this.sessionService.gamesPlayed "+this.sessionService.gamesPlayed);
 
       this.sessionService.gamesPlayed++;
       this.router.navigate(['game']);
@@ -481,7 +481,7 @@ export class HomeComponent implements OnInit {
   
 
   VerifyLogPin(pin:string) {
-    console.log("Verify PIN & login User!");
+    // console.log("Verify PIN & login User!");
     this.loggedin = true;
     // Check Credits
     // this.CheckCredits();
@@ -489,7 +489,7 @@ export class HomeComponent implements OnInit {
   }
 
   CheckCredits() {
-    console.log("Checking Credits!");
+    // console.log("Checking Credits!");
     // Dummy Properties
     // this.credits = 0;
     
@@ -507,7 +507,7 @@ export class HomeComponent implements OnInit {
 
   OpenPass(){
     this.lblShow = !this.lblShow;
-    console.log("Hide/Show Password: " + this.lblShow);
+    // console.log("Hide/Show Password: " + this.lblShow);
     if(this.lblShow)
       this.passType = "password";
     else

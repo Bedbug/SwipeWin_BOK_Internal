@@ -44,7 +44,7 @@ import { Globals } from './globals';
 //import { NG2_PHASER } from 'ang2-phaser/ng2phaser';
 // Import your AvatarModule
 // import { AvatarModule } from 'ngx-avatar';
-import { GravatarModule } from  'ngx-gravatar';
+import { GravatarModule } from 'ngx-gravatar';
 import { Ng2ImgMaxModule } from 'ng2-img-max';
 import { FreetimegameComponent } from './freetimegame/freetimegame.component';
 import { FreetimeresultComponent } from './freetimegame/freetimeresult/freetimeresult.component';
@@ -56,12 +56,13 @@ import { environment } from '../environments/environment';
 
 // Translate
 
-import { HttpClient} from '@angular/common/http';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // Animations
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DeactivateGuard } from './game/deactivate-guard';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -69,135 +70,138 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 const appRoutes: Routes = [
-{
-path: '', component: HomeComponent
-},
-{
-path: 'home', component: HomeComponent
-},
-{
-path: 'returnhome', component: ReturnhomeComponent
-},
-{
-path: 'profile', component: ProfileComponent
-},
-{
-path: 'settings', component: SettingsComponent
-},
-{
-path: 'how-to-play', component: HowToPlayComponent
-},
-{
-path: 'prizes', component: PrizesComponent
-},
-{
-path: 'winners', component: WinnersComponent
-},
-{
-path: 'cashback', component: CashbackComponent
-},
-{
-path: 'faq', component: FaqComponent
-},
-{
-path: 'info', component: InfoComponent
-},
-{
-path: 'tutorial', component: TutorialComponent
-},
-{
-path: 'result', component: ResultComponent
-},
-{
-path: 'resultdemo', component: ResultdemoComponent
-},
-{
-path: 'resultfreetime', component: FreetimeresultComponent
-},
-{
-path: 'game', component: GameComponent
-},
-{
-path: 'demogame', component: DemogameComponent
-},
-{
-path: 'freetimegame', component: FreetimegameComponent
-},
-{
-path: 'auth-callback', component: AuthCallbackComponent
-},
-{
-path: 'login', component: LoginComponent
-},
-{
-path: 'history', component: HistoryComponent
-},
-{
-    path: ':msisdnCode', component: HomeComponent
-}
+    {
+        path: '', component: HomeComponent
+    },
+    {
+        path: 'home', component: HomeComponent
+    },
+    {
+        path: 'returnhome', component: ReturnhomeComponent
+    },
+    {
+        path: 'profile', component: ProfileComponent
+    },
+    {
+        path: 'settings', component: SettingsComponent
+    },
+    {
+        path: 'how-to-play', component: HowToPlayComponent
+    },
+    {
+        path: 'prizes', component: PrizesComponent
+    },
+    {
+        path: 'winners', component: WinnersComponent
+    },
+    {
+        path: 'cashback', component: CashbackComponent
+    },
+    {
+        path: 'faq', component: FaqComponent
+    },
+    {
+        path: 'info', component: InfoComponent
+    },
+    {
+        path: 'tutorial', component: TutorialComponent
+    },
+    {
+        path: 'result', component: ResultComponent
+    },
+    {
+        path: 'resultdemo', component: ResultdemoComponent
+    },
+    {
+        path: 'resultfreetime', component: FreetimeresultComponent
+    },
+    {
+        path: 'game',
+        component: GameComponent,
+        canDeactivate: [DeactivateGuard]
+    },
+    {
+        path: 'demogame', component: DemogameComponent
+    },
+    {
+        path: 'freetimegame', component: FreetimegameComponent
+    },
+    {
+        path: 'auth-callback', component: AuthCallbackComponent
+    },
+    {
+        path: 'login', component: LoginComponent
+    },
+    {
+        path: 'history', component: HistoryComponent
+    },
+    {
+        path: ':msisdnCode', component: HomeComponent
+    }
 
 ];
 
 @NgModule({
     declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    HomeComponent,
-    ProfileComponent,
-    HowToPlayComponent,
-    PrizesComponent,
-    WinnersComponent,
-    CashbackComponent,
-    FaqComponent,
-    InfoComponent,
-    TutorialComponent,
-    AuthCallbackComponent,
-    ReturnhomeComponent,
-    HistoryComponent,
-    TransferDialogComponent,
-    ButtonComponent,
-    TableComponent,
-    SettingsComponent,
-    InputTextComponent,
-    SubscribeDialogComponent,
-    GameComponent,
-    ResultComponent,
-    CountdownComponent,
-    Ng2PhaserDirective,
-    DemogameComponent,
-    ResultdemoComponent,
-    FreetimegameComponent,
-    FreetimeresultComponent,
-    LoginComponent
-    
-],
-imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    TranslateModule.forRoot({
-        loader: {
-            provide: TranslateLoader,
-            useFactory: HttpLoaderFactory,
-            deps: [HttpClient]
-        }
-    }),
-    RouterModule.forRoot(appRoutes),
-    HttpClientModule,
-    StorageServiceModule,
-    // AvatarModule,
-    GravatarModule,
-    Ng2ImgMaxModule,
-    DeviceDetectorModule.forRoot(),
-    // LottieAnimationViewModule.forRoot(),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
-],
-providers: [
-    SessionService,
-    Globals,
-    CookieService,
-    { provide: HTTP_INTERCEPTORS, useClass: MsisdnEnrichmentDetector, multi: true }
-],
-bootstrap: [AppComponent]
+        AppComponent,
+        HeaderComponent,
+        FooterComponent,
+        HomeComponent,
+        ProfileComponent,
+        HowToPlayComponent,
+        PrizesComponent,
+        WinnersComponent,
+        CashbackComponent,
+        FaqComponent,
+        InfoComponent,
+        TutorialComponent,
+        AuthCallbackComponent,
+        ReturnhomeComponent,
+        HistoryComponent,
+        TransferDialogComponent,
+        ButtonComponent,
+        TableComponent,
+        SettingsComponent,
+        InputTextComponent,
+        SubscribeDialogComponent,
+        GameComponent,
+        ResultComponent,
+        CountdownComponent,
+        Ng2PhaserDirective,
+        DemogameComponent,
+        ResultdemoComponent,
+        FreetimegameComponent,
+        FreetimeresultComponent,
+        LoginComponent
+
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
+        RouterModule.forRoot(appRoutes),
+        HttpClientModule,
+        StorageServiceModule,
+        // AvatarModule,
+        GravatarModule,
+        Ng2ImgMaxModule,
+        DeviceDetectorModule.forRoot(),
+        // LottieAnimationViewModule.forRoot(),
+        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ],
+    providers: [
+        SessionService,
+        Globals,
+        CookieService,
+        DeactivateGuard,
+        { provide: HTTP_INTERCEPTORS, useClass: MsisdnEnrichmentDetector, multi: true }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
