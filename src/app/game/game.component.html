@@ -10,3 +10,15 @@
 
 <app-tutorial *ngIf="globals.isFirstDemo && !isLandscape"></app-tutorial>
 <phaser *ngIf="!globals.isFirstDemo && !startAsLandscape" (phaser)="loadGame($event)" ></phaser>
+
+
+<div id="endGame" class="uk-flex-top"  uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+      <!-- <img style="width: 110px; padding-top: 20px;" src="assets/icons/icon-check.svg" alt=""> -->
+      <h4 style="font-weight: bold; font-size: 25px; color: black;">Your game will end if you leave.</h4>
+      <h4 style="font-weight: bold; font-size: 22px; color: black;">Proceed?</h4>
+      
+      <button id="my-confirm-button" class="uk-button play-button  uk-modal-close" style="font-size: 20px;" >Yes</button>
+      <button id="my-cancel-button" class="uk-button play-button  uk-modal-close" style="font-size: 20px;" >Cancel</button>
+    </div>
+</div>

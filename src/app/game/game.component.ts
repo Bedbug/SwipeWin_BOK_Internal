@@ -8,10 +8,12 @@ import { Globals } from '../globals'
 import * as _ from 'lodash';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { TranslateService } from '@ngx-translate/core';
+import UIkit from 'uikit';
 
 @Component({
   selector: 'app-game',
-  templateUrl: './game.component.html'
+  templateUrl: './game.component.html',
+  styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
 
@@ -38,7 +40,39 @@ export class GameComponent implements OnInit {
     if (this._gameInited && !this._phaser.game.completed)
       return confirm("Your game will end if you leave. Proceed?");
 
+    if (this._gameInited && !this._phaser.game.completed){
+      // Open Modal
+      var modal = UIkit.modal("#endGame", {escClose: false, bgClose: false});
+      modal.show();
+      // Create a promise that resolves when button is clicked.
+        const buttonPromise = new Promise((resolve) => {
+        const buttonYes = document.getElementById("my-confirm-button");
+        const buttonNo = document.getElementById("my-cancel-button");
+
+        const resolveYes = () => {
+            resolve();
+            console.log(buttonYes);
+            buttonYes.removeEventListener("click", resolveYes);
+            buttonNo.removeEventListener("click", resolveNo);
+            return true;
+        }
+        const resolveNo = () => {
+          resolve();
+          console.log(buttonNo);
+          buttonYes.removeEventListener("click", resolveYes);
+          buttonNo.removeEventListener("click", resolveNo);
+          return false;
+      }
+
+        buttonYes.addEventListener("click", resolveYes);
+        buttonNo.addEventListener("click", resolveNo);
+    });
+
+
+    } else
     return true;
+
+    
   }
 
   get tutorialOn(): boolean {

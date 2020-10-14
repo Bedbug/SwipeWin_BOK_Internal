@@ -90,11 +90,13 @@ html, body {
  
   background-image: url("assets/images/background_low.jpg");
   background-color: black;
-  height: 100%;
-  background-position: center bottom;
+  height: 100vh;
+  background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
+  // background-size: 100% 150%;
+  background-attachment: scroll;
   
 }
 
@@ -153,6 +155,7 @@ body {
 
 .uk-modal-dialog {
   border-radius: 4px;
+ 
 }
 
 .unsubscribe > div {
