@@ -32,43 +32,44 @@ export class GameComponent implements OnInit {
 
   // }
 
-  canDeactivate() {
-    if (this._gameInited)
-      console.log(this._phaser.game);
+  canDeactivate(): Promise<boolean> | boolean {
+    // if (this._gameInited)
+    //   console.log(this._phaser.game);
 
 
-    if (this._gameInited && !this._phaser.game.completed)
-      return confirm("Your game will end if you leave. Proceed?");
+    // if (this._gameInited && !this._phaser.game.completed)
+    //   return confirm("Your game will end if you leave. Proceed?");
+    return false;
 
     if (this._gameInited && !this._phaser.game.completed){
       // Open Modal
       var modal = UIkit.modal("#endGame", {escClose: false, bgClose: false});
       modal.show();
       // Create a promise that resolves when button is clicked.
-        const buttonPromise = new Promise((resolve) => {
+        const buttonPromise = new Promise<boolean>((resolve) => {
         const buttonYes = document.getElementById("my-confirm-button");
         const buttonNo = document.getElementById("my-cancel-button");
 
         const resolveYes = () => {
-            resolve();
-            console.log(buttonYes);
+            resolve(true);
+            console.log(true);
             buttonYes.removeEventListener("click", resolveYes);
             buttonNo.removeEventListener("click", resolveNo);
-            return true;
+            // return true;
         }
         const resolveNo = () => {
-          resolve();
-          console.log(buttonNo);
+          resolve(false);
+          console.log(false);
           buttonYes.removeEventListener("click", resolveYes);
           buttonNo.removeEventListener("click", resolveNo);
-          return false;
+          // return false;
       }
 
         buttonYes.addEventListener("click", resolveYes);
         buttonNo.addEventListener("click", resolveNo);
     });
 
-
+      return buttonPromise;
     } else
     return true;
 
