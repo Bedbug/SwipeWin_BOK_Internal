@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRouteSnapshot, Router } from '@angular/router';
 import { Ng2PhaserDirective } from '../ng2-phaser.directive';
 import { DataService } from '../data.service';
 import { environment } from '../../environments/environment';
@@ -8,6 +8,7 @@ import { Globals } from '../globals'
 import * as _ from 'lodash';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { TranslateService } from '@ngx-translate/core';
+import { Location } from '@angular/common';
 import UIkit from 'uikit';
 
 @Component({
@@ -16,6 +17,20 @@ import UIkit from 'uikit';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
+
+
+  constructor(
+    private dataService: DataService,
+    private router: Router,
+    private sessionService: SessionService,
+    public globals: Globals,
+    private translate: TranslateService,
+    private deviceService: DeviceDetectorService,
+    private location: Location
+  ) {
+    this.epicFunction();
+  }
+
 
   //   @HostListener("window:beforeunload", ["$event"]) unloadHandler(event: Event) {
   //     // console.log("Processing beforeunload...");
@@ -32,48 +47,67 @@ export class GameComponent implements OnInit {
 
   // }
 
-  canDeactivate(): Promise<boolean> | boolean {
-    // if (this._gameInited)
-    //   console.log(this._phaser.game);
+
+  canDeactivate(currentRoute: ActivatedRouteSnapshot): Promise<boolean> | boolean {
 
 
-    // if (this._gameInited && !this._phaser.game.completed)
-    //   return confirm("Your game will end if you leave. Proceed?");
-    return false;
-
-    if (this._gameInited && !this._phaser.game.completed){
+    if (this._gameInited && !this._phaser.game.completed) {
       // Open Modal
-      var modal = UIkit.modal("#endGame", {escClose: false, bgClose: false});
+
+      
+      
+      
+
+      const modal = UIkit.modal("#endGame", { escClose: false, bgClose: false });
       modal.show();
+
       // Create a promise that resolves when button is clicked.
-        const buttonPromise = new Promise<boolean>((resolve) => {
+      const buttonPromise = new Promise<boolean>((resolve) => {
         const buttonYes = document.getElementById("my-confirm-button");
         const buttonNo = document.getElementById("my-cancel-button");
+   
+
 
         const resolveYes = () => {
-            resolve(true);
-            console.log(true);
-            buttonYes.removeEventListener("click", resolveYes);
-            buttonNo.removeEventListener("click", resolveNo);
-            // return true;
-        }
-        const resolveNo = () => {
-          resolve(false);
-          console.log(false);
+          var el = document.getElementById('endGame');
+          el.parentNode.removeChild(el);
+
+          const currentUrlTree = this.router.createUrlTree([], currentRoute);
+          const currentUrl = currentUrlTree.toString();
+          this.location.go(currentUrl);
+
+          console.log(true);
           buttonYes.removeEventListener("click", resolveYes);
           buttonNo.removeEventListener("click", resolveNo);
-          // return false;
-      }
+          resolve(true);
 
-        buttonYes.addEventListener("click", resolveYes);
+          // this.router.navigate([this.router.url]);
+          // return true;
+        }
+        const resolveNo = () => {
+        
+          const currentUrlTree = this.router.createUrlTree([], currentRoute);
+          const currentUrl = currentUrlTree.toString();
+          this.location.go(currentUrl);
+          console.log(false);
+
+          
+          buttonYes.removeEventListener("click", resolveYes);
+          buttonNo.removeEventListener("click", resolveNo);
+          resolve(false);
+        }
+
+        
+        buttonYes.addEventListener("click", resolveYes);      
+
         buttonNo.addEventListener("click", resolveNo);
-    });
+      });
 
       return buttonPromise;
     } else
-    return true;
+      return true;
 
-    
+
   }
 
   get tutorialOn(): boolean {
@@ -84,16 +118,6 @@ export class GameComponent implements OnInit {
   private _gameInited: Boolean = false;
   private _phaser: any;
 
-  constructor(
-    private dataService: DataService,
-    private router: Router,
-    private sessionService: SessionService,
-    public globals: Globals,
-    private translate: TranslateService,
-    private deviceService: DeviceDetectorService
-  ) {
-    this.epicFunction();
-  }
 
   public deviceInfo;
   public isDesktopDevice;
@@ -137,6 +161,9 @@ export class GameComponent implements OnInit {
   }
 
   ngOnInit() {
+
+
+    console.log("INIT");
 
     if (this.isLandscape) {
       this.startAsLandscape = true;
