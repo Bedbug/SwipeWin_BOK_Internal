@@ -88,15 +88,8 @@ html, body {
     font-family: 'MTNBRIGHTERSANS-REGULAR', -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   }
  
-  background-image: url("assets/images/background_low.jpg");
-  background-color: black;
-  height: 100vh;
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow: hidden;
   // background-size: 100% 150%;
-  background-attachment: scroll;
+  // background-attachment: scroll;
   
 }
 
@@ -104,9 +97,15 @@ html {
   overflow: hidden;
 }
 body {
-//   height: 110%;
-//   // min-height: 568px;
-// padding-bottom: 10%;
+
+  background-image: url("assets/images/background_low.jpg");
+  background-color: black;
+  height: 100vh;
+  height: calc(100vh - var(--vh-offset, 0px));
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
   overflow-y: scroll;
   -webkit-overflow-scrolling:touch;
 }
