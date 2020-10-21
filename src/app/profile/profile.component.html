@@ -37,15 +37,15 @@
 
     <div class="row">
       <div class="column results">
-        <div class="number" style="border-right: 3px solid black;"> {{bestResultToday || '0'}} </div>
+        <div class="number" style="border-right: 3px solid black;"> {{bestResultToday || '0'}} </div><br>
         <div class="text">{{ 'PROFILE.POINTS' | translate }}</div>
       </div>
       <div class="column results">
-        <div class="number" style="border-right: 3px solid black;">{{totalGamesCount || '0'}}</div>
+        <div class="number" style="border-right: 3px solid black;">{{totalGamesCount || '0'}}</div><br>
         <div class="text">{{ 'PROFILE.PLAYED' | translate }}</div>
       </div>
       <div class="column results">
-        <div class="number"> {{bestResultAllTime || '0'}}</div>
+        <div class="number"> {{bestResultAllTime || '0'}}</div><br>
         <div class="text">{{ 'PROFILE.BEST' | translate }}</div>
       </div>
     </div>
@@ -54,11 +54,11 @@
       <!-- <div class="uk-width-expand label">Cashback</div>
       <div class="uk-width-auto amount">{{_cashBackAmount}} $<span uk-icon="chevron-right"></span></div> -->
     </div>
-    <div class="days-summary" uk-grid >
+    <!-- <div class="days-summary" uk-grid >
       <div class="uk-width-expand label">{{ 'PROFILE.DAYS' | translate }}</div>
-      <!--Games in the game-->
+      
       <div class="uk-width-auto" style="font-size: 20px;font-weight: bold;color: #000000;">{{_daysInGame}}</div>
-    </div>
+    </div> -->
 </div>
 
   
