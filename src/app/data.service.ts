@@ -73,7 +73,9 @@ export class DataService {
   }
 
 
-  requestPin(msisdn) {
+  requestPin() {
+    if (!this.session.token)
+      this.session.Deserialize();
 
     let promise = new Promise((resolve, reject) => {
 
@@ -81,11 +83,18 @@ export class DataService {
         this.router.navigate(['/home']);
         return reject(new Error('Game is unavailable or under maintenance'));
       }
+      else if (!this.session.token)
+        return reject(new Error('No previous user subscription trace is found on this device'));
       else {
         const url = encodeURI(`${environment.gameServerDomainUrl}/api/user/otp`);
 
-        return this.http.post(url, { msisdn: msisdn, language: this.translate.currentLang }, {
-          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+        return this.http.post(url, { language: this.translate.currentLang }, {
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'X-Access-Token': this.session.token 
+          },
           observe: 'response'
         }).toPromise();
       }
@@ -103,7 +112,9 @@ export class DataService {
     else {
       const url = encodeURI(`${environment.gameServerDomainUrl}/api/user/single-signon`);
       const headers = {
-        'Accept': 'application/json', 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
       };
 
       return this.http.post(url, { msisdnCode: msisdnCode }, {

@@ -100,7 +100,9 @@ export class ReturnhomeComponent implements OnInit {
       
       // TOBE ERASED
       // This resets the games played every time
-      
+
+      // Serialize the session and save the most recent user token
+      this.sessionService.Serialize();
       
       this.dataService.getUserProfile().then( 
         (data:User) => {

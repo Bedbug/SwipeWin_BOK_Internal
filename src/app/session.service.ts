@@ -107,23 +107,6 @@ export class SessionService implements OnDestroy {
       });
     }
   
-    // a method to properly check and advance the number of demo games played on the same date (current day)
-  playDemoGame() {
-      const now = new Date();
-      if (SessionService.GetDateIntoMoscowTimezone(this.today) == SessionService.GetDateIntoMoscowTimezone(now)) {
-          this.demoGamesPlayed++ ;
-      } else {
-          this.demoGamesPlayed = 1;
-          this.today = now;
-      }
-      
-      //this.Serialize();
-  }
-  
-  static GetDateIntoMoscowTimezone(date) {
-      // Moscow timezone is +3:00 from +0:00 (UTC)
-      return Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 3, 0, 0);
-  }
   
   reset() {
     this.token = null;
@@ -139,13 +122,8 @@ export class SessionService implements OnDestroy {
   // a method to serialize the user object in Local Storage
   Serialize() {
 
-      //const userObject = pick(this, ['msisdn', 'token', 'today', 'demoGamesPlayed', 'demoGameCashbackWon']);  // only these properties of userObject are saved
       const userObject = {
-        msisdn: this.msisdn,
-        token: this.token,
-        today: this.today,
-        demoGameCashbackWon: this.demoGameCashbackWon,
-        demoGamesPlayed: this.demoGamesPlayed
+        token: this.token
       };
       
       this.storage.set('user', userObject);
