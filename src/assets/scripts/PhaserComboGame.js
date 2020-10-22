@@ -282,7 +282,7 @@ var __phaser = {
             game.logic.wrongAnswers++;
           } // If First Time, start timer
 
-
+          console.log("Returned answer!");
           firstAnswer = false;
 
           if (__phaser.game.type !== 'timefree') {
@@ -1330,6 +1330,9 @@ var __phaser = {
       } //-----------------------
       //-----------------------
 
+      this.endGameByBack = function (){
+        console.log(game.logic.mainCard.userAnswer(-1, 'normal', apiCallback));
+      }
 
       function gameplayUpdate() {
         var mainCard = game.logic.mainCard;
@@ -1702,6 +1705,7 @@ var __phaser = {
     }
   },
   //-------------------
+  
   //-------------------
   destroyGame: function destroyGame(callback) {
     this.gameObj.destroy();
