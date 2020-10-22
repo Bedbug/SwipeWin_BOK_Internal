@@ -69,18 +69,27 @@ export class GameComponent implements OnInit {
 
 
         const resolveYes = () => {
-          var el = document.getElementById('endGame');
-          el.parentNode.removeChild(el);
+          // var el = document.getElementById('endGame');
+          // el.parentNode.removeChild(el);
 
+          // const currentUrlTree = this.router.createUrlTree([], currentRoute);
+          // const currentUrl = currentUrlTree.toString();
+          // this.location.go(currentUrl);
+          
+
+          // console.log(true);
+          // buttonYes.removeEventListener("click", resolveYes);
+          // buttonNo.removeEventListener("click", resolveNo);
+          // resolve(true);
           const currentUrlTree = this.router.createUrlTree([], currentRoute);
           const currentUrl = currentUrlTree.toString();
           this.location.go(currentUrl);
-
-          console.log(true);
+          console.log(false);
+          this._phaser.game.endGameByBack();
+          
           buttonYes.removeEventListener("click", resolveYes);
           buttonNo.removeEventListener("click", resolveNo);
-          resolve(true);
-
+          resolve(false);
           // this.router.navigate([this.router.url]);
           // return true;
         }
@@ -90,7 +99,7 @@ export class GameComponent implements OnInit {
           const currentUrl = currentUrlTree.toString();
           this.location.go(currentUrl);
           console.log(false);
-
+          // this._phaser.game.endGameByBack();
           
           buttonYes.removeEventListener("click", resolveYes);
           buttonNo.removeEventListener("click", resolveNo);
