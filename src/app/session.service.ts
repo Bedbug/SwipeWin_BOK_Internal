@@ -122,33 +122,19 @@ export class SessionService implements OnDestroy {
   // a method to serialize the user object in Local Storage
   Serialize() {
 
-      const userObject = {
-        token: this.token
-      };
+    const userObject = {
+      token: this.token
+    };
       
-      this.storage.set('user', userObject);
+    this.localStorage.set('user', userObject);
   }
   
   // a method to deserialize the user object from Local Storage
   Deserialize() {
-      //const localStorage = window['localStorage'];
-      const userObject = this.storage.get('user');
-      if (userObject) {
-          // Convert today from string to Date object
-          if (userObject && userObject.today) {
-              userObject.today = new Date(userObject.today);
-              
-              // Check validity and invalidate if necessary
-              const now = new Date();
-              if (SessionService.GetDateIntoMoscowTimezone(now) !== SessionService.GetDateIntoMoscowTimezone(userObject.today)) {
-                  // userObject.demoGamesPlayed = 0; // count of demo games should not reset on new day start
-                  userObject.today = now;
-              }
-          }
+    const userObject = this.localStorage.get('user');
           
-          // Copy userObject property values back to User object
-          assign(this, userObject);
-      }
+    // Copy userObject property values back to User object
+    assign(this, userObject);
   }
   
   ngOnDestroy() {
