@@ -15,7 +15,8 @@
       </div>
       
     </div>
-    <p style="text-align: center; color: black;">You just got {{pointsWon || "XXX"}} EXTRA points for the weekly R15,000 and the grand R150,000 CASH draws</p>
+    <p style="text-align: center; color: black;" *ngIf="_rightAnswerCount > 0">You just got {{pointsWon || "XXX"}} EXTRA points for the weekly R15,000 and the grand R150,000 CASH draws</p>
+    <p style="text-align: center; color: black;" *ngIf="_rightAnswerCount == 0">You didn’t get any EXTRA points for the weekly R15,000 and the grand R150,000 CASH draws </p>
     <!--If there are available games to buy play another game-->
     
     <br>
