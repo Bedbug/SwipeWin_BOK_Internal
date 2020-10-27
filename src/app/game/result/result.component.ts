@@ -49,7 +49,7 @@ export class ResultComponent implements OnInit {
   public pointsWon: number = 0;
   private _firstTime = false;
   public _gamesPlayed = 2;
-  private _rightAnswerCount = 10;
+  public _rightAnswerCount = 10;
   private _wrongAnswerCount = 10;
   private _cashbackAmount = 0;
   private _secondVariant = true;
