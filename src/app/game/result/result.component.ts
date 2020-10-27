@@ -65,6 +65,7 @@ export class ResultComponent implements OnInit {
       this.router.navigate(['home']);
       
     this._rightAnswerCount = this.session.lastGameResults.correctAnswers;
+    
     this._wrongAnswerCount = this.session.lastGameResults.wrongAnswers;
     this._cashbackAmount = this.session.lastGameResults.cashbackWon || 0;
     this._firstTime = this.session.gamesPlayed == 1;
@@ -89,11 +90,11 @@ export class ResultComponent implements OnInit {
     if(this._rightAnswerCount > bestScore)
       this.session.user.bestScore = this._rightAnswerCount
     
-    console.log("Games Played: "+ this._gamesPlayed);
-    console.log("cashBack Won: "+ this._cashbackAmount);
-    console.log("hasCredit: " + this.session.hasCredit());
-    console.log("Credits: " + this.session.credits);
-    console.log("State: " + this.session.state);
+    // console.log("Games Played: "+ this._gamesPlayed);
+    // console.log("cashBack Won: "+ this._cashbackAmount);
+    // console.log("hasCredit: " + this.session.hasCredit());
+    // console.log("Credits: " + this.session.credits);
+    // console.log("State: " + this.session.state);
     var modal = UIkit.modal("#result", {escClose: false, bgClose: false});
     setTimeout( () => { modal.show(); }, 1000 );
       
@@ -101,10 +102,10 @@ export class ResultComponent implements OnInit {
   
   startGame() {
     
-      console.log("Play Main Game!");
+      // console.log("Play Main Game!");
       this.session.gamesPlayed++;
       this.session.credits--;
-      console.log("this.sessionService.credits: "+this.session.credits);
+      // console.log("this.sessionService.credits: "+this.session.credits);
        this.router.navigate(['game']);
     // }
   }
@@ -222,7 +223,7 @@ export class ResultComponent implements OnInit {
     if(this._rightAnswerCount == 0)
       return this.translate.instant('END.MES_06')
     if(this._rightAnswerCount == 1)
-      return this.translate.instant('END.MES_06')
+      return this.translate.instant('END.MES_06b')
     if(this._rightAnswerCount >= 2 && this._rightAnswerCount <= 4)
       return this.translate.instant('END.MES_06')
     if(this._rightAnswerCount >= 5 )

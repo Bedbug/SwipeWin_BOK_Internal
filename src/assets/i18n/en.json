@@ -143,6 +143,7 @@
         "MES_04": "Very Good!",
         "MES_05": "Perfect!",
         "MES_06": "Correct Answers",
+        "MES_06b": "Correct Answer",
         "PLAY": "Play Again",
         "BACK": "Back to home page",
         "BUY": "Buy extra round"
