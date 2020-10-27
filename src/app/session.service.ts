@@ -107,23 +107,6 @@ export class SessionService implements OnDestroy {
       });
     }
   
-    // a method to properly check and advance the number of demo games played on the same date (current day)
-  playDemoGame() {
-      const now = new Date();
-      if (SessionService.GetDateIntoMoscowTimezone(this.today) == SessionService.GetDateIntoMoscowTimezone(now)) {
-          this.demoGamesPlayed++ ;
-      } else {
-          this.demoGamesPlayed = 1;
-          this.today = now;
-      }
-      
-      //this.Serialize();
-  }
-  
-  static GetDateIntoMoscowTimezone(date) {
-      // Moscow timezone is +3:00 from +0:00 (UTC)
-      return Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 3, 0, 0);
-  }
   
   reset() {
     this.token = null;
@@ -139,38 +122,19 @@ export class SessionService implements OnDestroy {
   // a method to serialize the user object in Local Storage
   Serialize() {
 
-      //const userObject = pick(this, ['msisdn', 'token', 'today', 'demoGamesPlayed', 'demoGameCashbackWon']);  // only these properties of userObject are saved
-      const userObject = {
-        msisdn: this.msisdn,
-        token: this.token,
-        today: this.today,
-        demoGameCashbackWon: this.demoGameCashbackWon,
-        demoGamesPlayed: this.demoGamesPlayed
-      };
+    const userObject = {
+      token: this.token
+    };
       
-      this.storage.set('user', userObject);
+    this.localStorage.set('user', userObject);
   }
   
   // a method to deserialize the user object from Local Storage
   Deserialize() {
-      //const localStorage = window['localStorage'];
-      const userObject = this.storage.get('user');
-      if (userObject) {
-          // Convert today from string to Date object
-          if (userObject && userObject.today) {
-              userObject.today = new Date(userObject.today);
-              
-              // Check validity and invalidate if necessary
-              const now = new Date();
-              if (SessionService.GetDateIntoMoscowTimezone(now) !== SessionService.GetDateIntoMoscowTimezone(userObject.today)) {
-                  // userObject.demoGamesPlayed = 0; // count of demo games should not reset on new day start
-                  userObject.today = now;
-              }
-          }
+    const userObject = this.localStorage.get('user');
           
-          // Copy userObject property values back to User object
-          assign(this, userObject);
-      }
+    // Copy userObject property values back to User object
+    assign(this, userObject);
   }
   
   ngOnDestroy() {

@@ -418,8 +418,8 @@ export class HomeComponent implements OnInit {
   }
 
 
-  resetPin() {
-    this.dataService.requestPin(this.sessionService.msisdn).then((resp: any) => {
+  sendUniqueLink() {
+    this.dataService.requestPin().then((resp: any) => {
       // console.log('Reset password is successful');
     });
   }
