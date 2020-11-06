@@ -200,8 +200,8 @@ export class HomeComponent implements OnInit {
   }
 
 
-  public redirect() {
-    this.dataService.getWindow().location.href = environment.mtnAuthDomainUrl;
+  public redirect(): void {
+    this.dataService.getDocument().location.href = environment.mtnAuthDomainUrl;
   };
 
   public checkCheckBoxvalue(event: any){
