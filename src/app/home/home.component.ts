@@ -9,7 +9,7 @@ import { createPipeInstance } from '@angular/core/src/view/provider';
 import { debug } from 'util';
 import { TranslateService } from '@ngx-translate/core';
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 
 
 
