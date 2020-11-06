@@ -7,14 +7,6 @@ export const environment = {
     // gameServerDomainUrl: 'https://swipewin-whitelabel.herokuapp.com',
     gameServerDomainUrl: 'https://swipewin-mtnsa-server.herokuapp.com',
     
-    // the path to MTS Authentication API for WebSSO user authentication
-    mtsAuthDomainUrl: 'login.mts.ru',
-    
-    // the http protocol of the MTS Authentication API for WebSSO user authentication
-    mtsAuthDomainProtocol: 'https',
-
-    mtsAuthClientId: 'nem2izciin74r8ccy6gxzeb1pdtxz00xjt3mqv103jvmj8oic87co1mypabhe9c3@app.b2b.mts.ru',
-    
-    // the MTS WebSSO authentication callback url
-    mtsAuthCallbackUrl: 'http://18.200.40.67/auth-callback'
+    // the path to MTN consent pages
+    mtnAuthDomainUrl: 'http://staging.doi.mtndep.co.za/service/43954?rid=b96190401f6c11ebbd893bf3fb9f8253',
 };
