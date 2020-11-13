@@ -25,9 +25,9 @@ export class AuthCallbackComponent implements OnInit {
     var urlTree: UrlTree = urlSer.parse(this.location.path());
     
     //const urlParams = new URLSearchParams(window.location.href);
-    const state = urlTree.queryParams['state'];
-    const code = urlTree.queryParams['code'];
-    const error = urlTree.queryParams['error'];
+    const result: String = urlTree.queryParams['result'];
+    const subscriptionId: String = urlTree.queryParams['subscription_id'];
+    const msisdn: String = urlTree.queryParams['msisdn'];
     const that = this;
 
     /*
@@ -46,45 +46,21 @@ export class AuthCallbackComponent implements OnInit {
         }
     );
     */
+
+    // Load the game settings
+    this.dataService.fetchGameSettings().then(
+      (data: any) => {
+        this.sessionService.gameSettings = data;
+        this.checkUserSubscription(msisdn, subscriptionId);
+      },
+      (err: any) => {
+      });
+
     
-    switch (code) {
-      case "6970000001":
-        this.sessionService.msisdn = "6970000001";
-        break;
-      case "6970000002":
-        this.sessionService.msisdn = "6970000002";
-        break;
-      case "6970000003":
-        this.sessionService.msisdn = "6970000003";
-        break;
-      case "6970000004":
-        this.sessionService.msisdn = "6970000004";
-        break;
-      case "6970000005":
-        this.sessionService.msisdn = "6970000005";
-        break;
-      case "6970000006":
-        this.sessionService.msisdn = "6970000006";
-        break;
-      case "6970000007":
-        this.sessionService.msisdn = "6970000007";
-        break;
-      case "6970000008":
-        this.sessionService.msisdn = "6970000008";
-        break;
-      case "6970000009":
-        this.sessionService.msisdn = "6970000009";
-        break;
-    }
-    this.sessionService.Serialize();
-    this.checkUserSubscription();
   }
-  
-  checkUserSubscription() {
-    /*
-     * Obsolete in this project
-     * 
-    this.dataService.authorizeUser().subscribe( resp => {
+
+  checkUserSubscription(msisdn: String, subId: String) {
+    this.dataService.authenticateCallback(msisdn, subId).subscribe(resp => {
     
       // Get JWT token from response header and keep it for the session
       const userToken = resp.headers.get('X-Access-Token');
@@ -92,14 +68,24 @@ export class AuthCallbackComponent implements OnInit {
           this.sessionService.token = userToken;
           
       // Deserialize payload
-      const body:any = resp.body; // JSON.parse(response);
+      const body: any = resp.body; // JSON.parse(response);
+      // console.table(body);
       if (body.isEligible !== undefined)
-          this.sessionService.isEligible = body.isEligible;
+        this.sessionService.isEligible = body.isEligible;
       if (body.isSubscribed != undefined)
-          this.sessionService.isSubscribed = body.isSubscribed;
+        this.sessionService.isSubscribed = body.isSubscribed;
       if (body.gamesPlayedToday !== undefined)
-          this.sessionService.gamesPlayed = body.gamesPlayedToday;
-      this.sessionService.Serialize();
+        this.sessionService.gamesPlayed = body.gamesPlayedToday;
+      if (body.hasCredit !== undefined)
+        this.sessionService.hasCredits = body.hasCredit;
+
+      // Update the user State
+      this.sessionService.state = body.state;
+      // console.log(this.sessionService.state);
+      // console.log("Checking Credits: "+ this.sessionService.hasCredit());
+
+      if (body.credits > 0)
+        this.sessionService.credits = body.credits;
 
       // Goto the returnHome page
       this.router.navigate(['/returnhome']);
@@ -107,7 +93,6 @@ export class AuthCallbackComponent implements OnInit {
     err => {
       this.router.navigate(['/home'], { queryParams: { errorCode: 1010 } });
     });
-    */
   }
 
 }

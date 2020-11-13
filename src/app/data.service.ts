@@ -103,7 +103,7 @@ export class DataService {
     return promise;
   }
 
-  authenticateOrangeSSO(msisdnCode) {
+  authenticateSSO(msisdnCode) {
 
     if (!this.session.gameSettings || !this.session.gameSettings.maintenance || this.session.gameSettings.maintenance.siteDown || this.session.gameSettings.maintenance.noGames) {
       this.router.navigate(['/home']);
@@ -124,6 +124,27 @@ export class DataService {
     }
   }
 
+
+  authenticateCallback(msisdn, subId) {
+
+    if (!this.session.gameSettings || !this.session.gameSettings.maintenance || this.session.gameSettings.maintenance.siteDown || this.session.gameSettings.maintenance.noGames) {
+      this.router.navigate(['/home']);
+      return throwError('Game is unavailable or under maintenance');
+    }
+    else {
+      const url = encodeURI(`${environment.gameServerDomainUrl}/api/user/callback-signon`);
+      const headers = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      };
+
+      return this.http.post(url, { msisdn: msisdn, subId: subId }, {
+        headers: headers,
+        observe: 'response'
+      });
+    }
+  }
     
     
   fetchGameSettings() {

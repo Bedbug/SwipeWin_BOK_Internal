@@ -138,7 +138,7 @@ export class HomeComponent implements OnInit {
           // console.log('Mobile /SMS /USSD user flow');
           this.AutoLogin = true;
 
-          this.dataService.authenticateOrangeSSO(msisdnCode).subscribe((resp: any) => {
+          this.dataService.authenticateSSO(msisdnCode).subscribe((resp: any) => {
 
             // Get JWT token from response header and keep it for the session
             const userToken = resp.headers.get('X-Access-Token');
