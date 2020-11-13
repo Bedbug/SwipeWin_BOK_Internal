@@ -64,7 +64,7 @@ export class ResultComponent implements OnInit {
     if (!this.session.lastGameResults)
       this.router.navigate(['home']);
       
-    this._rightAnswerCount = this.session.lastGameResults.correctAnswers;
+    this._rightAnswerCount = this.session.lastGameResults.correctAnswers + this.session.lastGameResults.correctBronze + this.session.lastGameResults.correctSilver + this.session.lastGameResults.correctGold;
     
     this._wrongAnswerCount = this.session.lastGameResults.wrongAnswers;
     this._cashbackAmount = this.session.lastGameResults.cashbackWon || 0;
@@ -75,7 +75,7 @@ export class ResultComponent implements OnInit {
     this.session.hasCredits = this.session.lastGameResults.userHasCredit;
     this.session.state = this.session.lastGameResults.userState;
 
-    this.pointsWon = this.session.lastGameResults.cashbackWon +(this.session.lastGameResults.correctAnswers *10);
+    this.pointsWon = this.session.lastGameResults.pointsWon;
     console.table(this.session.lastGameResults);
     // console.log(this.session.hasCredits);
     // if(this.session.hasCredits)
@@ -85,10 +85,10 @@ export class ResultComponent implements OnInit {
     // Check Best Score Today
     var bestScore = this.session.user.bestScore;
     var bestScoreToday = this.session.user.bestScoreToday;
-    if(this._rightAnswerCount > bestScoreToday)
-      this.session.user.bestScoreToday = this._rightAnswerCount
-    if(this._rightAnswerCount > bestScore)
-      this.session.user.bestScore = this._rightAnswerCount
+    if (this.pointsWon > bestScoreToday)
+      this.session.user.bestScoreToday = this.pointsWon;
+    if (this.pointsWon > bestScore)
+      this.session.user.bestScore = this.pointsWon;
     
     // console.log("Games Played: "+ this._gamesPlayed);
     // console.log("cashBack Won: "+ this._cashbackAmount);
@@ -239,14 +239,14 @@ export class ResultComponent implements OnInit {
     // }else 
     if(this._gamesPlayed == 1){
       return "Keep playing for today’s 10,000$"
-    }else if(this._rightAnswerCount <= this._bestWeekScore) {
+    } else if (this.pointsWon <= this._bestWeekScore) {
       return "Keep playing for today’s 10,000$"
     }else if(this._isInTop){
         if(this._gamesPlayed <=2)
           return "Keep playing for today’s 10,000$"
         else
           return "Keep playing for today’s 10,000$"
-    }else if(this._rightAnswerCount > this._bestWeekScore){
+    } else if (this.pointsWon > this._bestWeekScore){
         if(this._gamesPlayed <=2)
           return "Keep playing for today’s 10,000$"
         else
