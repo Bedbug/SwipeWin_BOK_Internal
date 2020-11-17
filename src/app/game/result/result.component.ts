@@ -110,11 +110,37 @@ export class ResultComponent implements OnInit {
     // }
   }
 
+  // Open Modal with purchase message
   OpenConsent() {
-    let modal = UIkit.modal("#consent");
-    modal.show();
+
+    // Check if user state is PENDING
+    if (this.session.isPending()){
+      // If yes show message that user already is waiting for Credit+Link
+      this.verErrorMes2 = true;
+    } else {
+      // Close Result Modal
+      // let modal_Results = UIkit.modal("#result");
+      // modal_Results.hide();
+
+      this.dataService.purchaseCreditRequest().subscribe((resp: any) => {
+        // Update the user State
+        this.session.state = "PENDING";
+        // Open Modal
+        // let modal = UIkit.modal("#otp");
+        // modal.show();
+        let modal = UIkit.modal("#consent");
+        modal.show();
+      },
+        (err: any) => {
+          console.log("Error with Purchase!!!");
+          // Open Error Modal
+          let modal = UIkit.modal("#error", {escClose: false, bgClose: false});
+          modal.show();
+        });
+    }
   }
 
+  // Purchase New game
   OpenOTPPurchase() {
     // Check if user state is PENDING
     if (this.session.isPending()){

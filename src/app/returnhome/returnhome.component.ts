@@ -179,8 +179,9 @@ export class ReturnhomeComponent implements OnInit {
       
       if (body.hasCredit != undefined)
         this.sessionService.hasCredits = body.hasCredit;
-
-      // console.log("hasCredit: " + this.sessionService.hasCredit());
+        
+        console.log("hasCredit: " + body.hasCredit);
+      //  console.log("hasCredit: " + this.sessionService.hasCredit());
      
 
       this.sessionService.user = body;

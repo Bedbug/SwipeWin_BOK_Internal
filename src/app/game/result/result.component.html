@@ -22,62 +22,30 @@
     <br>
     <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close" style="font-size: 20px;" *ngIf="this.session.hasCredit()" (click)="startGame()">{{ 'END.PLAY' | translate }}</button>
     <p *ngIf="verErrorMes2" style="font-size: 12px; color: rgb(32, 32, 32);">{{ 'HOME.VERERROR2' | translate }}</p>
-    <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close" style="font-size: 20px;" *ngIf="!this.session.hasCredit()" (click)="OpenConsent()">{{ 'END.BUY' | translate }}</button>
+    <button class="uk-button uk-button-default play-button uk-width-1-1 " style="font-size: 20px;" *ngIf="!this.session.hasCredit()" (click)="OpenConsent()">{{ 'END.BUY' | translate }}</button>
     <br>
     <button class="uk-button uk-button-link uk-modal-close" style="font-size: 20px;" (click)="returnHome()">{{ 'END.BACK' | translate }}</button>
     <!-- <app-button [link_button]="true" [link_button_white]="false" class="uk-modal-close"  (click)="returnHome()">{{ 'END.BACK' | translate }}</app-button> -->
   </div>
 </div>
 
-<!-- <div id="otp" class="uk-flex-top" uk-modal>
-    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
 
-      <div class="buttons-container uk-container uk-text-center" tabindex="-1">
-        <div class="message-container" style="margin-top: 100px">
-          <p style="font-size: 22px;color:  rgb(255, 255, 255);text-align: center;">{{ 'HOME.OTP' | translate }}</p>
-         
-        </div>
-        <div class="buttons-container uk-container uk-text-center"  style="max-width: 595px; margin-bottom: 0px;">
-          
-         
-          <form >
-            <div class="uk-margin" >
-                <div class="uk-inline uk-width-1-1 ">
-                    <a class="uk-form-icon uk-form-icon-flip" ><img class=".uk-position-right" (click)="OpenPass()" src="assets/icons/eye.svg" alt=""></a>
-                    
-                    <input #pin class="uk-input " type="{{passType}}" placeholder="....">
-                </div>
-            </div>
-          </form>
-          
-          <div class="buttons-container uk-container uk-text-center">
-            <p *ngIf="verErrorMes" style="font-size: 12px; color: rgb(255, 255, 255);">{{ 'HOME.VERERROR' | translate }}</p>
-            <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"  (click)="verify(pin.value)">{{ 'HOME.CONFIRM' | translate }}</button> 
-            
-          </div>
-          <div class="message-container" style="margin-top: 0px;">
-            <p style="color:rgb(255, 255, 255); font-weight: bold; font-size: 20px;"><a (click)="resetPin()" style="color: rgb(32, 32, 32); text-decoration: underline;">{{ 'HOME.RESEND' | translate }}</a>
-            </p>
-            
-          </div>
-          
-        </div>
-        </div>
-    
-      </div>
-  </div> -->
 
 <!-- Consent Page - Open Before Bought game popup -->
   <div id="consent" class="uk-flex-top" uk-modal>
-    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style="padding-top: 30px; padding-bottom: 20px;">
+    <!-- <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style="padding-top: 30px; padding-bottom: 20px;"> -->
       <!-- <img src="assets/images/wanted.svg" alt=""> -->
-      <h4 style="font-weight: bold; font-size: 22px;">Please confirm the purchase of 1 extra round</h4>
+      <!-- <h4 style="font-weight: bold; font-size: 22px;">Please confirm the purchase of 1 extra round</h4> -->
       <!-- <pre>{{ 'MESSAGES.MESSAGE_17' | translate }}</pre> -->
-      
+      <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+        <img style="margin-top: 20px;" src="assets/images/happy.svg" alt="">
+        <!-- <h4>{{ 'MESSAGES.MESSAGE_00' | translate }}</h4> -->
+      <pre>{{ 'MESSAGES.MESSAGE_17' | translate }}</pre>
       <!-- Two butttons, One to Open OTP modal & One to close the pop up and Open Results again -->
       <!-- <app-button *ngIf="!logOutBtn" [link_button]="true" class="uk-modal-close">{{ 'MESSAGES.MESSAGE_07' | translate }}</app-button> -->
-      <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close" style="font-size: 20px;" *ngIf="!this.session.hasCredit()" (click)="OpenOTPPurchase()">Ok</button>
+      <!-- <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close" style="font-size: 20px;" *ngIf="!this.session.hasCredit()" (click)="OpenOTPPurchase()">Ok</button> -->
       <!-- <app-button  [link_button]="true" class="uk-modal-close" (click)="OpenResultAgain()" style="color: black;">Return to Results</app-button> -->
+      <button class="uk-button uk-button-link uk-modal-close" style="font-size: 20px;" (click)="returnHome()">{{ 'END.BACK' | translate }}</button>
       <button class="uk-button uk-button-default uk-button-link uk-modal-close" (click)="OpenResultAgain()" style="font-size: 20px; font-weight: bold;" >Return to Results</button>
     </div>
   </div>

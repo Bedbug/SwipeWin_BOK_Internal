@@ -157,6 +157,7 @@ export class HomeComponent implements OnInit {
             if (body.hasCredit !== undefined)
               this.sessionService.hasCredits = body.hasCredit;
 
+              console.log("hasCredit: " + body.hasCredit);
             // Update the user State
             this.sessionService.state = body.state;
             // console.log(this.sessionService.state);
