@@ -55,7 +55,12 @@ export class SessionService implements OnDestroy {
   credits: number = 0;
   
   // tells whether the user has enough credit to buy a game
-  hasCredit(): boolean {console.log(this.hasCredits); return this.hasCredits == true; }
+  // hasCredit(): boolean {console.log(this.hasCredits); return this.hasCredits == true; }
+  // tells whether the user has enough credit to buy a game
+  hasCredit(): boolean {
+    const freeGamesOnSignup: Number = this.gameSettings && this.gameSettings['user-signup'] && this.gameSettings['user-signup'].freeGamesOnSignup >= 0 ? this.gameSettings['user-signup'].freeGamesOnSignup : 1;
+    return this.gamesPlayed >= freeGamesOnSignup ? this.hasCredits == true : true;
+  }
 
   // tells wether user is Active or not
   isActive(): boolean { return this.state == "ACTIVE"; }
