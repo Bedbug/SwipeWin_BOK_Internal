@@ -112,28 +112,47 @@
     "FAQ": {
         "FAQ": "FAQ",
         "data": [
-        {"title": "How do I subscribe?",
-            "descr":"<p>You can subscribe to 'NTV Clasicos Swipe &amp; Win' service by:<br />Visiting https://www.ntvclasicos.com <br />Dial *482*1# from your Safaricom mobile number<br />Send Goal to 21389 from your Safaricom mobile number</p>"},
-        {"title": "What is the duration of the service?",
-            "descr":"<p>The service has annual duration.</p>"},
-        {"title": "What are the prizes?",
-            "descr":"<p>NTV Clasicos Swipe & Win service gives away:</p><ul><li>Weekly Gadgets worth 50,000 KES</li><li>A Monthly football trip worth 300,000 KES</li><li>A Grand Prize 1,000,000 KES CASH</li></ul>"},
-        {"title": "If I win how will I be informed?",
-            "descr":"<p>The winner will be contacted by NTV in the next days as to explain the process needed. So do not worry, just keep your phone on.</p>"},
-        {"title": "How many times may I win each prize?",
-            "descr":"<p>A participant may win each prize more than once.</p>"},
-        {"title": "How can I change the language of participation?",
-            "descr":"<p>If you are participating in English and you want to switch to Swahili, send the keyword SW to the short-code 21389.<br><br>If you are participating in Swahili and you want to switch to English, send the keyword EN to the short-code 21389.</p>"},
-        {"title": "What are the NTV Clasicos Swipe & Win game rules?",
-            "descr":"<p>Each game lasts for 55 seconds.</p><p>Each question is consisted of a statement and a photo.</p><p>User has to Swipe right for Correct or left for Wrong.</p><p>Be careful! Every wrong reply deducts 5 seconds from the remaining time!</p><p>During a game round, special questions may also be served such as bronze, silver and golden ones.</p>"},
-        {"title": "Does my NTV Clasicos Swipe & Win credits expire?",
-            "descr":"<p>Both awarded and purchased Swipe & Win credits expire after 24 hours if not consumed until then.</p>"},
-        {"title": "I consume my daily credit, can I add more?",
-            "descr":"<p>You can purchase an extra NTV Clasicos Swipe & Win credit only for 10 KES upon consuming your available daily credit.</p>"},
-        {"title": "How can I unsubscribe?",
-            "descr":"<p>To cancel your 'NTV Clasicos Swipe & Win' subscription, send 'STOP' to the short code 21389.</p>"},
-        {"title": "I'm not a Safaricom subscriber, may I participate to the service?",
-            "descr":"<p>No, if you are not a Safaricom subscriber unfortunately you cannot subscribe to the service.</p>"}
+        {"title": "What is the Bok Trivia?",
+            "descr":"<p>Bok Trivia is a fully digital rugby themed subscription service which awards MTN’s subscribers with daily rugby themed content, points for prizes and a daily round for the Bok Trivia web game.<br>One round of Bok Trivia web game includes 15 rugby-themed questions and each question consists of a statement and a photo. User has to swipe right for correct or left for wrong answer. During a game round, users can also get extra points by answering to special questions that award extra points and pop up at surprise intervals (e.g. bronze, silver and golden questions).<br>User has 5 minutes in order to answer all 15 questions. In case the 5 minutes are over and the user hasn’t answered all 15 questions, the game round is terminated.<br>At the end of each round, the correct answers are being converted into points for the grand and weekly CASH prize draws.</p>"},
+        
+        {"title": "What is the registration process?",
+            "descr":"<p>Bok Trivia service is offererd exclusively for MTN's subscribers. You can register to the service by the following ways:</p><ol><li >Via USSD, by dialing the code *120*6083#.</li><li>Via SMS, by sending 'YES', JA', 'WIN', 'OK' or 'BOKS' to 45465.</li><li>Via service's website, by visiting https://boktrivia.mtn.co.za/</li></ol>"},
+        
+        {"title": "What happens upon registration to the service?",
+            "descr":"<p>a. Once you register to Bok Trivia, you'll have for a unique time one (1) day as FREE trial period and you will get one (1) game round and 20 points for the weekly and the grand draws for free. Upon free trial day expiration, the cost of the subscription is R3.00 per day and the subcriber is awarded with one (1) game round and 20 extra points for the CASH draws.<br><br>b. Subscribers can buy on-demand game rounds by clicking the 'Buy extra round' button at Bok Trivia's website. Only two (2) on demand game rounds can be acquired per day (i.e. a subscriber can unlock at most 2 more game rounds per day), while the cost of each on-demand round is R3.00<br><br>> All daily game rounds (i.e. round upon successful charging and on demand rounds) expire each calendar day at 23:59:59.<br><br>c. In order to play, you need to visit the unique link that you will receive to your mobile phone via SMS upon subscription or successful renewal of your daily subscription. Otherwise, you can enter Bok Trivia's website, insert your mobile number, click the 'Subscribe/Log in' button and receive the same unique link via SMS.</p>"},
+        
+        {"title": "When does the competition begin?",
+            "descr":"<p>The Competition begins on 2020-11-xx</p>"},
+        
+        {"title": "What are the basic game rules?",
+            "descr":"<p>The game rules are rather simple. One round of Bok Trivia web game includes 15 rugby-themed questions and each question consists of a statement and a photo. User has to swipe right for correct or left for wrong answer. During a game round, users can also get extra points by answering to special questions that award extra points and pop up at surprise intervals (e.g. bronze, silver and golden questions).<br><br>User has 5 minutes in order to answer all 15 questions. In case the 5 minutes are over and the user hasn’t answered all 15 questions, the game round is terminated.<br><br>At the end of each round, the correct answers are being converted into points for the grand and weekly prize draws.</p>"},
+        
+        {"title": "What are the prizes and how do I stand a chance to win them?",
+            "descr":"<p>The prizes are R15,000 in cash every week and R150,000 every 6 months.<br><br>In order to participate in the weekly R15,000 (fifteen thousand rand) cash draws subscribers must have received at least one point on the respective week. Subscribers enter the weekly draw with the total points accumulated until the draw day.<br><br>> Weekly prize periods for the R15,000 (fifteen thousand rand) are defined as starting from 00:00:00 on xxxx (draw day ) of the prize day and ending at 23:59:59 of the immediately following xxxx (draw day).<br><br>In order to participate in the grand draws subscribers must have received at least one point on the respective 6 months. Subscribers enter the grand draw with the total points accumulated until the draw day.<br><br>> Eligibility to the grand lucky draws for the R150.000 (One hundred and fifty thousand) require participation to Competition during the following dates:<br><br><table style='height: 119px;' border='1' width='100%'><tbody><tr><td style='width: 134px; text-align: center;'>Grand Draws</td><td style='width: 134px; text-align: center;'>Start Date</td><td style='width: 134px; text-align: center;'>End Date</td></tr><tr><td style='width: 134px; text-align: center;'>1</td><td style='width: 134px; text-align: center;'>xx/yy/2020</td><td style='width: 134px; text-align: center;'>yy/zz//2020</td></tr><tr><td style='width: 134px; text-align: center;'>2</td><td style='width: 134px; text-align: center;'>yy/zz/2020</td><td style='width: 134px; text-align: center;'>xx/zz/2020</td></tr></tbody></table></p>"},
+        
+        {"title": "How do I collect points for the draws?",
+            "descr":"<p>a. Upon each daily successful subscription service charge, you'll be awarded with twenty (20) points.<br><br>b. Each correctly answered question at the Bok Trivia game awards you with:<br>> twenty (20) points if this is a “common” type question<br>> fifty (50) points if this is a “bronze” type question<br>> one hundred points (100) if this is a “silver” type question<br>> one hundred and fifty points (150) if this is a “golden” type question<br><br>c. If you purchase extra game rounds, each one of them gives you twenty (20) points, too.</p>"},
+        
+        {"title": "How will I be informed if I win a prize?",
+            "descr":"<p>The winner will be contacted within 30 days in order to explain the prize awarding process. Please ensure that your handset is always switched on.</p>"},
+        
+        {"title": "Where do I see the list of the winners?",
+            "descr":"<p>A list of confirmed winners are published on the bok Trivia website under the section ‘Winners’. Visit https://boktrivia.mtn.co.za/ to view the published list of winners.</p>"},
+
+        {"title": "I have run out of rounds, can I buy more?",
+                "descr":"<p>You can buy on-demand game rounds by clicking the 'Play more' button at Bok Trivia's website. Only two (2) on demand game rounds can be acquired per day (i.e. a subscriber can unlock at most 2 more game rounds per day), while the cost of each on-demand round is R3.00<br><br>Each extra game round gives you also twenty (20) EXTRA points for the weekly (R15,000) and the grand (R150,000) draws.</p>"},
+
+        {"title": "Is there any expiration period for the game rounds?",
+                "descr":"<p>Yes, there is. The one (1) game round that you receive for your daily participation is valid only for the same calendar day. Similarly, the extra game rounds unlocked by purchasing on-demand rounds are valid only for the same calendar day.</p>"},
+            
+        {"title": "I forgot my unique link, what should I do?",
+                "descr":"<p>In order to find your unique link please check the SMS you received upon subscription to the service or the daily content you received upon successful renewal of your subcription service. Otherwise, you can enter Bok Trivia's website, insert your mobile number, click the 'Subscribe/Log in' button and receive an SMS with your unique link.</p>"},
+            
+        {"title": "My time ran out answering one of the questions and the game finished. Why?",
+                "descr":"<p>User has 5 minutes in order to answer all 15 questions. In case the 5 minutes are over and the user hasn’t answered all 15 questions, the game round is terminated.</p>"},
+            
+        {"title": "What is the cost of the subscription service?",
+                "descr":"<p>First day’s subscription will be free of charge and afterwards the charge will be R3.00 per day. In case of insufficient balance, the subscriber will be attempted to be partially charged with less amount.</p>"}        
         ]
     },
     "END": {
