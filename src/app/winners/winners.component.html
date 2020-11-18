@@ -13,8 +13,8 @@
         </tr>
       </thead>
       <tr *ngFor = "let winner of dailyWinners$; let i = index" [hidden]="!showDay || !dailyWinners$" style="border-bottom: 0.5px solid black;"  >
-        <td class=" animate__animated animate__fadeInLeft" [ngStyle]="{'animation-delay': (i * 100+400)+'ms' }" style=" font-weight: bolder;">{{winner.winSum}}R15,000</td>
-        <td class=" animate__animated animate__fadeInLeft" [ngStyle]="{'animation-delay': (i * 100+400)+'ms' }"> {{winner.winDate}}29-10-2019</td>
+        <td class=" animate__animated animate__fadeInLeft" [ngStyle]="{'animation-delay': (i * 100+400)+'ms' }" style=" font-weight: bolder;">{{winner.winSum}}</td>
+        <td class=" animate__animated animate__fadeInLeft" [ngStyle]="{'animation-delay': (i * 100+400)+'ms' }"> {{winner.winDate}}</td>
       </tr>
       
     </table>
