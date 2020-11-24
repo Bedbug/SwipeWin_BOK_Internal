@@ -108,6 +108,7 @@ export class ReturnhomeComponent implements OnInit {
         (data:User) => {
           this.sessionService.user = data;
           this._gamesPlayed = this.sessionService.gamesPlayed;
+          // console.log("this._gamesPlayed: "+this._gamesPlayed);
           // console.table(data);
           // console.log("this._gamesPlayed "+this._gamesPlayed);
           // this.sessionService.state = "INACTIVE";

@@ -99,8 +99,8 @@
         <button class="uk-button uk-button-default play-button uk-width-1-1 animate__animated animate__bounceInUp" style="animation-delay: 400ms;" *ngIf="loggedin &&  this.sessionService.isActive() && !this.sessionService.hasCredit() && _gamesPlayed < 3" (click)="OpenOTPPurchase()">{{ 'HOME.BUY' | translate }}</button>
         
         <button class="uk-button uk-button-default uk-width-1-1" style="padding:0px;" *ngIf="this.sessionService.isPending() && _gamesPlayed < 3"  disabled>{{ 'MESSAGES.MESSAGE_00' | translate }}</button>
-        <button class="uk-button uk-button-default uk-width-1-1" style="padding:0px;" *ngIf="this.sessionService.isInActive() && _gamesPlayed < 3"  disabled>Your daily round is not unlocked yet.<br>Please come back later.</button>
-        <button class="uk-button uk-button-default uk-width-1-1" style="padding:0px;" *ngIf="_gamesPlayed >= 3"  disabled>No more rounds left for today.<br>Please come back tomorrow.</button>
+        <button class="uk-button uk-button-default uk-width-1-1" style="padding:0px;" *ngIf="this.sessionService.isInActive()"  disabled>Your daily round is not unlocked yet.<br>Please come back later.</button>
+        <button class="uk-button uk-button-default uk-width-1-1" style="padding:0px;" *ngIf="_gamesPlayed >= 3 && this.sessionService.isActive()"  disabled>No more rounds left for today.<br>Please come back tomorrow.</button>
       </div>
       <!-- <div class="message-container" style="margin-top: 30px;">
         <p style="color:rgb(0, 0, 0); font-weight: bold; font-size: 20px;"><a  [routerLink]="['/info']" style="color:rgb(255, 255, 255); text-decoration: underline;">Resend PIN</a>
