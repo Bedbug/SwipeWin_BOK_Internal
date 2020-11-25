@@ -59,7 +59,7 @@ export class ReturnhomeComponent implements OnInit {
     // console.log("Games Played: "+ this.gamesPlayed);
     // this.sessionService.state = "INACTIVE"
     // console.log("Play Main Game!");
-      this.sessionService.gamesPlayed++;
+      // this.sessionService.gamesPlayed++;
       this.router.navigate(['game']);
       
   }
@@ -109,7 +109,7 @@ export class ReturnhomeComponent implements OnInit {
           this.sessionService.user = data;
           this._gamesPlayed = this.sessionService.gamesPlayed;
           // console.log("this._gamesPlayed: "+this._gamesPlayed);
-          // console.table(data);
+          console.table(data);
           // console.log("this._gamesPlayed "+this._gamesPlayed);
           // this.sessionService.state = "INACTIVE";
           // console.log("this.state "+this.sessionService.state);

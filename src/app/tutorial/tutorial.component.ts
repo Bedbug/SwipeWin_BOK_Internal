@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Globals} from '../globals';
+import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-tutorial',
@@ -10,7 +11,7 @@ export class TutorialComponent implements OnInit {
 
   private isFirstDemo: boolean;
   
-  constructor(private globals: Globals) { 
+  constructor(private globals: Globals, private sessionService: SessionService,) { 
     this.isFirstDemo = globals.isFirstDemo;
   }
 
@@ -19,7 +20,7 @@ export class TutorialComponent implements OnInit {
   }
   
   changeTutorialFlag() {
-    
+    this.sessionService.gamesPlayed++;
     this.isFirstDemo = false;
     this.globals.isFirstDemo = this.isFirstDemo;
     console.log("Change isFirstDemo to: "+ this.isFirstDemo);
