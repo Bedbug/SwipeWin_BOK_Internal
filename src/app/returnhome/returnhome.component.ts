@@ -93,40 +93,54 @@ export class ReturnhomeComponent implements OnInit {
     else {
       
       this._isSubscribed = this.sessionService.isSubscribed;
-      // console.log(this.sessionService.msisdn);
-      // console.log("this.session "+this.sessionService.token);
-      // this._cashBackAmount = this.sessionService._cashBackAmount;
-      // this._cashBackAmount = 500;
       
-      // TOBE ERASED
-      // This resets the games played every time
-
       // Serialize the session and save the most recent user token
       this.sessionService.Serialize();
       
-      this.dataService.getUserProfile().then( 
-        (data:User) => {
-          this.sessionService.user = data;
-          this._gamesPlayed = this.sessionService.gamesPlayed;
-          // console.log("this._gamesPlayed: "+this._gamesPlayed);
-          console.table(data);
-          // console.log("this._gamesPlayed "+this._gamesPlayed);
-          // this.sessionService.state = "INACTIVE";
-          // console.log("this.state "+this.sessionService.state);
-          // console.log("this.sessionService.gamesPlayed "+this.sessionService.gamesPlayed);
+      this.UpdateUserInfo();
+      // this.dataService.getUserProfile().then( 
+      //   (data:User) => {
+      //     this.sessionService.user = data;
+      //     this._gamesPlayed = this.sessionService.gamesPlayed;
+      //     console.table(data);
 
-          this.CheckCredits();
-          // Set Properties here
-          // this._gamesPlayed = 3;
-          // this._cashBackAmount = this.sessionService.user.wallet.pendingMaturityCashback + this.sessionService.user.wallet.pendingTransferCashback;
-        },
-        (err) => {
+      //     this.CheckCredits();
           
-        }
+      //   },
+      //   (err) => {
+          
+      //   }
         
-      );
+    
+      // );
     }
   }
+
+  UpdateUserInfo() {
+    this.dataService.getUserProfile().then(
+      (data: User) => {
+        this.sessionService.user = data;
+        this._gamesPlayed = this.sessionService.gamesPlayed;
+​         console.table(data); 
+
+        if (data.isEligible !== undefined)
+          this.sessionService.isEligible = data.isEligible;
+        if (data.isSubscribed != undefined)
+          this.sessionService.isSubscribed = data.isSubscribed;
+        if (data.gamesPlayedToday !== undefined)
+          this.sessionService.gamesPlayed = data.gamesPlayedToday;
+        if (data.hasCredit !== undefined)
+          this.sessionService.hasCredits = data.hasCredit;
+​
+        // Update the user State
+        this.sessionService.state = data.state;
+        this.CheckCredits();
+      },
+      (err) => {
+        console.error(err);
+      });
+  }
+
 
   CheckCredits() {
     // console.log("Checking Credits: "+ this.sessionService.hasCredit());

@@ -12,8 +12,13 @@ class User {
   bestScoreToday: number = 0;
   totalDaysPlaying: number = 0;
   wallet: any = null;
-  credits: any = null;
-
+  credits: number = null;
+  gamesPlayedToday: number = 0;
+  isEligible: boolean = false;
+  isSubscribed: boolean = false;
+  hasCredit: boolean = false;
+  state: string = null;
+  
   public toProfileDTO() {
       return {
           id: this.id,
