@@ -837,7 +837,7 @@ var __phaser = {
             var trueTag = game.add.sprite(-200, -300, 'trueTag');
             trueTag.anchor.set(.5); // trueTag.scale.set(globalRatio);
 
-            card.addChild(trueTag);a
+            card.addChild(trueTag);
             game.logic.cards[i].trueTag = trueTag;
             game.logic.cards[i].trueTag.alpha = 0; //Add False Mark
 
