@@ -12,7 +12,6 @@ import { parsePhoneNumberFromString } from 'libphonenumber-js';
 import { environment } from '../../environments/environment';
 
 
-
 // import * as libphonenumber from 'google-libphonenumber';
 
 @Component({
@@ -161,7 +160,8 @@ export class HomeComponent implements OnInit {
             // console.log("hasCredit: " + body.hasCredit);
             // Update the user State
             this.sessionService.state = body.state;
-            // console.log(this.sessionService.state);
+            
+            console.log(this.sessionService.state);
             // console.log("Checking Credits: "+ this.sessionService.hasCredit());
 
             if (body.credits > 0)

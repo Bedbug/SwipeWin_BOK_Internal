@@ -15,7 +15,7 @@ export const environment = {
     // gameServerDomainUrl: 'https://swipewin-beeline-server.herokuapp.com',
 
     // the path to MTN consent pages
-    mtnAuthDomainUrl: 'http://staging.doi.mtndep.co.za/service/43954?rid=b96190401f6c11ebbd893bf3fb9f8253',
+    mtnAuthDomainUrl: 'http://staging.doi.mtndep.co.za/service/43954',
         
 };
 

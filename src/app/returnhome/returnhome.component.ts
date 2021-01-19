@@ -134,6 +134,7 @@ export class ReturnhomeComponent implements OnInit {
 ​
         // Update the user State
         this.sessionService.state = data.state;
+        // this.sessionService.state = "INACTIVE";
         this.CheckCredits();
       },
       (err) => {
