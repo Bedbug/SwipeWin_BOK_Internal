@@ -84,10 +84,10 @@
     },
     "PRIZES": {
         "PRIZES": "Prizes",
-        "MES_01": "R15,000",
-        "MES_02": "every week",
-        "MES_03": "R150,000",
-        "MES_04": "as Grand Prizes",
+        "MES_01": "R1,000,000",
+        "MES_02": "as Grand Prize",
+        "MES_03": "R1,000,000",
+        "MES_04": "as Grand Prize",
         "MES_05": "a Springboks match abroad",
         "MES_06": "GRAND PRIZE",
         "BACK": "Go Back"
