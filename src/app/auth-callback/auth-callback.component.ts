@@ -30,8 +30,7 @@ export class AuthCallbackComponent implements OnInit {
     const msisdn: String = urlTree.queryParams['msisdn'];
     const that = this;
 
-    const orderid: String  = urlTree.queryParams['ORDERID']; 
-    console.log("ORDER ID: "+ orderid);
+    
     
     /*
     this.dataService.authenticateUserToken(code).subscribe(

@@ -11,3 +11,5 @@ export const environment = {
     // mtnAuthDomainUrl: 'http://staging.doi.mtndep.co.za/service/43954',
     // the path to MTN consent pages-Production
     mtnAuthDomainUrl: 'http://doi.mtndep.co.za/service/7429'
+
+}
