@@ -4,23 +4,21 @@
         "CAR_01": "<a>Stand a chance to win</a>",
         "CAR_01&half": "R15,000",
         "CAR_01b": "Every week",
-
         "CAR_02": "Stand a chance to win",
         "CAR_03": "R150,000",
         "CAR_03b": " or ",
         "CAR_03c": "a trip for 2",
         "CAR_04": "to watch a Springboks<br>match abroad",
         "CAR_04b": "Grand Prize",
-
         "NUM": "Mobile number",
         "SUB-LOG": "Subscribe/Login",
         "OTP": "Please enter the 4-digit PIN code received to your mobile",
         "LOGIN": "Login",
         "SUB": "Subscribe",
         "CONFIRM": "Confirm purchase",
-        "VERERROR":"The 4-digit PIN code you entered is not correct. Please try again!",
-        "VERERROR2":"Credit purchase pending!",
-        "WRONGNUM":"The number you inserted has invalid format!",
+        "VERERROR": "The 4-digit PIN code you entered is not correct. Please try again!",
+        "VERERROR2": "Credit purchase pending!",
+        "WRONGNUM": "The number you inserted has invalid format!",
         "ACCEPT": " I accept the T&Cs",
         "RESEND": "Resend PIN",
         "PLAY": "Play now",
@@ -36,7 +34,6 @@
         "SUB_SUC_02": "subscribed to Swipe & Win!",
         "SUB_SUC_03": "Continue",
         "SUB_SUC_04": "Reedem your free round"
-
     },
     "BURGER": {
         "HOME": "Home page",
@@ -65,8 +62,8 @@
         "MALE": "Male",
         "FEMALE": "Female",
         "AGE": "Age",
-        "SAVE":"Save",
-        "LOGOUT":"Log Out"
+        "SAVE": "Save",
+        "LOGOUT": "Log Out"
     },
     "HOW": {
         "HOW": "How to play",
@@ -112,47 +109,74 @@
     "FAQ": {
         "FAQ": "FAQ",
         "data": [
-        {"title": "What is the Bok Trivia?",
-            "descr":"<p>Bok Trivia is a fully digital rugby themed subscription service which awards MTN’s subscribers with daily rugby themed content, points for prizes and a daily round for the Bok Trivia web game.<br>One round of Bok Trivia web game includes 15 rugby-themed questions and each question consists of a statement and a photo. User has to swipe right for correct or left for wrong answer. During a game round, users can also get extra points by answering to special questions that award extra points and pop up at surprise intervals (e.g. bronze, silver and golden questions).<br>User has 5 minutes in order to answer all 15 questions. In case the 5 minutes are over and the user hasn’t answered all 15 questions, the game round is terminated.<br>At the end of each round, the correct answers are being converted into points for the grand and weekly CASH prize draws.</p>"},
-        
-        {"title": "What is the registration process?",
-            "descr":"<p>Bok Trivia service is offererd exclusively for MTN's subscribers. You can register to the service by the following ways:</p><ol><li >Via USSD, by dialing the code *120*6083#.</li><li>Via SMS, by sending 'YES', JA', 'WIN', 'OK' or 'BOKS' to 45465.</li><li>Via service's website, by visiting https://boktrivia.mtn.co.za/</li></ol>"},
-        
-        {"title": "What happens upon registration to the service?",
-            "descr":"<p>a. Once you register to Bok Trivia, you'll have for a unique time one (1) day as FREE trial period and you will get one (1) game round and 20 points for the weekly and the grand draws for free. Upon free trial day expiration, the cost of the subscription is R3.00 per day and the subcriber is awarded with one (1) game round and 20 extra points for the CASH draws.<br><br>b. Subscribers can buy on-demand game rounds by clicking the 'Buy extra round' button at Bok Trivia's website. Only two (2) on demand game rounds can be acquired per day (i.e. a subscriber can unlock at most 2 more game rounds per day), while the cost of each on-demand round is R3.00<br><br>> All daily game rounds (i.e. round upon successful charging and on demand rounds) expire each calendar day at 23:59:59.<br><br>c. In order to play, you need to visit the unique link that you will receive to your mobile phone via SMS upon subscription or successful renewal of your daily subscription. Otherwise, you can enter Bok Trivia's website, insert your mobile number, click the 'Subscribe/Log in' button and receive the same unique link via SMS.</p>"},
-        
-        {"title": "When does the competition begin?",
-            "descr":"<p>The Competition begins on 2020-11-xx</p>"},
-        
-        {"title": "What are the basic game rules?",
-            "descr":"<p>The game rules are rather simple. One round of Bok Trivia web game includes 15 rugby-themed questions and each question consists of a statement and a photo. User has to swipe right for correct or left for wrong answer. During a game round, users can also get extra points by answering to special questions that award extra points and pop up at surprise intervals (e.g. bronze, silver and golden questions).<br><br>User has 5 minutes in order to answer all 15 questions. In case the 5 minutes are over and the user hasn’t answered all 15 questions, the game round is terminated.<br><br>At the end of each round, the correct answers are being converted into points for the grand and weekly prize draws.</p>"},
-        
-        {"title": "What are the prizes and how do I stand a chance to win them?",
-            "descr":"<p>The prizes are R15,000 in cash every week and R150,000 every 6 months.<br><br>In order to participate in the weekly R15,000 (fifteen thousand rand) cash draws subscribers must have received at least one point on the respective week. Subscribers enter the weekly draw with the total points accumulated until the draw day.<br><br>> Weekly prize periods for the R15,000 (fifteen thousand rand) are defined as starting from 00:00:00 on xxxx (draw day ) of the prize day and ending at 23:59:59 of the immediately following xxxx (draw day).<br><br>In order to participate in the grand draws subscribers must have received at least one point on the respective 6 months. Subscribers enter the grand draw with the total points accumulated until the draw day.<br><br>> Eligibility to the grand lucky draws for the R150.000 (One hundred and fifty thousand) require participation to Competition during the following dates:<br><br><table style='height: 119px;' border='1' width='100%'><tbody><tr><td style='width: 134px; text-align: center;'>Grand Draws</td><td style='width: 134px; text-align: center;'>Start Date</td><td style='width: 134px; text-align: center;'>End Date</td></tr><tr><td style='width: 134px; text-align: center;'>1</td><td style='width: 134px; text-align: center;'>xx/yy/2020</td><td style='width: 134px; text-align: center;'>yy/zz//2020</td></tr><tr><td style='width: 134px; text-align: center;'>2</td><td style='width: 134px; text-align: center;'>yy/zz/2020</td><td style='width: 134px; text-align: center;'>xx/zz/2020</td></tr></tbody></table></p>"},
-        
-        {"title": "How do I collect points for the draws?",
-            "descr":"<p>a. Upon each daily successful subscription service charge, you'll be awarded with twenty (20) points.<br><br>b. Each correctly answered question at the Bok Trivia game awards you with:<br>> twenty (20) points if this is a “common” type question<br>> fifty (50) points if this is a “bronze” type question<br>> one hundred points (100) if this is a “silver” type question<br>> one hundred and fifty points (150) if this is a “golden” type question<br><br>c. If you purchase extra game rounds, each one of them gives you twenty (20) points, too.</p>"},
-        
-        {"title": "How will I be informed if I win a prize?",
-            "descr":"<p>The winner will be contacted within 30 days in order to explain the prize awarding process. Please ensure that your handset is always switched on.</p>"},
-        
-        {"title": "Where do I see the list of the winners?",
-            "descr":"<p>A list of confirmed winners are published on the bok Trivia website under the section ‘Winners’. Visit https://boktrivia.mtn.co.za/ to view the published list of winners.</p>"},
-
-        {"title": "I have run out of rounds, can I buy more?",
-                "descr":"<p>You can buy on-demand game rounds by clicking the 'Play more' button at Bok Trivia's website. Only two (2) on demand game rounds can be acquired per day (i.e. a subscriber can unlock at most 2 more game rounds per day), while the cost of each on-demand round is R3.00<br><br>Each extra game round gives you also twenty (20) EXTRA points for the weekly (R15,000) and the grand (R150,000) draws.</p>"},
-
-        {"title": "Is there any expiration period for the game rounds?",
-                "descr":"<p>Yes, there is. The one (1) game round that you receive for your daily participation is valid only for the same calendar day. Similarly, the extra game rounds unlocked by purchasing on-demand rounds are valid only for the same calendar day.</p>"},
-            
-        {"title": "I forgot my unique link, what should I do?",
-                "descr":"<p>In order to find your unique link please check the SMS you received upon subscription to the service or the daily content you received upon successful renewal of your subcription service. Otherwise, you can enter Bok Trivia's website, insert your mobile number, click the 'Subscribe/Log in' button and receive an SMS with your unique link.</p>"},
-            
-        {"title": "My time ran out answering one of the questions and the game finished. Why?",
-                "descr":"<p>User has 5 minutes in order to answer all 15 questions. In case the 5 minutes are over and the user hasn’t answered all 15 questions, the game round is terminated.</p>"},
-            
-        {"title": "What is the cost of the subscription service?",
-                "descr":"<p>First day’s subscription will be free of charge and afterwards the charge will be R3.00 per day. In case of insufficient balance, the subscriber will be attempted to be partially charged with less amount.</p>"}        
+            {
+                "title": "What is the Bok Trivia?",
+                "descr": "<p>Bok Trivia is a fully digital rugby themed subscription service which awards MTN’s subscribers with daily rugby themed content, points for prizes and a daily round for the Bok Trivia web game. <br><br>One round of Bok Trivia web game includes 15 rugby-themed questions and each question consists of a statement and a photo. User has to swipe right for correct or left for wrong answer. During a game round, users can also get extra points by answering to special questions that award extra points and pop up at surprise intervals (e.g. bronze, silver and golden questions).<br><br>User has 5 minutes in order to answer all 15 questions. In case the 5 minutes are over and the user hasn’t answered all 15 questions, the game round is terminated.<br><br>At the end of each round, the correct answers are being converted into points for the prize draws.Bok Trivia is a fully digital rugby themed subscription service which awards MTN’s subscribers with daily rugby themed content, points for prizes and a daily round for the Bok Trivia web game.</p>"
+            },
+            {
+                "title": "What is the registration process?",
+                "descr": "<p>Bok Trivia service is offered exclusively for MTN's subscribers. You can register to the service by the following ways:<br><ul><li>1. Via USSD, by dialing the code *686*7429#.</li><li>2. Via SMS, by sending 'YES', 'JA', 'WIN', 'OK' or 'BOKS' to 45465.</li><li>3. Via service's website, by visiting <a href='https://boktrivia.mtn.co.za/'>https://boktrivia.mtn.co.za/</a></li></ul> </p>"
+            },
+            {
+                "title": "What happens upon registration to the service?",
+                "descr": "<p>a. Once you register to Bok Trivia, you'll have for a unique time one (1) day as FREE trial period and you will get one (1) game round and 20 points for the prizes. Upon free trial day expiration, the cost of the subscription is R3.00 per day and the subscriber is awarded with one (1) game round and 20 extra points for prizes.<br><br>b. Subscribers can buy on-demand game rounds by clicking the 'Buy extra round' button at Bok Trivia's website. Only two (2) on demand game rounds can be acquired per day (i.e. a subscriber can unlock at most 2 more game rounds per day), while the cost of each on-demand round is R3.00<br><br>> All daily game rounds (i.e. round upon successful charging and on demand rounds) expire each calendar day at 23:59:59.<br><br>c. In order to play, you need to visit the unique link that you will receive to your mobile phone via SMS upon subscription or successful renewal of your daily subscription. Otherwise, you can enter <a href='http://doi.mtndep.co.za/service/7429'>http://doi.mtndep.co.za/service/7429</a>, insert your mobile number, click the 'Continue' button and receive the same unique link via SMS (if you are not already subscribed to the service) or be instantly logged in to your account (if you are already subscribed to the service).a. Once you register to Bok Trivia, you'll have for a unique time one (1) day as FREE trial period and you will get one (1) game round and 20 points for the prizes. Upon free trial day expiration, the cost of the subscription is R3.00 per day and the subscriber is awarded with one (1) game round and 20 extra points for prizes.<br><br>b. Subscribers can buy on-demand game rounds by clicking the 'Buy extra round' button at Bok Trivia's website. Only two (2) on demand game rounds can be acquired per day (i.e. a subscriber can unlock at most 2 more game rounds per day), while the cost of each on-demand round is R3.00<br><br>> All daily game rounds (i.e. round upon successful charging and on demand rounds) expire each calendar day at 23:59:59.<br><br>c. In order to play, you need to visit the unique link that you will receive to your mobile phone via SMS upon subscription or successful renewal of your daily subscription. Otherwise, you can enter <a href='http://doi.mtndep.co.za/service/7429'>http://doi.mtndep.co.za/service/7429</a>, insert your mobile number, click the 'Continue' button and receive the same unique link via SMS (if you are not already subscribed to the service) or be instantly logged in to your account (if you are already subscribed to the service).</p>"
+            },
+            {
+                "title": "When does the competition begin?",
+                "descr": "<p>The Competition begins on 2021-05-26</p>"
+            },
+            {
+                "title": "What are the basic game rules?",
+                "descr": "<p>The game rules are rather simple. One round of Bok Trivia web game includes 15 rugby-themed questions and each question consists of a statement and a photo. User has to swipe right for correct or left for wrong answer. During a game round, users can also get extra points by answering to special questions that award extra points and pop up at surprise intervals (e.g. bronze, silver and golden questions).<br><br>User has 5 minutes in order to answer all 15 questions. In case the 5 minutes are over and the user hasn’t answered all 15 questions, the game round is terminated.<br><br>At the end of each round, the correct answers are being converted into points for the prizes.The game rules are rather simple. One round of Bok Trivia web game includes 15 rugby-themed questions and each question consists of a statement and a photo. User has to swipe right for correct or left for wrong answer. During a game round, users can also get extra points by answering to special questions that award extra points and pop up at surprise intervals (e.g. bronze, silver and golden questions).<br><br>User has 5 minutes in order to answer all 15 questions. In case the 5 minutes are over and the user hasn’t answered all 15 questions, the game round is terminated.<br><br>At the end of each round, the correct answers are being converted into points for the prizes.</p>"
+            },
+            {
+                "title": "What are the prizes?",
+                "descr": "<p>The prizes are:<br> <ul><li>R100,000 in cash every week</li><li>signed BIL jerseys and</li> <li>many more surprise prizes</li></ul></p>"
+            },
+            {
+                "title": "How do I collect points for the draws?",
+                "descr": "<p>a. Upon each daily successful subscription service charge, you'll be awarded with twenty (20) points.<br><br>b. Each correctly answered question at the Bok Trivia game awards you with:<ul><li> twenty (20) points if this is a “common” type question</li><li>fifty (50) points if this is a “bronze” type question</li><li>one hundred points (100) if this is a “silver” type question</li><li>one hundred and fifty points (150) if this is a “golden” type question</li></ul><br><br>c. If you purchase extra game rounds, each one of them gives you twenty (20) points, too.a. Upon each daily successful subscription service charge, you'll be awarded with twenty (20) points.<br><br>b. Each correctly answered question at the Bok Trivia game awards you with: <ul><li>twenty (20) points if this is a “common” type question</li><li>fifty (50) points if this is a “bronze” type question</li><li>one hundred points (100) if this is a “silver” type question</li></ul> <br><br>c. If you purchase extra game rounds, each one of them gives you twenty (20) points, too.</p>"
+            },
+            {
+                "title": "How will I be informed if I win a prize?",
+                "descr": "<p>The winner will be contacted within 30 days in order to explain the prize awarding process. Please ensure that your handset is always switched on.</p>"
+            },
+            {
+                "title": "Where do I see the list of the winners?",
+                "descr": "<p>A list of confirmed winners are published on the Bok Trivia website under the section ‘Winners’. <br>Visit <a href='http://doi.mtndep.co.za/service/7429'>https://boktrivia.mtn.co.za/winners</a> to view the published list of winners.</p>"
+            },
+            {
+                "title": "I have run out of rounds, can I buy more?",
+                "descr": "<p>You can buy on-demand game rounds by clicking the 'Play more' button at Bok Trivia's website. Only two (2) on demand game rounds can be acquired per day (i.e. a subscriber can unlock at most 2 more game rounds per day), while the cost of each on-demand round is R3.00<br><br> Each extra game round gives you also twenty (20) EXTRA points for the prizes.You can buy on-demand game rounds by clicking the 'Play more' button at Bok Trivia's website. Only two (2) on demand game rounds can be acquired per day (i.e. a subscriber can unlock at most 2 more game rounds per day), while the cost of each on-demand round is R3.00<br><br>Each extra game round gives you also twenty (20) EXTRA points for the prizes.</p>"
+            },
+            {
+                "title": "Is there any expiration period for the game rounds?",
+                "descr": "<p>Yes, there is. The one (1) game round that you receive for your daily participation is valid only for the same calendar day. Similarly, the extra game rounds unlocked by purchasing on-demand rounds are valid only for the same calendar day.</p>"
+            },
+            {
+                "title": "I forgot my unique link, what should I do?",
+                "descr": "<p>Send HELP to 45465 for free to get an SMS with your unique link. Otherwise, please check the SMS you received upon subscription to the service or the daily content you received upon successful renewal of your subscription service and you will find your unique link there.</p>"
+            },
+            {
+                "title": "My time ran out answering one of the questions and the game finished. Why?",
+                "descr": "<p>User has 5 minutes in order to answer all 15 questions. In case the 5 minutes are over and the user hasn’t answered all 15 questions, the game round is terminated.</p>"
+            },
+            {
+                "title": "What is the cost of the subscription service?",
+                "descr": "<p>First day’s subscription will be free of charge and afterwards the charge will be R3.00 per day. In case of insufficient balance, the subscriber will be attempted to be partially charged with less amount.</p>"
+            },
+            {
+                "title": "I am not a MTN's subscriber, can I register?",
+                "descr": "<p>No, Bok Trivia is only available to MTN subscribers.</p>"
+            },
+            {
+                "title": "How can I opt-out from the service?",
+                "descr": "<p>You can opt out at any time by dialling *155# and choosing unsubscribe.</p>"
+            },
+            {
+                "title": "If I cancel my subscription to Bok Trivia, will I be charged again?",
+                "descr": "<p>No, once you opt out from the service you are not charged again unless you re-subscribe to the service.</p>"
+            }
         ]
     },
     "END": {
@@ -188,6 +212,5 @@
         "MESSAGE_16": "There was something wrong with your purchase, please try again",
         "MESSAGE_17": "Please wait for the pop-up message and reply 1 to confirm the purchase of 1 extra round. Then, click the link you’ll receive via SMS to play your extra round.",
         "MESSAGE_18": "You are already a subscriber! Please wait for your unique link to login."
-
-        }
-      }
+    }
+}
