@@ -189,7 +189,7 @@ export class HomeComponent implements OnInit {
 
         else {
           // MTN consent flow here
-          this.redirect();
+          // this.redirect();
         }
       },
       (err: any) => {

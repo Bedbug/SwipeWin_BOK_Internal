@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
   url: string;
   pushed = false;
   alignAllLeft = false;
+  profileOpened = false;
 
   public mobileMenuState = false;
   public menuIconPath = 'menu';
@@ -33,6 +34,12 @@ export class HeaderComponent implements OnInit {
     // } else {
     //   this.alignAllLeft = true;
     // }
+    // if (!this.session.token || !this.session.isSubscribed || !this.session.isEligible || this.session.isUnsub()) {
+    //   this.profileOpened = false;
+    // }else{
+    //   this.profileOpened = true;
+    // }
+
     let offcanvas = UIkit.offcanvas("#offcanvas-nav");
     // console.log(offcanvas);
     offcanvas.$props.flip =  this.alignAllLeft;
@@ -57,6 +64,11 @@ export class HeaderComponent implements OnInit {
   public toggleClass() {
     console.log("Toggleing!!!");
     this.pushed = !this.pushed;
+    if (!this.session.token || !this.session.isSubscribed || !this.session.isEligible || this.session.isUnsub()) {
+      this.profileOpened = false;
+    }else{
+      this.profileOpened = true;
+    }
   }
 
   public changeMenuState(event) {

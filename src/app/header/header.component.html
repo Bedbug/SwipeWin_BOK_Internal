@@ -2,6 +2,9 @@
   <nav class="uk-navbar-container boundary-align " uk-navbar>
     <div [ngClass]="(alignAllLeft)?'uk-navbar-left_b':'uk-navbar-right'">
       <!-- <div> -->
+        <div style="width: 70px; margin-top: -15px;">
+          <img src="assets/icons/go_small.png" alt="">
+        </div>
       <ul class="uk-navbar-nav" uk-navbar="dropbar: true; dropbar-mode: push">
         <li>
           <a class="hamburger-menu " (click)="toggleClass()" uk-toggle="target: #offcanvas-nav">
@@ -33,10 +36,8 @@
                       </div>
                     </a>
                   </li>
-                  <li>
-                    <a 
-                    
-                    class="nav-list-button animate__animated animate__fadeInUp" style="animation-delay: 200ms;" (click)="closeOffcanvas(); gotoProfile()">
+                  <li *ngIf="profileOpened">
+                    <a class="nav-list-button animate__animated animate__fadeInUp" style="animation-delay: 200ms;" (click)="closeOffcanvas(); gotoProfile()">
                         <div class="nav-list-box uk-flex">
                       <img class="nav-list-icon" src="assets/icons/profile.svg" alt="">
                       <span>{{ 'BURGER.PROFILE' | translate }}</span>
@@ -61,7 +62,7 @@
                           </div>
                     </a>
                   </li>
-                  <li>
+                  <!-- <li>
                     <a class="nav-list-button  animate__animated animate__fadeInUp" style="animation-delay: 500ms;"
                       [routerLink]="['/winners']"
                       (click)="closeOffcanvas()">
@@ -69,9 +70,9 @@
                           <img class="nav-list-icon" src="assets/icons/liderboard.svg" alt=""><span>{{ 'BURGER.WINNERS' | translate }}</span>
                           </div>
                     </a>
-                  </li>
+                  </li> -->
                   
-                  <li>
+                  <!-- <li>
                     <a
                       [routerLink]="['/faq']"
                       class="nav-list-button  animate__animated animate__fadeInUp" style="animation-delay: 600ms;" (click)="closeOffcanvas()">
@@ -79,8 +80,8 @@
                         <img class="nav-list-icon" src="assets/icons/support.svg" alt=""><span>{{ 'BURGER.FAQ' | translate }}</span>
                       </div>
                     </a>
-                  </li>
-                  <li>
+                  </li> -->
+                  <!-- <li>
                     <a 
                     [routerLink]="['/info']"
                     class="nav-list-button  animate__animated animate__fadeInUp" style="animation-delay: 700ms;" (click)="closeOffcanvas()">
@@ -88,7 +89,7 @@
                           <img class="nav-list-icon" src="assets/icons/info.svg" alt=""><span>{{ 'BURGER.TERMS' | translate }}</span>
                         </div>
                     </a>
-                  </li>
+                  </li> -->
                   <!-- <li>
                       <a 
                       

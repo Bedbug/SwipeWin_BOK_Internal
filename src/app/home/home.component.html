@@ -2,84 +2,58 @@
   <img src="assets/images/gulogo.svg" alt="">
 </div> -->
 
-<div class="uk-container animate__animated animate__flip mts-logo"  style="text-align: center; animation-delay: 1900ms;">
+<div class="uk-container animate__animated animate__flip mts-logo" style="text-align: center; animation-delay: 1900ms;">
   {{ 'HOME.TITLE' | translate }}
-<br>
-<p >
-<!-- {{ 'HOME.FOOTER_02' | translate }}<br>{{ 'HOME.FOOTER_02b' | translate }} -->
+  <br>
+  <p>
+    <!-- {{ 'HOME.FOOTER_02' | translate }}<br>{{ 'HOME.FOOTER_02b' | translate }} -->
 
-</p>
-<!-- <span style="color:#ff6600">{{ 'HOME.FOOTER_03' | translate }}</span> -->
+  </p>
+  <!-- <span style="color:#ff6600">{{ 'HOME.FOOTER_03' | translate }}</span> -->
 
 </div>
 
 <!-- // Slider -->
-<div id="slider" class="slideshow-container animate__animated animate__bounceIn" style="animation-duration: 800ms; animation-delay: 200ms;" *ngIf="!openVerify" uk-slideshow="animation: fade; min-height: 400; max-height: 400; autoplay: true; autoplay-interval: 2000; pause-on-hover: false; draggable:false;" >
+<div id="slider" class="slideshow-container animate__animated animate__bounceIn"
+  style="animation-duration: 800ms; animation-delay: 200ms;" *ngIf="!openVerify"
+  uk-slideshow="animation: fade; min-height: 400; max-height: 400; autoplay: true; autoplay-interval: 2000; pause-on-hover: false; draggable:false;">
 
   <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-    
-    <ul class="uk-slideshow-items" >
+
+    <ul class="uk-slideshow-items">
       <li class="list-wrapper">
-        
+
         <div class="uk-position-center uk-position-small uk-text-center uk-light">
-            <div class="vector">
-                <img class="icon" style="width: 300px;" src="assets/icons/players.png" alt=""/>
-              </div>
-            <div uk-slideshow-parallax="x: 100,0,0" class="current-prize-fond">
-              <span class="simpleText" [innerHtml]="'HOME.CAR_01' | translate"></span><br>
-              <span class="textHighlighted" >your share of</span><br><br>
-              <span class="textHighlighted">R1,000,000</span>
-            </div>
-        </div>
-        </li>
-  
-        <li class="list-wrapper">
-          
-          <div class="uk-position-center uk-position-small uk-text-center uk-light">
-              <div class="vector">
-                  <img class="icon" style="width: 300px;" src="assets/icons/jerseys.png" alt=""/>
-                </div>
-              <div uk-slideshow-parallax="x: 100,0,0" class="current-prize-fond">
-                <span class="simpleText" [innerHtml]="'HOME.CAR_01' | translate"></span><br>
-                <span class="textHighlighted" >a signed</span><br><br>
-                <span class="textHighlighted">Springbok Lions Series jersey</span>
-              </div>
+          <div class="vector">
+            <img class="icon" style="width: 300px;" src="assets/icons/players.png" alt="" />
           </div>
-          </li>
-  
-          <!-- <li class="list-wrapper">
-          
-            <div class="uk-position-center uk-position-small uk-text-center uk-light">
-                <div class="vector">
-                    <img class="icon" style="width: 300px;" src="assets/icons/jerseys.png" alt=""/>
-                  </div>
-                <div uk-slideshow-parallax="x: 100,0,0" class="current-prize-fond">
-                  <span class="simpleText" [innerHtml]="'HOME.CAR_01' | translate"></span><br>
-                  <span class="textHighlighted" >1 of 100</span><br><br>
-                  <span class="textHighlighted">Official jerseys</span>
-                </div>
-            </div>
-            </li>
-  
-            <li class="list-wrapper">
-          
-              <div class="uk-position-center uk-position-small uk-text-center uk-light">
-                  <div class="vector">
-                      <img class="icon" style="width: 300px;" src="assets/icons/players.png" alt=""/>
-                    </div>
-                  <div uk-slideshow-parallax="x: 100,0,0" class="current-prize-fond">
-                    <span class="simpleText" [innerHtml]="'HOME.CAR_01' | translate"></span><br>
-                    <span class="textHighlighted" >R150,000</span><br><br>
-                    <span class="textHighlighted">Every 6 months</span>
-                  </div>
-              </div>
-              </li> -->
-      
+          <div uk-slideshow-parallax="x: 100,0,0" class="current-prize-fond">
+            <span class="simpleText" [innerHtml]="'HOME.CAR_01' | translate"></span><br>
+            <span class="textHighlighted">many prizes</span><br><br>
+            <span class="textHighlighted">only for MTN employees</span>
+          </div>
+        </div>
+      </li>
+
+      <!-- <li class="list-wrapper">
+
+        <div class="uk-position-center uk-position-small uk-text-center uk-light">
+          <div class="vector">
+            <img class="icon" style="width: 300px;" src="assets/icons/players.png" alt="" />
+          </div>
+          <div uk-slideshow-parallax="x: 100,0,0" class="current-prize-fond">
+            <span class="simpleText" [innerHtml]="'HOME.CAR_01' | translate"></span><br>
+            <span class="textHighlighted">many prizes</span><br><br>
+            <span class="textHighlighted">only for MTN employees</span>
+          </div>
+        </div>
+      </li> -->
+
     </ul>
 
     <ul class="uk-slideshow-nav uk-dotnav uk-flex-center "></ul>
   </div>
-  
+
 
 </div>
 
@@ -99,25 +73,28 @@
 254700436104	INACTIVE http://localhost:4200/7G41j2o -->
 
 <!-- WI-FI LOGIN -->
-<div class="buttons-container uk-container uk-text-center"   *ngIf="!AutoLogin && !openVerify && !loggedin" tabindex="-1">
- 
-  <div class="buttons-container uk-container uk-text-center"  >
-    
+<div class="buttons-container uk-container uk-text-center" *ngIf="!AutoLogin && !openVerify && !loggedin" tabindex="-1">
+
+  <div class="buttons-container uk-container uk-text-center">
+
     <!-- <h4 style="color:white;">Insert your phone number and password to login</h4> -->
-    <form >
+    <form>
       <div class="uk-margin animate__animated animate__bounceInLeft" style="animation-delay: 400ms;">
-          <div class="uk-inline uk-width-1-1 ">
-              <span class="uk-form-icon" uk-icon="icon: phone; ratio: 1.5"></span>
-              <input #number class="uk-input" type="text" (keyup)="onKey($event)" placeholder="{{ 'HOME.NUM' | translate }}"> 
-          </div>
+        <div class="uk-inline uk-width-1-1 ">
+          <span class="uk-form-icon" uk-icon="icon: phone; ratio: 1.5"></span>
+          <input #number class="uk-input" type="text" (keyup)="onKey($event)"
+            placeholder="{{ 'HOME.NUM' | translate }}">
+        </div>
       </div>
-      
+
     </form>
-    
-    <div class="buttons-container uk-container uk-text-center animate__animated animate__bounceInLeft" style="animation-delay: 700ms;">
+
+    <div class="buttons-container uk-container uk-text-center animate__animated animate__bounceInLeft"
+      style="animation-delay: 700ms;">
       <p *ngIf="alertNumber" style="font-size: 12px; color: white;">{{ 'HOME.WRONGNUM' | translate }}</p>
-      <button class="uk-button uk-button-default play-button uk-width-1-1" (click)="submit(number.value)">{{ 'HOME.SUB-LOG' | translate }}</button> 
-    </div>   
+      <button class="uk-button uk-button-default play-button uk-width-1-1" (click)="submit(number.value)">{{
+        'HOME.LOGIN' | translate }}</button>
+    </div>
   </div>
 </div>
 <!--END OF WIFI LOGIN-->
@@ -128,84 +105,96 @@
     <p style="font-size: 22px;color: rgb(255, 255, 255);text-align: center;">{{ 'HOME.OTP' | translate }}</p>
     <!--<p>Услуга оказывается МТС совместно с партнером «ДжЮ Груп»</p>-->
   </div>
-  <div class="buttons-container uk-container uk-text-center"  style="max-width: 595px; margin-bottom: 200px;">
-    
+  <div class="buttons-container uk-container uk-text-center" style="max-width: 595px; margin-bottom: 200px;">
+
     <!-- <h4 style="color:white;">Insert your phone number and password to login</h4> -->
-    <form >
-      <div class="uk-margin" >
-          <div class="uk-inline uk-width-1-1 ">
-              <a class="uk-form-icon uk-form-icon-flip" ><img class=".uk-position-right" (click)="OpenPass()" src="assets/icons/eye.svg" alt=""></a>
-              
-              <input #pin class="uk-input" type="{{passType}}" placeholder="....">
-          </div>
+    <form>
+      <div class="uk-margin">
+        <div class="uk-inline uk-width-1-1 ">
+          <a class="uk-form-icon uk-form-icon-flip"><img class=".uk-position-right" (click)="OpenPass()"
+              src="assets/icons/eye.svg" alt=""></a>
+
+          <input #pin class="uk-input" type="{{passType}}" placeholder="....">
+        </div>
       </div>
     </form>
-    
+
     <div class="buttons-container uk-container uk-text-center">
       <p *ngIf="verErrorMes" style="font-size: 12px; color: white;">{{ 'HOME.VERERROR' | translate }}</p>
-      <button class="uk-button uk-button-default play-button uk-width-1-1" *ngIf="sessionService.isSubscribed" (click)="verifyDirect(pin.value)">{{ 'HOME.LOGIN' | translate }}</button> 
-      <button class="uk-button uk-button-default play-button uk-width-1-1" *ngIf="!sessionService.isSubscribed" (click)="verify(pin.value)">{{ 'HOME.SUB' | translate }}</button>
-      
+      <button class="uk-button uk-button-default play-button uk-width-1-1" *ngIf="sessionService.isSubscribed"
+        (click)="verifyDirect(pin.value)">{{ 'HOME.LOGIN' | translate }}</button>
+      <button class="uk-button uk-button-default play-button uk-width-1-1" *ngIf="!sessionService.isSubscribed"
+        (click)="verify(pin.value)">{{ 'HOME.SUB' | translate }}</button>
+
       <!-- <input type="checkbox" [checked]="acceptCheck" (change)="checkValue(acceptCheck?'A':'B')" /> -->
 
-      <input type="checkbox" id="acceptCB" name="acceptTC" value="male" [checked]="check" (change)="checkCheckBoxvalue($event)">
+      <input type="checkbox" id="acceptCB" name="acceptTC" value="male" [checked]="check"
+        (change)="checkCheckBoxvalue($event)">
       <!-- <label for="vehicle1"> I have a bike</label><br> -->
       <!-- <input type="radio" value="male" name="gender"  [checked]="true" (click)="ChangeGender(true) ">{{ 'SETT.MALE' | translate }} -->
       <label style="color:rgb(0, 0, 0); font-weight: bold; font-size: 15px;">
-        <a routerLink="/info" style="color:rgb(255, 255, 255); text-decoration: underline;">{{ 'HOME.ACCEPT' | translate }}</a>
+        <a routerLink="/info" style="color:rgb(255, 255, 255); text-decoration: underline;">{{ 'HOME.ACCEPT' | translate
+          }}</a>
       </label>
     </div>
     <div class="message-container" style="margin-top: 30px;">
-      
-      <p style="color:rgb(0, 0, 0); font-weight: bold; font-size: 20px;"><a (click)="resetPin()" style="color:rgb(255, 255, 255); text-decoration: underline;">{{ 'HOME.RESEND' | translate }}</a>
+
+      <p style="color:rgb(0, 0, 0); font-weight: bold; font-size: 20px;"><a (click)="resetPin()"
+          style="color:rgb(255, 255, 255); text-decoration: underline;">{{ 'HOME.RESEND' | translate }}</a>
       </p>
       <!--<p>Услуга оказывается МТС совместно с партнером «ДжЮ Груп»</p>-->
     </div>
-    
+
   </div>
-  </div>
+</div>
 <!--END OF OTP-->
 
 <!--SUBSCRIBE SUCCESS-->
-<div class="buttons-container uk-container uk-text-center" *ngIf="openSubSuccess" tabindex="-1">
-      <button *ngIf="newLogin" style="color:white; line-height: inherit; padding: 8px;" class="uk-button uk-button-default uk-width-1-1"   disabled>{{ 'MESSAGES.MESSAGE_000' | translate }}</button>
-      <button *ngIf="!newLogin" style="color:white; line-height: inherit; padding: 8px;" class="uk-button uk-button-default uk-width-1-1"   disabled>{{ 'MESSAGES.MESSAGE_18' | translate }}</button>
-</div>
- 
-<div class="main-footer uk-container animate__animated animate__bounceInUp" *ngIf="!openVerify" style="text-align: center; animation-delay: 900ms;">
-    {{ 'HOME.FOOTER_01' | translate }}
-  <!-- <br> -->
-  <p >
-  <!-- {{ 'HOME.FOOTER_02' | translate }}<br>{{ 'HOME.FOOTER_02b' | translate }} -->
-  <a [routerLink]="['/info']" style="color:white; text-decoration: underline;">{{ 'HOME.FOOTER_02c' | translate }}</a>
-  </p>
-  <!-- <span style="color:#ff6600">{{ 'HOME.FOOTER_03' | translate }}</span> -->
-  
+<!-- <div class="buttons-container uk-container uk-text-center" *ngIf="openSubSuccess" tabindex="-1">
+  <button *ngIf="newLogin" style="color:white; line-height: inherit; padding: 8px;"
+    class="uk-button uk-button-default uk-width-1-1" disabled>{{ 'MESSAGES.MESSAGE_000' | translate }}</button>
+  <button *ngIf="!newLogin" style="color:white; line-height: inherit; padding: 8px;"
+    class="uk-button uk-button-default uk-width-1-1" disabled>{{ 'MESSAGES.MESSAGE_18' | translate }}</button>
 </div>
 
+<div class="main-footer uk-container animate__animated animate__bounceInUp" *ngIf="!openVerify"
+  style="text-align: center; animation-delay: 900ms;">
+  {{ 'HOME.FOOTER_01' | translate }}
   
-  <div id="error" class="uk-flex-top" uk-modal>
-    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-      <img src="assets/images/wanted.svg" alt="">
-      <h4>{{ 'END.MES_01' | translate }}</h4>
+  <p>
+    
+    <a [routerLink]="['/info']" style="color:white; text-decoration: underline;">{{ 'HOME.FOOTER_02c' | translate }}</a>
+  </p>
+  
+
+</div> -->
+
+
+<div id="error" class="uk-flex-top" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+    <img src="assets/images/wanted.svg" alt="">
+    <h4>{{ 'END.MES_01' | translate }}</h4>
     <pre>{{ errorMsg | translate }}</pre>
     <!--<p>{{errorMsg}}</p>-->
-    <app-button *ngIf="!logOutBtn" [link_button]="true" class="uk-modal-close">{{ 'MESSAGES.MESSAGE_07' | translate }}</app-button>
-    <app-button *ngIf="gotofaqBtn" [link_button]="true" class="uk-modal-close" (click)="gotoFaqPage()">{{ 'MESSAGES.MESSAGE_14' | translate }}</app-button>
-    <app-button *ngIf="logOutBtn" [link_button]="true" class="uk-modal-close" (click)="logOutUser()">{{ 'MESSAGES.MESSAGE_07' | translate }}</app-button>
-      
-    </div>
-  </div>
+    <app-button *ngIf="!logOutBtn" [link_button]="true" class="uk-modal-close">{{ 'MESSAGES.MESSAGE_07' | translate }}
+    </app-button>
+    <app-button *ngIf="gotofaqBtn" [link_button]="true" class="uk-modal-close" (click)="gotoFaqPage()">{{
+      'MESSAGES.MESSAGE_14' | translate }}</app-button>
+    <app-button *ngIf="logOutBtn" [link_button]="true" class="uk-modal-close" (click)="logOutUser()">{{
+      'MESSAGES.MESSAGE_07' | translate }}</app-button>
 
-  <div id="happy" class="uk-flex-top" uk-modal>
-    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-      <img src="assets/images/happy.svg" alt="">
-      <!-- <h4>{{ 'MESSAGES.MESSAGE_01' | translate }}</h4> -->
-      <p *ngIf="newLogin">{{ 'MESSAGES.MESSAGE_000' | translate }}</p>
-      <p *ngIf="!newLogin">{{ 'MESSAGES.MESSAGE_18' | translate }}</p>
-      <!--<p>{{errorMsg}}</p>-->
-      <button class="uk-button uk-button-default uk-button-link uk-modal-close" style="font-size: 20px; font-weight: bold;" >{{ 'PROFILE.BACK' | translate }}</button>
-      <!-- <app-button [link_button]="true" class="uk-modal-close" (click)="goHome()">{{ 'PROFILE.BACK' | translate }}</app-button> -->
-    </div>
   </div>
+</div>
 
+<div id="happy" class="uk-flex-top" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+    <img src="assets/images/happy.svg" alt="">
+    <!-- <h4>{{ 'MESSAGES.MESSAGE_01' | translate }}</h4> -->
+    <p *ngIf="newLogin">{{ 'MESSAGES.MESSAGE_000' | translate }}</p>
+    <p *ngIf="!newLogin">{{ 'MESSAGES.MESSAGE_18' | translate }}</p>
+    <!--<p>{{errorMsg}}</p>-->
+    <button class="uk-button uk-button-default uk-button-link uk-modal-close"
+      style="font-size: 20px; font-weight: bold;">{{ 'PROFILE.BACK' | translate }}</button>
+    <!-- <app-button [link_button]="true" class="uk-modal-close" (click)="goHome()">{{ 'PROFILE.BACK' | translate }}</app-button> -->
+  </div>
+</div>
