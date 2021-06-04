@@ -64,7 +64,7 @@ export class HeaderComponent implements OnInit {
   public toggleClass() {
     console.log("Toggleing!!!");
     this.pushed = !this.pushed;
-    if (!this.session.token || !this.session.isSubscribed || !this.session.isEligible || this.session.isUnsub()) {
+    if ( !this.session.isEligible) {
       this.profileOpened = false;
     }else{
       this.profileOpened = true;

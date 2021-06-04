@@ -60,7 +60,8 @@ export class ReturnhomeComponent implements OnInit {
     // this.sessionService.state = "INACTIVE"
     // console.log("Play Main Game!");
       // this.sessionService.gamesPlayed++;
-      this.router.navigate(['game']);
+    console.log("Games Played Today: "+ this.sessionService.gamesPlayed);
+    this.router.navigate(['game']);
       
   }
   
@@ -72,11 +73,13 @@ export class ReturnhomeComponent implements OnInit {
 
   ngOnInit() {
     
-
+    console.log(this.sessionService.token);
+    console.log(this.sessionService.isEligible);
+    
     // console.log( "Has Credit: " + this.sessionService.hasCredit() );
     // console.log( "Played Games: " + this.sessionService.gamesPlayed );
     // user login validation check
-    if (!this.sessionService.token || !this.sessionService.isSubscribed || !this.sessionService.isEligible || this.sessionService.isUnsub()) {
+    if (!this.sessionService.token || !this.sessionService.isEligible) {
       // wanna inform the user here?
       if(this.sessionService.isUnsub())
           this.router.navigate(['/home']);

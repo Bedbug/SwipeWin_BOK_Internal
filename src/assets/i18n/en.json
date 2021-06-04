@@ -16,7 +16,7 @@
         "LOGIN": "Login",
         "SUB": "Subscribe",
         "CONFIRM": "Confirm purchase",
-        "VERERROR": "Oops, wrong oracle number!",
+        "VERERROR": "Oops, this is not a valid oracle number!",
         "VERERROR2": "Credit purchase pending!",
         "WRONGNUM": "The number you inserted has invalid format!",
         "ACCEPT": " I accept the T&Cs",

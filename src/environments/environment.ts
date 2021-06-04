@@ -10,7 +10,7 @@ export const environment = {
     // the path to the game server for the game DataService calls
     //gameServerDomainUrl: 'http://localhost:3030',
     // gameServerDomainUrl: 'https://swipewin-kenya-server.herokuapp.com',
-    gameServerDomainUrl: 'https://swipewin-mtnsa-server.herokuapp.com',
+    gameServerDomainUrl: 'https://swipe-bok-internal-server.herokuapp.com',
     // gameServerDomainUrl: 'https://swipewin-orange-server.herokuapp.com',
     // gameServerDomainUrl: 'https://swipewin-beeline-server.herokuapp.com',
 

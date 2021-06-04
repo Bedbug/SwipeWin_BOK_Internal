@@ -182,7 +182,7 @@ export class GameComponent implements OnInit {
     // console.log("Start As Landscape: "+this.startAsLandscape);
 
     // user login validation check
-    if (!this.sessionService.token || !this.sessionService.isSubscribed || !this.sessionService.isEligible) {
+    if (!this.sessionService.token || !this.sessionService.isEligible) {
       // wanna inform the user here?
 
       // Redirect him to Home
@@ -195,7 +195,7 @@ export class GameComponent implements OnInit {
       //check if first time and open tutorial
       var isFirst = localStorage.getItem('firstTime');
       if (isFirst != "no") {
-        this.globals.isFirstDemo = true
+        this.globals.isFirstDemo = false
         localStorage.setItem('firstTime', 'no');
       } else {
         this.globals.isFirstDemo = false;

@@ -38,7 +38,7 @@ export class ProfileComponent implements OnInit {
   private _bestResultToday = 0;
   public _cashBackAmount = 0;
   public _daysInGame = 0;
-  
+  public _username = "Empty";
   public showAvatar = true;
   
   public avatarPic="assets/images/avatar.svg";
@@ -62,7 +62,7 @@ export class ProfileComponent implements OnInit {
     // this.state = VIEW_STATES.PROFILE;
     
     // user login validation check
-    if (!this.sessionService.token || !this.sessionService.isSubscribed || !this.sessionService.isEligible) {
+    if (!this.sessionService.token || !this.sessionService.isEligible) {
       // wanna inform the user here?
       //this._cashback = this.sessionService.cashback;
       // Initiate user authentication
@@ -74,12 +74,16 @@ export class ProfileComponent implements OnInit {
     else {
       this.dataService.getUserProfile().then( 
         (data:User) => {
+          console.log(data);
+          
           this.sessionService.user = data;
           this.userName = data.username;
           this._totalGamesCount = data.gamesPlayed;
           this._bestResultAllTime = data.bestScore;
           this._bestResultToday = data.bestScoreToday;
           this._daysInGame = data.totalDaysPlaying;
+          this._username = data.username;
+          console.log(data.username);
           
           if(this._daysInGame == null)
             this._daysInGame = 0;

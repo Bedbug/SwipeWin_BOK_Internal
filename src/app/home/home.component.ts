@@ -248,16 +248,6 @@ export class HomeComponent implements OnInit {
   
   submit(number: string) {
 
-    // console.log("MSISDN: " + number);
-    const phoneNumber = parsePhoneNumberFromString(number, 'ZA')
-    number = phoneNumber.countryCallingCode +""+ phoneNumber.nationalNumber;
-    // console.log("MSISDN: " +phoneNumber.countryCallingCode+phoneNumber.nationalNumber);
-    
-    if(number.length != 11 && number.length != 5){
-      this.alertNumber = true;
-      return;
-    }
-    //this.showLogin = false;
     this._isSubscribed = false;
     
 
@@ -274,6 +264,7 @@ export class HomeComponent implements OnInit {
       const body: any = resp.body; // JSON.parse(response);
       if (body.isEligible !== undefined)
         this.sessionService.isEligible = body.isEligible;
+       
       if (body.isSubscribed != undefined)
         this.sessionService.isSubscribed = body.isSubscribed;
       if (body.gamesPlayedToday !== undefined)
@@ -284,9 +275,13 @@ export class HomeComponent implements OnInit {
       // Update the user State
       this.sessionService.state = body.state;
       // console.log(this.sessionService.state);
-
+      if(!body.isEligible){
+        this.alertNumber = true;
+        console.log("Open Error Message!");
+        
+      }
       // console.log("Is Subed: "+ this.sessionService.isSubscribed);
-      this.openVerify = true;
+      // this.openVerify = true;
 
       // If present, Get JWT token from response header and keep it for the session
       const userToken = resp.headers.get('X-Access-Token');
@@ -294,14 +289,20 @@ export class HomeComponent implements OnInit {
         this.sessionService.token = userToken;
         this.sessionService.Serialize();
 
-        // Goto the returnHome page
-        //this.router.navigate(['/returnhome']);
-        this.openSubSuccess = true;
-        // console.log("Open Happy Modal!");
-        let modalUnique = UIkit.modal("#happy");
-        modalUnique.show();
+        console.log("Goto ReturnHome!!!");
         
-        this.newLogin = true;
+        // Goto the returnHome page
+        this.router.navigate(['/returnhome']);
+        // this.openSubSuccess = true;
+        // console.log("Open Happy Modal!");
+        // let modalUnique = UIkit.modal("#happy");
+        // modalUnique.show();
+        
+        // this.newLogin = true;
+      }else{
+        console.log();
+        
+        this.verErrorMes = true;
       }
     },
       (err: any) => {
@@ -380,9 +381,9 @@ export class HomeComponent implements OnInit {
   verifyDirect(pass: string) {
 
     // console.log("username: " + this.sessionService.msisdn);
-    // console.log("password: " + pass);
+    console.log("password: " + pass);
 
-    this.dataService.authenticateVerify(this.sessionService.msisdn, pass).subscribe((resp: any) => {
+    this.dataService.authenticate(pass).subscribe((resp: any) => {
 
       // Get JWT token from response header and keep it for the session
       const userToken = resp.headers.get('X-Access-Token');
@@ -403,17 +404,17 @@ export class HomeComponent implements OnInit {
       //this.sessionService.Serialize();
 
       // Chage view state
-      this.loggedin = true;
-      this.openVerify = false;
-      this.openSubSuccess = true;
-      if(!this.sessionService.isUnsub)
-          this.newLogin = false;
-        else
-          this.newLogin = true;
+      // this.loggedin = true;
+      // this.openVerify = false;
+      // this.openSubSuccess = true;
+      // if(!this.sessionService.isUnsub)
+      //     this.newLogin = false;
+      //   else
+      //     this.newLogin = true;
 
       // console.log("Open Happy Modal!");
-      let modalUnique = UIkit.modal("#happy", {escClose: false, bgClose: false});
-      modalUnique.show();
+      // let modalUnique = UIkit.modal("#happy", {escClose: false, bgClose: false});
+      // modalUnique.show();
     },
       (err: any) => {
         // console.log("Error With Pin!!!");
@@ -431,38 +432,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  /*
-  // Check MSISDN FOR:
-  // REGISTERED
-  // VALID ORANGE USER
-  CheckN( num: string) {
-    
-    console.log("MSISDN: "+num);
-    // Check if user is registered, send Pin to Smartlink
-    this._isSubscribed = false;
-    console.log("USER IS SUBED: " + this._isSubscribed);
-    // If not, check if valid orange User
-    
-    // If yes send pin to smartlink
-    this.CreatePin();
-    // Open Pin Validation
-    this.openVerify = true;
-  }
-
-  CreatePin() {
-    console.log("Creating PIN!");
-  }
-
-  VerifySubPin(pin:string) {
-    console.log("Verify PIN & subscribe User!");
-    this.openVerify = false;
-    this.loggedin = true;
-    this.openSubSuccess = true;
-    // Check Credits
-    // this.CheckCredits();
-    // this.router.navigate(['returnhome']);
-  }
-  */
+  
 
   GotoReturnHome() {
     this.router.navigate(['returnhome']);
@@ -496,20 +466,7 @@ export class HomeComponent implements OnInit {
   }
 
   CheckCredits() {
-    // console.log("Checking Credits!");
-    // Dummy Properties
-    // this.credits = 0;
-    
-
-    // if(this.credits > 0){
-    //   // Open Button "Play Now"
-    // }
-    // if(this.credits == 0 && this.gamesPlayed < 5){
-    //   // Open Button "Buy New Round"
-    // }
-    // if(this.credits == 0 && this.gamesPlayed >= 5){
-    //   // Close Button "Buy New Round"
-    // }
+   
   }
 
   OpenPass(){
@@ -521,31 +478,6 @@ export class HomeComponent implements OnInit {
       this.passType = "test";
   }
   
-  // Check the number of games played in demo mode
-  // public playDemoGame($event) {
-  //   console.log('Demo button is clicked');
-    
-  //   if (!this.sessionService.gameSettings || !this.sessionService.gameSettings.maintenance || this.sessionService.gameSettings.maintenance.siteDown || this.sessionService.gameSettings.maintenance.noGames)
-  //     return;
-      
-  //   // this.router.navigate(['demogame']);
-  //   this.demoGamesPlayed = +localStorage.getItem('demoGamesPlayed');
-  //   // Check games count
-  //   console.log("demoGamesPlayed "+ this.demoGamesPlayed);
-  //   if(this.demoGamesPlayed >= 2) {
-  //     // popup modal with error
-  //     var modal = UIkit.modal("#error");
-  //     this.errorMsg = this.noMoreDemoGames;
-  //     modal.show();
-      
-  //   }else{
-  //     // Add one and play the demo game
-  //     this.demoGamesPlayed++;
-  //     localStorage.setItem('demoGamesPlayed', this.demoGamesPlayed.toString());
-  //     localStorage.setItem('lastDemoPlayed', (new Date()).toString() );
-  //     // this.router.navigate(['demogame']);
-  //     this.router.navigate(['demogame']);
-  //   }
-  // }
+  
 
 }

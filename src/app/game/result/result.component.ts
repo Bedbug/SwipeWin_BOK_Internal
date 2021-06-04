@@ -77,7 +77,8 @@ export class ResultComponent implements OnInit {
 
     this.pointsWon = this.session.lastGameResults.pointsWon;
     console.table(this.session.lastGameResults);
-    // console.log(this.session.hasCredits);
+    console.log("this.session.gamesPlayed:" +this.session.gamesPlayed);
+    console.log("this._gamesPlayed:" +this._gamesPlayed);
     // if(this.session.hasCredits)
     // this.session.hasCredits = false;
     // console.log(this.session.hasCredits);
@@ -103,9 +104,10 @@ export class ResultComponent implements OnInit {
   startGame() {
     
       // console.log("Play Main Game!");
-      this.session.gamesPlayed++;
-      this.session.credits--;
-      // console.log("this.sessionService.credits: "+this.session.credits);
+      // this.session.gamesPlayed++;
+      // this.session.credits--;
+      console.log("this._gamesPlayed:" +this._gamesPlayed);
+      console.log("this.session.gamesPlayed: "+this.session.gamesPlayed);
        this.router.navigate(['game']);
     // }
   }

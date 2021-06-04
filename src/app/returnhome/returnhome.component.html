@@ -31,19 +31,7 @@
         </div>
       </li>
 
-      <!-- <li class="list-wrapper">
-
-        <div class="uk-position-center uk-position-small uk-text-center uk-light">
-          <div class="vector">
-            <img class="icon" style="width: 300px;" src="assets/icons/players.png" alt="" />
-          </div>
-          <div uk-slideshow-parallax="x: 100,0,0" class="current-prize-fond">
-            <span class="simpleText" [innerHtml]="'HOME.CAR_01' | translate"></span><br>
-            <span class="textHighlighted">many prizes</span><br><br>
-            <span class="textHighlighted">only for MTN employees</span>
-          </div>
-        </div>
-      </li> -->
+      
     </ul>
 
     <ul class="uk-slideshow-nav uk-dotnav uk-flex-center "></ul>
@@ -52,14 +40,6 @@
 
 </div>
   
-  
-  
-  <!-- 1. Check if MSISDN is in Header. If Yes Auto Login - goto 3
-  2. If No MSISDN in header open Subscribe/login. User adds his MSISDN and we check if already registered, create pin and sent to user by smartlink. If not check with libnumber if orange and register him.
-  3. Open OTP submit page. Check user for correct password.
-  4. Check if User has credits. (screen play now)
-  5. If not check if eligible to buy new. (Screen buy new round)
-  6. if not, alert that he has reached maximum. -->
   
   
   
@@ -76,14 +56,14 @@
       
       <div class="buttons-container uk-container uk-text-center animate__animated animate__bounceInLeft" style="animation-duration: 800ms; animation-delay: 400ms;">
         
-        <button class="uk-button uk-button-default play-button uk-width-1-1 animate__animated animate__bounceInUp" style="animation-delay: 400ms;" *ngIf="loggedin && this.sessionService.isActive() && this.sessionService.hasCredit() && _gamesPlayed < 3" (click)="startGame()">{{ 'HOME.PLAY' | translate }}</button>
+        <button class="uk-button uk-button-default play-button uk-width-1-1 animate__animated animate__bounceInUp" style="animation-delay: 400ms;" *ngIf="loggedin && _gamesPlayed < 3" (click)="startGame()">{{ 'HOME.PLAY' | translate }}</button>
         <p *ngIf="verErrorMes2" style="font-size: 12px; color: rgb(32, 32, 32);">{{ 'HOME.VERERROR2' | translate }}</p>
         
-        <button class="uk-button uk-button-default play-button uk-width-1-1 animate__animated animate__bounceInUp" style="animation-delay: 400ms;" *ngIf="loggedin &&  this.sessionService.isActive() && !this.sessionService.hasCredit() && _gamesPlayed < 3" (click)="OpenOTPPurchase()">{{ 'HOME.BUY' | translate }}</button>
+        <!-- <button class="uk-button uk-button-default play-button uk-width-1-1 animate__animated animate__bounceInUp" style="animation-delay: 400ms;" *ngIf="loggedin &&  this.sessionService.isActive() && !this.sessionService.hasCredit() && _gamesPlayed < 3" (click)="OpenOTPPurchase()">{{ 'HOME.BUY' | translate }}</button> -->
         
         <button class="uk-button uk-button-default uk-width-1-1" style="padding:0px;" *ngIf="this.sessionService.isPending() && _gamesPlayed < 3"  disabled>{{ 'MESSAGES.MESSAGE_00' | translate }}</button>
         <button class="uk-button uk-button-default uk-width-1-1" style="padding:0px;" *ngIf="this.sessionService.isInActive()"  disabled>Your daily round is not unlocked yet.<br>Please come back later.</button>
-        <button class="uk-button uk-button-default uk-width-1-1" style="padding:0px;" *ngIf="_gamesPlayed >= 3 && this.sessionService.isActive()"  disabled>No more rounds left for today.<br>Please come back tomorrow.</button>
+        <button class="uk-button uk-button-default uk-width-1-1" style="padding:0px;" *ngIf="_gamesPlayed >= 3"  disabled>No more rounds left for today.<br>Please come back tomorrow.</button>
       </div>
       <!-- <div class="message-container" style="margin-top: 30px;">
         <p style="color:rgb(0, 0, 0); font-weight: bold; font-size: 20px;"><a  [routerLink]="['/info']" style="color:rgb(255, 255, 255); text-decoration: underline;">Resend PIN</a>
