@@ -16,8 +16,22 @@
 
   <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
     
-    <ul class="uk-slideshow-items" >
+    <ul class="uk-slideshow-items">
       <li class="list-wrapper">
+
+        <div class="uk-position-center uk-position-small uk-text-center uk-light">
+          <div class="vector">
+            <img class="icon" style="width: 300px;" src="assets/icons/players.png" alt="" />
+          </div>
+          <div uk-slideshow-parallax="x: 100,0,0" class="current-prize-fond">
+            <span class="simpleText" [innerHtml]="'HOME.CAR_01' | translate"></span><br>
+            <span class="textHighlighted">MoMo vouchers</span><br><br>
+            <span class="textHighlighted">every week</span>
+          </div>
+        </div>
+      </li>
+
+      <!-- <li class="list-wrapper">
 
         <div class="uk-position-center uk-position-small uk-text-center uk-light">
           <div class="vector">
@@ -29,9 +43,8 @@
             <span class="textHighlighted">only for MTN employees</span>
           </div>
         </div>
-      </li>
+      </li> -->
 
-      
     </ul>
 
     <ul class="uk-slideshow-nav uk-dotnav uk-flex-center "></ul>

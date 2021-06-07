@@ -74,7 +74,7 @@ constructor(private dataService : DataService, private sessionService: SessionSe
     this.router.navigate(['home']);
   }
   goHome() {
-    if (!this.sessionService.token || !this.sessionService.isSubscribed || !this.sessionService.isEligible) {
+    if (!this.sessionService.token || !this.sessionService.isEligible) {
       this.router.navigate(['home']);
     } else {
       this.router.navigate(['/returnhome']);

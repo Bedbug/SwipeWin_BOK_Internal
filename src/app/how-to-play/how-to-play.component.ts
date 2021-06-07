@@ -51,7 +51,7 @@ export class HowToPlayComponent implements OnInit {
   }
 
   goHome() {
-    if (!this.sessionService.token || !this.sessionService.isSubscribed || !this.sessionService.isEligible) {
+    if (!this.sessionService.token || !this.sessionService.isEligible) {
       this.router.navigate(['home']);
     } else {
       this.router.navigate(['/returnhome']);

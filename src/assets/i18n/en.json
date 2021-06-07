@@ -143,15 +143,7 @@
             },
             {
                 "title": "Is there any expiration period for the game rounds?",
-                "descr": "<p>Yes, there is. The 3 game rounds that are available for you every day, are valid only for the same calendar day (i.e. from 00:00:00 to 23:59:59).</p>"
-            },
-            {
-                "title": "I have run out of rounds, can I buy more?",
-                "descr": "<p>You can buy on-demand game rounds by clicking the 'Play more' button at Bok Trivia's website. Only two (2) on demand game rounds can be acquired per day (i.e. a subscriber can unlock at most 2 more game rounds per day), while the cost of each on-demand round is R3.00<br><br> Each extra game round gives you also twenty (20) EXTRA points for the prizes.</p>"
-            },
-            {
-                "title": "Is there any expiration period for the game rounds?",
-                "descr": "<p>Yes, there is. The one (1) game round that you receive for your daily participation is valid only for the same calendar day. Similarly, the extra game rounds unlocked by purchasing on-demand rounds are valid only for the same calendar day.</p>"
+                "descr": "<p>Yes, there is. The one (1) game round that you receive for your daily participation is valid only for the same calendar day. Similarly, the extra game rounds unlocked by purchasing on-demand rounds are valid only for the same calendar day.(i.e. from 00:00:00 to 23:59:59).</p>"
             },
             {
                 "title": "My time ran out answering one of the questions and the game finished. Why?",
@@ -166,7 +158,7 @@
                 "descr": "<p>A list of confirmed winners are published on the Bok Trivia website under the section ‘Winners’.</p>"
             },
             {
-                "title": "What is the content information?",
+                "title": "What is the contact information?",
                 "descr": "<p>Competitions.mtnsa.ZA@mtn.com</p>"
             }
         ]
