@@ -104,7 +104,7 @@ export class ResultComponent implements OnInit {
   startGame() {
     
       // console.log("Play Main Game!");
-      // this.session.gamesPlayed++;
+      this.session.gamesPlayed++;
       // this.session.credits--;
       console.log("this._gamesPlayed:" +this._gamesPlayed);
       console.log("this.session.gamesPlayed: "+this.session.gamesPlayed);
