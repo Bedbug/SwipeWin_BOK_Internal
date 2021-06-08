@@ -27,6 +27,9 @@ export class ProfileComponent implements OnInit {
   get bestResultAllTime(): number {
     return this._bestResultAllTime;
   }
+  get totalPoints(): number {
+    return this._totalPoints;
+  }
   
   get getCahback(): number {
     return this._cashBackAmount;
@@ -39,6 +42,7 @@ export class ProfileComponent implements OnInit {
   public _cashBackAmount = 0;
   public _daysInGame = 0;
   public _username = "Empty";
+  public _totalPoints = 0;
   public showAvatar = true;
   
   public avatarPic="assets/images/avatar.svg";
@@ -83,7 +87,10 @@ export class ProfileComponent implements OnInit {
           this._bestResultToday = data.bestScoreToday;
           this._daysInGame = data.totalDaysPlaying;
           this._username = data.username;
+          this._totalPoints = data.totalPoints ;
+
           console.log(data.username);
+          console.log("Total Points:"+ data.totalPoints);
           
           if(this._daysInGame == null)
             this._daysInGame = 0;
@@ -106,7 +113,7 @@ export class ProfileComponent implements OnInit {
           // }
           this.refreshDiv();
           this._phone = data.msisdn;
-          console.log(this.sessionService.user);
+          // console.log(this.sessionService.user);
         },
         (err) => {
           

@@ -10,6 +10,7 @@ class User {
   gamesPlayed: number = 0;
   bestScore: number = 0;
   bestScoreToday: number = 0;
+  totalPoints: number = 0;
   totalDaysPlaying: number = 0;
   wallet: any = null;
   credits: number = null;
