@@ -4,7 +4,7 @@
         "CAR_01": "<a>Stand a chance to win</a>",
         "CAR_01&half": "R15,000",
         "CAR_01b": "Every week",
-        "CAR_02": "Stand a chance to win",
+        "CAR_02": "Play 3 rounds of 15 questions per day",
         "CAR_03": "R150,000",
         "CAR_03b": " or ",
         "CAR_03c": "a trip for 2",
@@ -123,7 +123,7 @@
             },
             {
                 "title": "What is the promotion duration?",
-                "descr": "<p>The promotion duration is from xx-06-2021 until xx-yy-xxxxx.</p>"
+                "descr": "<p>The promotion duration is from 21-06-2021 until 06-08-2021</p>"
             },
             {
                 "title": "What are the basic game rules?",
@@ -131,7 +131,7 @@
             },
             {
                 "title": "What are the prizes?",
-                "descr": "<p>R500 MoMo vouchers will be given away to 2 lucky winners every week<br><br>At the end of the promotion the 3 participants with the most points collected during the promotion period will receive the following prizes:<br> <ul><li>R3000 MoMo voucher for the 1st winner</li><li>R2000 MoMo voucher for the 2nd winner</li> <li>R1000 MoMo voucher for the 3rd winner</li></ul></p>"
+                "descr": "<p>Every week R6000 in MoMo cash vouchers will be given away to 3 lucky winners<br><br>Every week 10 lucky winners will receive 1 Springbok jersey each<br><br>Participants with the highest number of points after week 7 of the competition will go into a lucky draw to win one of the following grand prizes:<br> <ul><li>1st winner: R15,000 in MoMo cash voucher</li><li>2nd winner: R7,000 in MoMo cash voucher</li> <li>3rd winner: R6,000 in MoMo cash voucher</li></ul></p>"
             },
             {
                 "title": "How do I collect points for the draws?",
