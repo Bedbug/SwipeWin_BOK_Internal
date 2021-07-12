@@ -30,7 +30,7 @@ export class WinnersComponent implements OnInit {
   ngOnInit() {
     this.data.getWinners().then(
         (data:any) => {
-          
+          console.log(data);
           this.dailyWinners$ = data.dailyWinners;
           
           console.log(this.dailyWinners$);

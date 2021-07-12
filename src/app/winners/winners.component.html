@@ -8,13 +8,16 @@
     <table class="uk-table ">
       <thead>
         <tr style="border-bottom: 2px solid black;">
-          <th style="width:50%">{{ 'WINNERS.PRIZE' | translate }}</th>
-          <th style="width:50%">{{ 'WINNERS.DATE' | translate }}</th>
+          <th style="width:33%">{{ 'WINNERS.DATE' | translate }}</th>
+          <th style="width:33%">{{ 'WINNERS.NAME' | translate }}</th>
+          <th style="width:33%">{{ 'WINNERS.PRIZE' | translate }}</th>
         </tr>
       </thead>
       <tr *ngFor = "let winner of dailyWinners$; let i = index" [hidden]="!showDay || !dailyWinners$" style="border-bottom: 0.5px solid black;"  >
-        <td class=" animate__animated animate__fadeInLeft" [ngStyle]="{'animation-delay': (i * 100+400)+'ms' }" style=" font-weight: bolder;">{{winner.winSum}}</td>
-        <td class=" animate__animated animate__fadeInLeft" [ngStyle]="{'animation-delay': (i * 100+400)+'ms' }"> {{winner.winDate}}</td>
+        <td class=" animate__animated animate__fadeInLeft" [ngStyle]="{'animation-delay': (i * 100+400)+'ms' }"> {{winner.wonAt | date:'shortDate'}}</td> 
+        <td class=" animate__animated animate__fadeInLeft" [ngStyle]="{'animation-delay': (i * 100+400)+'ms' }"> {{winner.username}}</td>
+        <td class=" animate__animated animate__fadeInLeft" [ngStyle]="{'animation-delay': (i * 100+400)+'ms' }" style=" font-weight: bolder;">{{winner.prize}}</td>
+        
       </tr>
       
     </table>
