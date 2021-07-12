@@ -14,7 +14,7 @@
         </tr>
       </thead>
       <tr *ngFor = "let winner of dailyWinners$; let i = index" [hidden]="!showDay || !dailyWinners$" style="border-bottom: 0.5px solid black;"  >
-        <td class=" animate__animated animate__fadeInLeft" [ngStyle]="{'animation-delay': (i * 100+400)+'ms' }"> {{winner.wonAt | date:'shortDate'}}</td> 
+        <td class=" animate__animated animate__fadeInLeft" [ngStyle]="{'animation-delay': (i * 100+400)+'ms' }"> {{winner.wonAt | date:'mediumDate'}}</td> 
         <td class=" animate__animated animate__fadeInLeft" [ngStyle]="{'animation-delay': (i * 100+400)+'ms' }"> {{winner.username}}</td>
         <td class=" animate__animated animate__fadeInLeft" [ngStyle]="{'animation-delay': (i * 100+400)+'ms' }" style=" font-weight: bolder;">{{winner.prize}}</td>
         
@@ -22,9 +22,9 @@
       
     </table>
     <div style="text-align: -webkit-center;">
-      <p style="font-size: 22px; font-weight: bold; line-height: 1.2; font-style: italic; width: 200px;">
+      <!-- <p style="font-size: 22px; font-weight: bold; line-height: 1.2; font-style: italic; width: 200px;">
         Winners will be announced soon. <br> Stay tuned!
-      </p>
+      </p> -->
     </div>
   </div >
   
