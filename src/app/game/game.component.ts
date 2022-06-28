@@ -54,10 +54,6 @@ export class GameComponent implements OnInit {
     if (this._gameInited && !this._phaser.game.completed) {
       // Open Modal
 
-      
-      
-      
-
       const modal = UIkit.modal("#endGame", { escClose: false, bgClose: false });
       modal.show();
 
