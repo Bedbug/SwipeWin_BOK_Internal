@@ -95,6 +95,9 @@ export class ProfileComponent implements OnInit {
           if(this._daysInGame == null)
             this._daysInGame = 0;
             
+
+          this._totalGamesCount = 1 - this.sessionService.gamesPlayed;
+          if(this._totalGamesCount<0) this._totalGamesCount = 0;
           // this._totalDays = data.totalDaysPlaying;
           // this._cashBackAmount = data.wallet.pendingMaturityCashback + data.wallet.pendingTransferCashback;
           
